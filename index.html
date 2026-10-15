@@ -341,18 +341,18 @@
         <div class="lg:col-span-6 glass-card rounded-2xl p-6 sm:p-8 border border-cyan-500/30 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between">
-              <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">LIVE AUTOMATION TELEMETRY</span>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">● N8N + PLAYWRIGHT READY</span>
+              <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">INTERACTIVE AUTOMATION DEMO</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">● SIMULATED DEMO</span>
             </div>
-            <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mt-1">Test Our AI Lead Engine Live</h3>
-            <p class="text-xs text-slate-400 mt-1 mb-4">Click below to see how our Python + n8n + CRM pipeline processes an incoming buyer inquiry in real time.</p>
+            <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mt-1">Preview a Lead-Processing Workflow</h3>
+            <p class="text-xs text-slate-400 mt-1 mb-4">This interactive simulation illustrates a possible Python + n8n + CRM workflow. It does not send a real webhook or contact a live CRM.</p>
             <div id="aiTerminal" class="bg-[#03060f] border border-slate-800 rounded-xl p-4 font-mono text-xs text-slate-300 h-52 overflow-y-auto space-y-2">
-              <p class="text-sky-400">[SYSTEM] BUDDY AI Super-Brain Telemetry v2.6 initialized...</p>
-              <p class="text-slate-400">[READY] Listening for Meta Lead Ads, 99acres & Website Webhooks...</p>
+              <p class="text-sky-400">[DEMO] BUDDY AI workflow preview initialized.</p>
+              <p class="text-slate-400">[DEMO MODE] No live lead sources are connected in this preview.</p>
             </div>
           </div>
           <button type="button" onclick="simulateWebhook()" class="mt-6 w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-400/40 transition">
-            ⚡ Simulate Live Lead Capture Webhook
+            ▶ Run Workflow Demo
           </button>
         </div>
       </div>
@@ -377,15 +377,15 @@
       }
       function simulateWebhook() {
         const term = document.getElementById('aiTerminal');
-        const names = ['Subrat Patnaik (Patia, BBSR)', 'Ananya Mohanty (Rasulgarh, BBSR)', 'Vikram Dash (Jayadev Vihar)'];
+        const names = ['Sample inquiry A (Bhubaneswar)', 'Sample inquiry B (Bhubaneswar)', 'Sample inquiry C (Bhubaneswar)'];
         const pick = names[Math.floor(Math.random() * names.length)];
-        term.innerHTML = `<p class="text-amber-300">⚡ [WEBHOOK] Incoming Lead Payload: ${pick}</p>`;
+        term.innerHTML = `<p class="text-amber-300">⚡ [SIMULATION] Sample lead payload: ${pick}</p>`;
         setTimeout(() => {
-          term.innerHTML += `<p class="text-cyan-300">🤖 [AI FILTER] Intent Score: 94/100 (Verified Buyer Budget)</p>`;
+          term.innerHTML += `<p class="text-cyan-300">🤖 [DEMO] Example intent score: 94/100 (illustrative only)</p>`;
           term.scrollTop = term.scrollHeight;
         }, 450);
         setTimeout(() => {
-          term.innerHTML += `<p class="text-emerald-400">✅ [BUDDY CRM] Assigned to Daily Call Queue #1 + WhatsApp Brochure Dispatched (1.8s)</p>`;
+          term.innerHTML += `<p class="text-emerald-400">✅ [DEMO] Example CRM assignment and WhatsApp action (not executed)</p>`;
           term.scrollTop = term.scrollHeight;
         }, 950);
       }
