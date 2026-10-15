@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BUDDY AI PARTNERS | AI Automation, Custom CRM & Digital Growth Agency</title>
-  <meta name="description" content="BUDDY AI PARTNERS is a Bhubaneswar-based AI automation, custom CRM architecture, full-stack web engineering, and performance marketing agency founded by Rahul Kumar Dhal." />
+  <title>BUDDY AI PARTNERS | CRM, AI Automation & Digital Growth</title>
+  <meta name="description" content="BUDDY AI PARTNERS builds custom CRM workflows, AI-assisted automation, websites and performance marketing systems for real-estate and service businesses. Remote-first delivery from Bhubaneswar, India." />
   <meta name="keywords" content="Buddy AI Partners, Rahul Kumar Dhal, AI Automation Bhubaneswar, Custom CRM India, Digital Marketing Agency Odisha, React FastAPI Developer, Python Playwright Automation" />
   <meta name="author" content="Rahul Kumar Dhal" />
   <meta name="theme-color" content="#040711" />
@@ -517,6 +517,14 @@
       .buddy-guide-panel {width:min(340px,calc(100vw - 1.3rem));}
     }
 
+
+    .buddy-roi-assumption {font-size:.68rem;line-height:1.55;color:#64748b;margin-top:.85rem;}
+    .buddy-guide-panel :focus-visible {outline-offset:2px;}
+    .buddy-guide-toggle:hover {border-color:rgba(56,189,248,.72);transform:translateY(-2px);}
+    @media (max-width:640px) {
+      .buddy-visual-version {display:none;}
+      .buddy-hero-visual {min-height:252px;}
+    }
   </style>
 
   <!-- Search and social metadata -->
@@ -1002,7 +1010,7 @@
           <div>
             <span class="text-xs font-bold uppercase tracking-widest text-sky-400">INTERACTIVE GROWTH CALCULATOR</span>
             <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mt-1">Estimate Your Monthly Lead Pipeline</h3>
-            <p class="text-xs text-slate-400 mt-1 mb-6">Select your business vertical and monthly ad spend to project qualified inquiries.</p>
+            <p class="text-xs text-slate-400 mt-1 mb-3">A planning calculator using illustrative cost-per-lead assumptions—not a forecast or guarantee. Actual results depend on audience, offer, creative, market and campaign setup.</p>
             <div class="space-y-5">
               <div>
                 <label class="block text-xs font-semibold text-slate-300 mb-2">1. Select Your Industry</label>
@@ -1026,12 +1034,12 @@
                   <p id="roiLeads" class="font-display text-xl sm:text-2xl font-bold text-sky-400 mt-1">105+</p>
                 </div>
                 <div class="p-3.5 rounded-xl bg-slate-900/90 border border-cyan-500/20 text-center">
-                  <p class="text-[11px] text-slate-400">AI Qualified Visits</p>
-                  <p id="roiVisits" class="font-display text-xl sm:text-2xl font-bold text-cyan-300 mt-1">26+</p>
+                  <p class="text-[11px] text-slate-400">Illustrative Visits</p>
+                  <p id="roiVisits" class="font-display text-xl sm:text-2xl font-bold text-cyan-300 mt-1">26</p>
                 </div>
                 <div class="p-3.5 rounded-xl bg-slate-900/90 border border-emerald-500/20 text-center">
-                  <p class="text-[11px] text-slate-400">AI Call Speed</p>
-                  <p class="font-display text-xl sm:text-2xl font-bold text-emerald-400 mt-1">&lt; 5s</p>
+                  <p class="text-[11px] text-slate-400">Planning CPL</p>
+                  <p id="roiCplLabel" class="font-display text-xl sm:text-2xl font-bold text-emerald-400 mt-1">₹280</p>
                 </div>
               </div>
             </div>
@@ -1066,17 +1074,21 @@
         const budget = parseInt(document.getElementById('roiBudget').value, 10);
         document.getElementById('roiBudgetLabel').innerText = '₹' + budget.toLocaleString('en-IN') + ' / mo';
         const leads = Math.round(budget / cpl);
-        const visits = Math.max(4, Math.round(leads * 0.25));
-        document.getElementById('roiLeads').innerText = leads + '+';
-        document.getElementById('roiVisits').innerText = visits + '+';
+        const visits = Math.max(0, Math.round(leads * 0.25));
+        document.getElementById('roiLeads').innerText = String(leads);
+        document.getElementById('roiVisits').innerText = String(visits);
+        const cplLabel = document.getElementById('roiCplLabel');
+        if (cplLabel) cplLabel.innerText = '₹' + cpl.toLocaleString('en-IN');
       }
       function sendROIBrief() {
         const indSelect = document.getElementById('roiIndustry');
         const industry = indSelect.options[indSelect.selectedIndex].text;
         const budget = document.getElementById('roiBudgetLabel').innerText;
         const leads = document.getElementById('roiLeads').innerText;
+        const visits = document.getElementById('roiVisits').innerText;
+        const cpl = document.getElementById('roiCplLabel')?.innerText || 'not set';
         selectServiceAndContact('Growth Marketing Retainer (₹15k-₹25k/mo)');
-        document.getElementById('clientGoal').value = `Industry: ${industry} | Monthly Ad Budget: ${budget} | Target Est. Leads: ${leads}/mo`;
+        document.getElementById('clientGoal').value = `Industry: ${industry} | Monthly Ad Budget: ${budget} | Illustrative CPL assumption: ${cpl} | Illustrative leads: ${leads}/mo | Illustrative visits at 25% planning ratio: ${visits}/mo. These are planning estimates, not guaranteed results.`;
       }
       function simulateWebhook() {
         const term = document.getElementById('aiTerminal');
@@ -1683,6 +1695,7 @@
       renderSlide(currentSlide);
     }, 5000);
     renderSlide(0);
+    calcROI();
 
     // 3. Validated Contact & WhatsApp Flow
     function buildBriefMessage() {
@@ -1690,8 +1703,9 @@
       const phone = document.getElementById('clientPhone').value.trim();
       const service = document.getElementById('clientService').value;
       const goal = document.getElementById('clientGoal').value.trim();
+      const phoneDigits = phone.replace(/\\D/g, '');
       return {
-        valid: Boolean(name && phone && goal),
+        valid: Boolean(name && phoneDigits.length >= 8 && goal),
         text: `Hello Rahul (BUDDY AI PARTNERS),\n\n*Name/Company:* ${name}\n*Phone:* ${phone}\n*Service:* ${service}\n*Project Brief:* ${goal}`
       };
     }
@@ -1708,7 +1722,7 @@
       e.preventDefault();
       const brief = buildBriefMessage();
       if (!brief.valid) {
-        showFeedback("Please fill in your Name, Phone Number, and Project Brief before sending.", true);
+        showFeedback("Enter your name/company, a valid phone number, and a project brief before sending.", true);
         return;
       }
       const cleanNumber = WHATSAPP_NUMBER.replace(/[^0-9]/g, '');
