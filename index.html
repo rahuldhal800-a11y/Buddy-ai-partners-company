@@ -315,6 +315,120 @@
         min-width: 200%;
       }
     }
+
+    /* BUDDY PREMIUM CONVERSION SYSTEM — preserve navy / blue / cyan identity */
+    :root {
+      --buddy-ink: #040711;
+      --buddy-panel: rgba(10, 18, 38, .86);
+      --buddy-line: rgba(56, 189, 248, .22);
+      --buddy-blue: #2563eb;
+      --buddy-cyan: #38bdf8;
+    }
+    html { scroll-behavior: smooth; scroll-padding-top: 7.5rem; }
+    body { width:100%; max-width:100%; overflow-x:clip; }
+    header, main, footer, section, .page-view { max-width:100%; min-width:0; }
+    nav[aria-label="Mobile Navigation"] {
+      scrollbar-width:none; -ms-overflow-style:none; overscroll-behavior-x:contain; max-width:100%;
+    }
+    nav[aria-label="Mobile Navigation"]::-webkit-scrollbar { display:none; height:0; }
+    .glass-card {
+      background: linear-gradient(145deg, rgba(14,24,48,.93), rgba(5,10,25,.91));
+      border: 1px solid rgba(56,189,248,.20);
+      box-shadow: 0 22px 70px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.035);
+      transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .25s ease, box-shadow .35s ease;
+    }
+    .glass-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56,189,248,.48);
+      box-shadow: 0 26px 72px rgba(37,99,235,.15), inset 0 1px 0 rgba(255,255,255,.05);
+    }
+    #page-home > section:first-child {
+      position:relative; isolation:isolate;
+      background: radial-gradient(ellipse at 82% 18%, rgba(14,165,233,.11), transparent 35%);
+    }
+    #page-home > section:first-child::before {
+      content:""; position:absolute; z-index:-1; pointer-events:none;
+      width:min(55vw,650px); aspect-ratio:1; right:-8%; top:0; border-radius:50%;
+      background:radial-gradient(circle,rgba(37,99,235,.13),rgba(14,165,233,.05) 42%,transparent 70%);
+      animation: buddyAura 10s ease-in-out infinite alternate;
+    }
+    #page-home h1 { max-width:13ch; text-wrap:balance; letter-spacing:-.045em; }
+    #page-home p { text-wrap:pretty; }
+    #heroCarousel { position:relative; isolation:isolate; }
+    #heroCarousel::before {
+      content:""; position:absolute; z-index:-1; pointer-events:none; width:180px; height:180px;
+      right:-12px; top:8px; border:1px solid rgba(56,189,248,.18); border-radius:50%;
+      box-shadow:0 0 0 18px rgba(56,189,248,.025),0 0 0 38px rgba(37,99,235,.025);
+      animation: buddyOrbit 24s linear infinite;
+    }
+    #page-home > section:first-child .grid > div:first-child { animation: buddyEnter .7s cubic-bezier(.2,.7,.2,1) both; }
+    #page-home > section:first-child .grid > div:last-child { animation: buddyEnter .8s .12s cubic-bezier(.2,.7,.2,1) both; }
+    .buddy-eyebrow { color:#7dd3fc; font-size:.72rem; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+    .buddy-section-heading { max-width: 16ch; margin-inline:auto; text-wrap:balance; letter-spacing:-.035em; }
+    .buddy-feature-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+    .buddy-feature {
+      position:relative; overflow:hidden; min-width:0; padding:1.35rem; border-radius:1.1rem;
+      border:1px solid rgba(56,189,248,.18);
+      background:linear-gradient(145deg,rgba(13,24,48,.92),rgba(5,10,24,.9));
+    }
+    .buddy-feature::after {
+      content:""; position:absolute; width:130px; height:130px; right:-65px; top:-65px; border-radius:50%;
+      background:radial-gradient(circle,rgba(56,189,248,.16),transparent 70%); pointer-events:none;
+    }
+    .buddy-feature-index { font:700 .72rem/1 'Space Grotesk',sans-serif; color:#7dd3fc; letter-spacing:.15em; }
+    .buddy-process-step { position:relative; }
+    .buddy-process-step:not(:last-child)::after {
+      content:""; position:absolute; left:2.25rem; top:4.6rem; bottom:-1.2rem; width:1px;
+      background:linear-gradient(to bottom,rgba(56,189,248,.5),rgba(56,189,248,0));
+    }
+    .buddy-number {
+      display:grid; place-items:center; width:2.7rem; height:2.7rem; flex:0 0 auto; border-radius:.9rem;
+      background:linear-gradient(135deg,#2563eb,#06b6d4); color:#fff; font-weight:800;
+      box-shadow:0 8px 28px rgba(37,99,235,.25);
+    }
+    .buddy-cta-panel {
+      position:relative; overflow:hidden; border:1px solid rgba(56,189,248,.3); border-radius:1.5rem;
+      background:radial-gradient(ellipse at 90% 0%,rgba(14,165,233,.16),transparent 42%),linear-gradient(130deg,rgba(13,23,47,.98),rgba(4,7,17,.98));
+      box-shadow:0 28px 90px rgba(0,0,0,.32);
+    }
+    .buddy-cta-panel::after {
+      content:""; position:absolute; right:-110px; bottom:-180px; width:330px; height:330px; border:1px solid rgba(56,189,248,.16); border-radius:50%;
+      box-shadow:0 0 0 24px rgba(56,189,248,.025),0 0 0 52px rgba(37,99,235,.025); pointer-events:none;
+    }
+    #page-home .buddy-feature { animation:buddyEnter .65s both; }
+    #page-home .buddy-feature:nth-child(2) { animation-delay:.08s; }
+    #page-home .buddy-feature:nth-child(3) { animation-delay:.16s; }
+    a,button { -webkit-tap-highlight-color:transparent; }
+    button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible {
+      outline:2px solid #38bdf8; outline-offset:3px;
+    }
+    @keyframes buddyEnter { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes buddyAura { from { transform:translate3d(-8px,0,0) scale(.96); opacity:.6; } to { transform:translate3d(10px,14px,0) scale(1.05); opacity:1; } }
+    @keyframes buddyOrbit { to { transform:rotate(360deg); } }
+    @media (min-width:1024px) {
+      #page-home > section:first-child { padding-top:5.5rem; padding-bottom:5.5rem; }
+      #page-home > section:first-child .grid { column-gap:3.5rem; }
+    }
+    @media (max-width:640px) {
+      #page-home > section:first-child { padding-top:1.7rem; padding-bottom:2rem; }
+      #page-home h1 { max-width:100%; font-size:clamp(2.25rem,9.2vw,3.05rem); line-height:1.06; }
+      #page-home > section:first-child .grid { gap:1.5rem; }
+      #page-home > section:first-child .grid > div:first-child { gap:1.1rem; }
+      #page-home > section:first-child .grid > div:first-child > p { font-size:1rem; line-height:1.65; }
+      #page-home > section:first-child .grid > div:first-child .flex.flex-wrap.gap-4 { gap:.65rem; }
+      #page-home > section:first-child .grid > div:first-child .flex.flex-wrap.gap-4 button { max-width:100%; padding:.9rem 1rem; font-size:.72rem; }
+      #page-home .grid.grid-cols-3 { gap:.55rem; }
+      #page-home .grid.grid-cols-3 p:first-child { font-size:clamp(1rem,4.7vw,1.35rem); overflow-wrap:anywhere; }
+      #page-home .grid.grid-cols-3 p:last-child { font-size:.68rem; line-height:1.4; }
+      .buddy-feature-grid { grid-template-columns:1fr; gap:.75rem; }
+      .buddy-feature { padding:1.1rem; }
+      .buddy-section-heading { font-size:2rem; }
+      .buddy-process-step:not(:last-child)::after { left:1.35rem; top:3.8rem; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+    }
   </style>
 </head>
 <body class="relative min-h-screen selection:bg-blue-600 selection:text-white">
@@ -523,6 +637,83 @@
     </section>
 
     
+    <!-- PREMIUM CONVERSION SECTIONS: practical services, clear process, international/NRI-friendly delivery -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <p class="buddy-eyebrow">Built for outcomes, not buzzwords</p>
+        <h2 class="buddy-section-heading font-display text-3xl sm:text-5xl font-bold mt-3 chrome-text">One partner. The whole growth system.</h2>
+        <p class="text-slate-400 mt-4 text-sm sm:text-base leading-relaxed">Connect your marketing, lead operations, software and follow-up into a system your team can actually use.</p>
+      </div>
+      <div class="buddy-feature-grid">
+        <article class="buddy-feature">
+          <span class="buddy-feature-index">01 / CAPTURE</span>
+          <div class="text-3xl mt-5 mb-3" aria-hidden="true">⌁</div>
+          <h3 class="font-display text-xl font-bold text-white">Demand generation</h3>
+          <p class="text-sm text-slate-400 mt-3 leading-relaxed">Conversion-focused landing pages, campaign creative, tracking plans and lead capture built around your offer and audience.</p>
+        </article>
+        <article class="buddy-feature">
+          <span class="buddy-feature-index">02 / CONVERT</span>
+          <div class="text-3xl mt-5 mb-3" aria-hidden="true">◈</div>
+          <h3 class="font-display text-xl font-bold text-white">CRM &amp; automation</h3>
+          <p class="text-sm text-slate-400 mt-3 leading-relaxed">Lead routing, follow-up reminders, pipeline visibility and carefully scoped automations that reduce manual work.</p>
+        </article>
+        <article class="buddy-feature">
+          <span class="buddy-feature-index">03 / IMPROVE</span>
+          <div class="text-3xl mt-5 mb-3" aria-hidden="true">↗</div>
+          <h3 class="font-display text-xl font-bold text-white">Measurement &amp; iteration</h3>
+          <p class="text-sm text-slate-400 mt-3 leading-relaxed">Track meaningful actions, review funnel friction and improve the next campaign or workflow using real results—not invented guarantees.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
+      <div class="grid lg:grid-cols-2 gap-8 items-start">
+        <div class="glass-card rounded-2xl p-6 sm:p-8">
+          <p class="buddy-eyebrow">A clear delivery model</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold mt-3 chrome-text">From messy process to working system.</h2>
+          <div class="mt-7 space-y-6">
+            <div class="buddy-process-step flex gap-4">
+              <span class="buddy-number">1</span>
+              <div><h3 class="font-bold text-white">Discover the bottleneck</h3><p class="text-sm text-slate-400 mt-1 leading-relaxed">Map your current lead journey, team handoffs, tools and biggest conversion leaks.</p></div>
+            </div>
+            <div class="buddy-process-step flex gap-4">
+              <span class="buddy-number">2</span>
+              <div><h3 class="font-bold text-white">Design the smallest useful solution</h3><p class="text-sm text-slate-400 mt-1 leading-relaxed">Agree on scope, success measures, integrations, ownership and what must remain human-approved.</p></div>
+            </div>
+            <div class="buddy-process-step flex gap-4">
+              <span class="buddy-number">3</span>
+              <div><h3 class="font-bold text-white">Build, test and improve</h3><p class="text-sm text-slate-400 mt-1 leading-relaxed">Validate the workflow, document how it works and refine it from actual usage and results.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="glass-card rounded-2xl p-6 sm:p-8">
+          <p class="buddy-eyebrow">Who we help</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold mt-3 text-white">Built for ambitious teams—wherever they operate.</h2>
+          <p class="text-slate-400 mt-4 text-sm leading-relaxed">Bhubaneswar-rooted delivery with remote collaboration for Indian businesses, overseas founders and NRI-led ventures that need clear communication and dependable digital execution.</p>
+          <div class="mt-6 space-y-3">
+            <div class="flex gap-3 items-start"><span class="text-sky-300">✦</span><div><p class="font-semibold text-white">Real estate &amp; property teams</p><p class="text-xs text-slate-400 mt-1">Enquiry capture, lead qualification, site-visit workflows and CRM visibility.</p></div></div>
+            <div class="flex gap-3 items-start"><span class="text-sky-300">✦</span><div><p class="font-semibold text-white">NRI and overseas business owners</p><p class="text-xs text-slate-400 mt-1">Remote-first project coordination, digital presence, lead operations and transparent reporting across time zones.</p></div></div>
+            <div class="flex gap-3 items-start"><span class="text-sky-300">✦</span><div><p class="font-semibold text-white">Growing service businesses</p><p class="text-xs text-slate-400 mt-1">Landing pages, campaign funnels, workflow automation and internal tools shaped around real operations.</p></div></div>
+          </div>
+          <button type="button" onclick="switchPage('contact')" class="mt-7 w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-sm uppercase tracking-wide bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950 shadow-lg shadow-blue-500/20">Discuss your project →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
+      <div class="buddy-cta-panel p-6 sm:p-10 lg:p-12">
+        <div class="relative z-10 max-w-3xl">
+          <p class="buddy-eyebrow">Your next step</p>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold mt-3 text-white">Make your next growth move a measurable one.</h2>
+          <p class="text-slate-300 mt-4 max-w-2xl leading-relaxed">Tell us where leads, follow-ups or delivery are getting stuck. We'll start with the problem, then recommend a practical path—no inflated promises or unnecessary complexity.</p>
+          <div class="flex flex-wrap gap-3 mt-7">
+            <button type="button" onclick="switchPage('contact')" class="px-6 py-3.5 rounded-xl font-bold text-sm uppercase tracking-wide bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950">Start a conversation ↗</button>
+            <button type="button" onclick="switchPage('services')" class="px-6 py-3.5 rounded-xl font-bold text-sm uppercase tracking-wide glass-card text-white">Explore services</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- UPGRADE: INTERACTIVE ROI SIMULATOR & LIVE AI TERMINAL -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
       <div class="grid lg:grid-cols-12 gap-8 items-stretch">
