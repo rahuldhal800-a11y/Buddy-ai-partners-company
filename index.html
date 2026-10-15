@@ -1703,7 +1703,7 @@
       const phone = document.getElementById('clientPhone').value.trim();
       const service = document.getElementById('clientService').value;
       const goal = document.getElementById('clientGoal').value.trim();
-      const phoneDigits = phone.replace(/\\D/g, '');
+      const phoneDigits = phone.replace(/\D/g, '');
       return {
         valid: Boolean(name && phoneDigits.length >= 8 && goal),
         text: `Hello Rahul (BUDDY AI PARTNERS),\n\n*Name/Company:* ${name}\n*Phone:* ${phone}\n*Service:* ${service}\n*Project Brief:* ${goal}`
