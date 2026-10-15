@@ -249,6 +249,72 @@
         transition-duration: .01ms !important;
       }
     }
+
+    /* Mobile polish after real-device preview */
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
+    }
+    header, main, footer, section, .page-view {
+      max-width: 100%;
+      min-width: 0;
+    }
+    nav[aria-label="Mobile Navigation"] {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      overscroll-behavior-x: contain;
+      max-width: 100%;
+    }
+    nav[aria-label="Mobile Navigation"]::-webkit-scrollbar {
+      display: none;
+      height: 0;
+    }
+    @media (max-width: 640px) {
+      #page-home > section:first-child {
+        padding-top: 1.65rem;
+        padding-bottom: 2rem;
+      }
+      #page-home h1 {
+        max-width: 100%;
+        font-size: clamp(2.25rem, 9.4vw, 3.05rem);
+        line-height: 1.06;
+        letter-spacing: -.04em;
+      }
+      #page-home > section:first-child .grid {
+        gap: 1.5rem;
+      }
+      #page-home > section:first-child .grid > div:first-child {
+        gap: 1.1rem;
+      }
+      #page-home > section:first-child .grid > div:first-child > p {
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+      #page-home > section:first-child .grid > div:first-child .flex.flex-wrap.gap-4 {
+        gap: .65rem;
+      }
+      #page-home > section:first-child .grid > div:first-child .flex.flex-wrap.gap-4 button {
+        max-width: 100%;
+        padding: .9rem 1rem;
+        font-size: .72rem;
+      }
+      #page-home .grid.grid-cols-3 {
+        gap: .55rem;
+      }
+      #page-home .grid.grid-cols-3 p:first-child {
+        font-size: clamp(1rem, 4.7vw, 1.35rem);
+        overflow-wrap: anywhere;
+      }
+      #page-home .grid.grid-cols-3 p:last-child {
+        font-size: .68rem;
+        line-height: 1.4;
+      }
+      .animate-marquee {
+        width: max-content;
+        min-width: 200%;
+      }
+    }
   </style>
 </head>
 <body class="relative min-h-screen selection:bg-blue-600 selection:text-white">
