@@ -39,7 +39,7 @@ missing = []
 for src in check.images:
     if src.startswith(("https://", "http://", "data:")): continue
     if not (root / src.lstrip("/")).is_file(): missing.append(src)
-schemas = re.findall(r'<script type="application/ld\\+json">([\\s\\S]*?)</script>', html)
+schemas = re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
 bad_schemas = []
 for i, payload in enumerate(schemas, 1):
     try: json.loads(payload)
