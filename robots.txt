@@ -1,0 +1,4 @@
+User-agent: *
+Allow: *
+
+Sitemap: https://buddy-ai-partners.surge.sh/sitemap.xml
