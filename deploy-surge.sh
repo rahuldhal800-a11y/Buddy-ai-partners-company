@@ -44,8 +44,9 @@ bad_schemas = []
 for i, payload in enumerate(schemas, 1):
     try: json.loads(payload)
     except json.JSONDecodeError as exc: bad_schemas.append(f"schema {i}: {exc}")
-if "rel=\\"canonical\\"" not in html and "rel='canonical'" not in html:
-    print("WARNING: canonical link not found.")
+if 'rel="canonical"' not in html and "rel='canonical'" not in html:
+    raise SystemExit("Canonical link missing.")
+if not schemas: raise SystemExit("No JSON-LD schema blocks found.")
 if dupes: raise SystemExit("Duplicate HTML IDs: " + ", ".join(dupes))
 if missing: raise SystemExit("Missing local images: " + ", ".join(missing))
 if bad_schemas: raise SystemExit("Invalid JSON-LD: " + "; ".join(bad_schemas))
