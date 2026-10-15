@@ -85,93 +85,170 @@
       .page-view { display: block !important; page-break-after: always; }
     }
 
-    /* BUDDY PREMIUM GREEN CONVERSION PASS
-       Design direction: premium black + emerald, inspired by the supplied reference.
-       Keep existing content and interactions; this is a visual layer only. */
+    /* BUDDY VISUAL COMPOSITION PASS — preserve original blue/cyan palette */
     :root {
-      --bg-deep: #050907;
-      --accent-blue: #0b5d3b;
-      --accent-cyan: #4ade80;
-      --buddy-green: #0b5d3b;
-      --buddy-emerald: #28b77a;
-      --buddy-mint: #9bf3c8;
+      --buddy-motion-fast: 220ms;
+      --buddy-motion-smooth: 650ms;
     }
+    html { scroll-behavior: smooth; }
     body {
-      background-color: #050907 !important;
-      background-image: radial-gradient(ellipse at 12% 12%, rgba(11,93,59,.22), transparent 38%),
-                        radial-gradient(ellipse at 88% 32%, rgba(40,183,122,.10), transparent 34%);
+      background-image:
+        radial-gradient(ellipse at 78% 13%, rgba(14,165,233,.10), transparent 34%),
+        radial-gradient(ellipse at 10% 42%, rgba(37,99,235,.09), transparent 32%);
     }
-    .chrome-text {
-      background-image: linear-gradient(120deg, #f4fff8 0%, #b8f3d2 48%, #42d392 100%) !important;
+    /* Make the existing split hero feel more like a designed product landing page. */
+    #page-home > section:first-child {
+      position: relative;
+      isolation: isolate;
+    }
+    #page-home > section:first-child::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: min(58vw, 680px);
+      height: min(58vw, 680px);
+      right: -7%;
+      top: -4%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14,165,233,.13), rgba(37,99,235,.055) 42%, transparent 70%);
+      filter: blur(10px);
+      pointer-events: none;
+      animation: buddyGlow 9s ease-in-out infinite alternate;
+    }
+    #page-home > section:first-child .grid > div:first-child {
+      animation: buddyRise .8s cubic-bezier(.2,.7,.2,1) both;
+    }
+    #page-home > section:first-child .grid > div:last-child {
+      animation: buddyRise .8s .12s cubic-bezier(.2,.7,.2,1) both;
+    }
+    #heroCarousel {
+      position: relative;
+      isolation: isolate;
+    }
+    #heroCarousel::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 190px;
+      height: 190px;
+      right: -18px;
+      top: 4px;
+      border-radius: 50%;
+      border: 1px solid rgba(56,189,248,.18);
+      box-shadow: 0 0 0 18px rgba(56,189,248,.025), 0 0 0 38px rgba(37,99,235,.025);
+      animation: buddyOrbit 22s linear infinite;
+      pointer-events: none;
     }
     .glass-card {
-      background: linear-gradient(145deg, rgba(13,27,20,.94), rgba(5,12,9,.94)) !important;
-      border-color: rgba(74,222,128,.20) !important;
-      box-shadow: 0 18px 48px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.025) !important;
-      border-radius: 1.25rem;
+      transition: transform var(--buddy-motion-smooth) cubic-bezier(.2,.7,.2,1),
+                  border-color var(--buddy-motion-fast) ease,
+                  box-shadow var(--buddy-motion-smooth) ease;
+      backdrop-filter: blur(14px);
     }
     .glass-card:hover {
-      border-color: rgba(74,222,128,.48) !important;
-      box-shadow: 0 24px 60px rgba(11,93,59,.22) !important;
+      transform: translateY(-5px);
     }
-    header.sticky {
-      background-color: rgba(5,9,7,.94) !important;
-      border-color: rgba(74,222,128,.17) !important;
+    #page-home .grid.md\:grid-cols-3 > .glass-card,
+    #page-home .grid.md\:grid-cols-3 > button.glass-card {
+      animation: buddyRise .65s both;
     }
-    .bg-blue-600, .hover\\:bg-blue-600:hover {
-      background-color: #0b5d3b !important;
+    #page-home .grid.md\:grid-cols-3 > :nth-child(2) { animation-delay: .08s; }
+    #page-home .grid.md\:grid-cols-3 > :nth-child(3) { animation-delay: .16s; }
+    /* Keep copy width and hierarchy readable, especially on mobile. */
+    #page-home h1 {
+      max-width: 12.5ch;
+      text-wrap: balance;
+      letter-spacing: -.035em;
     }
-    .bg-slate-900, .bg-slate-900\\/85, .bg-slate-800, .bg-slate-800\\/90 {
-      background-color: #101a14 !important;
+    #page-home p {
+      text-wrap: pretty;
     }
-    .bg-\\[\\#040711\\]\\/90, .bg-\\[\\#050915\\] {
-      background-color: #050907 !important;
+    #page-home > section:first-child .grid > div:first-child > p {
+      max-width: 58ch;
     }
-    .text-sky-400, .text-sky-300, .text-cyan-400, .text-cyan-300 {
-      color: #72e6a7 !important;
+    #page-home .grid.grid-cols-3 > div {
+      min-width: 0;
     }
-    .text-blue-400, .text-blue-300 {
-      color: #72e6a7 !important;
+    #page-home .animate-marquee {
+      will-change: transform;
     }
-    .border-sky-500\\/20, .border-sky-500\\/30, .border-sky-400\\/30,
-    .border-cyan-500\\/30, .border-cyan-400\\/40, .border-sky-500\\/30 {
-      border-color: rgba(74,222,128,.24) !important;
+    #page-home .animate-marquee:hover {
+      animation-play-state: paused;
     }
-    .bg-gradient-to-r {
-      background-image: linear-gradient(115deg, #0b5d3b 0%, #128454 52%, #28b77a 100%) !important;
+    .chrome-text {
+      background-image: linear-gradient(110deg, #f8fafc 4%, #bae6fd 48%, #38bdf8 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .shadow-blue-600\\/30, .shadow-sky-500\\/25, .shadow-blue-500\\/25 {
-      --tw-shadow-color: rgba(11,93,59,.25) !important;
-    }
-    .founder-photo-filter {
-      filter: contrast(1.04) brightness(1.03) saturate(1.02);
-    }
-    button, a {
+    a, button {
       -webkit-tap-highlight-color: transparent;
     }
     button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-      outline: 2px solid #72e6a7 !important;
+      outline: 2px solid #38bdf8;
       outline-offset: 3px;
     }
+    @keyframes buddyRise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes buddyGlow {
+      from { transform: translate3d(-8px, 0, 0) scale(.96); opacity: .65; }
+      to { transform: translate3d(10px, 14px, 0) scale(1.06); opacity: 1; }
+    }
+    @keyframes buddyOrbit {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @media (min-width: 1024px) {
+      #page-home > section:first-child {
+        padding-top: 5.5rem;
+        padding-bottom: 5.5rem;
+      }
+      #page-home > section:first-child .grid {
+        column-gap: 3.5rem;
+      }
+      #page-home > section:first-child .grid > div:last-child {
+        transform: translateY(12px);
+      }
+    }
     @media (max-width: 640px) {
-      header .h-20 { height: auto; min-height: 5.5rem; }
+      #page-home > section:first-child {
+        padding-top: 2.25rem;
+        padding-bottom: 2.75rem;
+      }
+      #page-home h1 {
+        max-width: 100%;
+        font-size: clamp(2.45rem, 11vw, 3.4rem);
+        line-height: 1.04;
+      }
+      #page-home > section:first-child .grid {
+        gap: 2rem;
+      }
+      #page-home > section:first-child .grid > div:last-child .glass-card {
+        padding: 1.1rem;
+      }
+      #page-home .grid.grid-cols-3 {
+        gap: .65rem;
+      }
+      #page-home .grid.grid-cols-3 p:first-child {
+        font-size: 1.3rem;
+      }
       header .max-w-7xl > .flex.items-center.justify-between {
         gap: .75rem;
-        padding-top: .75rem;
-        padding-bottom: .75rem;
+        padding-top: .65rem;
+        padding-bottom: .65rem;
       }
-      header .tracking-wider.chrome-text { letter-spacing: .04em; }
-      main section.max-w-7xl { scroll-margin-top: 9rem; }
+      main section.max-w-7xl { scroll-margin-top: 8rem; }
     }
     @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
       *, *::before, *::after {
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
         transition-duration: .01ms !important;
       }
     }
-
   </style>
 </head>
 <body class="relative min-h-screen selection:bg-blue-600 selection:text-white">
