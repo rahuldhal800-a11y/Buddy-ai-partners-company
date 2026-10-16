@@ -42,7 +42,10 @@ dupes = sorted({x for x in check.ids if check.ids.count(x) > 1})
 missing = []
 for src in check.images:
     if src.startswith(("https://", "http://", "data:")): continue
-    if not (root / src.lstrip("/")).is_file(): missing.append(src)
+    local = root / src.lstrip("/")
+    if not local.is_file() and src.lstrip("/").startswith("images/"):
+        local = root / "public" / src.lstrip("/")
+    if not local.is_file(): missing.append(src)
 schemas = re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
 bad_schemas = []
 for i, payload in enumerate(schemas, 1):
@@ -59,8 +62,9 @@ PY
 
 # dist is generated output. Rebuild it from source files only.
 rm -rf "$DIST"
-mkdir -p "$DIST/public/images"
+mkdir -p "$DIST/images" "$DIST/public/images"
 cp "$ROOT/index.html" "$DIST/index.html"
+cp -r "$ROOT/public/images/." "$DIST/images/"
 cp -r "$ROOT/public/images/." "$DIST/public/images/"
 [ ! -f "$ROOT/robots.txt" ] || cp "$ROOT/robots.txt" "$DIST/robots.txt"
 [ ! -f "$ROOT/sitemap.xml" ] || cp "$ROOT/sitemap.xml" "$DIST/sitemap.xml"
