@@ -13,10 +13,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="BUDDY AI PARTNERS | AI Automation & Digital Growth" />
   <meta property="og:description" content="Practical AI automation, intelligent CRM systems, and high-conversion digital marketing engineered for modern businesses." />
-  <meta property="og:image" content="https://buddy-ai-partners.surge.sh/public/images/founder-rahul.png" />
+  <meta property="og:image" content="https://buddy-ai-partners.surge.sh/images/founder-rahul.png" />
 
   <!-- Inline SVG Favicon (Metallic 'B' Shield) -->
-  <link rel="icon" type="image/svg+xml" href="public/images/logo.svg" />
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1026,7 +1026,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="BUDDY AI PARTNERS | CRM, AI Automation & Digital Growth" />
   <meta name="twitter:description" content="Custom CRM workflows, AI-assisted automation, websites and performance marketing for real-estate and service businesses." />
-  <meta name="twitter:image" content="https://buddy-ai-partners.surge.sh/public/images/founder-rahul.png" />
+  <meta name="twitter:image" content="https://buddy-ai-partners.surge.sh/images/founder-rahul.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1099,7 +1099,7 @@
       <!-- Brand Identity -->
       <button type="button" onclick="switchPage('home')" class="flex items-center gap-3.5 text-left group focus:outline-none">
         <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 via-sky-400 to-slate-300 p-[1.5px] shadow-lg shadow-blue-500/25 group-hover:scale-105 transition">
-          <div class="w-full h-full bg-[#060b19] rounded-[10px] flex items-center justify-center overflow-hidden"><img src="public/images/logo.svg" alt="BUDDY AI PARTNERS logo" width="44" height="44" class="w-full h-full" loading="eager" decoding="async" /></div>
+          <div class="w-full h-full bg-[#060b19] rounded-[10px] flex items-center justify-center overflow-hidden"><img src="images/logo.svg" alt="BUDDY AI PARTNERS logo" width="44" height="44" class="w-full h-full" loading="eager" decoding="async" /></div>
         </div>
         <div>
           <span class="block font-display font-bold text-base sm:text-lg tracking-wider chrome-text">BUDDY AI PARTNERS</span>
@@ -1818,10 +1818,10 @@
         <div class="lg:col-span-4 flex flex-col items-center text-center">
           <div class="relative w-52 h-52 sm:w-60 sm:h-60 rounded-2xl p-1.5 bg-gradient-to-tr from-blue-600 via-cyan-400 to-slate-200 shadow-2xl shadow-blue-600/20">
             <picture>
-              <source type="image/webp" srcset="public/images/founder-rahul-640.webp" />
+              <source type="image/webp" srcset="images/founder-rahul-640.webp" />
               <img
               id="founderImg"
-              src="public/images/founder-rahul.png"
+              src="images/founder-rahul.png"
               alt="Rahul Kumar Dhal, Founder of BUDDY AI PARTNERS"
               class="w-full h-full object-cover object-center rounded-[14px] founder-photo-filter bg-slate-900"
               loading="lazy" decoding="async" width="240" height="240" />
@@ -2696,7 +2696,7 @@
         <button type="button" onclick="switchPage('contact')" class="px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wide bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950 shrink-0">Start a conversation</button>
       </div>
       <div class="grid sm:grid-cols-3 gap-6 text-xs text-slate-400">
-        <div><p class="font-bold text-white tracking-wider flex items-center gap-2"><img src="public/images/logo.svg" alt="BUDDY AI PARTNERS logo" width="20" height="20" loading="lazy" decoding="async" />BUDDY AI PARTNERS</p><p class="mt-2 leading-relaxed">Bhubaneswar, Odisha, India · Remote-first delivery.<br/>Founder: Rahul Kumar Dhal.<br/>Udyam MSME-registered sole proprietorship; GST-ready billing.</p><p class="text-[11px] text-slate-500 mt-2">WhatsApp/Telegram: <a class="underline" href="tel:+917328089908">+91 73280 89908</a> · <a class="underline" href="https://wa.me/917328089908" target="_blank" rel="noopener noreferrer">wa.me/917328089908</a> · <a class="underline" href="https://t.me/917328089908" target="_blank" rel="noopener noreferrer">Telegram</a><br/>Instagram DM available.</p></div>
+        <div><p class="font-bold text-white tracking-wider flex items-center gap-2"><img src="images/logo.svg" alt="BUDDY AI PARTNERS logo" width="20" height="20" loading="lazy" decoding="async" />BUDDY AI PARTNERS</p><p class="mt-2 leading-relaxed">Bhubaneswar, Odisha, India · Remote-first delivery.<br/>Founder: Rahul Kumar Dhal.<br/>Udyam MSME-registered sole proprietorship; GST-ready billing.</p><p class="text-[11px] text-slate-500 mt-2">WhatsApp/Telegram: <a class="underline" href="tel:+917328089908">+91 73280 89908</a> · <a class="underline" href="https://wa.me/917328089908" target="_blank" rel="noopener noreferrer">wa.me/917328089908</a> · <a class="underline" href="https://t.me/917328089908" target="_blank" rel="noopener noreferrer">Telegram</a><br/>Instagram DM available.</p></div>
         <nav aria-label="Footer Navigation" class="flex flex-wrap gap-x-5 gap-y-2 items-start">
           <button type="button" onclick="switchPage('home')" class="hover:text-sky-400 transition">Home</button>
           <button type="button" onclick="switchPage('about')" class="hover:text-sky-400 transition">About</button>
@@ -3321,40 +3321,43 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
     }
   </script>
 
-  <!-- Runtime guard for legacy/injected floating navigation outside the canonical header. -->
+  <!-- Defensive cleanup for orphaned left-edge navigation; preserve the canonical site navigation. -->
+  <style id="buddy-orphan-nav-hotfix">
+    body > nav:not([aria-label="Main Navigation"]):not([aria-label="Mobile Navigation"]):not([aria-label="Footer Navigation"]),
+    body > aside,
+    [data-buddy-orphan-nav-hidden="true"] { display:none !important; }
+  </style>
   <script id="buddy-nav-overflow-guard">
     (function () {
       'use strict';
-      var labels = /^(services|portfolio|stack|process|buddy ai(?:\s*[—–-]\s*live preview)?|pricing(?:\s*&\s*contact)?)$/i;
-      var selector = 'a, button, [role="link"], [role="menuitem"]';
-      function removeOrphanNavigation() {
+      var wanted = /^(services|portfolio|stack|process|buddy ai|buddy ai\s*[—–-]\s*live preview|pricing\s*&\s*contact)$/i;
+      var canonical = 'header, footer, nav[aria-label="Main Navigation"], nav[aria-label="Mobile Navigation"], nav[aria-label="Footer Navigation"]';
+      function clean() {
         try {
-          document.querySelectorAll(selector).forEach(function (item) {
-            if (!labels.test((item.textContent || '').replace(/\s+/g, ' ').trim())) return;
-            if (item.closest('header, footer, nav[aria-label="Main Navigation"], nav[aria-label="Mobile Navigation"], nav[aria-label="Footer Navigation"]')) return;
-            var rect = item.getBoundingClientRect();
-            var style = window.getComputedStyle(item);
-            var leftEdge = rect.left <= 56 && rect.width > 0 && rect.width < Math.min(360, window.innerWidth * 0.45);
-            var floating = style.position === 'fixed' || style.position === 'sticky';
-            if (!leftEdge && !floating) return;
-            var owner = item.closest('nav, aside, [role="navigation"], [data-floating-navigation], .floating-sidebar, .floating-nav, .side-nav, .vertical-nav');
-            if (!owner && floating) owner = item;
-            if (owner && !owner.closest('header, footer')) {
-              owner.style.setProperty('display', 'none', 'important');
-              owner.style.setProperty('visibility', 'hidden', 'important');
-              owner.setAttribute('data-buddy-orphan-nav-hidden', 'true');
-            }
+          var candidates = document.querySelectorAll('nav, aside, [role="navigation"], [data-floating-navigation], .floating-sidebar, .floating-nav, .side-nav, .vertical-nav, body > div, body > section');
+          candidates.forEach(function (container) {
+            if (container.matches(canonical) || container.closest(canonical) || container.closest('header, footer')) return;
+            var rect = container.getBoundingClientRect();
+            if (!rect.width || !rect.height || rect.left > 8 || rect.width > Math.min(420, window.innerWidth * .45)) return;
+            var text = (container.innerText || container.textContent || '').replace(/\s+/g, ' ').trim();
+            var labels = (container.querySelectorAll('a, button, [role="link"], [role="menuitem"]').length);
+            var matched = wanted.test(text) || Array.from(container.querySelectorAll('a, button, [role="link"], [role="menuitem"]')).some(function (el) {
+              return wanted.test((el.innerText || el.textContent || '').replace(/\s+/g, ' ').trim());
+            });
+            if (!matched || labels < 2) return;
+            container.setAttribute('data-buddy-orphan-nav-hidden', 'true');
+            container.style.setProperty('display', 'none', 'important');
+            container.style.setProperty('visibility', 'hidden', 'important');
+            container.style.setProperty('pointer-events', 'none', 'important');
           });
-        } catch (error) {
-          console.warn('[Buddy nav guard] Unable to inspect legacy navigation:', error);
-        }
+        } catch (e) { console.warn('[Buddy nav guard]', e); }
       }
-      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', removeOrphanNavigation, { once: true });
-      else removeOrphanNavigation();
-      if ('MutationObserver' in window && document.documentElement) {
-        var observer = new MutationObserver(function () { removeOrphanNavigation(); });
-        observer.observe(document.documentElement, { childList: true, subtree: true });
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', clean, { once: true });
+      else clean();
+      if (window.MutationObserver && document.documentElement) {
+        new MutationObserver(clean).observe(document.documentElement, { childList: true, subtree: true });
       }
+      window.addEventListener('resize', clean, { passive: true });
     }());
   </script>
 </body>
