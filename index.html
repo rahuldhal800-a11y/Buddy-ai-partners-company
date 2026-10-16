@@ -920,6 +920,70 @@
     .bai-agent { border:1px solid rgba(56,189,248,.16); border-radius:.9rem; background:rgba(8,16,36,.75); padding:.85rem; min-width:0; transition:border-color .3s ease, transform .3s ease; }
     .bai-agent:hover { border-color:rgba(0,242,254,.45); transform:translateY(-2px); }
     .bai-agent-ico { width:30px; height:30px; border-radius:.55rem; display:flex; align-items:center; justify-content:center; font-size:.95rem; background:rgba(0,242,254,.1); border:1px solid rgba(0,242,254,.3); }
+
+    /* ============================================================
+       SERVICE CARD RICH UPGRADE — vibrant SaaS micro-app headers
+       ============================================================ */
+    .svc-card { background:linear-gradient(to bottom, rgba(15,23,42,.94), rgba(15,23,42,.68) 45%, rgba(2,6,23,.95)); border:1px solid rgba(34,211,238,.22); box-shadow:0 20px 50px rgba(8,51,68,.35); transition:border-color .3s ease, box-shadow .3s ease, transform .3s ease; }
+    .svc-card:hover { border-color:rgba(34,211,238,.55); box-shadow:0 28px 64px rgba(8,51,68,.5), 0 0 34px rgba(34,211,238,.13); transform:translateY(-4px); }
+    @media (hover:none) { .svc-card:hover { transform:none; } }
+    .svc-ani { background:radial-gradient(ellipse at 50% 140%, rgba(34,211,238,.16), transparent 62%), linear-gradient(180deg, rgba(2,10,26,.94), rgba(4,12,30,.88)); border-bottom:1px solid rgba(34,211,238,.24); }
+    .svc-ani::after { content:""; position:absolute; left:-20%; right:-20%; bottom:-70%; height:90%; background:radial-gradient(ellipse at center, rgba(34,211,238,.18), transparent 65%); pointer-events:none; }
+    .uag::before { background-size:20px 20px; background-image:linear-gradient(rgba(125,211,252,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(125,211,252,.11) 1px,transparent 1px); }
+
+    /* 1. AI agents — vibrant chat with live status */
+    .uag-orb { width:10px; height:10px; }
+    .uag-bub-user { color:#fff; background:linear-gradient(135deg,#2563eb,#0ea5e9); border:1px solid rgba(125,211,252,.45); box-shadow:0 8px 20px rgba(37,99,235,.4), 0 0 14px rgba(14,165,233,.3); }
+    .uag-bub-ai { background:#0f172a; border:1px solid rgba(71,85,105,.9); box-shadow:0 8px 20px rgba(0,0,0,.45); }
+    .uag-bub-ai::after { content:"● Active"; position:absolute; top:-.62rem; right:.35rem; font-size:.42rem; font-weight:800; letter-spacing:.08em; color:#6ee7b7; background:rgba(6,26,22,.94); border:1px solid rgba(16,185,129,.5); border-radius:99px; padding:.08rem .35rem; box-shadow:0 0 12px rgba(16,185,129,.35); animation:haxPulse 2s ease-in-out infinite; }
+
+    /* 2. Business setup — solid checklist + gradient progress */
+    .uag-check-row { background:#0b162c; border:1px solid rgba(34,211,238,.34); box-shadow:0 4px 14px rgba(0,0,0,.35); color:#e2e8f0; font-weight:600; }
+    .uag-progress { height:8px; background:rgba(30,41,59,.9); border:1px solid rgba(34,211,238,.25); }
+    .uag-progress span { background:linear-gradient(90deg,#22d3ee,#3b82f6); box-shadow:0 0 14px rgba(59,130,246,.65); }
+
+    /* 3. Social — solid 3-step pipeline + glowing review pulse */
+    .uag-stage { background:#0b162c; border:1px solid rgba(34,211,238,.32); color:#a5f3fc; box-shadow:0 4px 12px rgba(0,0,0,.3); }
+    .uag-stage.st2 { background:#1c1503; border-color:rgba(251,191,36,.6); color:#fde68a; animation:uagStageGlow 3s ease-in-out infinite; }
+    @keyframes uagStageGlow { 0%,100% { box-shadow:0 0 8px rgba(251,191,36,.2); } 50% { box-shadow:0 0 22px rgba(251,191,36,.55); } }
+    .uag-belt { height:4px; border-radius:99px; background:linear-gradient(90deg, rgba(34,211,238,.08), rgba(34,211,238,.7), rgba(34,211,238,.08)); box-shadow:0 0 10px rgba(34,211,238,.3); }
+    .uag-pkg { height:12%; width:13%; border-radius:99px; border:1px solid rgba(165,243,252,.65); }
+
+    /* 4. CRM — solid kanban columns + named lead cards */
+    .uag-kan-col { background:#0a1428; border:1px solid rgba(34,211,238,.3); box-shadow:0 4px 14px rgba(0,0,0,.3); }
+    .uag-kan-slot { height:.62rem; border-radius:.3rem; background:linear-gradient(145deg,#0f1e3a,#0b1730); border:1px solid rgba(56,189,248,.22); }
+    .uag-kan-mini { display:block; margin-top:.34rem; padding:.28rem .4rem; border-radius:.4rem; background:linear-gradient(145deg,#12233f,#0d1a33); border:1px solid rgba(34,211,238,.45); box-shadow:0 4px 12px rgba(0,0,0,.4); }
+    .uag-kan-mini b { display:block; font-size:.5rem; letter-spacing:0; color:#f1f5f9; margin:0; }
+    .uag-kan-mini i { font-style:normal; display:block; font-size:.42rem; color:#7dd3fc; margin-top:.1rem; }
+    .uag-kan-card { border:1px solid rgba(34,211,238,.65); background:linear-gradient(145deg,#13254a,#0c1830); box-shadow:0 12px 28px rgba(0,0,0,.5), 0 0 16px rgba(34,211,238,.3); }
+    .uag-kan-card b { color:#fff; }
+    .uag-kan-badge { display:inline-block; font-style:normal; margin-top:.15rem; font-size:.42rem; font-weight:700; color:#fde68a; background:rgba(69,26,3,.6); border:1px solid rgba(251,191,36,.45); border-radius:99px; padding:.05rem .32rem; }
+
+    /* 5. Dev — real code editor with syntax colors */
+    .uag-editor { background:#050d1d; border:1px solid rgba(34,211,238,.4); box-shadow:0 10px 26px rgba(0,0,0,.45), inset 0 0 22px rgba(34,211,238,.05); }
+    .uag-ed-line.uag-code { height:auto; background:none; font-family:ui-monospace,monospace; font-size:.42rem; line-height:1.5; color:#94a3b8; margin-top:.3rem; white-space:nowrap; overflow:hidden; }
+    .uag-code .tc { color:#c4b5fd; font-weight:700; }
+    .uag-code .tv { color:#7dd3fc; }
+    .uag-code .tf { color:#fbbf24; }
+    .uag-code .tn { color:#6ee7b7; }
+    .uag-code.uag-comment { color:#475569; }
+    .uag-wire { border-color:rgba(34,211,238,.55); box-shadow:0 0 16px rgba(34,211,238,.12); }
+
+    /* 6. Integration — solid glowing hex nodes */
+    .uag-hex .hx { fill:#10305c; stroke:#22d3ee; stroke-width:1.6; filter:drop-shadow(0 0 6px rgba(34,211,238,.55)); }
+    .uag-hex path.infra-flow { stroke-width:2.2; filter:drop-shadow(0 0 5px rgba(34,211,238,.6)); }
+
+    /* 7. Marketing — rich multi-color funnel + white metrics */
+    .uag-tier { height:.8rem; }
+    .uag-tier.t1 { background:linear-gradient(90deg,#22d3ee,#3b82f6 92%); box-shadow:0 0 14px rgba(34,211,238,.4); }
+    .uag-tier.t2 { background:linear-gradient(90deg,#0ea5e9,#2563eb 92%); box-shadow:0 0 14px rgba(14,165,233,.4); }
+    .uag-tier.t3 { width:32%; background:linear-gradient(90deg,#3b82f6,#1d4ed8 92%); box-shadow:0 0 16px rgba(59,130,246,.55); }
+    .uag-tier-row em { color:#e2e8f0; font-weight:700; font-size:.54rem; }
+
+    /* 8. Content — thicker gradient waveform + solid language badges */
+    .uag-bars { height:74%; gap:4px; }
+    .uag-bars i { border-radius:99px; background:linear-gradient(180deg,#67e8f9,#38bdf8 55%,#3b82f6); box-shadow:0 0 10px rgba(56,189,248,.35); }
+    .uag-lang span { background:#0b162c; border-color:rgba(34,211,238,.45); color:#e0f2fe; font-weight:800; box-shadow:0 4px 12px rgba(0,0,0,.35); }
     @media (prefers-reduced-motion:reduce) {
       .bai-orb-core, .bai-orb-ring, .bai-orb-ring2, .bai-orb-sat, .bai-msg, .bai-chip, .bai-typing i { animation:none!important; }
       .bai-log { scroll-behavior:auto; }
@@ -1189,11 +1253,11 @@
           <span class="svc-tile-body"><span class="svc-tile-title">Social Media Automation</span><span class="svc-tile-desc">Draft → review → schedule → publish</span></span>
         </button>
         <button type="button" onclick="switchPage('services')" class="svc-tile">
-          <span class="svc-tile-img"><span class="uag uag-kan" aria-hidden="true"><span class="uag-kan-col"><b>NEW</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-col"><b>CALLING</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-col"><b>SITE VISIT</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-card"><b>S. Patnaik</b>₹78L · Kantabada</span></span></span>
+          <span class="svc-tile-img"><span class="uag uag-kan" aria-hidden="true"><span class="uag-kan-col"><b>NEW</b><span class="uag-kan-mini"><b>R. Das</b><i>₹2.4Cr</i></span><span class="uag-kan-slot"></span></span><span class="uag-kan-col"><b>CALLING</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-col"><b>SITE VISIT</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-card"><b>A. Sharma</b><i class="uag-kan-badge">₹95L · Meta Ad</i></span></span></span>
           <span class="svc-tile-body"><span class="svc-tile-title">CRM &amp; Lead Operations</span><span class="svc-tile-desc">Pipeline, calling queues &amp; follow-ups</span></span>
         </button>
         <button type="button" onclick="switchPage('services')" class="svc-tile">
-          <span class="svc-tile-img"><span class="uag uag-dev" aria-hidden="true"><span class="uag-editor"><span class="uag-ed-head"><i></i><i></i><i></i></span><span class="uag-ed-line l1"></span><span class="uag-ed-line l2"></span><span class="uag-ed-line uag-typing-line"></span><span class="uag-ed-line l4"></span></span><span class="uag-wire"><span></span><span></span><span></span></span></span></span>
+          <span class="svc-tile-img"><span class="uag uag-dev" aria-hidden="true"><span class="uag-editor"><span class="uag-ed-head"><i></i><i></i><i></i></span><span class="uag-ed-line uag-code"><b class="tc">const</b> <b class="tv">client</b> = <b class="tf">useKNR</b>();</span><span class="uag-ed-line uag-code"><b class="tc">await</b> <b class="tv">buddy</b>.<b class="tf">deploy</b>('patia');</span><span class="uag-ed-line uag-code uag-typing-line"><b class="tc">db</b>.<b class="tf">sync</b>(leads, <b class="tn">60</b>)</span><span class="uag-ed-line uag-code uag-comment">// ORERA verified · auto-pipeline</span></span><span class="uag-wire"><span></span><span></span><span></span></span></span></span>
           <span class="svc-tile-body"><span class="svc-tile-title">Web &amp; App Development</span><span class="svc-tile-desc">Sites, dashboards &amp; APIs</span></span>
         </button>
         <button type="button" onclick="switchPage('services')" class="svc-tile">
@@ -1955,14 +2019,14 @@
 
     <p class="text-[11px] tracking-widest text-sky-400 font-bold mb-4">VISUAL SERVICE SYSTEM · OPEN A CARD FOR DETAILS &amp; BOUNDARIES</p>
     <div class="grid md:grid-cols-2 gap-6">
-      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
+      <article class="svc-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-ani h-40 overflow-hidden relative">
           <span class="uag uag-chat" aria-hidden="true"><span class="uag-orb o1"></span><span class="uag-orb o2"></span><span class="uag-orb o3"></span><span class="uag-bubble uag-bub-user">Ask Buddy AI ⚡</span><span class="uag-typing"><i></i><i></i><i></i></span><span class="uag-bubble uag-bub-ai">3BHK · Patia · ~₹95L — free cab site visit?</span></span>
           <span class="case-tag case-tag-ok svc-media-tag">A · AI AGENTS</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
-          <h3 class="font-display text-xl font-bold text-white">Custom AI Agent Creation</h3>
-          <p class="text-sm text-slate-400 mt-2 leading-relaxed">Business-specific agents that research, handle documents, support customers, qualify leads and take repetitive operational work off your team.</p>
+          <h3 class="font-display text-lg font-semibold text-white">Custom AI Agent Creation</h3>
+          <p class="text-sm text-slate-300 mt-2 leading-relaxed">Business-specific agents that research, handle documents, support customers, qualify leads and take repetitive operational work off your team.</p>
           <div class="mt-4"><button type="button" onclick="selectServiceAndContact('Custom AI Agent Creation')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button></div>
           <details class="svc-details">
             <summary>Details &amp; boundaries</summary>
@@ -1976,14 +2040,14 @@
         </div>
       </article>
 
-      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
+      <article class="svc-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-ani h-40 overflow-hidden relative">
           <span class="uag uag-check" aria-hidden="true"><span class="uag-check-row"><i></i>SOP + workflow mapped</span><span class="uag-check-row"><i></i>GST / MSME records ready</span><span class="uag-check-row"><i></i>Internal knowledge base live</span><span class="uag-progress"><span></span></span></span>
           <span class="case-tag svc-media-tag">B · BUSINESS SETUP</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
-          <h3 class="font-display text-xl font-bold text-white">AI for Business Setup</h3>
-          <p class="text-sm text-slate-400 mt-2 leading-relaxed">Practical AI support for business workflows, operating procedures, enquiry handling, document preparation and internal knowledge.</p>
+          <h3 class="font-display text-lg font-semibold text-white">AI for Business Setup</h3>
+          <p class="text-sm text-slate-300 mt-2 leading-relaxed">Practical AI support for business workflows, operating procedures, enquiry handling, document preparation and internal knowledge.</p>
           <div class="mt-4"><button type="button" onclick="selectServiceAndContact('AI for Business Setup')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button></div>
           <details class="svc-details">
             <summary>Details &amp; boundaries</summary>
@@ -1996,14 +2060,14 @@
         </div>
       </article>
 
-      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
+      <article class="svc-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-ani h-40 overflow-hidden relative">
           <span class="uag uag-conveyor" aria-hidden="true"><span class="uag-stage st1">DRAFT</span><span class="uag-stage st2">HUMAN REVIEW</span><span class="uag-stage st3">PUBLISHED</span><span class="uag-belt"></span><span class="uag-pkg"></span></span>
           <span class="case-tag svc-media-tag">C · SOCIAL AUTOMATION</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
-          <h3 class="font-display text-xl font-bold text-white">Social Media Automation</h3>
-          <p class="text-sm text-slate-400 mt-2 leading-relaxed">A repeatable content pipeline: ideas in, drafts prepared, your brand review, approved scheduling, publishing and performance review.</p>
+          <h3 class="font-display text-lg font-semibold text-white">Social Media Automation</h3>
+          <p class="text-sm text-slate-300 mt-2 leading-relaxed">A repeatable content pipeline: ideas in, drafts prepared, your brand review, approved scheduling, publishing and performance review.</p>
           <div class="mt-4"><button type="button" onclick="selectServiceAndContact('Social Media Automation')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button></div>
           <details class="svc-details">
             <summary>Details &amp; boundaries</summary>
@@ -2017,14 +2081,14 @@
         </div>
       </article>
 
-      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
-          <span class="uag uag-kan" aria-hidden="true"><span class="uag-kan-col"><b>NEW</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-col"><b>CALLING</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-col"><b>SITE VISIT</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-card"><b>S. Patnaik</b>₹78L · Kantabada</span></span>
+      <article class="svc-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-ani h-40 overflow-hidden relative">
+          <span class="uag uag-kan" aria-hidden="true"><span class="uag-kan-col"><b>NEW</b><span class="uag-kan-mini"><b>R. Das</b><i>₹2.4Cr</i></span><span class="uag-kan-slot"></span></span><span class="uag-kan-col"><b>CALLING</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-col"><b>SITE VISIT</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-card"><b>A. Sharma</b><i class="uag-kan-badge">₹95L · Meta Ad</i></span></span>
           <span class="case-tag case-tag-ok svc-media-tag">D · CRM SYSTEMS</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
-          <h3 class="font-display text-xl font-bold text-white">Custom CRM &amp; Business Automation</h3>
-          <p class="text-sm text-slate-400 mt-2 leading-relaxed">Lead intake, assignment, pipeline stages, calling queues, follow-up reminders, team visibility and reporting — shaped around your sales process.</p>
+          <h3 class="font-display text-lg font-semibold text-white">Custom CRM &amp; Business Automation</h3>
+          <p class="text-sm text-slate-300 mt-2 leading-relaxed">Lead intake, assignment, pipeline stages, calling queues, follow-up reminders, team visibility and reporting — shaped around your sales process.</p>
           <div class="mt-4 flex flex-wrap gap-2">
             <button type="button" onclick="selectServiceAndContact('Custom Business CRM Deployment')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button>
             <button type="button" onclick="switchPage('home')" class="px-4 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-300 border border-sky-500/30 text-xs font-bold transition">See interactive demo →</button>
@@ -2042,14 +2106,14 @@
         </div>
       </article>
 
-      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
-          <span class="uag uag-dev" aria-hidden="true"><span class="uag-editor"><span class="uag-ed-head"><i></i><i></i><i></i></span><span class="uag-ed-line l1"></span><span class="uag-ed-line l2"></span><span class="uag-ed-line uag-typing-line"></span><span class="uag-ed-line l4"></span></span><span class="uag-wire"><span></span><span></span><span></span></span></span>
+      <article class="svc-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-ani h-40 overflow-hidden relative">
+          <span class="uag uag-dev" aria-hidden="true"><span class="uag-editor"><span class="uag-ed-head"><i></i><i></i><i></i></span><span class="uag-ed-line uag-code"><b class="tc">const</b> <b class="tv">client</b> = <b class="tf">useKNR</b>();</span><span class="uag-ed-line uag-code"><b class="tc">await</b> <b class="tv">buddy</b>.<b class="tf">deploy</b>('patia');</span><span class="uag-ed-line uag-code uag-typing-line"><b class="tc">db</b>.<b class="tf">sync</b>(leads, <b class="tn">60</b>)</span><span class="uag-ed-line uag-code uag-comment">// ORERA verified · auto-pipeline</span></span><span class="uag-wire"><span></span><span></span><span></span></span></span>
           <span class="case-tag svc-media-tag">E · WEB &amp; APPS</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
-          <h3 class="font-display text-xl font-bold text-white">Website &amp; Web Application Development</h3>
-          <p class="text-sm text-slate-400 mt-2 leading-relaxed">Responsive websites, landing pages, dashboards, APIs and business-specific web applications — deployed and monitored, not just handed over.</p>
+          <h3 class="font-display text-lg font-semibold text-white">Website &amp; Web Application Development</h3>
+          <p class="text-sm text-slate-300 mt-2 leading-relaxed">Responsive websites, landing pages, dashboards, APIs and business-specific web applications — deployed and monitored, not just handed over.</p>
           <div class="mt-4"><button type="button" onclick="selectServiceAndContact('Custom React/FastAPI Website & Python Scraper')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button></div>
           <details class="svc-details">
             <summary>Details &amp; boundaries</summary>
@@ -2064,14 +2128,14 @@
         </div>
       </article>
 
-      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
+      <article class="svc-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-ani h-40 overflow-hidden relative">
           <span class="uag uag-hex" aria-hidden="true"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid meet"><path d="M82 75 H134" class="infra-flow" stroke="#38bdf8" stroke-width="1.4" fill="none"/><path d="M186 75 H238" class="infra-flow" stroke="#38bdf8" stroke-width="1.4" fill="none"/><circle cx="82" cy="75" r="2.4" fill="#22d3ee" class="infra-pulse"/><circle cx="186" cy="75" r="2.4" fill="#22d3ee" class="infra-pulse" style="animation-delay:.9s"/><polygon class="hx hx1" points="55,42 81,57 81,93 55,108 29,93 29,57"/><polygon class="hx hx2" points="160,42 186,57 186,93 160,108 134,93 134,57"/><polygon class="hx hx3" points="265,42 291,57 291,93 265,108 239,93 239,57"/><g font-family="Inter,sans-serif" text-anchor="middle"><text x="55" y="79" font-size="10" font-weight="800" fill="#e0f2fe">PW</text><text x="160" y="79" font-size="10" font-weight="800" fill="#e0f2fe">n8n</text><text x="265" y="79" font-size="10" font-weight="800" fill="#e0f2fe">PG</text><text x="55" y="126" font-size="8" font-weight="700" fill="#7dd3fc">PLAYWRIGHT</text><text x="160" y="126" font-size="8" font-weight="700" fill="#7dd3fc">N8N</text><text x="265" y="126" font-size="8" font-weight="700" fill="#7dd3fc">POSTGRESQL</text></g></svg></span>
           <span class="case-tag svc-media-tag">F · INTEGRATION</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
-          <h3 class="font-display text-xl font-bold text-white">AI Integration &amp; Workflow Automation</h3>
-          <p class="text-sm text-slate-400 mt-2 leading-relaxed">Connect the tools you already use — with agent orchestration, APIs, approval steps and clean task handoffs between systems.</p>
+          <h3 class="font-display text-lg font-semibold text-white">AI Integration &amp; Workflow Automation</h3>
+          <p class="text-sm text-slate-300 mt-2 leading-relaxed">Connect the tools you already use — with agent orchestration, APIs, approval steps and clean task handoffs between systems.</p>
           <div class="mt-4"><button type="button" onclick="selectServiceAndContact('Custom Web App & Python/n8n Automation')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button></div>
           <details class="svc-details">
             <summary>Details &amp; boundaries</summary>
@@ -2085,14 +2149,14 @@
         </div>
       </article>
 
-      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
+      <article class="svc-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-ani h-40 overflow-hidden relative">
           <span class="uag uag-funnel" aria-hidden="true"><span class="uag-drop d1"></span><span class="uag-drop d2"></span><span class="uag-drop d3"></span><span class="uag-tier-row"><span class="uag-tier t1"></span><em>Impressions</em></span><span class="uag-tier-row"><span class="uag-tier t2"></span><em>Qualified leads</em></span><span class="uag-tier-row"><span class="uag-tier t3"></span><em>₹280 CPL</em></span></span>
           <span class="case-tag case-tag-ok svc-media-tag">G · GROWTH</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
-          <h3 class="font-display text-xl font-bold text-white">Digital Marketing &amp; Lead Generation</h3>
-          <p class="text-sm text-slate-400 mt-2 leading-relaxed">Campaigns, landing pages, enquiry capture, lead routing and measurement — a funnel your CRM and follow-up can actually use.</p>
+          <h3 class="font-display text-lg font-semibold text-white">Digital Marketing &amp; Lead Generation</h3>
+          <p class="text-sm text-slate-300 mt-2 leading-relaxed">Campaigns, landing pages, enquiry capture, lead routing and measurement — a funnel your CRM and follow-up can actually use.</p>
           <div class="mt-4"><button type="button" onclick="selectServiceAndContact('Growth Marketing Retainer (₹15k-₹25k/mo)')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button></div>
           <details class="svc-details">
             <summary>Details &amp; boundaries</summary>
@@ -2107,14 +2171,14 @@
         </div>
       </article>
 
-      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
+      <article class="svc-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-ani h-40 overflow-hidden relative">
           <span class="uag uag-wave" aria-hidden="true"><span class="uag-bars"><i style="height:22%"></i><i style="height:45%"></i><i style="height:70%"></i><i style="height:38%"></i><i style="height:86%"></i><i style="height:55%"></i><i style="height:30%"></i><i style="height:72%"></i><i style="height:48%"></i><i style="height:90%"></i><i style="height:40%"></i><i style="height:62%"></i><i style="height:26%"></i><i style="height:52%"></i></span><span class="uag-lang"><span>Odia</span><span>Hindi</span><span>English</span></span></span>
           <span class="case-tag svc-media-tag">H · CONTENT &amp; MEDIA</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
-          <h3 class="font-display text-xl font-bold text-white">AI Content, Voice &amp; Video</h3>
-          <p class="text-sm text-slate-400 mt-2 leading-relaxed">Content planning, drafting, voice/video generation assistance, review and distribution — always with human approval before publishing.</p>
+          <h3 class="font-display text-lg font-semibold text-white">AI Content, Voice &amp; Video</h3>
+          <p class="text-sm text-slate-300 mt-2 leading-relaxed">Content planning, drafting, voice/video generation assistance, review and distribution — always with human approval before publishing.</p>
           <div class="mt-4"><button type="button" onclick="selectServiceAndContact('AI Content, Voice & Video')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button></div>
           <details class="svc-details">
             <summary>Details &amp; boundaries</summary>
