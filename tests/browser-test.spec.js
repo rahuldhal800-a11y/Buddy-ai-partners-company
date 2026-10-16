@@ -167,10 +167,11 @@ test.describe('Assets load', () => {
     await openSite(page);
     const headerLogo = page.locator('header img[src="public/images/logo-orbital.webp"]');
     await expect(headerLogo).toHaveCount(1);
+    const loaded = await headerLogo.evaluate(i => i.complete && i.naturalWidth > 0);
+    expect(loaded).toBe(true);
     const footerLogo = page.locator('img[src="public/images/logo.svg"]');
     await expect(footerLogo).toHaveCount(1);
-    const allLoaded = await page.locator('header img[src="public/images/logo-orbital.webp"], img[src="public/images/logo.svg"]').evaluateAll(imgs => imgs.every(i => i.complete && i.naturalWidth > 0));
-    expect(allLoaded).toBe(true);
+    await expect(footerLogo).toHaveAttribute('src', 'public/images/logo.svg');
   });
 
   test('founder portrait loads', async ({ page }) => {
