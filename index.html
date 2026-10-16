@@ -331,6 +331,11 @@
     .buddy-repo-card a { display:inline-block; margin-top:.8rem; color:#7dd3fc; font-size:.72rem; font-weight:800; }
     .buddy-repo-status,.buddy-repo-tech { display:inline-flex; padding:.25rem .42rem; border-radius:.4rem; font-size:.48rem; font-weight:800; letter-spacing:.08em; color:#a5f3fc; background:rgba(8,145,178,.13); border:1px solid rgba(34,211,238,.18); }
     .buddy-repo-private { color:#c4b5fd; background:rgba(109,40,217,.13); border-color:rgba(167,139,250,.2); }
+    .buddy-stack-strip { border-top:1px solid rgba(56,189,248,.15); padding-top:1.3rem; }
+    .buddy-provider-chip { display:inline-flex; align-items:center; gap:.55rem; padding:.45rem .72rem .45rem .45rem; border-radius:999px; border:1px solid rgba(148,163,184,.18); background:rgba(8,16,33,.8); color:#cbd5e1; font-size:.72rem; font-weight:700; transition:border-color .2s ease,background .2s ease,transform .2s ease; }
+    .buddy-provider-chip:hover { border-color:rgba(56,189,248,.45); background:rgba(37,99,235,.12); transform:translateY(-2px); }
+    .buddy-provider-mark { display:grid; place-items:center; width:1.65rem; height:1.65rem; border-radius:50%; font-size:.85rem; font-weight:900; background:#12213b; color:#e0f2fe; }
+    .mark-openai { color:#e2e8f0; } .mark-groq { color:#fbbf24; } .mark-deepseek { color:#60a5fa; } .mark-qwen { color:#c4b5fd; } .mark-ollama { color:#86efac; } .mark-mistral { color:#fdba74; } .mark-nvidia { color:#a3e635; } .mark-hf { color:#fcd34d; } .mark-router { color:#67e8f9; }
     .buddy-models-panel { padding:clamp(1.1rem,3vw,2rem); border:1px solid rgba(56,189,248,.19); border-radius:1.5rem; background:radial-gradient(ellipse at 90% 0%,rgba(37,99,235,.12),transparent 40%),rgba(4,10,24,.78); }
     .buddy-model-card { min-width:0; border:1px solid rgba(56,189,248,.18); border-radius:1rem; padding:1.1rem; background:linear-gradient(145deg,rgba(13,24,48,.94),rgba(5,10,24,.94)); transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
     .buddy-model-card:hover { transform:translateY(-4px); border-color:rgba(56,189,248,.48); box-shadow:0 18px 42px rgba(37,99,235,.13); }
@@ -1401,8 +1406,8 @@
         <article class="buddy-model-card">
           <div class="buddy-model-logo"><img src="public/images/google-gemini-mark.svg" width="44" height="44" alt="" loading="lazy" /></div>
           <div class="buddy-model-type">MODEL FAMILY</div><h4>Gemini</h4>
-          <p>Google's multimodal model family for language, reasoning and supported image/audio/video tasks, depending on the model.</p>
-          <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">Explore Gemini ↗</a>
+          <p>Gemini API work is present in the BUDDY codebase, including a Gemini Live Odia voice-assistant prototype. Exact model availability depends on the configured API.</p>
+          <a href="https://ai.google.dev/gemini-api/docs" target="_blank" rel="noopener noreferrer">Gemini API docs ↗</a>
         </article>
         <article class="buddy-model-card">
           <div class="buddy-model-logo"><img src="public/images/google-gemma-mark.svg" width="44" height="44" alt="" loading="lazy" /></div>
@@ -1422,6 +1427,20 @@
           <p>Google Cloud's platform for accessing and deploying supported models and building managed AI applications.</p>
           <a href="https://cloud.google.com/vertex-ai" target="_blank" rel="noopener noreferrer">Explore Vertex AI ↗</a>
         </article>
+      </div>
+      <div class="buddy-stack-strip mt-8" aria-label="AI tools and model ecosystems used or explored in project work">
+        <div class="mb-4"><span class="buddy-eyebrow">BROADER AI STACK</span><p class="text-sm text-slate-400 mt-1">Providers and local model tools referenced across project work—not a claim that every provider is connected to this website.</p></div>
+        <div class="flex flex-wrap gap-2">
+          <a class="buddy-provider-chip" href="https://openai.com/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-openai">◎</span>OpenAI</a>
+          <a class="buddy-provider-chip" href="https://groq.com/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-groq">G</span>Groq</a>
+          <a class="buddy-provider-chip" href="https://www.deepseek.com/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-deepseek">D</span>DeepSeek</a>
+          <a class="buddy-provider-chip" href="https://qwen.ai/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-qwen">Q</span>Qwen</a>
+          <a class="buddy-provider-chip" href="https://ollama.com/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-ollama">O</span>Ollama</a>
+          <a class="buddy-provider-chip" href="https://mistral.ai/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-mistral">M</span>Mistral</a>
+          <a class="buddy-provider-chip" href="https://build.nvidia.com/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-nvidia">N</span>NVIDIA / Nemotron</a>
+          <a class="buddy-provider-chip" href="https://huggingface.co/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-hf">H</span>Hugging Face</a>
+          <a class="buddy-provider-chip" href="https://openrouter.ai/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-router">↗</span>OpenRouter</a>
+        </div>
       </div>
       <p class="text-xs text-slate-500 mt-4">Model availability changes over time. This directory identifies Google AI families and platforms; it does not imply every model is currently integrated into BUDDY.</p>
     </section>
