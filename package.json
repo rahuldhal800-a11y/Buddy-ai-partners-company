@@ -1,0 +1,14 @@
+{
+  "name": "buddy-ai-partners",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BUDDY AI PARTNERS — premium AI automation & digital growth company website",
+  "scripts": {
+    "test": "playwright test",
+    "test:unit": "python3 tests/directory-regression.py && node tests/runtime-smoke.js",
+    "build": "sh deploy-surge.sh"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  }
+}
