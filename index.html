@@ -1261,13 +1261,15 @@
         <!-- Real Founder Portrait Container -->
         <div class="lg:col-span-4 flex flex-col items-center text-center">
           <div class="relative w-52 h-52 sm:w-60 sm:h-60 rounded-2xl p-1.5 bg-gradient-to-tr from-blue-600 via-cyan-400 to-slate-200 shadow-2xl shadow-blue-600/20">
-            <img
+            <picture>
+              <source type="image/webp" srcset="public/images/founder-rahul-640.webp" />
+              <img
               id="founderImg"
               src="public/images/founder-rahul.png"
               alt="Rahul Kumar Dhal, Founder of BUDDY AI PARTNERS"
               class="w-full h-full object-cover object-center rounded-[14px] founder-photo-filter bg-slate-900"
-              loading="lazy" decoding="async"
-            />
+              loading="lazy" decoding="async" width="240" height="240" />
+            </picture>
           </div>
 
           <h2 class="font-display text-2xl font-bold text-white mt-5">Rahul Kumar Dhal</h2>
@@ -1472,7 +1474,7 @@
           <p class="text-xs text-slate-400"><strong class="text-slate-200">Scope & boundaries:</strong> scoped to agreed stages/integrations; data migration and custom billing logic estimated separately; team training included for handover.</p>
           <p class="text-xs text-sky-300"><strong>Next step:</strong> Map your stages → request a CRM walkthrough.</p>
         </div>
-        <button type="button" onclick="selectServiceAndContact('Custom Business CRM Deployment')" class="mt-5 w-full py-2.5 rounded-lg bg-blue-600/20 hover:bg-blue-600 text-sky-300 hover:text-white text-xs font-bold border border-sky-500/30 transition">Inquire About Custom CRM →</button>
+        <div class="flex items-center justify-between mt-3"><button type="button" onclick="selectServiceAndContact('Custom Business CRM Deployment')" class="w-full py-2 rounded-lg bg-blue-600/20 hover:bg-blue-600 text-sky-300 hover:text-white text-xs font-bold border border-sky-500/30 transition">Inquire About Custom CRM →</button><a href="#page-portfolio" onclick="switchPage('portfolio')" class="text-[10px] font-bold text-sky-300 hover:underline">See built CRM →</a></div>
       </article>
       <article class="glass-card rounded-2xl p-6 flex flex-col">
         <span class="case-tag">02 · AI AUTOMATION</span>
@@ -1483,7 +1485,7 @@
           <p class="text-xs text-slate-400"><strong class="text-slate-200">Scope & boundaries:</strong> site/API changes may require maintenance; no fully autonomous outreach without approval; credentials handled per agreed access.</p>
           <p class="text-xs text-sky-300"><strong>Next step:</strong> Share one repetitive workflow → get automation scope.</p>
         </div>
-        <button type="button" onclick="selectServiceAndContact('Custom Web App & Python/n8n Automation')" class="mt-5 w-full py-2.5 rounded-lg bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold border border-indigo-500/30 transition">Inquire About Automation →</button>
+        <div class="flex items-center justify-between mt-3"><button type="button" onclick="selectServiceAndContact('Custom Web App & Python/n8n Automation')" class="w-full py-2 rounded-lg bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold border border-indigo-500/30 transition">Inquire About Automation →</button><a href="#page-portfolio" onclick="switchPage('portfolio')" class="text-[10px] font-bold text-sky-300 hover:underline">See built pipeline →</a></div>
       </article>
       <article class="glass-card rounded-2xl p-6 flex flex-col">
         <span class="case-tag">03 · WEB DEVELOPMENT</span>
@@ -1748,6 +1750,16 @@
             </button>
           </div>
         </div>
+      </div>
+
+      <!-- Engineering Lab cross-reference -->
+      <div class="lg:col-span-2 glass-card rounded-2xl p-6 flex flex-col justify-between mb-6 hidden md:block">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-3 block">SEE WHAT WE'VE BUILT</span>
+          <h3 class="font-display text-xl font-bold text-white mb-3">Engineering Lab — Live Builds</h3>
+          <p class="text-xs text-slate-400 mb-4 leading-relaxed">Flagship CRM, AEGIS agent system, Genesis AI sandbox, Rental MVP and Buddy CLI — all code-verified. Browse the full lab.</p>
+        </div>
+        <button type="button" onclick="switchPage('portfolio')" class="w-full py-2.5 rounded-lg text-xs font-bold text-sky-300 hover:underline border border-sky-500/30">View Engineering Lab →</button>
       </div>
 
       <!-- Validated Contact Form & WhatsApp Flow -->
