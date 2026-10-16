@@ -316,6 +316,34 @@
       }
     }
 
+    /* Locally hosted product illustrations: no fragile third-party image dependency. */
+    .buddy-hero-art { box-shadow: 0 24px 80px rgba(0,0,0,.34), 0 0 45px rgba(37,99,235,.08); }
+    .buddy-hero-art img { display:block; width:100%; height:auto; }
+    .buddy-project-visual { position:relative; overflow:hidden; background:#050a16; border-bottom:1px solid rgba(56,189,248,.2); }
+    .buddy-project-visual img { display:block; width:100%; height:auto; aspect-ratio:8/5; object-fit:cover; transition:transform .7s cubic-bezier(.2,.7,.2,1), filter .4s ease; }
+    .glass-card:hover .buddy-project-visual img { transform:scale(1.035); filter:saturate(1.12); }
+    .buddy-visual-label { position:absolute; left:.7rem; bottom:.7rem; max-width:calc(100% - 1.4rem); padding:.35rem .55rem; border:1px solid rgba(125,211,252,.28); border-radius:.5rem; background:rgba(3,8,20,.88); color:#bae6fd; font-size:.56rem; font-weight:800; letter-spacing:.08em; backdrop-filter:blur(8px); }
+    .buddy-models-panel { padding:clamp(1.1rem,3vw,2rem); border:1px solid rgba(56,189,248,.19); border-radius:1.5rem; background:radial-gradient(ellipse at 90% 0%,rgba(37,99,235,.12),transparent 40%),rgba(4,10,24,.78); }
+    .buddy-model-card { min-width:0; border:1px solid rgba(56,189,248,.18); border-radius:1rem; padding:1.1rem; background:linear-gradient(145deg,rgba(13,24,48,.94),rgba(5,10,24,.94)); transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
+    .buddy-model-card:hover { transform:translateY(-4px); border-color:rgba(56,189,248,.48); box-shadow:0 18px 42px rgba(37,99,235,.13); }
+    .buddy-model-logo { display:grid; place-items:center; width:3.25rem; height:3.25rem; border-radius:.9rem; border:1px solid rgba(125,211,252,.18); background:rgba(255,255,255,.04); margin-bottom:1rem; }
+    .buddy-model-logo img { display:block; width:2.25rem; height:2.25rem; }
+    .buddy-google-ai-studio { color:#93c5fd; font-size:2.5rem; background:linear-gradient(145deg,rgba(66,133,244,.18),rgba(161,66,244,.16)); }
+    .buddy-vertex-mark { color:#67e8f9; font-size:2rem; background:linear-gradient(145deg,rgba(52,168,83,.16),rgba(66,133,244,.18)); }
+    .buddy-model-type { color:#7dd3fc; font-size:.57rem; font-weight:800; letter-spacing:.13em; }
+    .buddy-model-card h4 { color:#f8fafc; font:700 1.2rem/1.3 'Space Grotesk',sans-serif; margin:.45rem 0; }
+    .buddy-model-card p { min-height:5.4rem; color:#aab8cc; font-size:.78rem; line-height:1.6; }
+    .buddy-model-card a { display:inline-block; margin-top:.9rem; color:#7dd3fc; font-size:.75rem; font-weight:700; }
+    .buddy-action-link { display:inline-flex; align-items:center; justify-content:center; border:1px solid rgba(56,189,248,.3); background:rgba(37,99,235,.14); color:#bae6fd; padding:.75rem 1rem; border-radius:.75rem; font-size:.75rem; font-weight:800; transition:background .2s ease,border-color .2s ease; }
+    .buddy-action-link:hover { background:rgba(37,99,235,.28); border-color:rgba(56,189,248,.6); }
+    @media (max-width:640px) {
+      .buddy-model-card p { min-height:0; }
+      .buddy-visual-label { font-size:.48rem; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .buddy-project-visual img,.buddy-model-card,.buddy-hero-art * { animation:none !important; transition:none !important; }
+    }
+
     /* BUDDY PREMIUM CONVERSION SYSTEM — preserve navy / blue / cyan identity */
     :root {
       --buddy-ink: #040711;
@@ -768,7 +796,13 @@
               </div>
             </div>
 
-            <div id="heroCarousel" class="min-h-[290px] flex flex-col justify-between"></div>
+            <figure class="buddy-hero-art relative overflow-hidden rounded-2xl border border-sky-400/25 bg-slate-950/70 shadow-2xl shadow-blue-950/40 mb-5">
+              <img src="public/images/hero-agent-network.svg" alt="Original BUDDY AI workflow network illustration showing input, model, reasoning, routing, automation and reporting nodes" width="900" height="680" fetchpriority="high" decoding="async" class="w-full h-auto block" />
+              <figcaption class="absolute bottom-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2 rounded-lg border border-sky-400/20 bg-slate-950/90 px-3 py-2 text-[10px] font-semibold tracking-wide text-sky-100 backdrop-blur">
+                <span>THE BUDDY SYSTEM MAP</span><span class="text-slate-400">Illustrative workflow · not live telemetry</span>
+              </figcaption>
+            </figure>
+            <div id="heroCarousel" class="min-h-[250px] flex flex-col justify-between"></div>
 
             <div class="w-full bg-slate-800 h-1 rounded-full mt-4 overflow-hidden">
               <div id="slideProgress" class="bg-gradient-to-r from-blue-500 to-cyan-400 h-full w-0 transition-all duration-300"></div>
@@ -1345,6 +1379,44 @@
         </button>
       </div>
     </div>
+
+    <section class="buddy-models-panel mt-12 sm:mt-16" aria-labelledby="google-ai-heading">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+        <div>
+          <span class="buddy-eyebrow">MODEL &amp; TOOL DIRECTORY</span>
+          <h3 id="google-ai-heading" class="font-display text-2xl sm:text-3xl font-bold text-white mt-2">Google AI, clearly organised.</h3>
+          <p class="text-sm text-slate-400 mt-2 max-w-2xl">Model families and developer tools are separated so visitors can tell what is a model, what is a platform, and what is a project integration.</p>
+        </div>
+        <a class="buddy-action-link" href="https://ai.google.dev/" target="_blank" rel="noopener noreferrer">Google AI for Developers ↗</a>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <article class="buddy-model-card">
+          <div class="buddy-model-logo"><img src="public/images/google-gemini-mark.svg" width="44" height="44" alt="" loading="lazy" /></div>
+          <div class="buddy-model-type">MODEL FAMILY</div><h4>Gemini</h4>
+          <p>Google's multimodal model family for language, reasoning and supported image/audio/video tasks, depending on the model.</p>
+          <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">Explore Gemini ↗</a>
+        </article>
+        <article class="buddy-model-card">
+          <div class="buddy-model-logo"><img src="public/images/google-gemma-mark.svg" width="44" height="44" alt="" loading="lazy" /></div>
+          <div class="buddy-model-type">OPEN MODEL FAMILY</div><h4>Gemma</h4>
+          <p>Google's open model family for developer experimentation and local or hosted deployment, depending on the variant.</p>
+          <a href="https://ai.google.dev/gemma" target="_blank" rel="noopener noreferrer">Explore Gemma ↗</a>
+        </article>
+        <article class="buddy-model-card">
+          <div class="buddy-model-logo buddy-google-ai-studio" aria-hidden="true"><span>✦</span></div>
+          <div class="buddy-model-type">DEVELOPER TOOL</div><h4>Google AI Studio</h4>
+          <p>A workspace for testing supported Gemini models and prototyping prompts and API workflows.</p>
+          <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer">Open AI Studio ↗</a>
+        </article>
+        <article class="buddy-model-card">
+          <div class="buddy-model-logo buddy-vertex-mark" aria-hidden="true"><span>◆</span></div>
+          <div class="buddy-model-type">CLOUD PLATFORM</div><h4>Vertex AI</h4>
+          <p>Google Cloud's platform for accessing and deploying supported models and building managed AI applications.</p>
+          <a href="https://cloud.google.com/vertex-ai" target="_blank" rel="noopener noreferrer">Explore Vertex AI ↗</a>
+        </article>
+      </div>
+      <p class="text-xs text-slate-500 mt-4">Model availability changes over time. This directory identifies Google AI families and platforms; it does not imply every model is currently integrated into BUDDY.</p>
+    </section>
   </section>
 
   <!-- ========================================================= -->
@@ -1363,12 +1435,13 @@
       <!-- Project 1 -->
       <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
         <div>
-          <div class="h-44 bg-gradient-to-br from-blue-900 via-slate-900 to-black p-6 flex flex-col justify-between border-b border-sky-500/20">
-            <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-bold w-fit">CRM ARCHITECTURE</span>
-            <div>
-              <p class="text-xs text-sky-400 font-semibold">BUSINESS OPERATIONS SUITE</p>
-              <h3 class="font-display text-2xl font-bold text-white">Buddy AI Business CRM</h3>
-            </div>
+          <div class="buddy-project-visual">
+            <img src="public/images/project-crm.svg" alt="Illustrative CRM dashboard with lead capture, qualification, assignment and follow-up stages; synthetic data only" width="960" height="600" loading="lazy" decoding="async" />
+            <span class="buddy-visual-label">CRM · CONCEPT VISUAL</span>
+          </div>
+          <div class="px-6 pt-5">
+            <span class="text-[10px] font-bold tracking-widest text-sky-300">REAL-ESTATE OPERATIONS</span>
+            <h3 class="font-display text-xl font-bold text-white mt-2">KNR Integrity CRM</h3>
           </div>
           <div class="p-6">
             <p class="text-xs text-slate-300 leading-relaxed">
@@ -1386,12 +1459,13 @@
       <!-- Project 2 -->
       <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
         <div>
-          <div class="h-44 bg-gradient-to-br from-indigo-900 via-slate-900 to-black p-6 flex flex-col justify-between border-b border-indigo-500/20">
-            <span class="px-2.5 py-1 rounded bg-purple-500/20 text-purple-300 text-[10px] font-bold w-fit">PYTHON + PLAYWRIGHT + N8N</span>
-            <div>
-              <p class="text-xs text-indigo-400 font-semibold">WORKFLOW AUTOMATION</p>
-              <h3 class="font-display text-2xl font-bold text-white">Automated Lead Extraction Pipeline</h3>
-            </div>
+          <div class="buddy-project-visual">
+            <img src="public/images/project-buddy-agents.svg" alt="Conceptual AI agent architecture diagram showing model gateway, tool router, workflow runner, human approval and logs" width="960" height="600" loading="lazy" decoding="async" />
+            <span class="buddy-visual-label">AGENT ARCHITECTURE · CONCEPT</span>
+          </div>
+          <div class="px-6 pt-5">
+            <span class="text-[10px] font-bold tracking-widest text-indigo-300">AI SYSTEMS &amp; ORCHESTRATION</span>
+            <h3 class="font-display text-xl font-bold text-white mt-2">BUDDY AI Agent System</h3>
           </div>
           <div class="p-6">
             <p class="text-xs text-slate-300 leading-relaxed">
@@ -1409,12 +1483,13 @@
       <!-- Project 3 -->
       <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
         <div>
-          <div class="h-44 bg-gradient-to-br from-cyan-900 via-slate-900 to-black p-6 flex flex-col justify-between border-b border-cyan-500/20">
-            <span class="px-2.5 py-1 rounded bg-sky-500/20 text-sky-300 text-[10px] font-bold w-fit">META ADS &amp; AI CREATIVES</span>
-            <div>
-              <p class="text-xs text-cyan-400 font-semibold">BHUBANESWAR PROPERTY CAMPAIGNS</p>
-              <h3 class="font-display text-2xl font-bold text-white">Real Estate Lead Generation Funnels</h3>
-            </div>
+          <div class="buddy-project-visual">
+            <img src="public/images/project-web-platform.svg" alt="Original responsive digital product interface illustration with service cards and analytics; concept visual" width="960" height="600" loading="lazy" decoding="async" />
+            <span class="buddy-visual-label">WEB &amp; GROWTH · CONCEPT VISUAL</span>
+          </div>
+          <div class="px-6 pt-5">
+            <span class="text-[10px] font-bold tracking-widest text-cyan-300">WEB ENGINEERING &amp; DIGITAL GROWTH</span>
+            <h3 class="font-display text-xl font-bold text-white mt-2">KNR Website &amp; Growth Systems</h3>
           </div>
           <div class="p-6">
             <p class="text-xs text-slate-300 leading-relaxed">
@@ -1427,6 +1502,18 @@
             Launch Ad Campaign →
           </button>
         </div>
+      </div>
+    </div>
+
+    <div class="buddy-github-callout glass-card rounded-2xl p-6 sm:p-8 mt-10 flex flex-col md:flex-row md:items-center justify-between gap-5">
+      <div class="max-w-2xl">
+        <span class="buddy-eyebrow">OPEN-SOURCE &amp; ENGINEERING TRAIL</span>
+        <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mt-2">Explore the code behind the work.</h3>
+        <p class="text-sm text-slate-300 mt-2 leading-relaxed">Browse public repositories and technical experiments. Private products are shown only through approved, sanitized case studies—never exposed source code.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href="https://github.com/rahuldhal800-a11y/knr-executive-ai" target="_blank" rel="noopener noreferrer" class="buddy-action-link">KNR Executive AI ↗</a>
+        <a href="https://github.com/rahuldhal800-a11y/ai-agents-sandbox" target="_blank" rel="noopener noreferrer" class="buddy-action-link">AI Agents Sandbox ↗</a>
       </div>
     </div>
   </section>
