@@ -323,6 +323,14 @@
     .buddy-project-visual img { display:block; width:100%; height:auto; aspect-ratio:8/5; object-fit:cover; transition:transform .7s cubic-bezier(.2,.7,.2,1), filter .4s ease; }
     .glass-card:hover .buddy-project-visual img { transform:scale(1.035); filter:saturate(1.12); }
     .buddy-visual-label { position:absolute; left:.7rem; bottom:.7rem; max-width:calc(100% - 1.4rem); padding:.35rem .55rem; border:1px solid rgba(125,211,252,.28); border-radius:.5rem; background:rgba(3,8,20,.88); color:#bae6fd; font-size:.56rem; font-weight:800; letter-spacing:.08em; backdrop-filter:blur(8px); }
+    .buddy-repo-card { min-width:0; overflow:hidden; border:1px solid rgba(56,189,248,.18); border-radius:1rem; background:linear-gradient(145deg,rgba(13,24,48,.94),rgba(5,10,24,.94)); transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
+    .buddy-repo-card:hover { transform:translateY(-4px); border-color:rgba(56,189,248,.48); box-shadow:0 18px 42px rgba(37,99,235,.13); }
+    .buddy-repo-card > img { display:block; width:100%; aspect-ratio:16/10; object-fit:cover; border-bottom:1px solid rgba(56,189,248,.18); }
+    .buddy-repo-card h4 { margin:.8rem 0 .45rem; color:#f8fafc; font:700 1.05rem/1.3 'Space Grotesk',sans-serif; }
+    .buddy-repo-card p { color:#aab8cc; font-size:.75rem; line-height:1.6; min-height:5.2rem; }
+    .buddy-repo-card a { display:inline-block; margin-top:.8rem; color:#7dd3fc; font-size:.72rem; font-weight:800; }
+    .buddy-repo-status,.buddy-repo-tech { display:inline-flex; padding:.25rem .42rem; border-radius:.4rem; font-size:.48rem; font-weight:800; letter-spacing:.08em; color:#a5f3fc; background:rgba(8,145,178,.13); border:1px solid rgba(34,211,238,.18); }
+    .buddy-repo-private { color:#c4b5fd; background:rgba(109,40,217,.13); border-color:rgba(167,139,250,.2); }
     .buddy-models-panel { padding:clamp(1.1rem,3vw,2rem); border:1px solid rgba(56,189,248,.19); border-radius:1.5rem; background:radial-gradient(ellipse at 90% 0%,rgba(37,99,235,.12),transparent 40%),rgba(4,10,24,.78); }
     .buddy-model-card { min-width:0; border:1px solid rgba(56,189,248,.18); border-radius:1rem; padding:1.1rem; background:linear-gradient(145deg,rgba(13,24,48,.94),rgba(5,10,24,.94)); transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
     .buddy-model-card:hover { transform:translateY(-4px); border-color:rgba(56,189,248,.48); box-shadow:0 18px 42px rgba(37,99,235,.13); }
@@ -1504,6 +1512,31 @@
         </div>
       </div>
     </div>
+
+    <section class="mt-12" aria-labelledby="engineering-projects-heading">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+        <div><span class="buddy-eyebrow">GITHUB &amp; BUILDER WORK</span><h3 id="engineering-projects-heading" class="font-display text-2xl sm:text-3xl font-bold text-white mt-2">More systems in the lab.</h3><p class="text-sm text-slate-400 mt-2 max-w-2xl">A curated view of the broader engineering journey. Public repositories link to source; private projects are described without exposing code.</p></div>
+        <a href="https://github.com/rahuldhal800-a11y" target="_blank" rel="noopener noreferrer" class="buddy-action-link">Explore GitHub profile ↗</a>
+      </div>
+      <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
+        <article class="buddy-repo-card">
+          <img src="public/images/project-executive-ai.svg" alt="KNR Executive AI conceptual workflow illustration" width="900" height="560" loading="lazy" decoding="async" />
+          <div class="p-4"><div class="flex flex-wrap gap-2"><span class="buddy-repo-status">PUBLIC REPOSITORY</span><span class="buddy-repo-tech">Python</span></div><h4>KNR Executive AI</h4><p>AI-agent project for real-estate business workflows. Review the repository for the current implementation scope.</p><a href="https://github.com/rahuldhal800-a11y/knr-executive-ai" target="_blank" rel="noopener noreferrer">View source ↗</a></div>
+        </article>
+        <article class="buddy-repo-card">
+          <img src="public/images/project-agent-sandbox.svg" alt="AI agent sandbox conceptual code workspace illustration" width="900" height="560" loading="lazy" decoding="async" />
+          <div class="p-4"><div class="flex flex-wrap gap-2"><span class="buddy-repo-status">PUBLIC REPOSITORY</span><span class="buddy-repo-tech">Python</span></div><h4>AI Agents Sandbox</h4><p>Experiments and prototypes for agent patterns. The linked source is the authority for exact features.</p><a href="https://github.com/rahuldhal800-a11y/ai-agents-sandbox" target="_blank" rel="noopener noreferrer">View source ↗</a></div>
+        </article>
+        <article class="buddy-repo-card">
+          <img src="public/images/project-knr-ai-agent.svg" alt="KNR Integrity AI agent conceptual property inquiry workflow illustration" width="900" height="560" loading="lazy" decoding="async" />
+          <div class="p-4"><div class="flex flex-wrap gap-2"><span class="buddy-repo-status buddy-repo-private">PRIVATE PROJECT</span><span class="buddy-repo-tech">TypeScript</span></div><h4>KNR Integrity AI Agent</h4><p>Private agent project for the real-estate context. This public case study uses a conceptual workflow, not private source or production data.</p><a href="https://knrintegrity.com/" target="_blank" rel="noopener noreferrer">View public business site ↗</a></div>
+        </article>
+        <article class="buddy-repo-card">
+          <img src="public/images/project-renthub.svg" alt="RK Rent Hub rental business website concept illustration" width="900" height="560" loading="lazy" decoding="async" />
+          <div class="p-4"><div class="flex flex-wrap gap-2"><span class="buddy-repo-status buddy-repo-private">PRIVATE PROJECT</span><span class="buddy-repo-tech">Web</span></div><h4>RK Rent Hub</h4><p>Digital-first rental business platform in development. The preview is conceptual until the public website is launched.</p><a href="https://github.com/rahuldhal800-a11y" target="_blank" rel="noopener noreferrer">More engineering work ↗</a></div>
+        </article>
+      </div>
+    </section>
 
     <div class="buddy-github-callout glass-card rounded-2xl p-6 sm:p-8 mt-10 flex flex-col md:flex-row md:items-center justify-between gap-5">
       <div class="max-w-2xl">
