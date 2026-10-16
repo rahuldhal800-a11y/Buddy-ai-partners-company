@@ -924,6 +924,20 @@
       .bai-orb-core, .bai-orb-ring, .bai-orb-ring2, .bai-orb-sat, .bai-msg, .bai-chip, .bai-typing i { animation:none!important; }
       .bai-log { scroll-behavior:auto; }
     }
+
+    /* ============================================================
+       PREMIUM POLISH LAYER — eyebrows, glows, stats, dividers
+       ============================================================ */
+    .eyebrow { display:inline-flex; align-items:center; gap:.45rem; padding:.36rem .85rem; border-radius:99px; font-size:.6rem; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:#b3ecff; background:linear-gradient(135deg, rgba(0,242,254,.10), rgba(37,99,235,.10)); border:1px solid rgba(0,242,254,.3); box-shadow:0 0 20px rgba(0,242,254,.12), inset 0 0 14px rgba(0,242,254,.05); }
+    .eyebrow::before { content:''; width:5px; height:5px; border-radius:99px; background:var(--cyan-start); box-shadow:0 0 8px rgba(0,242,254,.9); }
+    .stat-num { font-family:'Space Grotesk',sans-serif; font-weight:800; letter-spacing:-.02em; line-height:1; background:linear-gradient(90deg,#22d3ee,#7dd3fc 45%,#3b82f6); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .div-grad { height:1px; max-width:72rem; margin:0 auto; background:linear-gradient(90deg, transparent, rgba(56,189,248,.35), transparent); }
+    .glow { position:absolute; pointer-events:none; border-radius:50%; filter:blur(110px); z-index:0; }
+    #page-home::before, #page-services::before, #page-buddy::before, #page-contact::before, #page-portfolio::before {
+      content:''; position:absolute; top:-80px; left:50%; transform:translateX(-50%); width:min(620px,90vw); height:420px;
+      background:radial-gradient(ellipse at center, rgba(34,211,238,.10), rgba(37,99,235,.06) 45%, transparent 70%);
+      filter:blur(70px); pointer-events:none; z-index:-1; border-radius:50%;
+    }
   </style>
 
   <!-- Search and social metadata -->
@@ -1004,7 +1018,7 @@
 
   <!-- STICKY NAVIGATION HEADER -->
   <header class="sticky top-0 z-50 bg-[#050811]/90 backdrop-blur-xl border-b border-sky-500/20 no-print">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Identity -->
       <button type="button" onclick="switchPage('home')" class="flex items-center gap-3.5 text-left group focus:outline-none">
@@ -1066,7 +1080,7 @@
   <!-- PAGE 1: HOME                                              -->
   <!-- ========================================================= -->
   <main id="page-home" class="page-view active relative z-10">
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 lg:py-20">
+    <section class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-10 pb-16 lg:py-20">
       <div class="grid lg:grid-cols-12 gap-10 items-center">
         
         <!-- Left Hero Copy -->
@@ -1091,18 +1105,21 @@
           </div>
 
           <!-- Substantiated Core Highlights -->
-          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80">
-            <div>
-              <p class="font-display text-2xl sm:text-3xl font-bold text-sky-400">3.5+ Yrs</p>
-              <p class="text-xs text-slate-400">Operations &amp; Digital Lead Management</p>
-            </div>
-            <div>
-              <p class="font-display text-2xl sm:text-3xl font-bold text-cyan-300">Custom</p>
-              <p class="text-xs text-slate-400">CRM, Scraper &amp; Webhook Pipelines</p>
-            </div>
-            <div>
-              <p class="font-display text-2xl sm:text-3xl font-bold text-white">Full-Stack</p>
-              <p class="text-xs text-slate-400">React, FastAPI &amp; Performance Ads</p>
+          <div class="relative pt-8 mt-4">
+            <div class="div-grad absolute top-0 left-0 right-0" aria-hidden="true"></div>
+            <div class="grid grid-cols-3 gap-5">
+              <div>
+                <p class="stat-num text-3xl sm:text-4xl md:text-5xl">3.5+</p>
+                <p class="text-[11px] sm:text-xs text-slate-400 mt-2 leading-snug">Years in operations &amp; digital lead management</p>
+              </div>
+              <div>
+                <p class="stat-num text-3xl sm:text-4xl md:text-5xl">104</p>
+                <p class="text-[11px] sm:text-xs text-slate-400 mt-2 leading-snug">Tools tracked across the live technology index</p>
+              </div>
+              <div>
+                <p class="stat-num text-3xl sm:text-4xl md:text-5xl">60+</p>
+                <p class="text-[11px] sm:text-xs text-slate-400 mt-2 leading-snug">ORERA projects indexed for KNR Integrity</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1150,7 +1167,7 @@
     </section>
 
     <!-- VISUAL SERVICE GRID -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20" aria-labelledby="svcgrid-title">
+    <section class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-16 sm:pb-20" aria-labelledby="svcgrid-title">
       <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
         <div>
           <p class="buddy-eyebrow">What we deliver</p>
@@ -1195,7 +1212,7 @@
     </section>
 
     <!-- INTERACTIVE WORKSPACE (CRM demo + capability carousel) -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20" aria-labelledby="workspace-title">
+    <section class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-16 sm:pb-20" aria-labelledby="workspace-title">
       <div class="text-center max-w-3xl mx-auto mb-8">
         <p class="buddy-eyebrow">See the system in action</p>
         <h2 id="workspace-title" class="font-display text-3xl sm:text-4xl font-bold mt-2 chrome-text">Interactive workspace preview.</h2>
@@ -1289,10 +1306,11 @@
       </div>
     </div>
 
+    <div class="div-grad" aria-hidden="true"></div>
     <!-- OUR MOTIVE: DISCIPLINE, EXECUTION, FOCUS -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-20">
       <div class="text-center max-w-3xl mx-auto mb-14">
-        <span class="text-xs font-bold uppercase tracking-widest text-sky-400">OUR OPERATING PRINCIPLES</span>
+        <span class="eyebrow">OUR OPERATING PRINCIPLES</span>
         <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2 chrome-text">Built on Discipline, Execution &amp; Focus</h2>
         <p class="text-slate-400 mt-3 text-sm sm:text-base">
           Every workflow, campaign, and software deployment is structured around measurable operational standards.
@@ -1355,7 +1373,7 @@
 
     
     <!-- PREMIUM CONVERSION SECTIONS: practical services, clear process, international/NRI-friendly delivery -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+    <section class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20">
       <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
         <p class="buddy-eyebrow">Built for outcomes, not buzzwords</p>
         <h2 class="buddy-section-heading font-display text-3xl sm:text-5xl font-bold mt-3 chrome-text">One partner. The whole growth system.</h2>
@@ -1384,7 +1402,7 @@
     </section>
 
     <!-- Interactive technical architecture -->
-    <section id="arch" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20" aria-labelledby="arch-title">
+    <section id="arch" class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-16 sm:pb-20" aria-labelledby="arch-title">
       <div class="glass-card rounded-2xl p-6 sm:p-8">
         <p class="buddy-eyebrow">How the system fits together</p>
         <h2 id="arch-title" class="font-display text-3xl sm:text-4xl font-bold mt-3 chrome-text">A practical lead-operations architecture.</h2>
@@ -1418,7 +1436,7 @@
     </section>
 
     <!-- Featured work preview -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20" aria-labelledby="feat-title">
+    <section class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-16 sm:pb-20" aria-labelledby="feat-title">
       <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
         <div><p class="buddy-eyebrow">Featured work</p><h2 id="feat-title" class="font-display text-3xl sm:text-4xl font-bold mt-2 chrome-text">Proof over promises.</h2></div>
         <button type="button" onclick="switchPage('portfolio')" class="text-xs font-bold text-sky-300 hover:underline">View all case studies →</button>
@@ -1429,7 +1447,7 @@
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
+    <section class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-16 sm:pb-20">
       <div class="grid lg:grid-cols-2 gap-8 items-start">
         <div class="glass-card rounded-2xl p-6 sm:p-8">
           <p class="buddy-eyebrow">A clear delivery model</p>
@@ -1463,7 +1481,7 @@
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <section class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-16">
       <div class="grid lg:grid-cols-[.8fr_1.2fr] gap-8 items-start">
         <div>
           <p class="buddy-eyebrow">The build stack</p>
@@ -1506,7 +1524,7 @@
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16">
+    <section class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-12 sm:pb-16">
       <div class="text-center max-w-3xl mx-auto mb-8">
         <p class="buddy-eyebrow">Questions before we build?</p>
         <h2 class="buddy-section-heading font-display text-3xl sm:text-4xl font-bold mt-3 chrome-text">Clear answers. Practical next steps.</h2>
@@ -1533,7 +1551,8 @@
       </script>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
+    <div class="div-grad" aria-hidden="true"></div>
+    <section class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20">
       <div class="buddy-cta-panel p-6 sm:p-10 lg:p-12">
         <div class="relative z-10 max-w-3xl">
           <p class="buddy-eyebrow">Your next step</p>
@@ -1548,11 +1567,11 @@
     </section>
 
     <!-- UPGRADE: INTERACTIVE ROI SIMULATOR & LIVE AI TERMINAL -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+    <section class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-20">
       <div class="grid lg:grid-cols-12 gap-8 items-stretch">
         <div class="lg:col-span-6 glass-card rounded-2xl p-6 sm:p-8 border border-sky-500/30 flex flex-col justify-between">
           <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-sky-400">INTERACTIVE GROWTH CALCULATOR</span>
+            <span class="eyebrow">INTERACTIVE GROWTH CALCULATOR</span>
             <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mt-1">Estimate Your Monthly Lead Pipeline</h3>
             <p class="text-xs text-slate-400 mt-1 mb-3">A planning calculator using illustrative cost-per-lead assumptions—not a forecast or guarantee. Actual results depend on audience, offer, creative, market and campaign setup.</p>
             <div class="space-y-5">
@@ -1596,7 +1615,7 @@
         <div class="lg:col-span-6 glass-card rounded-2xl p-6 sm:p-8 border border-cyan-500/30 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between">
-              <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">INTERACTIVE AUTOMATION DEMO</span>
+              <span class="eyebrow">INTERACTIVE AUTOMATION DEMO</span>
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">● SIMULATED DEMO</span>
             </div>
             <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mt-1">Preview a Lead-Processing Workflow</h3>
@@ -1684,7 +1703,7 @@
     </script>
 
     <!-- QUICK NAVIGATION GATEWAY -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+    <section class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-24">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <button type="button" onclick="switchPage('services')" class="glass-card rounded-2xl p-6 text-left group">
           <span class="text-xs font-bold text-sky-400 uppercase">01 / Capabilities</span>
@@ -1713,7 +1732,7 @@
   <!-- ========================================================= -->
   <!-- PAGE 2: ABOUT, FOUNDER PHOTO & CREDENTIALS                -->
   <!-- ========================================================= -->
-  <section id="page-about" class="page-view relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+  <section id="page-about" class="page-view relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 md:py-24">
     
     <!-- Founder Profile Card (Using Real Original Photograph) -->
     <div class="glass-card rounded-3xl p-8 lg:p-12 mb-14">
@@ -1749,7 +1768,7 @@
 
         <!-- Authentic Founder Introduction -->
         <div class="lg:col-span-8 space-y-4">
-          <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">FOUNDER INTRODUCTION</span>
+          <span class="eyebrow">FOUNDER INTRODUCTION</span>
           <h3 class="font-display text-3xl sm:text-4xl font-bold chrome-text">Building Practical AI Automation, Intelligent CRMs &amp; Digital Growth Solutions</h3>
           <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
             My focus is on combining operational discipline, software engineering, and performance marketing to help businesses manage leads more efficiently, improve customer engagement, and scale with clarity.
@@ -1774,7 +1793,7 @@
 
     <!-- PROFESSIONAL EXPERIENCE & SKILL CREDENTIALS -->
     <div class="mb-8">
-      <span class="text-xs font-bold uppercase tracking-widest text-sky-400">EXPERIENCE &amp; QUALIFICATIONS</span>
+      <span class="eyebrow">EXPERIENCE &amp; QUALIFICATIONS</span>
       <h3 class="font-display text-2xl sm:text-4xl font-bold text-white mt-1">Professional Track Record &amp; Certifications</h3>
     </div>
 
@@ -1873,9 +1892,20 @@
       <div class="glass-card rounded-2xl p-6 sm:p-8">
         <p class="buddy-eyebrow">What is verified vs in progress</p>
         <h3 class="font-display text-2xl font-bold text-white mt-2">Clear about experience levels.</h3>
-        <p class="text-sm text-slate-300 mt-3 leading-relaxed"><strong class="text-emerald-300">Operational delivery:</strong> real-estate lead operations, CRM workflows, Meta/Google campaigns, landing pages, static-site deployment with HTTPS.</p>
-        <p class="text-sm text-slate-300 mt-2 leading-relaxed"><strong class="text-sky-300">Hands-on builds:</strong> React + FastAPI tools, Python Playwright + n8n pipelines, WhatsApp workflow templates.</p>
-        <p class="text-sm text-slate-400 mt-2 leading-relaxed"><strong class="text-violet-300">Research prototypes:</strong> Next.js/TypeScript experiments, PostgreSQL/Supabase data models, Docker/AWS/EC2/Nginx concepts, multilingual voice-assistant exploration — labelled as prototypes, not production services.</p>
+        <div class="grid gap-3 mt-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+          <div class="rounded-xl border border-emerald-400/25 bg-emerald-950/20 p-3.5 hover:border-emerald-400/50 transition">
+            <p class="text-[10px] font-extrabold uppercase tracking-widest text-emerald-300">Operational delivery</p>
+            <p class="text-[11px] text-slate-300 mt-1.5 leading-relaxed">Real-estate lead ops, CRM workflows, Meta/Google campaigns, landing pages, HTTPS deployments.</p>
+          </div>
+          <div class="rounded-xl border border-sky-400/25 bg-sky-950/20 p-3.5 hover:border-sky-400/50 transition">
+            <p class="text-[10px] font-extrabold uppercase tracking-widest text-sky-300">Hands-on builds</p>
+            <p class="text-[11px] text-slate-300 mt-1.5 leading-relaxed">React + FastAPI tools, Python Playwright + n8n pipelines, WhatsApp workflow templates.</p>
+          </div>
+          <div class="rounded-xl border border-violet-400/25 bg-violet-950/20 p-3.5 hover:border-violet-400/50 transition">
+            <p class="text-[10px] font-extrabold uppercase tracking-widest text-violet-300">Research prototypes</p>
+            <p class="text-[11px] text-slate-400 mt-1.5 leading-relaxed">Next.js, PostgreSQL/Supabase, Docker/AWS/Nginx, voice-assistant R&amp;D — labelled as prototypes.</p>
+          </div>
+        </div>
       </div>
     </div>
       <div class="glass-card rounded-2xl p-6 sm:p-8 mt-6 reveal-progress">
@@ -1914,9 +1944,9 @@
   <!-- ========================================================= -->
   <!-- PAGE 3: SERVICES & CAPABILITIES                           -->
   <!-- ========================================================= -->
-  <section id="page-services" class="page-view relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+  <section id="page-services" class="page-view relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 md:py-24">
     <div class="text-center max-w-3xl mx-auto mb-14">
-      <span class="text-xs font-bold uppercase tracking-widest text-sky-400">SERVICES &amp; CAPABILITIES</span>
+      <span class="eyebrow">SERVICES &amp; CAPABILITIES</span>
       <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2 chrome-text">What We Build &amp; Manage For You</h2>
       <p class="text-slate-400 mt-3 text-sm sm:text-base">
         Modular digital and AI solutions tailored for real estate developers, local service brands, and growing enterprises.
@@ -2109,9 +2139,9 @@
   <!-- ========================================================= -->
   <!-- PAGE 4: PORTFOLIO & CASE STUDIES                          -->
   <!-- ========================================================= -->
-  <section id="page-portfolio" class="page-view relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+  <section id="page-portfolio" class="page-view relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 md:py-24">
     <div class="text-center max-w-3xl mx-auto mb-14">
-      <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">PORTFOLIO &amp; PROJECTS</span>
+      <span class="eyebrow">PORTFOLIO &amp; PROJECTS</span>
       <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2 chrome-text">Systems I Have Built</h2>
       <p class="text-slate-400 mt-3 text-sm sm:text-base">
         Code-verified projects by Rahul Kumar Dhal: flagship systems, public experiments and operational patterns. Private work is shown sanitized, with demos on request.
@@ -2260,9 +2290,9 @@
   <!-- ========================================================= -->
   <!-- PAGE: TECHNOLOGY STACK (TIERED, HONEST)                   -->
   <!-- ========================================================= -->
-  <section id="page-stack" class="page-view relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+  <section id="page-stack" class="page-view relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 md:py-24">
     <div class="text-center max-w-3xl mx-auto mb-10">
-      <span class="text-xs font-bold uppercase tracking-widest text-sky-400">TECHNOLOGY STACK</span>
+      <span class="eyebrow">TECHNOLOGY STACK</span>
       <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2 chrome-text">Tools grouped by real usage.</h2>
       <p class="text-slate-400 mt-3 text-sm sm:text-base">Not every logo belongs to one system. Each group reflects a different level of production use — so you know what is dependable today and what is still in the lab.</p>
     </div>
@@ -2292,9 +2322,9 @@
   <!-- ========================================================= -->
   <!-- PAGE: PROCESS (7 STEPS)                                   -->
   <!-- ========================================================= -->
-  <section id="page-process" class="page-view relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+  <section id="page-process" class="page-view relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 md:py-24">
     <div class="text-center max-w-3xl mx-auto mb-10">
-      <span class="text-xs font-bold uppercase tracking-widest text-sky-400">DELIVERY PROCESS</span>
+      <span class="eyebrow">DELIVERY PROCESS</span>
       <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2 chrome-text">From discovery to supported handover.</h2>
       <p class="text-slate-400 mt-3 text-sm sm:text-base">A fixed sequence with clear exits — you always know what happens next and what you receive.</p>
     </div>
@@ -2354,12 +2384,12 @@
   <!-- ========================================================= -->
   <!-- PAGE 5: PRICING & CONTACT FLOW                            -->
   <!-- ========================================================= -->
-  <section id="page-contact" class="page-view relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+  <section id="page-contact" class="page-view relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 md:py-24">
     <div class="grid lg:grid-cols-12 gap-10">
       
       <!-- Transparent Service Packages -->
       <div class="lg:col-span-7 space-y-6">
-        <span class="text-xs font-bold uppercase tracking-widest text-sky-400">TRANSPARENT PRICING TIERS</span>
+        <span class="eyebrow">TRANSPARENT PRICING TIERS</span>
         <h2 class="font-display text-3xl sm:text-4xl font-bold chrome-text">Flexible Packages for Every Stage</h2>
         <p class="text-slate-400 text-sm leading-relaxed">Approved starting ranges. Final scope is confirmed after discovery. Ad budgets and cloud costs are paid separately to platforms/providers. We do not guarantee leads, revenue or rankings.</p>
 
@@ -2404,7 +2434,7 @@
       <!-- Engineering Lab cross-reference -->
       <div class="lg:col-span-2 glass-card rounded-2xl p-6 flex flex-col justify-between mb-6 hidden md:block">
         <div>
-          <span class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-3 block">SEE WHAT WE'VE BUILT</span>
+          <span class="eyebrow">SEE WHAT WE'VE BUILT</span>
           <h3 class="font-display text-xl font-bold text-white mb-3">Engineering Lab — Live Builds</h3>
           <p class="text-xs text-slate-400 mb-4 leading-relaxed">Flagship CRM, AEGIS agent system, Genesis AI sandbox, Rental MVP and Buddy CLI — all code-verified. Browse the full lab.</p>
         </div>
@@ -2468,7 +2498,7 @@
   <!-- Set data-buddy-endpoint on <body> to your n8n webhook URL  -->
   <!-- to make the chat live; empty = scripted preview mode.      -->
   <!-- ========================================================= -->
-  <section id="page-buddy" class="page-view relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+  <section id="page-buddy" class="page-view relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 md:py-24">
 
     <div class="glass-card rounded-2xl p-6 sm:p-8 mb-6 reveal-progress">
       <div class="flex flex-col sm:flex-row sm:items-center gap-6">
@@ -2512,7 +2542,7 @@
         </div>
       </div>
 
-      <div class="lg:col-span-4 min-w-0 flex flex-col gap-6">
+      <div class="lg:col-span-4 min-w-0 flex flex-col gap-6 lg:sticky lg:top-24 lg:self-start">
         <div class="bai-brief">
           <div class="flex items-center justify-between gap-2">
             <h2 class="font-display text-lg font-bold text-white">Session brief</h2>
@@ -2550,13 +2580,13 @@
     <div class="glass-card rounded-2xl p-6 sm:p-8 mt-6 reveal-progress">
       <h2 class="font-display text-2xl font-bold text-white">What Buddy handles so you don't have to</h2>
       <p class="text-sm text-slate-400 mt-1">The same operator loop running on this site is what gets deployed for your business.</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
-        <div class="bai-agent"><div class="bai-agent-ico">🔍</div><h3 class="font-bold text-white text-sm mt-2.5">Web search &amp; research</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Scans listings, competitor pages and market context, then assembles a research pack before any recommendation is made.</p></div>
-        <div class="bai-agent"><div class="bai-agent-ico">🧠</div><h3 class="font-bold text-white text-sm mt-2.5">Thinking &amp; planning</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Breaks your requirement into scope, budget and timeline options — with trade-offs explained, not generic advice.</p></div>
-        <div class="bai-agent"><div class="bai-agent-ico">📋</div><h3 class="font-bold text-white text-sm mt-2.5">Requirement capture</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Turns a casual chat into a structured brief: goal, budget, timeline, decision-maker and preferred channel.</p></div>
-        <div class="bai-agent"><div class="bai-agent-ico">📅</div><h3 class="font-bold text-white text-sm mt-2.5">Meeting handoff</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Collects name, channel and slot, then delivers the brief so the human call starts at the solution stage.</p></div>
-        <div class="bai-agent"><div class="bai-agent-ico">💬</div><h3 class="font-bold text-white text-sm mt-2.5">Follow-ups on your channel</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">WhatsApp, Telegram or Instagram nudges with SLA timers and human-approval gates — nothing leaves without review.</p></div>
-        <div class="bai-agent"><div class="bai-agent-ico">🤖</div><h3 class="font-bold text-white text-sm mt-2.5">Agent team execution</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">After the deal closes, Buddy spawns task agents — content, reporting, reminders — so delivery runs while you sell.</p></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
+        <div class="bai-agent"><div class="bai-agent-ico">🔍</div><h3 class="font-bold text-white text-sm mt-2.5">Web search &amp; research</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Scans listings, competitor pages and market context before any recommendation.</p></div>
+        <div class="bai-agent"><div class="bai-agent-ico">🧠</div><h3 class="font-bold text-white text-sm mt-2.5">Thinking &amp; planning</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Scope, budget and timeline options — trade-offs explained, not generic advice.</p></div>
+        <div class="bai-agent sm:col-span-2"><div class="bai-agent-ico">📋</div><h3 class="font-bold text-white text-sm mt-2.5">Requirement capture</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Turns a casual chat into a structured brief — goal, budget, timeline, decision-maker and preferred channel — then routes it to the CRM.</p></div>
+        <div class="bai-agent"><div class="bai-agent-ico">📅</div><h3 class="font-bold text-white text-sm mt-2.5">Meeting handoff</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Collects name, channel and slot, then delivers the brief so the call starts at the solution.</p></div>
+        <div class="bai-agent"><div class="bai-agent-ico">💬</div><h3 class="font-bold text-white text-sm mt-2.5">Follow-ups on your channel</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">WhatsApp, Telegram or Instagram nudges with SLA timers and approval gates.</p></div>
+        <div class="bai-agent"><div class="bai-agent-ico">🤖</div><h3 class="font-bold text-white text-sm mt-2.5">Agent team execution</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Task agents run content, reporting and reminders while you sell.</p></div>
       </div>
     </div>
 
@@ -2584,7 +2614,7 @@
 
   <!-- FOOTER -->
   <footer class="relative z-10 border-t border-slate-800/80 bg-[#03050c] pt-10 pb-24 sm:pb-10 mt-16 no-print">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
       <div class="glass-card rounded-2xl p-5 sm:p-6 mb-6 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
         <div><h2 class="font-display text-xl font-bold text-white">Have a lead, ops or growth bottleneck?</h2><p class="text-xs text-slate-400 mt-1">Send a short brief — we reply with scope and next steps, no inflated promises.</p></div>
         <button type="button" onclick="switchPage('contact')" class="px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wide bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950 shrink-0">Start a conversation</button>
