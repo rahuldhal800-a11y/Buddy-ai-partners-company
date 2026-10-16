@@ -260,6 +260,53 @@
       max-width: 100%;
       min-width: 0;
     }
+    /* Mobile menu button must keep its 40px tap target and visible icon:
+       flex-shrink was collapsing it to an empty ~22px square on narrow phones. */
+    header #menuBtn {
+      flex: 0 0 auto;
+    }
+    header #menuBtn svg {
+      flex: 0 0 auto;
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    /* Narrow phones: tighten header spacing so the full-size menu button fits
+       without clipping the row against the viewport edge. */
+    @media (max-width: 480px) {
+      #headerBar {
+        padding-left: .875rem;
+        padding-right: .875rem;
+      }
+      #headerBar button[onclick*="home"] {
+        gap: .625rem;
+      }
+      #headerBar button[onclick*="home"] > div:first-child {
+        width: 2.25rem;
+        height: 2.25rem;
+      }
+      #headerCtas {
+        gap: .25rem;
+      }
+      #headerCtas > button:not(#menuBtn) {
+        padding-left: .375rem;
+        padding-right: .375rem;
+      }
+      header .chrome-text {
+        font-size: .8125rem;
+      }
+      header .tracking-widest {
+        font-size: 9px;
+        letter-spacing: .05em;
+      }
+    }
+    @media (max-width: 340px) {
+      /* Below ~341px the header row cannot fit brand + two pills + menu button
+         without crushing one of them; drop the secondary Buddy pill here (it is
+         still one tap away in the mobile drawer, hero and footer). */
+      #headerCtas > button[aria-label="Open Buddy AI preview chat"] {
+        display: none;
+      }
+    }
     nav[aria-label="Mobile Navigation"] {
       scrollbar-width: none;
       -ms-overflow-style: none;
@@ -1002,18 +1049,6 @@
       background:radial-gradient(ellipse at center, rgba(34,211,238,.10), rgba(37,99,235,.06) 45%, transparent 70%);
       filter:blur(70px); pointer-events:none; z-index:-1; border-radius:50%;
     }
-  
-    /* NAV OVERFLOW HOTFIX — suppress orphaned left-edge navigation only.
-       Keep the canonical header navigation and the intentional mobile drawer. */
-    #oracleNav, #oracle-nav, .oracle-nav, [data-oracle-nav],
-    #floatingNav, #floating-nav, .floating-nav, .floating-sidebar,
-    #sideNav, #side-nav, .side-nav, .side-navigation,
-    #verticalNav, #vertical-nav, .vertical-nav, .vertical-navigation,
-    [aria-label="Oracle Navigation"], [data-floating-navigation] {
-      display: none !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-    }
 </style>
 
   <!-- Search and social metadata -->
@@ -1094,7 +1129,7 @@
 
   <!-- STICKY NAVIGATION HEADER -->
   <header class="sticky top-0 z-50 bg-[#050811]/90 backdrop-blur-xl border-b border-sky-500/20 no-print">
-    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div id="headerBar" class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Identity -->
       <button type="button" onclick="switchPage('home')" class="flex items-center gap-3.5 text-left group focus:outline-none">
@@ -1119,7 +1154,7 @@
       </nav>
 
       <!-- Header CTAs -->
-      <div class="flex items-center gap-2.5">
+      <div id="headerCtas" class="flex items-center gap-2.5">
         <button type="button" onclick="switchPage('buddy')" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 shadow-lg shadow-cyan-500/25 hover:scale-[1.02] transition" aria-label="Open Buddy AI preview chat">
           <span>✦ Buddy AI</span>
         </button>
@@ -1420,7 +1455,7 @@
 <g fill="#22d3ee"><circle class="infra-pulse" cx="58" cy="52" r="2"/><circle class="infra-pulse" cx="174" cy="52" r="2" style="animation-delay:.8s"/><circle class="infra-pulse" cx="292" cy="52" r="2" style="animation-delay:1.4s"/></g>
 </svg>
 <div class="flex items-center gap-1.5 mt-1">
-<img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/n8n.svg" alt="n8n logo" loading="lazy" width="16" height="16" class="bg-white rounded p-0.5" onerror="this.style.display='none'" />
+<img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/n8n.svg" alt="n8n logo" loading="lazy" width="16" height="16" class="bg-white rounded p-0.5" onerror="this.style.display='none'" />
 <span class="text-[10px] font-bold text-slate-300">n8n</span>
 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/playwright.svg" alt="Playwright logo" loading="lazy" width="16" height="16" class="bg-white rounded p-0.5" onerror="this.style.display='none'" />
 <span class="text-[10px] font-bold text-slate-300">Playwright</span>
@@ -3006,13 +3041,17 @@
       }
     } catch(e){}
     // 4b. Ecosystem directory: search, filter, A-Z over embedded data.
-    var ECO_ICONS={'Python':'python','React':'react','JavaScript':'javascript','TypeScript':'typescript','Next.js':'nextdotjs','FastAPI':'fastapi','PostgreSQL':'postgresql','Redis':'redis','Docker':'docker','Linux':'linux','AWS':'amazonaws','GitHub':'github','Nginx':'nginx','Cloudflare':'cloudflare','Vercel':'vercel','NVIDIA':'nvidia','Google Cloud':'googlecloud','n8n':'n8n','Playwright':'playwright','Meta Ads':'meta','Google Ads':'googleads','YouTube':'youtube','Google Analytics':'googleanalytics','Search Console':'googlesearchconsole','Hugging Face':'huggingface','Ollama':'ollama','LangChain':'langchain','OpenAI':'openai','Claude':'claude','Groq':'groq','Mistral':'mistral','DeepSeek':'deepseek','Supabase':'supabase','Android':'android','Termux':'termux','Antigravity':'google','Whisper':'openai','Stable Diffusion':'stabilityai'};
+    /* Icon slugs verified against the Simple Icons CDN. Values are slug or slug@version;
+       pinned versions cover icons added after v11. Slugs that do not exist in any
+       Simple Icons release are intentionally absent so cards fall back to text labels. */
+    var ECO_ICONS={'Python':'python','React':'react','JavaScript':'javascript','TypeScript':'typescript','Next.js':'nextdotjs','FastAPI':'fastapi','PostgreSQL':'postgresql','Redis':'redis','Docker':'docker','Linux':'linux','AWS':'amazonaws','GitHub':'github','Nginx':'nginx','Cloudflare':'cloudflare','Vercel':'vercel','NVIDIA':'nvidia','Google Cloud':'googlecloud','n8n':'n8n@12','Playwright':'playwright','Meta Ads':'meta','Google Ads':'googleads','YouTube':'youtube','Google Analytics':'googleanalytics','Search Console':'googlesearchconsole','Hugging Face':'huggingface@12','Ollama':'ollama@15','LangChain':'langchain@12','OpenAI':'openai','Claude':'claude@15','DeepSeek':'deepseek@16','Supabase':'supabase','Android':'android','Antigravity':'google'};
+    function ecoIconSrc(v){var p=String(v).split('@');var ver=p[1]||'11';return 'https://cdn.jsdelivr.net/npm/simple-icons@v'+ver+'/icons/'+p[0]+'.svg';}
 var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Agent platforms'],['emerging','Emerging agents'],['media','Media and voice'],['devinfra','Dev and infra']];
     var ECO_STATE={q:'',cat:'',st:'',az:false};
     function ecoEsc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
     function ecoBadge(st){var c=st==='Production'?'use-prod':(st==='Hands-on'?'use-hands':(st==='Experimental'?'use-exp':''));return '<span class="use-badge '+c+'">'+ecoEsc(st)+'</span>';}
     function ecoCard(r){var links='';if(r.u){links+='<a href="'+ecoEsc(r.u)+'" target="_blank" rel="noopener noreferrer">Website</a>';}if(r.r){links+='<a href="'+ecoEsc(r.r)+'" target="_blank" rel="noopener noreferrer">Repo</a>';}if(!links){links='<span class="text-slate-500">Link pending verification</span>';}
-    return '<article class="eco-card"><div class="eco-title">'+(ECO_ICONS[r.n]?'<img class="eco-ico" loading="lazy" width="22" height="22" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/'+ECO_ICONS[r.n]+'.svg" alt="" aria-hidden="true" onerror="this.remove()" />':'')+'<h4>'+ecoEsc(r.n)+'</h4></div><p class="text-[11px] text-slate-500">'+ecoEsc(r.p||'Independent')+' - '+ecoEsc(r.s)+'</p><p class="eco-desc">'+ecoEsc(r.d)+'</p><div class="eco-meta">'+ecoBadge(r.st)+'<span class="eco-tag">'+ecoEsc(r.t)+'</span></div><details class="mt-2 text-[11px] text-slate-400"><summary class="cursor-pointer text-sky-300 font-bold">Details</summary><p class="mt-1">Verified: '+ecoEsc(r.v)+' - '+ecoEsc(r.e)+'</p></details><div class="eco-links">'+links+'</div></article>';}
+    return '<article class="eco-card"><div class="eco-title">'+(ECO_ICONS[r.n]?'<img class="eco-ico" loading="lazy" width="22" height="22" src="'+ecoIconSrc(ECO_ICONS[r.n])+'" alt="" aria-hidden="true" onerror="this.remove()" />':'')+'<h4>'+ecoEsc(r.n)+'</h4></div><p class="text-[11px] text-slate-500">'+ecoEsc(r.p||'Independent')+' - '+ecoEsc(r.s)+'</p><p class="eco-desc">'+ecoEsc(r.d)+'</p><div class="eco-meta">'+ecoBadge(r.st)+'<span class="eco-tag">'+ecoEsc(r.t)+'</span></div><details class="mt-2 text-[11px] text-slate-400"><summary class="cursor-pointer text-sky-300 font-bold">Details</summary><p class="mt-1">Verified: '+ecoEsc(r.v)+' - '+ecoEsc(r.e)+'</p></details><div class="eco-links">'+links+'</div></article>';}
     function ecoData(){try{return JSON.parse(document.getElementById('ecosystem-data').textContent);}catch(e){return [];}}
     function ecoRender(){var all=ecoData();var q=ECO_STATE.q.toLowerCase();var list=all.filter(function(r){if(ECO_STATE.cat&&r.c!==ECO_STATE.cat)return false;if(ECO_STATE.st&&r.st!==ECO_STATE.st)return false;if(q){var hay=(r.n+' '+r.p+' '+r.c+' '+r.s+' '+r.d+' '+r.t).toLowerCase();if(hay.indexOf(q)<0)return false;}return true;});
     if(ECO_STATE.az){list=list.slice().sort(function(a,b){return a.n.localeCompare(b.n);});}
@@ -3027,7 +3066,7 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
     // 4c. Stack overview: 10 curated groups rendered from the same dataset.
     var OVERVIEW=[['AI Models and Inference',{d:'The models we route to, from hands-on local runtimes to tracked releases.',cat:'models'}],['AI Providers and Model Routing',{d:'APIs and gateways that serve models to apps and agents.',names:['OpenAI','Groq','OpenRouter','LiteLLM','HF Inference','Ollama','vLLM','OmniRoute','AI Studio','Vertex AI']}],['Agent Frameworks and Memory',{d:'Libraries for building tool-using, stateful agents.',names:['LangChain','LangGraph','CrewAI','AutoGen','Pydantic AI','Semantic Kernel','Haystack','Agents SDK','Google ADK','MCP']}],['Frontend and Backend Development',{d:'Languages and frameworks behind funnels, sites and APIs.',names:['React','Next.js','JavaScript','TypeScript','Python','FastAPI']}],['Databases and Storage',{d:'Where app and lead data lives.',names:['PostgreSQL','Redis','Supabase']}],['Infrastructure, Containers and Deployment',{d:'Runtimes, servers and clouds that host systems.',names:['Docker','Linux','AWS','GitHub','Nginx','Cloudflare','Vercel','Google Cloud','NVIDIA']}],['Browser Automation and Workflow Orchestration',{d:'Pipelines that move leads and data without manual work.',names:['Playwright','n8n','Dify','Flowise','Langflow']}],['Digital Marketing, Analytics and SEO',{d:'Channels and measurement for growth work.',names:['Meta Ads','Google Ads','SEO','Google Analytics','Search Console','YouTube']}],['Voice, Audio and Video AI',{d:'Generative media and speech technologies we track.',cat:'media'}],['Android, Termux and Edge Computing',{d:'On-device and local-first runtimes.',names:['Android','Termux','Ollama','Qwen']}]];
     function ovDot(st){var c=st==='Production'?'#34d399':(st==='Hands-on'?'#38bdf8':(st==='Experimental'?'#a78bfa':(st==='Verification pending'?'#fbbf24':'#64748b')));return '<span aria-hidden="true" style="display:inline-block;width:7px;height:7px;border-radius:99px;background:'+c+';flex:0 0 auto;"></span>';}
-    function ovChip(r){var ic=(typeof ECO_ICONS!=='undefined'&&ECO_ICONS[r.n])?'<img loading="lazy" width="18" height="18" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/'+ECO_ICONS[r.n]+'.svg" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;background:#fff;border-radius:5px;padding:2px;flex:0 0 auto;" onerror="this.remove()" />':'';return '<span style="display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .6rem;border-radius:.6rem;border:1px solid rgba(56,189,248,.16);background:rgba(8,16,36,.8);font-size:.72rem;color:#e2e8f0;" title="'+ecoEsc(r.n)+'">'+ic+'<span>'+ecoEsc(r.n)+'</span></span>';}
+    function ovChip(r){var ic=(typeof ECO_ICONS!=='undefined'&&ECO_ICONS[r.n])?'<img loading="lazy" width="18" height="18" src="'+ecoIconSrc(ECO_ICONS[r.n])+'" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;background:#fff;border-radius:5px;padding:2px;flex:0 0 auto;" onerror="this.remove()" />':'';return '<span style="display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .6rem;border-radius:.6rem;border:1px solid rgba(56,189,248,.16);background:rgba(8,16,36,.8);font-size:.72rem;color:#e2e8f0;" title="'+ecoEsc(r.n)+'">'+ic+'<span>'+ecoEsc(r.n)+'</span></span>';}
     function ovRender(){try{var el=document.getElementById('stackOverview');if(!el)return;var all=ecoData();var byName={};all.forEach(function(r){byName[r.n]=r;});var html='';OVERVIEW.forEach(function(g){var items=g[1].cat?all.filter(function(r){return r.c===g[1].cat;}):g[1].names.map(function(n){return byName[n];}).filter(Boolean);if(!items.length)return;html+='<div class="stack-tier"><p class="stack-cat">'+ecoEsc(g[0])+' ('+items.length+')</p><p style="font-size:11px;color:#94a3b8;margin-top:4px;">'+ecoEsc(g[1].d||'')+'</p><div style="display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem;">'+items.map(ovChip).join('')+'</div></div>';});html+='<div style="grid-column:1/-1;text-align:center;"><button type="button" onclick="document.getElementById(\'ecoDirectory\').scrollIntoView();document.getElementById(\'ecoSearch\').focus({preventScroll:true})" style="padding:.7rem 1.4rem;border-radius:.7rem;font-size:.75rem;font-weight:800;background:linear-gradient(135deg,#2563eb,#06b6d4);color:#fff;cursor:pointer;">Browse the searchable directory</button></div>';el.innerHTML=html;}catch(e){}}
     try{ovRender();}catch(e){}
                 // 6. Buddy CRM workspace demo: webhook arrival, stage autoplay, WhatsApp counter.
@@ -3319,46 +3358,6 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
         else animateGalaxy();
       });
     }
-  </script>
-
-  <!-- Defensive cleanup for orphaned left-edge navigation; preserve the canonical site navigation. -->
-  <style id="buddy-orphan-nav-hotfix">
-    body > nav:not([aria-label="Main Navigation"]):not([aria-label="Mobile Navigation"]):not([aria-label="Footer Navigation"]),
-    body > aside,
-    [data-buddy-orphan-nav-hidden="true"] { display:none !important; }
-  </style>
-  <script id="buddy-nav-overflow-guard">
-    (function () {
-      'use strict';
-      var wanted = /^(services|portfolio|stack|process|buddy ai|buddy ai\s*[—–-]\s*live preview|pricing\s*&\s*contact)$/i;
-      var canonical = 'header, footer, nav[aria-label="Main Navigation"], nav[aria-label="Mobile Navigation"], nav[aria-label="Footer Navigation"]';
-      function clean() {
-        try {
-          var candidates = document.querySelectorAll('nav, aside, [role="navigation"], [data-floating-navigation], .floating-sidebar, .floating-nav, .side-nav, .vertical-nav, body > div, body > section');
-          candidates.forEach(function (container) {
-            if (container.matches(canonical) || container.closest(canonical) || container.closest('header, footer')) return;
-            var rect = container.getBoundingClientRect();
-            if (!rect.width || !rect.height || rect.left > 8 || rect.width > Math.min(420, window.innerWidth * .45)) return;
-            var text = (container.innerText || container.textContent || '').replace(/\s+/g, ' ').trim();
-            var labels = (container.querySelectorAll('a, button, [role="link"], [role="menuitem"]').length);
-            var matched = wanted.test(text) || Array.from(container.querySelectorAll('a, button, [role="link"], [role="menuitem"]')).some(function (el) {
-              return wanted.test((el.innerText || el.textContent || '').replace(/\s+/g, ' ').trim());
-            });
-            if (!matched || labels < 2) return;
-            container.setAttribute('data-buddy-orphan-nav-hidden', 'true');
-            container.style.setProperty('display', 'none', 'important');
-            container.style.setProperty('visibility', 'hidden', 'important');
-            container.style.setProperty('pointer-events', 'none', 'important');
-          });
-        } catch (e) { console.warn('[Buddy nav guard]', e); }
-      }
-      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', clean, { once: true });
-      else clean();
-      if (window.MutationObserver && document.documentElement) {
-        new MutationObserver(clean).observe(document.documentElement, { childList: true, subtree: true });
-      }
-      window.addEventListener('resize', clean, { passive: true });
-    }());
   </script>
 </body>
 </html>
