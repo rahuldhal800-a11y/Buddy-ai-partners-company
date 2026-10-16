@@ -61,9 +61,7 @@ PY
 rm -rf "$DIST"
 mkdir -p "$DIST/public/images"
 cp "$ROOT/index.html" "$DIST/index.html"
-cp "$ROOT/public/images/founder-rahul.png" "$DIST/public/images/founder-rahul.png"
-cp "$ROOT/public/images/founder-rahul-640.webp" "$DIST/public/images/founder-rahul-640.webp"
-cp "$ROOT/public/images/logo.svg" "$DIST/public/images/logo.svg"
+cp -r "$ROOT/public/images/." "$DIST/public/images/"
 [ ! -f "$ROOT/robots.txt" ] || cp "$ROOT/robots.txt" "$DIST/robots.txt"
 [ ! -f "$ROOT/sitemap.xml" ] || cp "$ROOT/sitemap.xml" "$DIST/sitemap.xml"
 

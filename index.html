@@ -577,6 +577,32 @@
     @media (prefers-reduced-motion:reduce){
       .animate-marquee,#galaxyCanvas{display:none!important;}
     }
+    /* Visual-first service system */
+    .hero-visual-frame { display:block; border-radius:1.25rem; overflow:hidden; border:1px solid rgba(56,189,248,.25); background:#040a18; }
+    .hero-visual-frame img { display:block; width:100%; height:auto; }
+    .svc-tile-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+    .svc-tile { position:relative; text-align:left; border-radius:1rem; overflow:hidden; border:1px solid rgba(56,189,248,.18); background:#070f22; transition:transform .25s ease, border-color .25s ease; cursor:pointer; padding:0; }
+    .svc-tile:hover { border-color:rgba(56,189,248,.55); transform:translateY(-2px); }
+    .svc-tile:focus-visible { outline:2px solid #38bdf8; outline-offset:2px; }
+    .svc-tile-img { display:block; aspect-ratio:16/10; overflow:hidden; background:#060d22; }
+    .svc-tile-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .svc-tile-img svg { width:100%; height:100%; display:block; }
+    .svc-tile-body { display:block; padding:.6rem .75rem .75rem; }
+    .svc-tile-title { display:block; font-weight:700; color:#fff; font-size:.8rem; line-height:1.25; }
+    .svc-tile-desc { display:block; font-size:.66rem; color:#8fa3bd; margin-top:.25rem; line-height:1.4; }
+    .svc-card-media { position:relative; aspect-ratio:16/9; overflow:hidden; background:#060d22; border-bottom:1px solid rgba(56,189,248,.15); }
+    .svc-card-media img { width:100%; height:100%; object-fit:cover; display:block; }
+    .svc-card-media svg { width:100%; height:100%; display:block; }
+    .svc-card-media .svc-media-tag { position:absolute; top:.65rem; left:.65rem; }
+    .svc-details { margin-top:1rem; border-top:1px solid rgba(51,65,85,.6); padding-top:.75rem; }
+    .svc-details summary { cursor:pointer; font-size:.7rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:#7dd3fc; list-style:none; display:flex; align-items:center; gap:.4rem; }
+    .svc-details summary::-webkit-details-marker { display:none; }
+    .svc-details summary::before { content:"+"; display:inline-flex; width:1rem; height:1rem; align-items:center; justify-content:center; border:1px solid rgba(56,189,248,.4); border-radius:.3rem; font-size:.7rem; line-height:1; }
+    .svc-details[open] summary::before { content:"–"; }
+    .svc-details-body { font-size:.78rem; color:#cbd5e1; line-height:1.6; padding-top:.6rem; }
+    .svc-details-body p + p { margin-top:.5rem; }
+    @media (min-width:768px){ .svc-tile-grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; } }
+    @media (max-width:640px){ .svc-card-media { aspect-ratio:16/10; } }
   </style>
 
   <!-- Search and social metadata -->
@@ -729,17 +755,17 @@
             AI AUTOMATION, CUSTOM CRM & DIGITAL GROWTH AGENCY
           </div>
           <h1 class="font-display text-4xl sm:text-6xl font-bold leading-[1.1] tracking-tight">
-            AI-Assisted Systems for <span class="chrome-text">CRM, Operations & Growth.</span>
+            AI Agents, Business Automation &amp; <span class="chrome-text">CRM for Digital Growth.</span>
           </h1>
           <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
-            BUDDY AI PARTNERS designs custom CRM architecture, Python automation with Playwright and n8n, React and FastAPI web systems, and disciplined Meta & Google funnels — scoped around how your sales team actually works.
+            We design custom AI agents, business automation, CRM systems and growth funnels that capture, qualify and follow up on leads — with clear human oversight.
           </p>
           <div class="flex flex-wrap gap-4 pt-2">
-            <button type="button" onclick="switchPage('portfolio')" class="px-7 py-4 rounded-xl font-bold text-sm uppercase tracking-wider bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950 shadow-xl shadow-sky-500/25 hover:scale-[1.02] transition">
-              Explore Our Work →
-            </button>
-            <button type="button" onclick="switchPage('contact')" class="px-7 py-4 rounded-xl font-bold text-sm uppercase tracking-wider glass-card text-white hover:border-sky-400">
+            <button type="button" onclick="switchPage('contact')" class="px-7 py-4 rounded-xl font-bold text-sm uppercase tracking-wider bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950 shadow-xl shadow-sky-500/25 hover:scale-[1.02] transition">
               Start a Project
+            </button>
+            <button type="button" onclick="switchPage('portfolio')" class="px-7 py-4 rounded-xl font-bold text-sm uppercase tracking-wider glass-card text-white hover:border-sky-400">
+              Explore Our Work →
             </button>
           </div>
 
@@ -760,8 +786,76 @@
           </div>
         </div>
 
-        <!-- Right Interactive System Carousel -->
-        <div class="lg:col-span-5 space-y-4">
+        <!-- Right Hero Visual -->
+        <div class="lg:col-span-5">
+          <figure class="infra-panel p-3 sm:p-4 m-0">
+            <div class="hero-visual-frame">
+              <img src="public/images/ai-command-center.webp" alt="Illustrative AI systems visual: analytics panels, a glowing central AI agent core and a connected network globe" width="1920" height="1072" loading="eager" decoding="async" fetchpriority="high" />
+            </div>
+            <figcaption class="flex items-center gap-2 mt-3 px-1 text-[10px] tracking-wider text-slate-400">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-400" aria-hidden="true"></span>
+              <strong class="text-sky-200">ILLUSTRATIVE VISUAL</strong> — concept render, not connected to live client systems
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISUAL SERVICE GRID -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20" aria-labelledby="svcgrid-title">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+        <div>
+          <p class="buddy-eyebrow">What we deliver</p>
+          <h2 id="svcgrid-title" class="font-display text-3xl sm:text-4xl font-bold mt-2 chrome-text">Eight services. One clear overview.</h2>
+        </div>
+        <button type="button" onclick="switchPage('services')" class="text-xs font-bold text-sky-300 hover:underline">Explore all services →</button>
+      </div>
+      <div class="svc-tile-grid">
+        <button type="button" onclick="switchPage('services')" class="svc-tile">
+          <span class="svc-tile-img"><img src="public/images/ai-agent-orchestration.webp" alt="" width="1200" height="896" loading="lazy" decoding="async" /></span>
+          <span class="svc-tile-body"><span class="svc-tile-title">Custom AI Agents</span><span class="svc-tile-desc">Research, support &amp; workflow agents</span></span>
+        </button>
+        <button type="button" onclick="switchPage('services')" class="svc-tile">
+          <span class="svc-tile-img"><img src="public/images/business-ai-systems.webp" alt="" width="1200" height="896" loading="lazy" decoding="async" /></span>
+          <span class="svc-tile-body"><span class="svc-tile-title">AI for Business Setup</span><span class="svc-tile-desc">SOPs, enquiries &amp; internal knowledge</span></span>
+        </button>
+        <button type="button" onclick="switchPage('services')" class="svc-tile">
+          <span class="svc-tile-img"><img src="public/images/social-media-automation.webp" alt="" width="1200" height="896" loading="lazy" decoding="async" /></span>
+          <span class="svc-tile-body"><span class="svc-tile-title">Social Media Automation</span><span class="svc-tile-desc">Draft → review → schedule → publish</span></span>
+        </button>
+        <button type="button" onclick="switchPage('services')" class="svc-tile">
+          <span class="svc-tile-img"><img src="public/images/crm-business-dashboard.webp" alt="" width="1200" height="896" loading="lazy" decoding="async" /></span>
+          <span class="svc-tile-body"><span class="svc-tile-title">CRM &amp; Lead Operations</span><span class="svc-tile-desc">Pipeline, calling queues &amp; follow-ups</span></span>
+        </button>
+        <button type="button" onclick="switchPage('services')" class="svc-tile">
+          <span class="svc-tile-img"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="320" height="200" fill="#050c1d"/><rect x="30" y="34" width="220" height="132" rx="10" fill="#0b1836" stroke="#38bdf8" stroke-opacity=".6"/><rect x="30" y="34" width="220" height="22" rx="10" fill="#10234f"/><circle cx="44" cy="45" r="3" fill="#22d3ee"/><circle cx="56" cy="45" r="3" fill="#38bdf8" opacity=".6"/><circle cx="68" cy="45" r="3" fill="#64748b" opacity=".6"/><rect x="44" y="68" width="90" height="10" rx="5" fill="#1d4ed8" opacity=".8"/><rect x="44" y="86" width="192" height="6" rx="3" fill="#334155"/><rect x="44" y="98" width="150" height="6" rx="3" fill="#334155"/><rect x="44" y="114" width="56" height="34" rx="6" fill="#0e2a55" stroke="#22d3ee" stroke-opacity=".5"/><rect x="108" y="114" width="56" height="34" rx="6" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".4"/><rect x="172" y="114" width="64" height="34" rx="6" fill="#082f3a" stroke="#22d3ee" stroke-opacity=".4"/><rect x="238" y="88" width="52" height="86" rx="8" fill="#0b1836" stroke="#38bdf8" stroke-opacity=".55"/><rect x="244" y="98" width="40" height="30" rx="4" fill="#10234f"/><rect x="244" y="134" width="40" height="5" rx="2.5" fill="#334155"/><rect x="244" y="145" width="30" height="5" rx="2.5" fill="#334155"/><circle cx="264" cy="162" r="5" fill="#22d3ee" opacity=".8"/></svg></span>
+          <span class="svc-tile-body"><span class="svc-tile-title">Web &amp; App Development</span><span class="svc-tile-desc">Sites, dashboards &amp; APIs</span></span>
+        </button>
+        <button type="button" onclick="switchPage('services')" class="svc-tile">
+          <span class="svc-tile-img"><img src="public/images/ai-workflow-pipeline.webp" alt="" width="1200" height="896" loading="lazy" decoding="async" /></span>
+          <span class="svc-tile-body"><span class="svc-tile-title">AI Integration &amp; Workflows</span><span class="svc-tile-desc">Connected systems, APIs &amp; approvals</span></span>
+        </button>
+        <button type="button" onclick="switchPage('services')" class="svc-tile">
+          <span class="svc-tile-img"><img src="public/images/lead-generation-funnel.webp" alt="" width="1200" height="896" loading="lazy" decoding="async" /></span>
+          <span class="svc-tile-body"><span class="svc-tile-title">Digital Marketing &amp; Leads</span><span class="svc-tile-desc">Campaigns, funnels &amp; lead routing</span></span>
+        </button>
+        <button type="button" onclick="switchPage('services')" class="svc-tile">
+          <span class="svc-tile-img"><img src="public/images/ai-content-studio.webp" alt="" width="1200" height="896" loading="lazy" decoding="async" /></span>
+          <span class="svc-tile-body"><span class="svc-tile-title">AI Content, Voice &amp; Video</span><span class="svc-tile-desc">Plan, draft, produce, review</span></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE WORKSPACE (CRM demo + capability carousel) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20" aria-labelledby="workspace-title">
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <p class="buddy-eyebrow">See the system in action</p>
+        <h2 id="workspace-title" class="font-display text-3xl sm:text-4xl font-bold mt-2 chrome-text">Interactive workspace preview.</h2>
+        <p class="text-slate-400 mt-3 text-sm">Illustrative demos with sample data — not connected to live customer systems.</p>
+      </div>
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        <!-- Interactive CRM demo -->
+        <div class="lg:col-span-7 space-y-4">
           <div class="infra-panel p-4 sm:p-5" role="img" aria-label="Concept illustration of a CRM and automation workspace with lead pipeline, assignments and follow-up status">
 <div class="flex items-center justify-between relative z-10 mb-3">
 <span class="text-[11px] font-bold tracking-widest text-sky-300 uppercase">Buddy CRM - Workspace</span>
@@ -871,6 +965,9 @@
 </svg>
 <div class="relative z-10 flex flex-wrap items-center gap-2 mt-3 text-[10px] tracking-wider text-slate-400"><span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span><strong class="text-sky-200">ILLUSTRATIVE DATA</strong>&nbsp;NOT LIVE RESULTS</span><span class="ml-auto font-mono text-slate-500">CRM - PIPELINE - FOLLOW-UP</span></div>
 </div>
+        </div>
+        <!-- Core capability carousel -->
+        <div class="lg:col-span-5 space-y-4">
           <div class="glass-card rounded-2xl p-6 relative overflow-hidden">
             <div class="flex items-center justify-between mb-3">
               <span class="text-xs font-semibold uppercase tracking-wider text-sky-400" id="carouselTag">CORE CAPABILITY 01 / 03</span>
@@ -1029,6 +1126,7 @@
               <button type="button" onclick="switchPage('process')" class="px-4 py-2.5 rounded-lg text-xs font-bold bg-slate-800 text-sky-300 border border-sky-500/30">How we deliver</button>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>
@@ -1501,78 +1599,186 @@
       </p>
     </div>
 
-    <p class="text-[11px] tracking-widest text-sky-400 font-bold mb-4">GROUP A - OPERATE: CRM, GROWTH, AEO &nbsp;·&nbsp; GROUP B - BUILD: AUTOMATION, WEB/API, INFRA</p>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <article class="glass-card rounded-2xl p-6 flex flex-col">
-        <span class="case-tag case-tag-ok">01 · CRM SYSTEMS</span>
-        <h3 class="font-display text-xl font-bold text-white mt-3">Custom CRM & Lead Operations</h3>
-        <div class="svc-block mt-4 space-y-2 text-sm text-slate-300 leading-relaxed">
-          <p><strong class="text-white">Problem:</strong> Enquiries scattered across WhatsApp, sheets and calls — no queue, no ownership.</p>
-          <p><strong class="text-white">Deliverables:</strong> Stage-based CRM, assignment + daily calling queues, follow-up reminders, role access, booking/GST-ready records, basic reports.</p>
-          <p class="text-xs text-slate-400"><strong class="text-slate-200">Scope & boundaries:</strong> scoped to agreed stages/integrations; data migration and custom billing logic estimated separately; team training included for handover.</p>
-          <p class="text-xs text-sky-300"><strong>Next step:</strong> Map your stages → request a CRM walkthrough.</p>
+    <p class="text-[11px] tracking-widest text-sky-400 font-bold mb-4">VISUAL SERVICE SYSTEM · OPEN A CARD FOR DETAILS &amp; BOUNDARIES</p>
+    <div class="grid md:grid-cols-2 gap-6">
+      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-card-media">
+          <img src="public/images/ai-agent-orchestration.webp" alt="Illustration of a central AI processor chip connected to orbiting business data sources" width="1200" height="896" loading="lazy" decoding="async" />
+          <span class="case-tag case-tag-ok svc-media-tag">A · AI AGENTS</span>
         </div>
-        <div class="flex items-center justify-between mt-3"><button type="button" onclick="selectServiceAndContact('Custom Business CRM Deployment')" class="w-full py-2 rounded-lg bg-blue-600/20 hover:bg-blue-600 text-sky-300 hover:text-white text-xs font-bold border border-sky-500/30 transition">Inquire About Custom CRM →</button><a href="#page-portfolio" onclick="switchPage('portfolio')" class="text-[10px] font-bold text-sky-300 hover:underline">See built CRM →</a></div>
-      </article>
-      <article class="glass-card rounded-2xl p-6 flex flex-col">
-        <span class="case-tag">02 · AI AUTOMATION</span>
-        <h3 class="font-display text-xl font-bold text-white mt-3">AI-Assisted Workflow Automation</h3>
-        <div class="svc-block mt-4 space-y-2 text-sm text-slate-300 leading-relaxed">
-          <p><strong class="text-white">Problem:</strong> Repetitive extraction, tagging and follow-up eats sales time.</p>
-          <p><strong class="text-white">Deliverables:</strong> Python Playwright extraction, n8n webhook routing, dedupe/validation, WhatsApp templates, agent-assisted drafting with human approval, plus AI model-provider routing (OpenAI/Groq/OpenRouter/Ollama where fitting) with fallbacks.</p>
-          <p class="text-xs text-slate-400"><strong class="text-slate-200">Scope & boundaries:</strong> site/API changes may require maintenance; no fully autonomous outreach without approval; credentials handled per agreed access.</p>
-          <p class="text-xs text-sky-300"><strong>Next step:</strong> Share one repetitive workflow → get automation scope.</p>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display text-xl font-bold text-white">Custom AI Agent Creation</h3>
+          <p class="text-sm text-slate-400 mt-2 leading-relaxed">Business-specific agents that research, handle documents, support customers, qualify leads and take repetitive operational work off your team.</p>
+          <div class="mt-4"><button type="button" onclick="selectServiceAndContact('Custom AI Agent Creation')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button></div>
+          <details class="svc-details">
+            <summary>Details &amp; boundaries</summary>
+            <div class="svc-details-body">
+              <p><strong class="text-white">Flow:</strong> business need → custom agent → your tools &amp; business data → human approval where required → result.</p>
+              <p><strong class="text-slate-200">Good fits:</strong> research, document handling, customer-support drafting, internal knowledge search, lead qualification and repetitive back-office tasks.</p>
+              <p><strong class="text-slate-200">Boundaries:</strong> agents operate within the tools and permissions you provide. High-impact actions (publishing, spending, contacting customers) stay human-approved, and integrations that are not verified are not claimed as available.</p>
+              <p class="text-sky-300"><strong>Next step:</strong> describe one repetitive task → get an agent scope.</p>
+            </div>
+          </details>
         </div>
-        <div class="flex items-center justify-between mt-3"><button type="button" onclick="selectServiceAndContact('Custom Web App & Python/n8n Automation')" class="w-full py-2 rounded-lg bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold border border-indigo-500/30 transition">Inquire About Automation →</button><a href="#page-portfolio" onclick="switchPage('portfolio')" class="text-[10px] font-bold text-sky-300 hover:underline">See built pipeline →</a></div>
       </article>
-      <article class="glass-card rounded-2xl p-6 flex flex-col">
-        <span class="case-tag">03 · WEB DEVELOPMENT</span>
-        <h3 class="font-display text-xl font-bold text-white mt-3">Websites & Conversion Funnels</h3>
-        <div class="svc-block mt-4 space-y-2 text-sm text-slate-300 leading-relaxed">
-          <p><strong class="text-white">Problem:</strong> Slow or generic pages that do not capture intent.</p>
-          <p><strong class="text-white">Deliverables:</strong> React/Next.js frontend with FastAPI or lightweight backends, REST APIs and webhooks, landing pages, forms + source tracking, on-page SEO fundamentals, performance basics.</p>
-          <p class="text-xs text-slate-400"><strong class="text-slate-200">Scope & boundaries:</strong> content/imagery from client unless scoped; complex portals estimated separately; no ranking guarantees.</p>
-          <p class="text-xs text-sky-300"><strong>Next step:</strong> Send reference sites → get funnel outline.</p>
+
+      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-card-media">
+          <img src="public/images/business-ai-systems.webp" alt="Illustration of connected business module blocks routing data through an approval gateway" width="1200" height="896" loading="lazy" decoding="async" />
+          <span class="case-tag svc-media-tag">B · BUSINESS SETUP</span>
         </div>
-        <div class="rounded-xl overflow-hidden border border-sky-500/20 bg-[#060d22] mt-4" role="img" aria-label="Web development funnel concept"><svg viewBox="0 0 340 84" class="w-full h-[74px]" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="8" font-weight="700"><rect x="8" y="18" width="70" height="44" rx="7" fill="#0e2247" stroke="#38bdf8"/><text x="14" y="36" fill="#bae6fd">DESIGN</text><text x="14" y="52" fill="#64748b" font-weight="400">wireframe</text><rect x="86" y="18" width="70" height="44" rx="7" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".6"/><text x="94" y="36" fill="#bae6fd">BUILD</text><text x="94" y="52" fill="#64748b" font-weight="400">React/FastAPI</text><rect x="164" y="18" width="70" height="44" rx="7" fill="#0e2a55" stroke="#22d3ee"/><text x="172" y="36" fill="#fff">DEPLOY</text><text x="172" y="52" fill="#64748b" font-weight="400">HTTPS live</text><rect x="242" y="18" width="88" height="44" rx="7" fill="#082f3a" stroke="#22d3ee"/><text x="248" y="36" fill="#a5f3fc">TRACK</text><text x="248" y="52" fill="#64748b" font-weight="400">analytics</text></g><g stroke="#38bdf8" fill="none" stroke-width="1.2"><path class="infra-flow" d="M82 40 H86"/><path class="infra-flow" d="M164 40 H176"/><path class="infra-flow" d="M244 40 H254"/></g></svg></div>
-        <button type="button" onclick="selectServiceAndContact('Custom React/FastAPI Website & Python Scraper')" class="mt-5 w-full py-2.5 rounded-lg bg-slate-800 hover:bg-blue-600 text-white text-xs font-bold border border-slate-700 transition">Inquire About Websites →</button>
-      </article>
-      <article class="glass-card rounded-2xl p-6 flex flex-col">
-        <span class="case-tag">04 · INFRASTRUCTURE SUPPORT</span>
-        <h3 class="font-display text-xl font-bold text-white mt-3">Deployment & Infrastructure Support</h3>
-        <div class="svc-block mt-4 space-y-2 text-sm text-slate-300 leading-relaxed">
-          <p><strong class="text-white">Problem:</strong> Deployments stall on DNS, SSL or server setup.</p>
-          <p><strong class="text-white">Deliverables:</strong> GitHub workflow guidance, static/app deploys (Surge/Render/Vercel per fit), HTTPS/SSL checks, Linux/Docker/AWS EC2 + Nginx concepts, Cloudflare R2 object-storage guidance, plus routine server maintenance checklists (updates, logs, backups review).</p>
-          <p class="text-xs text-slate-400"><strong class="text-slate-200">Scope & boundaries:</strong> support and documentation, not 24/7 managed hosting; cloud costs owned by client; advanced scaling scoped separately.</p>
-          <p class="text-xs text-sky-300"><strong>Next step:</strong> Share current hosting → get deploy checklist.</p>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display text-xl font-bold text-white">AI for Business Setup</h3>
+          <p class="text-sm text-slate-400 mt-2 leading-relaxed">Practical AI support for business workflows, operating procedures, enquiry handling, document preparation and internal knowledge.</p>
+          <div class="mt-4"><button type="button" onclick="selectServiceAndContact('AI for Business Setup')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button></div>
+          <details class="svc-details">
+            <summary>Details &amp; boundaries</summary>
+            <div class="svc-details-body">
+              <p><strong class="text-white">Deliverables:</strong> workflow mapping, SOP templates, enquiry-handling flows, document-drafting support, internal FAQ/knowledge pages and process automation where it clearly pays off.</p>
+              <p><strong class="text-slate-200">Important:</strong> AI supports business setup — it does not replace legal, tax or professional advice. Final documents and compliance decisions stay with qualified professionals.</p>
+              <p class="text-sky-300"><strong>Next step:</strong> share the process you want to streamline → get a setup outline.</p>
+            </div>
+          </details>
         </div>
-        <div class="rounded-xl overflow-hidden border border-sky-500/20 bg-[#060d22] mt-4" role="img" aria-label="Infrastructure deployment pipeline concept"><svg viewBox="0 0 340 84" class="w-full h-[74px]" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="8" font-weight="700"><rect x="8" y="18" width="68" height="44" rx="7" fill="#0e2247" stroke="#38bdf8"/><text x="14" y="36" fill="#bae6fd">GITHUB</text><text x="14" y="52" fill="#64748b" font-weight="400">workflow</text><rect x="84" y="18" width="74" height="44" rx="7" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".6"/><text x="92" y="36" fill="#bae6fd">BUILD</text><text x="92" y="52" fill="#64748b" font-weight="400">test</text><rect x="166" y="18" width="70" height="44" rx="7" fill="#0e2a55" stroke="#22d3ee"/><text x="174" y="36" fill="#fff">DEPLOY</text><text x="174" y="52" fill="#64748b" font-weight="400">Surge/Vercel</text><rect x="244" y="18" width="88" height="44" rx="7" fill="#082f3a" stroke="#22d3ee"/><text x="250" y="36" fill="#a5f3fc">MONITOR</text><text x="250" y="52" fill="#64748b" font-weight="400">SSL/uptime</text></g><g stroke="#38bdf8" fill="none" stroke-width="1.2"><path class="infra-flow" d="M76 40 H84"/><path class="infra-flow" d="M166 40 H176"/><path class="infra-flow" d="M244 40 H254"/></g></svg></div>
-        <button type="button" onclick="selectServiceAndContact('General Strategy Consultation')" class="mt-5 w-full py-2.5 rounded-lg bg-slate-800 hover:bg-blue-600 text-sky-300 hover:text-white text-xs font-bold border border-sky-500/30 transition">Ask About Deploy Support →</button>
       </article>
-      <article class="glass-card rounded-2xl p-6 flex flex-col md:col-span-2 lg:col-span-2">
-        <span class="case-tag case-tag-ok">05 · DIGITAL GROWTH</span>
-        <h3 class="font-display text-xl font-bold text-white mt-3">Performance Marketing & Digital Growth</h3>
-        <div class="grid sm:grid-cols-2 gap-4 mt-4 text-sm text-slate-300 leading-relaxed">
-          <div class="svc-block"><p><strong class="text-white">Problem:</strong> Ad spend without clear funnel or follow-up.</p><p class="mt-2"><strong class="text-white">Deliverables:</strong> Meta/Google campaign setup, creatives + copy variants, landing-page alignment, lead routing to CRM/WhatsApp, cadence reporting.</p></div>
-          <div class="svc-block"><p class="text-xs text-slate-400"><strong class="text-slate-200">Scope & boundaries:</strong> budgets paid to platforms; no guaranteed leads, revenue or rankings; creative volume and reporting cadence agreed upfront.</p><p class="text-xs text-sky-300 mt-2"><strong>Next step:</strong> Share offer + monthly budget range → get funnel plan.</p></div>
+
+      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-card-media">
+          <img src="public/images/social-media-automation.webp" alt="Illustration of media content panels flowing through an automated review pipeline" width="1200" height="896" loading="lazy" decoding="async" />
+          <span class="case-tag svc-media-tag">C · SOCIAL AUTOMATION</span>
         </div>
-        <button type="button" onclick="selectServiceAndContact('Growth Marketing Retainer (₹15k-₹25k/mo)')" class="mt-5 w-full sm:w-auto px-6 py-2.5 rounded-lg bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white text-xs font-bold border border-cyan-500/30 transition">Inquire About Marketing →</button>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display text-xl font-bold text-white">Social Media Automation</h3>
+          <p class="text-sm text-slate-400 mt-2 leading-relaxed">A repeatable content pipeline: ideas in, drafts prepared, your brand review, approved scheduling, publishing and performance review.</p>
+          <div class="mt-4"><button type="button" onclick="selectServiceAndContact('Social Media Automation')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button></div>
+          <details class="svc-details">
+            <summary>Details &amp; boundaries</summary>
+            <div class="svc-details-body">
+              <p><strong class="text-white">Flow:</strong> content ideas → draft creation → brand review → approved scheduling → publishing → performance review.</p>
+              <p><strong class="text-slate-200">What we automate:</strong> drafting, formatting, queue organization, scheduling assistance and reporting prep — built around the platforms you actually use.</p>
+              <p><strong class="text-slate-200">Boundaries:</strong> what can be automated depends on platform permissions, account access and available integrations. Not every platform is connected, and nothing is published without brand review.</p>
+              <p class="text-sky-300"><strong>Next step:</strong> list your channels → get a pipeline plan.</p>
+            </div>
+          </details>
+        </div>
       </article>
-      
-      <article class="glass-card rounded-2xl p-6 flex flex-col md:col-span-2 lg:col-span-3"><div class="rounded-xl overflow-hidden border border-sky-500/20 bg-[#060d22] mb-4" role="img" aria-label="Structured content flowing into citable answers"><svg viewBox="0 0 320 96" class="w-full h-24" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="8" font-weight="700"><rect x="8" y="30" width="88" height="40" rx="7" fill="#0e2247" stroke="#38bdf8"/><text x="16" y="47" fill="#bae6fd">PAGES</text><text x="16" y="60" fill="#64748b" font-weight="400">faq+entity</text><rect x="106" y="30" width="88" height="40" rx="7" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".6"/><text x="114" y="47" fill="#bae6fd">SCHEMA</text><text x="114" y="60" fill="#64748b" font-weight="400">faq/org</text><rect x="204" y="30" width="108" height="40" rx="7" fill="#082f3a" stroke="#22d3ee"/><text x="212" y="47" fill="#a5f3fc">ANSWERS</text><text x="212" y="60" fill="#64748b" font-weight="400">citable</text></g><g stroke="#38bdf8" fill="none" stroke-width="1.2"><path class="infra-flow" d="M96 50 H106"/><path class="infra-flow" d="M194 50 H204"/></g></svg></div>
-      <span class="case-tag">06 - AEO READINESS</span>
-      <h3 class="font-display text-xl font-bold text-white mt-3">Answer Engine Optimization for AI Search</h3>
-      <div class="grid sm:grid-cols-2 gap-4 mt-4 text-sm text-slate-300 leading-relaxed">
-      <div class="svc-block"><p><strong class="text-white">Problem:</strong> Buyers ask AI assistants for recommendations and your business is missing or unclear there.</p><p class="mt-2"><strong class="text-white">Deliverables:</strong> Clear service/location pages, FAQ answer blocks, Organization and FAQ schema where accurate, entity consistency, measurement plan for AI-referred visits.</p></div>
-      <div class="svc-block"><p class="text-xs text-slate-400"><strong class="text-slate-200">Scope and boundaries:</strong> We prepare honest, citable content. We do not guarantee mentions in any AI model, do not promise rankings or trending placement, and do not claim best-in-class status. Model behavior changes frequently.</p><p class="text-xs text-sky-300 mt-2"><strong>Next step:</strong> Share your top 5 customer questions and service areas for an AEO content outline.</p></div>
-      </div>
-      <button type="button" onclick="selectServiceAndContact('General Strategy Consultation')" class="mt-5 w-full sm:w-auto px-6 py-2.5 rounded-lg bg-slate-800 hover:bg-blue-600 text-sky-300 hover:text-white text-xs font-bold border border-sky-500/30 transition">Ask About AEO Readiness</button>
+
+      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-card-media">
+          <img src="public/images/crm-business-dashboard.webp" alt="Illustration of a CRM dashboard on desktop and mobile with lead tables and conversation panels" width="1200" height="896" loading="lazy" decoding="async" />
+          <span class="case-tag case-tag-ok svc-media-tag">D · CRM SYSTEMS</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display text-xl font-bold text-white">Custom CRM &amp; Business Automation</h3>
+          <p class="text-sm text-slate-400 mt-2 leading-relaxed">Lead intake, assignment, pipeline stages, calling queues, follow-up reminders, team visibility and reporting — shaped around your sales process.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <button type="button" onclick="selectServiceAndContact('Custom Business CRM Deployment')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button>
+            <button type="button" onclick="switchPage('home')" class="px-4 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-300 border border-sky-500/30 text-xs font-bold transition">See interactive demo →</button>
+          </div>
+          <details class="svc-details">
+            <summary>Details &amp; boundaries</summary>
+            <div class="svc-details-body">
+              <p><strong class="text-white">Problem:</strong> enquiries scattered across WhatsApp, sheets and calls — no queue, no ownership.</p>
+              <p><strong class="text-white">Deliverables:</strong> stage-based CRM, assignment + daily calling queues, follow-up reminders, role access, booking/GST-ready records, basic reports.</p>
+              <p><strong class="text-slate-200">Scope &amp; boundaries:</strong> scoped to agreed stages/integrations; data migration and custom billing logic estimated separately; team training included for handover.</p>
+              <p class="text-slate-200">The interactive demo on this site uses sample data only — it is not connected to live customer systems.</p>
+              <p class="text-sky-300"><strong>Next step:</strong> map your stages → request a CRM walkthrough.</p>
+            </div>
+          </details>
+        </div>
       </article>
-    <div class="grid md:grid-cols-3 gap-5 mt-6">
+
+      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-card-media">
+          <svg viewBox="0 0 340 191" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="340" height="191" fill="#050c1d"/><g font-family="Inter,sans-serif" font-size="9" font-weight="700"><rect x="12" y="72" width="70" height="48" rx="8" fill="#0e2247" stroke="#38bdf8"/><text x="20" y="92" fill="#bae6fd">DESIGN</text><text x="20" y="106" fill="#64748b" font-weight="400">wireframe</text><rect x="94" y="72" width="70" height="48" rx="8" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".6"/><text x="102" y="92" fill="#bae6fd">BUILD</text><text x="102" y="106" fill="#64748b" font-weight="400">React/FastAPI</text><rect x="176" y="72" width="70" height="48" rx="8" fill="#0e2a55" stroke="#22d3ee"/><text x="184" y="92" fill="#fff">DEPLOY</text><text x="184" y="106" fill="#64748b" font-weight="400">live + SSL</text><rect x="258" y="72" width="70" height="48" rx="8" fill="#082f3a" stroke="#22d3ee"/><text x="266" y="92" fill="#a5f3fc">TRACK</text><text x="266" y="106" fill="#64748b" font-weight="400">analytics</text></g><g stroke="#38bdf8" fill="none" stroke-width="1.2"><path class="infra-flow" d="M82 96 H94"/><path class="infra-flow" d="M164 96 H176"/><path class="infra-flow-slow" d="M246 96 H258"/></g><g fill="#22d3ee"><circle cx="88" cy="96" r="2" class="infra-pulse"/><circle cx="170" cy="96" r="2" class="infra-pulse"/><circle cx="252" cy="96" r="2" class="infra-pulse"/></g></svg>
+          <span class="case-tag svc-media-tag">E · WEB &amp; APPS</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display text-xl font-bold text-white">Website &amp; Web Application Development</h3>
+          <p class="text-sm text-slate-400 mt-2 leading-relaxed">Responsive websites, landing pages, dashboards, APIs and business-specific web applications — deployed and monitored, not just handed over.</p>
+          <div class="mt-4"><button type="button" onclick="selectServiceAndContact('Custom React/FastAPI Website & Python Scraper')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button></div>
+          <details class="svc-details">
+            <summary>Details &amp; boundaries</summary>
+            <div class="svc-details-body">
+              <p><strong class="text-white">Problem:</strong> slow or generic pages that do not capture intent, or tools that do not fit the business.</p>
+              <p><strong class="text-white">Deliverables:</strong> React/Next.js frontend with FastAPI or lightweight backends, REST APIs and webhooks, landing pages, forms + source tracking, on-page SEO fundamentals, performance basics.</p>
+              <p><strong class="text-white">Deployment support:</strong> GitHub workflow guidance, static/app deploys (Surge/Render/Vercel per fit), HTTPS/SSL checks, Linux/Docker/AWS EC2 + Nginx concepts, Cloudflare R2 object-storage guidance and routine maintenance checklists (updates, logs, backups review).</p>
+              <p><strong class="text-slate-200">Scope &amp; boundaries:</strong> content/imagery from client unless scoped; complex portals estimated separately; no ranking guarantees; support and documentation — not 24/7 managed hosting; cloud costs owned by client.</p>
+              <p class="text-sky-300"><strong>Next step:</strong> send reference sites → get a funnel outline and deploy checklist.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-card-media">
+          <img src="public/images/ai-workflow-pipeline.webp" alt="Illustration of a dashboard cube, database hub and analytics modules connected by data streams" width="1200" height="896" loading="lazy" decoding="async" />
+          <span class="case-tag svc-media-tag">F · INTEGRATION</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display text-xl font-bold text-white">AI Integration &amp; Workflow Automation</h3>
+          <p class="text-sm text-slate-400 mt-2 leading-relaxed">Connect the tools you already use — with agent orchestration, APIs, approval steps and clean task handoffs between systems.</p>
+          <div class="mt-4"><button type="button" onclick="selectServiceAndContact('Custom Web App & Python/n8n Automation')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button></div>
+          <details class="svc-details">
+            <summary>Details &amp; boundaries</summary>
+            <div class="svc-details-body">
+              <p><strong class="text-white">Problem:</strong> repetitive extraction, tagging, routing and follow-up eats sales time — and disconnected tools drop the ball.</p>
+              <p><strong class="text-white">Deliverables:</strong> Python Playwright extraction, n8n webhook routing, dedupe/validation, WhatsApp templates, agent-assisted drafting with human approval, plus AI model-provider routing (OpenAI/Groq/OpenRouter/Ollama where fitting) with fallbacks.</p>
+              <p><strong class="text-slate-200">Scope &amp; boundaries:</strong> site/API changes may require maintenance; no fully autonomous outreach without approval; credentials handled per agreed access. Every provider and integration is scoped and verified per project — nothing is pre-configured by default.</p>
+              <p class="text-sky-300"><strong>Next step:</strong> share one repetitive workflow → get an automation scope.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-card-media">
+          <img src="public/images/lead-generation-funnel.webp" alt="Illustration of a glowing data funnel narrowing into a circuit board with analytics bars" width="1200" height="896" loading="lazy" decoding="async" />
+          <span class="case-tag case-tag-ok svc-media-tag">G · GROWTH</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display text-xl font-bold text-white">Digital Marketing &amp; Lead Generation</h3>
+          <p class="text-sm text-slate-400 mt-2 leading-relaxed">Campaigns, landing pages, enquiry capture, lead routing and measurement — a funnel your CRM and follow-up can actually use.</p>
+          <div class="mt-4"><button type="button" onclick="selectServiceAndContact('Growth Marketing Retainer (₹15k-₹25k/mo)')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button></div>
+          <details class="svc-details">
+            <summary>Details &amp; boundaries</summary>
+            <div class="svc-details-body">
+              <p><strong class="text-white">Problem:</strong> ad spend without a clear funnel or follow-up.</p>
+              <p><strong class="text-white">Deliverables:</strong> Meta/Google campaign setup, creatives + copy variants, landing-page alignment, lead routing to CRM/WhatsApp, cadence reporting.</p>
+              <p><strong class="text-white">AEO readiness:</strong> clear service/location pages, FAQ answer blocks, Organization and FAQ schema where accurate, entity consistency and a measurement plan for AI-referred visits. We prepare honest, citable content — no guaranteed mentions or rankings in any AI model.</p>
+              <p><strong class="text-slate-200">Scope &amp; boundaries:</strong> budgets paid to platforms; no guaranteed leads, revenue or rankings; creative volume and reporting cadence agreed upfront.</p>
+              <p class="text-sky-300"><strong>Next step:</strong> share offer + monthly budget range → get a funnel plan.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
+        <div class="svc-card-media">
+          <img src="public/images/ai-content-studio.webp" alt="Illustration of a studio microphone surrounded by audio waveforms and media player panels" width="1200" height="896" loading="lazy" decoding="async" />
+          <span class="case-tag svc-media-tag">H · CONTENT &amp; MEDIA</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display text-xl font-bold text-white">AI Content, Voice &amp; Video</h3>
+          <p class="text-sm text-slate-400 mt-2 leading-relaxed">Content planning, drafting, voice/video generation assistance, review and distribution — always with human approval before publishing.</p>
+          <div class="mt-4"><button type="button" onclick="selectServiceAndContact('AI Content, Voice & Video')" class="px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Discuss This →</button></div>
+          <details class="svc-details">
+            <summary>Details &amp; boundaries</summary>
+            <div class="svc-details-body">
+              <p><strong class="text-white">Flow:</strong> content planning → AI-assisted drafting/generation → human review → approved distribution → performance review.</p>
+              <p><strong class="text-slate-200">Capabilities:</strong> post/article drafting, script and caption support, voice-over and video generation assistance using tools and accounts you provide or approve.</p>
+              <p><strong class="text-slate-200">Boundaries:</strong> we do not imply access to paid tools, commercial rights or integrations that have not been verified. Voice-agent work (Odia/Hindi) is a research prototype only — not a production calling service. Accuracy, latency and consent flows still need validation.</p>
+              <p class="text-sky-300"><strong>Next step:</strong> share your content goal → get a plan.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+    </div>
+    <p class="text-[11px] tracking-widest text-sky-400 font-bold mt-10 mb-4">ALSO AVAILABLE — SPECIALIST TRACKS</p>
+    <div class="grid md:grid-cols-3 gap-5">
     <div class="glass-card rounded-2xl p-5"><span class="case-tag case-tag-ok">ADVISORY - PRODUCTION-READY</span><h3 class="font-display text-lg font-bold text-white mt-2">Audits and automation consulting</h3><p class="text-xs text-slate-300 mt-2 leading-relaxed"><strong class="text-white">Problem:</strong> Unclear bottlenecks across tools and handoffs.</p><p class="text-xs text-slate-300 mt-1 leading-relaxed"><strong class="text-white">Deliverable:</strong> Technical audit, prioritized fix list, scoped next steps. Tools reviewed: CRM, Python/n8n/Playwright, React/FastAPI, deploys.</p></div>
     <div class="glass-card rounded-2xl p-5"><span class="case-tag">REPORTING - CUSTOM DEV</span><h3 class="font-display text-lg font-bold text-white mt-2">Reporting and knowledge workflows</h3><p class="text-xs text-slate-300 mt-2 leading-relaxed"><strong class="text-white">Problem:</strong> Scattered reports and repeat questions.</p><p class="text-xs text-slate-300 mt-1 leading-relaxed"><strong class="text-white">Deliverable:</strong> AI-assisted summaries, internal FAQ/knowledge pages, operational dashboards. Human review before sharing.</p></div>
     <div class="glass-card rounded-2xl p-5"><span class="case-tag case-tag-warn">VOICE - EXPERIMENTAL</span><h3 class="font-display text-lg font-bold text-white mt-2">Voice-agent prototypes (Odia/Hindi)</h3><p class="text-xs text-slate-300 mt-2 leading-relaxed"><strong class="text-white">Problem being explored:</strong> Hands-free follow-up for local language callers.</p><p class="text-xs text-slate-400 mt-1 leading-relaxed"><strong class="text-slate-200">Status:</strong> Research prototype only. Accuracy, latency and consent flows need validation. Not a production calling service.</p><div class="rounded-xl overflow-hidden border border-violet-500/25 bg-[#060d22] mt-3" role="img" aria-label="Voice pipeline concept, research prototype"><svg viewBox="0 0 320 96" class="w-full h-20" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="8" font-weight="700"><path d="M14 58 Q30 30 46 58 T78 58 T110 58 T142 58 T174 58 T206 58" stroke="#22d3ee" fill="none" stroke-width="1.6"/><rect x="222" y="34" width="90" height="48" rx="8" fill="#0e2247" stroke="#a78bfa" stroke-opacity=".6"/><text x="230" y="52" fill="#c4b5fd">FLOW</text><text x="230" y="66" fill="#64748b" font-weight="400">prototype</text></g><text x="14" y="88" fill="#64748b" font-size="7.5" font-family="Inter,sans-serif">Odia / Hindi - research prototype</text></svg></div></div>
-    </div>
     </div>
   </section>
 
@@ -1773,6 +1979,14 @@
     </g>
     </svg>
     <p class="text-[9px] font-mono text-slate-500 px-3 py-1.5 border-t border-sky-500/10 mt-2">ILLUSTRATIVE PIPELINE · NOT LIVE EXECUTION</p></div>
+    <ol class="proc-flow mt-8">
+      <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">1</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 1</p><h3 class="font-bold text-white">Discover</h3><p class="text-xs text-slate-300 mt-1">Map the journey and find the leaks.</p><p class="text-[11px] text-slate-500 mt-1">Exit: target + bottlenecks agreed.</p></li>
+      <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">2</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 2</p><h3 class="font-bold text-white">Architect</h3><p class="text-xs text-slate-300 mt-1">Design the smallest useful fix.</p><p class="text-[11px] text-slate-500 mt-1">Exit: scope + plan.</p></li>
+      <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">3</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 3</p><h3 class="font-bold text-white">Build</h3><p class="text-xs text-slate-300 mt-1">Ship working pieces you can see.</p><p class="text-[11px] text-slate-500 mt-1">Exit: demo ready.</p></li>
+      <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">4</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 4</p><h3 class="font-bold text-white">Test</h3><p class="text-xs text-slate-300 mt-1">Prove it works before it counts.</p><p class="text-[11px] text-slate-500 mt-1">Exit: checks pass.</p></li>
+      <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">5</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 5</p><h3 class="font-bold text-white">Deploy</h3><p class="text-xs text-slate-300 mt-1">Go live safely with monitoring.</p><p class="text-[11px] text-slate-500 mt-1">Exit: live + SSL.</p></li>
+      <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">6</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 6</p><h3 class="font-bold text-white">Improve</h3><p class="text-xs text-slate-300 mt-1">Refine from real usage, then hand over.</p><p class="text-[11px] text-slate-500 mt-1">Exit: documented handover.</p></li>
+    </ol>
     <div class="text-center mt-8"><button type="button" onclick="switchPage('contact')" class="px-6 py-3.5 rounded-xl font-bold text-sm uppercase tracking-wide bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950">Start with discovery →</button></div>
   </section>
 
@@ -1857,9 +2071,13 @@
           <div>
             <label for="clientService" class="block text-xs font-semibold text-slate-300 mb-1">Service Required</label>
             <select id="clientService" name="clientService" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-sm text-white focus:border-sky-400 outline-none">
+              <option value="Custom AI Agent Creation">Custom AI Agent Creation</option>
+              <option value="AI for Business Setup">AI for Business Setup</option>
               <option value="Custom Business CRM Deployment">Custom CRM &amp; Lead Operations</option>
               <option value="Custom Web App & Python/n8n Automation">AI Workflow Automation (Python / n8n)</option>
               <option value="Custom React/FastAPI Website & Python Scraper">Websites &amp; Conversion Funnels</option>
+              <option value="Social Media Automation">Social Media Automation</option>
+              <option value="AI Content, Voice & Video">AI Content, Voice &amp; Video</option>
               <option value="General Strategy Consultation">Deployment &amp; Infrastructure Support</option>
               <option value="Growth Marketing Retainer (₹15k-₹25k/mo)">Performance Marketing Retainer (₹15k–₹25k/mo)</option>
               <option value="Custom AI CRM & Automation Suite (₹30k-₹50k)">Custom System Build (₹30k–₹50k range)</option>
@@ -1885,7 +2103,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="relative z-10 border-t border-slate-800/80 bg-[#03050c] py-10 mt-16 no-print">
+  <footer class="relative z-10 border-t border-slate-800/80 bg-[#03050c] pt-10 pb-24 sm:pb-10 mt-16 no-print">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="glass-card rounded-2xl p-5 sm:p-6 mb-6 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
         <div><h2 class="font-display text-xl font-bold text-white">Have a lead, ops or growth bottleneck?</h2><p class="text-xs text-slate-400 mt-1">Send a short brief — we reply with scope and next steps, no inflated promises.</p></div>
