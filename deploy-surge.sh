@@ -11,6 +11,10 @@ test -f "$ROOT/public/images/founder-rahul.png" || {
   echo "ERROR: founder image missing at public/images/founder-rahul.png; refusing to build/deploy."
   exit 1
 }
+test -f "$ROOT/public/images/logo.svg" || {
+  echo "ERROR: logo missing at public/images/logo.svg; refusing to build/deploy."
+  exit 1
+}
 
 # Validate HTML IDs, local image paths and structured data before creating dist.
 python3 - "$ROOT/index.html" "$ROOT" <<'PY'
@@ -55,12 +59,10 @@ PY
 
 # dist is generated output. Rebuild it from source files only.
 rm -rf "$DIST"
-mkdir -p "$DIST/public"
+mkdir -p "$DIST/public/images"
 cp "$ROOT/index.html" "$DIST/index.html"
-# Copy every checked-in local visual (founder portrait, workflow SVGs, model marks).
-cp -R "$ROOT/public/images" "$DIST/public/images"
-test -f "$DIST/public/images/founder-rahul.png" || { echo "ERROR: founder image was not copied."; exit 1; }
-test -f "$DIST/public/images/hero-agent-network.svg" || { echo "ERROR: hero illustration was not copied."; exit 1; }
+cp "$ROOT/public/images/founder-rahul.png" "$DIST/public/images/founder-rahul.png"
+cp "$ROOT/public/images/logo.svg" "$DIST/public/images/logo.svg"
 [ ! -f "$ROOT/robots.txt" ] || cp "$ROOT/robots.txt" "$DIST/robots.txt"
 [ ! -f "$ROOT/sitemap.xml" ] || cp "$ROOT/sitemap.xml" "$DIST/sitemap.xml"
 

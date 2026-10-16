@@ -16,7 +16,7 @@
   <meta property="og:image" content="https://buddy-ai-partners.surge.sh/public/images/founder-rahul.png" />
 
   <!-- Inline SVG Favicon (Metallic 'B' Shield) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23060b19'/%3E%3Cpath d='M10 6H23C27.5 6 30.5 8.5 30.5 12.5C30.5 15.2 28.8 17.4 26.2 18.3C29.5 19.2 31.5 21.8 31.5 25.5C31.5 30.2 28 33 23 33H10V6ZM16 16.5H21.5C23.5 16.5 24.8 15.3 24.8 13.5C24.8 11.7 23.5 10.5 21.5 10.5H16V16.5ZM16 28.5H22.2C24.5 28.5 25.8 27.2 25.8 25C25.8 22.8 24.5 21.5 22.2 21.5H16V28.5Z' fill='%2338bdf8'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="public/images/logo.svg" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -316,47 +316,6 @@
       }
     }
 
-    /* Locally hosted product illustrations: no fragile third-party image dependency. */
-    .buddy-hero-art { box-shadow: 0 24px 80px rgba(0,0,0,.34), 0 0 45px rgba(37,99,235,.08); }
-    .buddy-hero-art img { display:block; width:100%; height:auto; }
-    .buddy-project-visual { position:relative; overflow:hidden; background:#050a16; border-bottom:1px solid rgba(56,189,248,.2); }
-    .buddy-project-visual img { display:block; width:100%; height:auto; aspect-ratio:8/5; object-fit:cover; transition:transform .7s cubic-bezier(.2,.7,.2,1), filter .4s ease; }
-    .glass-card:hover .buddy-project-visual img { transform:scale(1.035); filter:saturate(1.12); }
-    .buddy-visual-label { position:absolute; left:.7rem; bottom:.7rem; max-width:calc(100% - 1.4rem); padding:.35rem .55rem; border:1px solid rgba(125,211,252,.28); border-radius:.5rem; background:rgba(3,8,20,.88); color:#bae6fd; font-size:.56rem; font-weight:800; letter-spacing:.08em; backdrop-filter:blur(8px); }
-    .buddy-repo-card { min-width:0; overflow:hidden; border:1px solid rgba(56,189,248,.18); border-radius:1rem; background:linear-gradient(145deg,rgba(13,24,48,.94),rgba(5,10,24,.94)); transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
-    .buddy-repo-card:hover { transform:translateY(-4px); border-color:rgba(56,189,248,.48); box-shadow:0 18px 42px rgba(37,99,235,.13); }
-    .buddy-repo-card > img { display:block; width:100%; aspect-ratio:16/10; object-fit:cover; border-bottom:1px solid rgba(56,189,248,.18); }
-    .buddy-repo-card h4 { margin:.8rem 0 .45rem; color:#f8fafc; font:700 1.05rem/1.3 'Space Grotesk',sans-serif; }
-    .buddy-repo-card p { color:#aab8cc; font-size:.75rem; line-height:1.6; min-height:5.2rem; }
-    .buddy-repo-card a { display:inline-block; margin-top:.8rem; color:#7dd3fc; font-size:.72rem; font-weight:800; }
-    .buddy-repo-status,.buddy-repo-tech { display:inline-flex; padding:.25rem .42rem; border-radius:.4rem; font-size:.48rem; font-weight:800; letter-spacing:.08em; color:#a5f3fc; background:rgba(8,145,178,.13); border:1px solid rgba(34,211,238,.18); }
-    .buddy-repo-private { color:#c4b5fd; background:rgba(109,40,217,.13); border-color:rgba(167,139,250,.2); }
-    .buddy-stack-strip { border-top:1px solid rgba(56,189,248,.15); padding-top:1.3rem; }
-    .buddy-provider-chip { display:inline-flex; align-items:center; gap:.55rem; padding:.45rem .72rem .45rem .45rem; border-radius:999px; border:1px solid rgba(148,163,184,.18); background:rgba(8,16,33,.8); color:#cbd5e1; font-size:.72rem; font-weight:700; transition:border-color .2s ease,background .2s ease,transform .2s ease; }
-    .buddy-provider-chip:hover { border-color:rgba(56,189,248,.45); background:rgba(37,99,235,.12); transform:translateY(-2px); }
-    .buddy-provider-mark { display:grid; place-items:center; width:1.65rem; height:1.65rem; border-radius:50%; font-size:.85rem; font-weight:900; background:#12213b; color:#e0f2fe; }
-    .mark-openai { color:#e2e8f0; } .mark-groq { color:#fbbf24; } .mark-deepseek { color:#60a5fa; } .mark-qwen { color:#c4b5fd; } .mark-ollama { color:#86efac; } .mark-mistral { color:#fdba74; } .mark-nvidia { color:#a3e635; } .mark-hf { color:#fcd34d; } .mark-router { color:#67e8f9; }
-    .buddy-models-panel { padding:clamp(1.1rem,3vw,2rem); border:1px solid rgba(56,189,248,.19); border-radius:1.5rem; background:radial-gradient(ellipse at 90% 0%,rgba(37,99,235,.12),transparent 40%),rgba(4,10,24,.78); }
-    .buddy-model-card { min-width:0; border:1px solid rgba(56,189,248,.18); border-radius:1rem; padding:1.1rem; background:linear-gradient(145deg,rgba(13,24,48,.94),rgba(5,10,24,.94)); transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
-    .buddy-model-card:hover { transform:translateY(-4px); border-color:rgba(56,189,248,.48); box-shadow:0 18px 42px rgba(37,99,235,.13); }
-    .buddy-model-logo { display:grid; place-items:center; width:3.25rem; height:3.25rem; border-radius:.9rem; border:1px solid rgba(125,211,252,.18); background:rgba(255,255,255,.04); margin-bottom:1rem; }
-    .buddy-model-logo img { display:block; width:2.25rem; height:2.25rem; }
-    .buddy-google-ai-studio { color:#93c5fd; font-size:2.5rem; background:linear-gradient(145deg,rgba(66,133,244,.18),rgba(161,66,244,.16)); }
-    .buddy-vertex-mark { color:#67e8f9; font-size:2rem; background:linear-gradient(145deg,rgba(52,168,83,.16),rgba(66,133,244,.18)); }
-    .buddy-model-type { color:#7dd3fc; font-size:.57rem; font-weight:800; letter-spacing:.13em; }
-    .buddy-model-card h4 { color:#f8fafc; font:700 1.2rem/1.3 'Space Grotesk',sans-serif; margin:.45rem 0; }
-    .buddy-model-card p { min-height:5.4rem; color:#aab8cc; font-size:.78rem; line-height:1.6; }
-    .buddy-model-card a { display:inline-block; margin-top:.9rem; color:#7dd3fc; font-size:.75rem; font-weight:700; }
-    .buddy-action-link { display:inline-flex; align-items:center; justify-content:center; border:1px solid rgba(56,189,248,.3); background:rgba(37,99,235,.14); color:#bae6fd; padding:.75rem 1rem; border-radius:.75rem; font-size:.75rem; font-weight:800; transition:background .2s ease,border-color .2s ease; }
-    .buddy-action-link:hover { background:rgba(37,99,235,.28); border-color:rgba(56,189,248,.6); }
-    @media (max-width:640px) {
-      .buddy-model-card p { min-height:0; }
-      .buddy-visual-label { font-size:.48rem; }
-    }
-    @media (prefers-reduced-motion:reduce) {
-      .buddy-project-visual img,.buddy-model-card,.buddy-hero-art * { animation:none !important; transition:none !important; }
-    }
-
     /* BUDDY PREMIUM CONVERSION SYSTEM — preserve navy / blue / cyan identity */
     :root {
       --buddy-ink: #040711;
@@ -566,6 +525,58 @@
       .buddy-visual-version {display:none;}
       .buddy-hero-visual {min-height:252px;}
     }
+
+    /* PREMIUM ENTERPRISE UPGRADE — enterprise infra visual, architecture, stack, process */
+    .skip-link {position:absolute;left:-9999px;top:0;background:#38bdf8;color:#040711;padding:.7rem 1rem;font-weight:800;font-size:.8rem;z-index:100;border-radius:0 0 .6rem 0;}
+    .skip-link:focus {left:0;}
+    section[id], main[id] {scroll-margin-top:7.5rem;}
+    .infra-panel {position:relative;isolation:isolate;overflow:hidden;border-radius:1.5rem;border:1px solid rgba(56,189,248,.28);background:radial-gradient(ellipse at 50% 0%,rgba(37,99,235,.22),transparent 55%),linear-gradient(180deg,#0a1430 0%,#050b1d 55%,#03060f 100%);box-shadow:0 30px 90px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.06);}
+    .infra-grid-bg {position:absolute;inset:0;opacity:.5;pointer-events:none;background-image:linear-gradient(rgba(125,211,252,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(125,211,252,.06) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse at 50% 40%,#000 30%,transparent 78%);}
+    .infra-flow {stroke-dasharray:6 6;animation:infraDash 2.8s linear infinite;}
+    .infra-flow-slow {stroke-dasharray:4 8;animation:infraDash 4.5s linear infinite;}
+    @keyframes infraDash {to {stroke-dashoffset:-48;}}
+    .infra-pulse {animation:infraPulse 2.6s ease-in-out infinite;}
+    .infra-pulse-d2 {animation-delay:.9s;} .infra-pulse-d3 {animation-delay:1.7s;}
+    @keyframes infraPulse {0%,100% {opacity:.45;}50% {opacity:1;}}
+    .arch-tabs {display:flex;flex-wrap:wrap;gap:.5rem;}
+    .arch-tab {padding:.6rem .9rem;border-radius:.7rem;border:1px solid rgba(56,189,248,.2);background:rgba(10,19,42,.8);color:#cbd5e1;font-size:.75rem;font-weight:700;}
+    .arch-tab[aria-selected="true"] {background:linear-gradient(135deg,#2563eb,#06b6d4);color:#fff;border-color:transparent;}
+    .stack-tier {border-radius:1.1rem;padding:1.25rem;border:1px solid rgba(56,189,248,.18);background:linear-gradient(145deg,rgba(13,24,48,.92),rgba(5,10,24,.94));}
+    .stack-tier-prod {border-top:3px solid #22d3ee;} .stack-tier-hands {border-top:3px solid #60a5fa;} .stack-tier-exp {border-top:3px solid #a78bfa;}
+    .case-meta {display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem;}
+    .case-tag {font-size:.62rem;font-weight:800;letter-spacing:.08em;padding:.32rem .55rem;border-radius:999px;border:1px solid rgba(56,189,248,.22);color:#7dd3fc;background:rgba(8,20,40,.7);}
+    .case-tag-warn {color:#c4b5fd;border-color:rgba(167,139,250,.35);}
+    .case-tag-ok {color:#6ee7b7;border-color:rgba(52,211,153,.3);}
+    .svc-block {border-left:3px solid rgba(56,189,248,.35);padding-left:1rem;}
+    .proc-line {position:relative;}.proc-flow{list-style:none;display:grid;gap:.9rem;margin:0;padding:0;}@media(min-width:1024px){.proc-flow{grid-template-columns:repeat(6,minmax(0,1fr));gap:0;}.proc-step{position:relative;border-radius:0;margin:0;}.proc-step:first-child{border-radius:1rem 0 0 1rem;}.proc-step:last-child{border-radius:0 1rem 1rem 0;}.proc-step:not(:last-child)::after{content:'›';position:absolute;right:-.55rem;top:50%;transform:translateY(-50%);z-index:2;width:1.1rem;height:1.1rem;display:grid;place-items:center;border-radius:99px;background:#0b1a36;border:1px solid rgba(56,189,248,.4);color:#7dd3fc;font-size:.7rem;}.proc-step + .proc-step{border-left:1px solid rgba(56,189,248,.14);}}@media(max-width:1023px){.proc-step{position:relative;border-radius:1rem;}.proc-step:not(:last-child)::before{content:'';position:absolute;left:2.1rem;top:100%;height:.9rem;width:2px;background:linear-gradient(to bottom,rgba(56,189,248,.5),transparent);}}
+    @media (max-width:640px) {
+      .infra-panel {border-radius:1.1rem;}
+      .arch-tabs {gap:.4rem;}
+      .arch-tab {font-size:.7rem;padding:.55rem .7rem;}
+    }
+
+    /* Buddy welcome + neural brain + tech logos + nav persistence fixes (incremental, navy/cyan only) */
+    .tech-logo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;}
+    .tech-logo{display:flex;align-items:center;gap:.6rem;padding:.6rem .7rem;border-radius:.8rem;border:1px solid rgba(56,189,248,.16);background:rgba(8,16,36,.8);transition:transform .2s ease,border-color .2s ease;}
+    .tech-logo:hover{transform:translateY(-2px);border-color:rgba(56,189,248,.45);}
+    .tech-logo img{width:26px;height:26px;object-fit:contain;flex:0 0 auto;}
+    .tech-logo-fallback{display:none;width:26px;height:26px;border-radius:.5rem;place-items:center;font-weight:800;font-size:.7rem;color:#040711;background:linear-gradient(135deg,#38bdf8,#2563eb);flex:0 0 auto;}
+    .tech-logo small{display:block;color:#7d8aa3;font-size:.62rem;letter-spacing:.06em;}
+    .tech-logo b{font-size:.78rem;color:#e2e8f0;}.eco-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;align-items:start;}.eco-card{display:flex;flex-direction:column;min-height:100%;padding:.8rem .85rem;border-radius:.85rem;border:1px solid rgba(56,189,248,.16);background:rgba(8,16,36,.82);min-width:0;}.eco-card h4{font-size:.82rem;color:#fff;overflow-wrap:anywhere;}.eco-title{display:flex;align-items:center;gap:.5rem;}.eco-ico{width:22px;height:22px;object-fit:contain;background:#fff;border-radius:6px;padding:2px;flex:0 0 auto;}.eco-desc{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:3.3em;font-size:.72rem;color:#9fb0c7;line-height:1.5;margin-top:.3rem;}.eco-meta{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem;}.eco-tag{font-size:.6rem;font-weight:700;letter-spacing:.05em;padding:.15rem .45rem;border-radius:999px;border:1px solid rgba(56,189,248,.22);color:#7dd3fc;}.eco-links{display:flex;gap:.8rem;margin-top:auto;padding-top:.55rem;font-size:.7rem;font-weight:700;}.eco-links a{color:#38bdf8;}.eco-sec-title{font-size:.75rem;font-weight:800;letter-spacing:.12em;color:#7dd3fc;text-transform:uppercase;margin:1.1rem 0 .55rem;}.eco-controls{display:grid;grid-template-columns:1fr;gap:.5rem;}@media(min-width:640px){.eco-controls{grid-template-columns:2fr 1fr 1fr auto;}.eco-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}@media(min-width:1024px){.eco-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}@media(max-width:639px){.eco-grid{grid-template-columns:minmax(0,1fr);}}.tech-logo{flex-wrap:wrap;}.tech-logo .use-badge{margin-left:auto;}@media (max-width:640px){.tech-logo{align-items:flex-start;}.tech-logo .use-badge{margin-left:0;flex-basis:100%;width:fit-content;margin-top:.15rem;}}.use-badge{font-size:.58rem;font-weight:800;letter-spacing:.07em;padding:.15rem .45rem;border-radius:999px;border:1px solid rgba(56,189,248,.25);color:#7dd3fc;white-space:nowrap;}.use-prod{color:#6ee7b7;border-color:rgba(52,211,153,.35);}.use-hands{color:#7dd3fc;}.use-exp{color:#c4b5fd;border-color:rgba(167,139,250,.35);}.stack-cat{font-size:.7rem;font-weight:800;letter-spacing:.14em;color:#7dd3fc;text-transform:uppercase;}.reveal-progress{position:relative;}.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}.reveal.in-view{opacity:1;transform:none;}.reveal-progress::after{content:'';position:absolute;left:0;top:0;height:2px;width:0;background:linear-gradient(90deg,#2563eb,#22d3ee);border-radius:999px;transition:width 1.2s ease;}
+    header nav[aria-label="Mobile Navigation"]{scrollbar-width:none;}
+    header nav[aria-label="Mobile Navigation"]::-webkit-scrollbar{display:none;}
+    #page-home .grid.grid-cols-3{gap:.75rem;}
+    #buddyAssistant{bottom:max(.9rem,env(safe-area-inset-bottom));}#buddyGuidePanel{max-height:min(62vh,420px);overflow:auto;}
+    @media (max-width:640px){
+      header .max-w-7xl>.flex{height:4rem;}
+      header nav[aria-label="Mobile Navigation"]{padding:.4rem .6rem;gap:.4rem;}
+      .mnav-btn{font-size:11px!important;padding:.4rem .6rem!important;}
+      .tech-logo-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+      #page-home>section:first-child{padding-bottom:1.5rem;}
+    }
+    @media (prefers-reduced-motion:reduce){
+      .animate-marquee,#galaxyCanvas{display:none!important;}
+    }
   </style>
 
   <!-- Search and social metadata -->
@@ -634,9 +645,13 @@
   }
   </script>
 
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "ItemList", "name": "Verified production technologies at BUDDY AI PARTNERS", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "SoftwareApplication", "name": "Python", "url": "https://www.python.org"}}, {"@type": "ListItem", "position": 2, "item": {"@type": "SoftwareApplication", "name": "React", "url": "https://react.dev"}}, {"@type": "ListItem", "position": 3, "item": {"@type": "SoftwareApplication", "name": "GitHub", "url": "https://github.com"}}, {"@type": "ListItem", "position": 4, "item": {"@type": "Service", "name": "Meta Ads", "url": "https://www.facebook.com/business"}}, {"@type": "ListItem", "position": 5, "item": {"@type": "Service", "name": "Google Ads", "url": "https://ads.google.com"}}, {"@type": "ListItem", "position": 6, "item": {"@type": "Service", "name": "SEO"}}]}
+  </script>
+
 </head>
 <body class="relative min-h-screen selection:bg-blue-600 selection:text-white">
-
+  <a href="#page-home" class="skip-link" onclick="switchPage('home')">Skip to main content</a>
   <!-- Interactive Starfield Background -->
   <canvas id="galaxyCanvas" class="fixed inset-0 pointer-events-none z-0" aria-hidden="true"></canvas>
 
@@ -647,18 +662,7 @@
       <!-- Brand Identity -->
       <button type="button" onclick="switchPage('home')" class="flex items-center gap-3.5 text-left group focus:outline-none">
         <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 via-sky-400 to-slate-300 p-[1.5px] shadow-lg shadow-blue-500/25 group-hover:scale-105 transition">
-          <div class="w-full h-full bg-[#060b19] rounded-[10px] flex items-center justify-center">
-            <svg class="w-6 h-6" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-              <defs>
-                <linearGradient id="bMetal" x1="0" y1="0" x2="40" y2="40">
-                  <stop offset="0%" stop-color="#FFFFFF"/>
-                  <stop offset="50%" stop-color="#38BDF8"/>
-                  <stop offset="100%" stop-color="#1D4ED8"/>
-                </linearGradient>
-              </defs>
-              <path d="M10 6H23C27.5 6 30.5 8.5 30.5 12.5C30.5 15.2 28.8 17.4 26.2 18.3C29.5 19.2 31.5 21.8 31.5 25.5C31.5 30.2 28 33 23 33H10V6ZM16 16.5H21.5C23.5 16.5 24.8 15.3 24.8 13.5C24.8 11.7 23.5 10.5 21.5 10.5H16V16.5ZM16 28.5H22.2C24.5 28.5 25.8 27.2 25.8 25C25.8 22.8 24.5 21.5 22.2 21.5H16V28.5Z" fill="url(#bMetal)"/>
-            </svg>
-          </div>
+          <div class="w-full h-full bg-[#060b19] rounded-[10px] flex items-center justify-center overflow-hidden"><img src="public/images/logo.svg" alt="BUDDY AI PARTNERS logo" width="44" height="44" class="w-full h-full" loading="eager" decoding="async" /></div>
         </div>
         <div>
           <span class="block font-display font-bold text-base sm:text-lg tracking-wider chrome-text">BUDDY AI PARTNERS</span>
@@ -668,11 +672,13 @@
 
       <!-- Desktop Tabs -->
       <nav aria-label="Main Navigation" class="hidden md:flex items-center gap-1 bg-slate-900/85 p-1.5 rounded-full border border-slate-700/60">
-        <button type="button" onclick="switchPage('home')" data-nav="home" class="nav-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-600 text-white transition">Home</button>
-        <button type="button" onclick="switchPage('about')" data-nav="about" class="nav-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">About & Credentials</button>
-        <button type="button" onclick="switchPage('services')" data-nav="services" class="nav-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">Services</button>
-        <button type="button" onclick="switchPage('portfolio')" data-nav="portfolio" class="nav-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">Portfolio</button>
-        <button type="button" onclick="switchPage('contact')" data-nav="contact" class="nav-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">Pricing & Contact</button>
+        <button type="button" onclick="switchPage('home')" data-nav="home" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-blue-600 text-white transition">Home</button>
+        <button type="button" onclick="switchPage('about')" data-nav="about" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">About</button>
+        <button type="button" onclick="switchPage('services')" data-nav="services" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">Services</button>
+        <button type="button" onclick="switchPage('portfolio')" data-nav="portfolio" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">Portfolio</button>
+        <button type="button" onclick="switchPage('stack')" data-nav="stack" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">Stack</button>
+        <button type="button" onclick="switchPage('process')" data-nav="process" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">Process</button>
+        <button type="button" onclick="switchPage('contact')" data-nav="contact" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">Pricing & Contact</button>
       </nav>
 
       <!-- Header CTAs -->
@@ -687,13 +693,25 @@
     </div>
 
     <!-- Mobile Navigation Bar -->
-    <nav aria-label="Mobile Navigation" class="flex md:hidden overflow-x-auto px-4 py-2.5 gap-2 border-t border-slate-800/80 bg-[#050915]">
-      <button type="button" onclick="switchPage('home')" data-mnav="home" class="mnav-btn text-xs font-semibold px-3.5 py-1.5 rounded-md bg-blue-600 text-white whitespace-nowrap">Home</button>
-      <button type="button" onclick="switchPage('about')" data-mnav="about" class="mnav-btn text-xs font-semibold px-3.5 py-1.5 rounded-md bg-slate-800 text-slate-300 whitespace-nowrap">About & Founder</button>
-      <button type="button" onclick="switchPage('services')" data-mnav="services" class="mnav-btn text-xs font-semibold px-3.5 py-1.5 rounded-md bg-slate-800 text-slate-300 whitespace-nowrap">Services</button>
-      <button type="button" onclick="switchPage('portfolio')" data-mnav="portfolio" class="mnav-btn text-xs font-semibold px-3.5 py-1.5 rounded-md bg-slate-800 text-slate-300 whitespace-nowrap">Portfolio</button>
-      <button type="button" onclick="switchPage('contact')" data-mnav="contact" class="mnav-btn text-xs font-semibold px-3.5 py-1.5 rounded-md bg-slate-800 text-slate-300 whitespace-nowrap">Pricing & Contact</button>
-    </nav>
+        <div class="md:hidden relative">
+      <div class="flex items-center justify-between px-4 py-2 border-t border-slate-800/80 bg-[#050915]">
+        <span class="text-[11px] font-bold tracking-widest text-slate-400 uppercase">Menu</span>
+        <button type="button" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu" onclick="toggleMenu()" class="p-2 rounded-lg bg-slate-800 border border-slate-700 text-sky-300">
+          <svg id="menuIcoOpen" class="w-5 h-5" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg id="menuIcoClose" class="w-5 h-5 hidden" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <nav id="mobileMenu" aria-label="Mobile Navigation" hidden class="absolute left-0 right-0 top-full z-50 px-3 pb-3 pt-1 bg-[#050915]/98 backdrop-blur-xl border-b border-slate-800/80">
+        <div class="grid grid-cols-2 gap-2">          <button type="button" onclick="switchPage('home');closeMenu()" data-mnav="home" class="mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300">Home</button>
+          <button type="button" onclick="switchPage('about');closeMenu()" data-mnav="about" class="mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300">About & Founder</button>
+          <button type="button" onclick="switchPage('services');closeMenu()" data-mnav="services" class="mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300">Services</button>
+          <button type="button" onclick="switchPage('portfolio');closeMenu()" data-mnav="portfolio" class="mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300">Portfolio</button>
+          <button type="button" onclick="switchPage('stack');closeMenu()" data-mnav="stack" class="mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300">Stack</button>
+          <button type="button" onclick="switchPage('process');closeMenu()" data-mnav="process" class="mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300">Process</button>
+          <button type="button" onclick="switchPage('contact');closeMenu()" data-mnav="contact" class="mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300">Pricing & Contact</button>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <!-- ========================================================= -->
@@ -710,17 +728,17 @@
             AI AUTOMATION, CUSTOM CRM & DIGITAL GROWTH AGENCY
           </div>
           <h1 class="font-display text-4xl sm:text-6xl font-bold leading-[1.1] tracking-tight">
-            Practical AI Systems & <span class="chrome-text">High-Intent Growth Engines.</span>
+            AI-Assisted Systems for <span class="chrome-text">CRM, Operations & Growth.</span>
           </h1>
           <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
-            We connect the work behind growth: real-estate and service-business CRM systems, AI-assisted workflows, high-converting websites, and disciplined Meta &amp; Google performance marketing—built around how your team actually operates.
+            BUDDY AI PARTNERS designs custom CRM architecture, Python automation with Playwright and n8n, React and FastAPI web systems, and disciplined Meta & Google funnels — scoped around how your sales team actually works.
           </p>
           <div class="flex flex-wrap gap-4 pt-2">
             <button type="button" onclick="switchPage('portfolio')" class="px-7 py-4 rounded-xl font-bold text-sm uppercase tracking-wider bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950 shadow-xl shadow-sky-500/25 hover:scale-[1.02] transition">
               Explore Our Work →
             </button>
-            <button type="button" onclick="switchPage('about')" class="px-7 py-4 rounded-xl font-bold text-sm uppercase tracking-wider glass-card text-white hover:border-sky-400">
-              Meet the Founder
+            <button type="button" onclick="switchPage('contact')" class="px-7 py-4 rounded-xl font-bold text-sm uppercase tracking-wider glass-card text-white hover:border-sky-400">
+              Start a Project
             </button>
           </div>
 
@@ -743,62 +761,77 @@
 
         <!-- Right Interactive System Carousel -->
         <div class="lg:col-span-5 space-y-4">
-          <div class="buddy-hero-visual" role="img" aria-label="Animated Buddy AI core with a glowing neural brain, orbiting data paths and workflow indicators">
-            <div class="buddy-visual-grid" aria-hidden="true"></div>
-            <div class="buddy-orbit buddy-orbit-one" aria-hidden="true"></div>
-            <div class="buddy-orbit buddy-orbit-two" aria-hidden="true"></div>
-            <div class="buddy-signal buddy-signal-top" aria-hidden="true"><span></span> AGENT CORE <b>01</b></div>
-            <div class="buddy-signal buddy-signal-left" aria-hidden="true">CRM <i>↗</i></div>
-            <div class="buddy-signal buddy-signal-right" aria-hidden="true">FLOW <i>⌁</i></div>
-            <div class="buddy-brain-wrap" aria-hidden="true">
-              <svg class="buddy-brain-svg" viewBox="0 0 260 260" fill="none" role="presentation">
-                <defs>
-                  <radialGradient id="buddyBrainFill" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(130 112) rotate(90) scale(112)">
-                    <stop stop-color="#2563EB" stop-opacity=".42"/>
-                    <stop offset="1" stop-color="#061226" stop-opacity=".08"/>
-                  </radialGradient>
-                  <linearGradient id="buddyBrainStroke" x1="48" y1="57" x2="216" y2="205" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#BAE6FD"/>
-                    <stop offset=".48" stop-color="#38BDF8"/>
-                    <stop offset="1" stop-color="#6366F1"/>
-                  </linearGradient>
-                  <radialGradient id="buddyCoreFill" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(130 128) rotate(90) scale(65)">
-                    <stop stop-color="#22D3EE" stop-opacity=".38"/>
-                    <stop offset="1" stop-color="#1D4ED8" stop-opacity=".06"/>
-                  </radialGradient>
-                  <filter id="buddyBrainGlow" x="20" y="20" width="220" height="220" filterUnits="userSpaceOnUse">
-                    <feGaussianBlur stdDeviation="5"/>
-                  </filter>
-                </defs>
-                <circle cx="130" cy="130" r="94" fill="url(#buddyCoreFill)"/>
-                <circle cx="130" cy="130" r="86" stroke="#38BDF8" stroke-opacity=".14" stroke-dasharray="3 8"/>
-                <circle cx="130" cy="130" r="67" stroke="#818CF8" stroke-opacity=".18"/>
-                <path d="M123 66C113 49 88 49 77 64C60 63 48 79 53 96C36 108 41 130 56 138C50 157 66 175 85 172C94 188 111 187 123 176V66Z" fill="url(#buddyBrainFill)" stroke="url(#buddyBrainStroke)" stroke-width="2.5" stroke-linejoin="round"/>
-                <path d="M137 66C147 49 172 49 183 64C200 63 212 79 207 96C224 108 219 130 204 138C210 157 194 175 175 172C166 188 149 187 137 176V66Z" fill="url(#buddyBrainFill)" stroke="url(#buddyBrainStroke)" stroke-width="2.5" stroke-linejoin="round"/>
-                <path d="M123 67C111 76 116 89 106 96C96 103 101 116 91 124C82 132 91 146 85 171M137 67C149 76 144 89 154 96C164 103 159 116 169 124C178 132 169 146 175 171" stroke="#7DD3FC" stroke-opacity=".72" stroke-width="2" stroke-linecap="round"/>
-                <path d="M76 82L93 94L83 111L103 124L94 146M184 82L167 94L177 111L157 124L166 146M94 75L110 86L108 106M166 75L150 86L152 106M65 128L83 132M195 128L177 132M103 159L119 150M157 159L141 150" stroke="#A5F3FC" stroke-opacity=".72" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <g class="buddy-neural-nodes" fill="#DBF7FF">
-                  <circle cx="76" cy="82" r="3"/><circle cx="93" cy="94" r="2.6"/><circle cx="83" cy="111" r="3.2"/><circle cx="103" cy="124" r="2.4"/><circle cx="94" cy="146" r="3"/>
-                  <circle cx="184" cy="82" r="3"/><circle cx="167" cy="94" r="2.6"/><circle cx="177" cy="111" r="3.2"/><circle cx="157" cy="124" r="2.4"/><circle cx="166" cy="146" r="3"/>
-                  <circle cx="110" cy="86" r="2.3"/><circle cx="150" cy="86" r="2.3"/><circle cx="65" cy="128" r="2.5"/><circle cx="195" cy="128" r="2.5"/>
-                </g>
-                <circle cx="130" cy="129" r="32" fill="#07152A" stroke="#7DD3FC" stroke-opacity=".9" stroke-width="1.8"/>
-                <circle cx="130" cy="129" r="25" fill="url(#buddyCoreFill)"/>
-                <path d="M115 126C115 120 120 116 126 116H134C140 116 145 120 145 126V134C145 140 140 144 134 144H126C120 144 115 140 115 134V126Z" fill="#0EA5E9" fill-opacity=".24" stroke="#BAE6FD" stroke-width="1.8"/>
-                <circle cx="124" cy="129" r="2.6" fill="#E0F2FE"/><circle cx="136" cy="129" r="2.6" fill="#E0F2FE"/>
-                <path d="M124 136Q130 141 136 136" stroke="#E0F2FE" stroke-width="2" stroke-linecap="round"/>
-                <path d="M130 102V96M130 162V156M103 129H97M163 129H157" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="130" cy="93" r="3" fill="#67E8F9"/><circle cx="166" cy="129" r="3" fill="#A5B4FC"/><circle cx="94" cy="129" r="3" fill="#67E8F9"/>
-              </svg>
-            </div>
-            <div class="buddy-visual-footer">
-              <span class="buddy-status-dot" aria-hidden="true"></span>
-              <span><strong>BUDDY CORE</strong> / AI-ASSISTED WORKFLOWS</span>
-              <span class="buddy-visual-version">HUMAN-LED · SYSTEM-DRIVEN</span>
-            </div>
-            <div class="buddy-mini-metric buddy-mini-left"><small>CAPTURE</small><b>01</b><span>Signal in</span></div>
-            <div class="buddy-mini-metric buddy-mini-right"><small>CONVERT</small><b>02</b><span>Action out</span></div>
-          </div>
+          <div class="infra-panel p-4 sm:p-5" role="img" aria-label="Concept illustration of a CRM and automation workspace with lead pipeline, assignments and follow-up status">
+<div class="flex items-center justify-between relative z-10 mb-3">
+<span class="text-[11px] font-bold tracking-widest text-sky-300 uppercase">Buddy CRM - Workspace</span>
+ <span class="text-[9px] font-mono px-2 py-0.5 rounded-full border border-amber-400/40 text-amber-300">INTERACTIVE DEMO</span>
+<span class="flex gap-1.5"><button type="button" id="heroReplay" aria-label="Replay workflow demo" class="text-[10px] font-bold px-2 py-1 rounded-md bg-slate-800 text-sky-300 border border-sky-500/30">Replay</button><button type="button" id="heroPause" aria-label="Pause workflow demo" aria-pressed="false" class="text-[10px] font-bold px-2 py-1 rounded-md bg-slate-800 text-sky-300 border border-sky-500/30">Pause</button></span>
+</div>
+<svg viewBox="0 0 400 290" class="w-full h-auto relative z-10" aria-hidden="true">
+<rect x="4" y="4" width="392" height="282" rx="12" fill="#070f26" stroke="#38bdf8" stroke-opacity=".35"/>
+<rect x="4" y="4" width="76" height="282" rx="12" fill="#0b1836"/>
+<g font-family="Inter,sans-serif" font-size="8" font-weight="700">
+<text x="14" y="24" fill="#e0f2fe">BUDDY</text><text x="14" y="34" fill="#64748b" font-weight="400">CRM</text>
+<circle cx="18" cy="52" r="3" fill="#64748b"/><text x="26" y="55" fill="#64748b">Boards</text>
+<circle cx="18" cy="70" r="3" fill="#7dd3fc"/><text x="26" y="73" fill="#7dd3fc">Leads</text>
+<circle cx="18" cy="88" r="3" fill="#64748b"/><text x="26" y="91" fill="#64748b">Calls</text>
+<circle cx="18" cy="106" r="3" fill="#64748b"/><text x="26" y="109" fill="#64748b">Visits</text>
+<circle cx="18" cy="124" r="3" fill="#64748b"/><text x="26" y="127" fill="#64748b">Billing</text>
+<circle cx="18" cy="142" r="3" fill="#64748b"/><text x="26" y="145" fill="#64748b">Reports</text>
+<rect x="14" y="250" width="56" height="22" rx="6" fill="#082f3a" stroke="#22d3ee" stroke-opacity=".5"/><text x="22" y="264" fill="#a5f3fc">+ Follow-up</text>
+</g>
+<g font-family="Inter,sans-serif" font-size="8" font-weight="700">
+<text x="92" y="24" fill="#7dd3fc">NEW</text>
+<rect id="hcol0" x="86" y="32" width="66" height="150" rx="8" fill="#0a1734" stroke="#38bdf8" stroke-opacity=".18"/>
+<rect x="91" y="40" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
+<circle cx="99" cy="50" r="3" fill="#22d3ee" class="infra-pulse"/>
+<text x="105" y="52" fill="#e0f2fe" font-size="7">A. Sharma</text>
+<text x="105" y="63" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
+<rect x="91" y="76" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
+<circle cx="99" cy="86" r="3" fill="#22d3ee" class="infra-pulse"/>
+<text x="105" y="88" fill="#e0f2fe" font-size="7">S. Patnaik</text>
+<text x="105" y="99" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
+<text x="168" y="24" fill="#7dd3fc">CALLING</text>
+<rect id="hcol1" x="162" y="32" width="66" height="150" rx="8" fill="#0a1734" stroke="#38bdf8" stroke-opacity=".18"/>
+<rect x="167" y="40" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
+<circle cx="175" cy="50" r="3" fill="#22d3ee" class="infra-pulse"/>
+<text x="181" y="52" fill="#e0f2fe" font-size="7">R. Das</text>
+<text x="181" y="63" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
+<rect x="167" y="76" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
+<circle cx="175" cy="86" r="3" fill="#22d3ee" class="infra-pulse"/>
+<text x="181" y="88" fill="#e0f2fe" font-size="7">P. Sahoo</text>
+<text x="181" y="99" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
+<text x="244" y="24" fill="#7dd3fc">VISIT</text>
+<rect id="hcol2" x="238" y="32" width="66" height="150" rx="8" fill="#0a1734" stroke="#38bdf8" stroke-opacity=".18"/>
+<rect x="243" y="40" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
+<circle cx="251" cy="50" r="3" fill="#22d3ee" class="infra-pulse"/>
+<text x="257" y="52" fill="#e0f2fe" font-size="7">K. Jena</text>
+<text x="257" y="63" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
+<text x="316" y="24" fill="#7dd3fc">BOOKED</text>
+<rect id="hcol3" x="310" y="32" width="66" height="150" rx="8" fill="#0a1734" stroke="#38bdf8" stroke-opacity=".18"/>
+<rect x="315" y="40" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
+<circle cx="323" cy="50" r="3" fill="#22d3ee" class="infra-pulse"/>
+<text x="329" y="52" fill="#e0f2fe" font-size="7">M. Mishra</text>
+<text x="329" y="63" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
+</g>
+<g font-family="Inter,sans-serif" font-size="7.5">
+<text x="92" y="200" fill="#7dd3fc" font-weight="700">THIS WEEK</text>
+<rect x="92" y="234" width="12" height="34" rx="3" fill="#2563eb" opacity=".75"/>
+<rect x="112" y="216" width="12" height="52" rx="3" fill="#2563eb" opacity=".75"/>
+<rect x="132" y="226" width="12" height="42" rx="3" fill="#2563eb" opacity=".75"/>
+<rect x="152" y="204" width="12" height="64" rx="3" fill="#2563eb" opacity=".75"/>
+<rect x="172" y="212" width="12" height="56" rx="3" fill="#2563eb" opacity=".75"/>
+<rect x="192" y="196" width="12" height="72" rx="3" fill="#2563eb" opacity=".75"/>
+<rect x="216" y="196" width="168" height="76" rx="8" fill="#0a1734" stroke="#22d3ee" stroke-opacity=".3"/>
+<text x="226" y="212" fill="#a5f3fc" font-weight="700">AUTOMATION</text>
+<circle cx="230" cy="226" r="3" fill="#34d399" class="infra-pulse"/><text id="waCount" x="238" y="229" fill="#cbd5e1">WhatsApp sent - 12</text>
+<circle cx="230" cy="242" r="3" fill="#fbbf24"/><text x="238" y="245" fill="#cbd5e1">2 need human OK</text>
+ <text x="226" y="261" fill="#64748b">n8n + Playwright - scoped demo</text>
+</g>
+<g id="leadToken" style="transition:transform 1.1s cubic-bezier(.2,.7,.2,1)" transform="translate(119,150)"><rect x="-26" y="-14" width="52" height="28" rx="9" fill="#0b1a36" stroke="#22d3ee" stroke-width="1.4"/><circle cx="-15" cy="0" r="5" fill="#22d3ee"/><text id="leadTokenLabel" x="-6" y="4" fill="#fff" font-size="10" font-weight="700" font-family="Inter,sans-serif">A.S</text></g>
+</svg>
+<div class="relative z-10 flex flex-wrap items-center gap-2 mt-3 text-[10px] tracking-wider text-slate-400"><span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span><strong class="text-sky-200">ILLUSTRATIVE DATA</strong>&nbsp;NOT LIVE RESULTS</span><span class="ml-auto font-mono text-slate-500">CRM - PIPELINE - FOLLOW-UP</span></div>
+</div>
           <div class="glass-card rounded-2xl p-6 relative overflow-hidden">
             <div class="flex items-center justify-between mb-3">
               <span class="text-xs font-semibold uppercase tracking-wider text-sky-400" id="carouselTag">CORE CAPABILITY 01 / 03</span>
@@ -809,13 +842,7 @@
               </div>
             </div>
 
-            <figure class="buddy-hero-art relative overflow-hidden rounded-2xl border border-sky-400/25 bg-slate-950/70 shadow-2xl shadow-blue-950/40 mb-5">
-              <img src="public/images/hero-agent-network.svg" alt="Original BUDDY AI workflow network illustration showing input, model, reasoning, routing, automation and reporting nodes" width="900" height="680" fetchpriority="high" decoding="async" class="w-full h-auto block" />
-              <figcaption class="absolute bottom-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2 rounded-lg border border-sky-400/20 bg-slate-950/90 px-3 py-2 text-[10px] font-semibold tracking-wide text-sky-100 backdrop-blur">
-                <span>THE BUDDY SYSTEM MAP</span><span class="text-slate-400">Illustrative workflow · not live telemetry</span>
-              </figcaption>
-            </figure>
-            <div id="heroCarousel" class="min-h-[250px] flex flex-col justify-between"></div>
+            <div id="heroCarousel" class="min-h-[290px] flex flex-col justify-between"></div>
 
             <div class="w-full bg-slate-800 h-1 rounded-full mt-4 overflow-hidden">
               <div id="slideProgress" class="bg-gradient-to-r from-blue-500 to-cyan-400 h-full w-0 transition-all duration-300"></div>
@@ -826,24 +853,17 @@
       </div>
     </section>
 
-    <!-- Infinite Capabilities Ticker -->
-    <div class="border-y border-sky-500/15 bg-slate-950/75 py-3.5 overflow-hidden">
-      <div class="animate-marquee flex items-center gap-12 text-xs font-bold uppercase tracking-widest text-slate-400">
-        <span>⚡ CUSTOM CRM ARCHITECTURE</span>
-        <span>•</span>
-        <span>🤖 AI WORKFLOW &amp; WHATSAPP AUTOMATION</span>
-        <span>•</span>
-        <span>📈 META &amp; GOOGLE PERFORMANCE MARKETING</span>
-        <span>•</span>
-        <span>🐍 PYTHON PLAYWRIGHT &amp; N8N PIPELINES</span>
-        <span>•</span>
-        <span>⚛️ REACT &amp; FASTAPI WEB APPLICATIONS</span>
-        <span>•</span>
-        <span>⚡ CUSTOM CRM ARCHITECTURE</span>
-        <span>•</span>
-        <span>🤖 AI WORKFLOW &amp; WHATSAPP AUTOMATION</span>
-        <span>•</span>
-        <span>📈 META &amp; GOOGLE PERFORMANCE MARKETING</span>
+    <!-- Compact capability strip -->
+    <div class="border-y border-sky-500/15 bg-slate-950/75 py-3 overflow-hidden" aria-label="Core capabilities">
+      <div class="animate-marquee flex items-center gap-10 text-[11px] font-bold uppercase tracking-widest text-slate-300">
+        <span>Custom CRM Architecture</span><span aria-hidden="true" class="text-sky-500">◆</span>
+        <span>AI-Assisted Workflow Automation</span><span aria-hidden="true" class="text-sky-500">◆</span>
+        <span>Meta & Google Performance Marketing</span><span aria-hidden="true" class="text-sky-500">◆</span>
+        <span>Python · Playwright · n8n Pipelines</span><span aria-hidden="true" class="text-sky-500">◆</span>
+        <span>React & FastAPI Web Systems</span><span aria-hidden="true" class="text-sky-500">◆</span>
+        <span>Custom CRM Architecture</span><span aria-hidden="true" class="text-sky-500">◆</span>
+        <span>AI-Assisted Workflow Automation</span><span aria-hidden="true" class="text-sky-500">◆</span>
+        <span>Meta & Google Performance Marketing</span>
       </div>
     </div>
 
@@ -858,45 +878,54 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="glass-card rounded-2xl overflow-hidden group">
-          <div class="h-56 relative overflow-hidden bg-slate-900">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="Discipline" loading="lazy" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition duration-700" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#040711] via-[#040711]/40 to-transparent"></div>
-            <h3 class="font-display text-3xl font-bold tracking-widest text-white absolute bottom-4 left-6">DISCIPLINE</h3>
+        <div class="glass-card rounded-2xl overflow-hidden">
+          <div class="h-48 relative overflow-hidden bg-[#08142e] p-5" role="img" aria-label="Pipeline stages diagram for disciplined follow-up">
+            <svg viewBox="0 0 300 110" class="w-full h-full" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="9" font-weight="700"><rect x="4" y="28" width="68" height="48" rx="8" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".5"/><text x="14" y="48" fill="#bae6fd">NEW</text><text x="14" y="62" fill="#64748b" font-weight="400">intake</text><rect x="80" y="28" width="68" height="48" rx="8" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".5"/><text x="90" y="48" fill="#bae6fd">CALL</text><text x="90" y="62" fill="#64748b" font-weight="400">queue</text><rect x="156" y="28" width="68" height="48" rx="8" fill="#0e2247" stroke="#22d3ee" stroke-opacity=".6"/><text x="166" y="48" fill="#fff">VISIT</text><text x="166" y="62" fill="#64748b" font-weight="400">booked</text><rect x="232" y="28" width="64" height="48" rx="8" fill="#082f3a" stroke="#22d3ee" stroke-opacity=".5"/><text x="240" y="48" fill="#a5f3fc">WON</text><text x="240" y="62" fill="#64748b" font-weight="400">review</text></g><g stroke="#38bdf8" stroke-width="1.3" fill="none" opacity=".8"><path class="infra-flow" d="M72 52 H80"/><path class="infra-flow" d="M148 52 H156"/><path class="infra-flow" d="M224 52 H232"/></g></svg>
+            <h3 class="font-display text-2xl font-bold tracking-widest text-white absolute bottom-3 left-5">DISCIPLINE</h3>
           </div>
           <div class="p-6">
             <p class="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-2">Structured Daily Follow-Ups</p>
-            <p class="text-sm text-slate-300 leading-relaxed">
-              Consistent lead calling queues, clear SLA tracking, and organized pipeline stages so no inquiry is lost.
-            </p>
+            <p class="text-sm text-slate-300 leading-relaxed">Consistent lead calling queues, clear SLA tracking, and organized pipeline stages so no inquiry is lost.</p>
           </div>
         </div>
 
-        <div class="glass-card rounded-2xl overflow-hidden group">
-          <div class="h-56 relative overflow-hidden bg-slate-900">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Execution" loading="lazy" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition duration-700" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#040711] via-[#040711]/40 to-transparent"></div>
-            <h3 class="font-display text-3xl font-bold tracking-widest text-cyan-300 absolute bottom-4 left-6">EXECUTION</h3>
-          </div>
+        <div class="glass-card rounded-2xl overflow-hidden">
+          <div class="h-56 relative overflow-hidden bg-[#082036] p-4 reveal-progress" role="img" aria-label="Lead source to n8n webhook to Python Playwright processing to validation to CRM to human-approved follow-up">
+<svg viewBox="0 0 340 118" class="w-full h-[104px]" aria-hidden="true">
+<g font-family="Inter,sans-serif" font-size="7.5" font-weight="700">
+<rect x="4" y="30" width="50" height="44" rx="7" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".55"/><text x="10" y="48" fill="#bae6fd">SOURCE</text><text x="10" y="60" fill="#64748b" font-weight="400">lead in</text>
+<rect x="62" y="30" width="50" height="44" rx="7" fill="#101c3f" stroke="#ea4b71" stroke-opacity=".55"/><text x="68" y="48" fill="#fda4af">N8N</text><text x="68" y="60" fill="#64748b" font-weight="400">webhook</text>
+<rect x="120" y="30" width="58" height="44" rx="7" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".6"/><text x="126" y="48" fill="#bae6fd">PY + PW</text><text x="126" y="60" fill="#64748b" font-weight="400">process</text>
+<rect x="186" y="30" width="50" height="44" rx="7" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".5"/><text x="192" y="48" fill="#bae6fd">VALID</text><text x="192" y="60" fill="#64748b" font-weight="400">dedupe</text>
+<rect x="244" y="30" width="44" height="44" rx="7" fill="#0e2a55" stroke="#22d3ee" stroke-opacity=".6"/><text x="250" y="48" fill="#fff">CRM</text><text x="250" y="60" fill="#64748b" font-weight="400">queue</text>
+<rect x="296" y="30" width="40" height="44" rx="7" fill="#082f3a" stroke="#22d3ee" stroke-opacity=".6"/><text x="301" y="48" fill="#a5f3fc">OK</text><text x="301" y="60" fill="#64748b" font-weight="400">human</text>
+</g>
+<g stroke="#38bdf8" stroke-width="1.2" fill="none" opacity=".85"><path class="infra-flow" d="M54 52 H62"/><path class="infra-flow" d="M112 52 H120"/><path class="infra-flow" d="M178 52 H186"/><path class="infra-flow" d="M236 52 H244"/><path class="infra-flow-slow" d="M288 52 H296"/></g>
+<g fill="#22d3ee"><circle class="infra-pulse" cx="58" cy="52" r="2"/><circle class="infra-pulse" cx="174" cy="52" r="2" style="animation-delay:.8s"/><circle class="infra-pulse" cx="292" cy="52" r="2" style="animation-delay:1.4s"/></g>
+</svg>
+<div class="flex items-center gap-1.5 mt-1">
+<img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/n8n.svg" alt="n8n logo" loading="lazy" width="16" height="16" class="bg-white rounded p-0.5" onerror="this.style.display='none'" />
+<span class="text-[10px] font-bold text-slate-300">n8n</span>
+<img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/playwright.svg" alt="Playwright logo" loading="lazy" width="16" height="16" class="bg-white rounded p-0.5" onerror="this.style.display='none'" />
+<span class="text-[10px] font-bold text-slate-300">Playwright</span>
+<span class="ml-auto text-[9px] font-mono text-slate-500">CONCEPTUAL FLOW - SCOPE PER PROJECT</span>
+</div>
+<h3 class="font-display text-2xl font-bold tracking-widest text-cyan-300 absolute bottom-3 left-5">EXECUTION</h3>
+</div>
           <div class="p-6">
-            <p class="text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2">Automated Code &amp; Webhooks</p>
-            <p class="text-sm text-slate-300 leading-relaxed">
-              Replacing repetitive spreadsheet entry with Python Playwright scripts, n8n webhooks, and clean FastAPI backends.
-            </p>
+            <p class="text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2">Automated Code & Webhooks</p>
+            <p class="text-sm text-slate-300 leading-relaxed">Replacing repetitive spreadsheet entry with Python Playwright scripts, n8n webhooks, and clean FastAPI backends.</p>
           </div>
         </div>
 
-        <div class="glass-card rounded-2xl overflow-hidden group">
-          <div class="h-56 relative overflow-hidden bg-slate-900">
-            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80" alt="Focus" loading="lazy" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition duration-700" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#040711] via-[#040711]/40 to-transparent"></div>
-            <h3 class="font-display text-3xl font-bold tracking-widest text-white absolute bottom-4 left-6">FOCUS</h3>
+        <div class="glass-card rounded-2xl overflow-hidden">
+          <div class="h-48 relative overflow-hidden bg-[#061428] p-5" role="img" aria-label="Funnel narrowing from clicks to qualified visits">
+            <svg viewBox="0 0 300 110" class="w-full h-full" aria-hidden="true"><g><polygon points="20,20 280,20 230,50 70,50" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".45"/><polygon points="70,54 230,54 195,82 105,82" fill="#0e2a55" stroke="#38bdf8" stroke-opacity=".55"/><rect x="125" y="86" width="50" height="16" rx="8" fill="#082f3a" stroke="#22d3ee"/></g><g font-family="Inter,sans-serif" font-size="8" fill="#7dd3fc" font-weight="700"><text x="132" y="32">CLICKS</text><text x="134" y="70">LEADS</text></g></svg>
+            <h3 class="font-display text-2xl font-bold tracking-widest text-white absolute bottom-3 left-5">FOCUS</h3>
           </div>
           <div class="p-6">
             <p class="text-xs font-semibold text-sky-400 uppercase tracking-wider mb-2">Qualified Buyer Intent</p>
-            <p class="text-sm text-slate-300 leading-relaxed">
-              Targeted ad creatives and landing pages designed to generate qualified inquiries, site visits, and direct bookings.
-            </p>
+            <p class="text-sm text-slate-300 leading-relaxed">Targeted ad creatives and landing pages designed to generate qualified inquiries, site visits, and direct bookings.</p>
           </div>
         </div>
       </div>
@@ -929,6 +958,51 @@
           <h3 class="font-display text-xl font-bold text-white">Measurement &amp; iteration</h3>
           <p class="text-sm text-slate-400 mt-3 leading-relaxed">Track meaningful actions, review funnel friction and improve the next campaign or workflow using real results—not invented guarantees.</p>
         </article>
+      </div>
+    </section>
+
+    <!-- Interactive technical architecture -->
+    <section id="arch" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20" aria-labelledby="arch-title">
+      <div class="glass-card rounded-2xl p-6 sm:p-8">
+        <p class="buddy-eyebrow">How the system fits together</p>
+        <h2 id="arch-title" class="font-display text-3xl sm:text-4xl font-bold mt-3 chrome-text">A practical lead-operations architecture.</h2>
+        <p class="text-sm text-slate-400 mt-3 max-w-3xl leading-relaxed">Select a stage to see what it does, what it uses, and where human review stays in the loop. This reflects our current delivery approach — not a single off-the-shelf product.</p>
+        <div class="arch-tabs mt-6" role="tablist" aria-label="Architecture stages">
+          <button type="button" class="arch-tab" role="tab" aria-selected="true" data-arch="capture" onclick="setArch('capture')">01 · Capture</button>
+          <button type="button" class="arch-tab" role="tab" aria-selected="false" data-arch="normalize" onclick="setArch('normalize')">02 · Normalize</button>
+          <button type="button" class="arch-tab" role="tab" aria-selected="false" data-arch="route" onclick="setArch('route')">03 · Route & CRM</button>
+          <button type="button" class="arch-tab" role="tab" aria-selected="false" data-arch="act" onclick="setArch('act')">04 · Act & Review</button>
+        <div class="flex items-center gap-2 mt-4"><button type="button" id="archReplay" class="px-3 py-1.5 rounded-lg text-[11px] font-bold bg-slate-800 text-sky-300 border border-sky-500/30">Replay demo</button><div class="flex-1 h-1 rounded-full bg-slate-800 overflow-hidden" aria-hidden="true"><div id="archProgress" style="height:100%;width:0%;background:linear-gradient(90deg,#2563eb,#22d3ee);transition:width .5s ease;"></div></div><span class="text-[10px] font-mono text-slate-500">INTERACTIVE DEMO</span></div>
+        <div class="grid md:grid-cols-2 gap-6 mt-6 items-start">
+          <div class="rounded-xl border border-sky-500/20 bg-[#050c1f] p-5">
+            <svg viewBox="0 0 320 150" class="w-full h-auto" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="9" font-weight="700"><rect id="arch-n1" x="6" y="48" width="70" height="54" rx="9" fill="#0e2247" stroke="#38bdf8"/><text x="16" y="70" fill="#bae6fd">SOURCES</text><text x="16" y="84" fill="#64748b" font-weight="400">ads/forms</text><rect id="arch-n2" x="90" y="48" width="70" height="54" rx="9" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".6"/><text x="100" y="70" fill="#bae6fd">INGEST</text><text x="100" y="84" fill="#64748b" font-weight="400">n8n/hook</text><rect id="arch-n3" x="174" y="38" width="70" height="74" rx="9" fill="#0e2a55" stroke="#22d3ee"/><text x="184" y="60" fill="#fff">CRM</text><text x="184" y="74" fill="#7dd3fc" font-weight="400">queues</text><text x="184" y="86" fill="#64748b" font-weight="400">audit</text><rect id="arch-n4" x="254" y="48" width="60" height="54" rx="9" fill="#082f3a" stroke="#22d3ee" stroke-opacity=".6"/><text x="262" y="70" fill="#a5f3fc">ACTION</text><text x="262" y="84" fill="#64748b" font-weight="400">WA/call</text></g><g stroke="#38bdf8" fill="none" stroke-width="1.4"><path class="infra-flow" d="M76 75 H90"/><path class="infra-flow" d="M160 75 H174"/><path class="infra-flow-slow" d="M244 75 H254"/></g></svg>
+            <p class="text-[11px] text-slate-500 mt-3 font-mono">SOLID LINES = AUTOMATED FLOW · DOTTED = HUMAN REVIEW</p>
+          </div>
+          <div>
+            <h3 id="archStageTitle" class="font-display text-xl font-bold text-white">Capture — collect inquiries without losing them</h3>
+            <p id="archStageDesc" class="text-sm text-slate-300 mt-2 leading-relaxed">Meta lead forms, website forms and listing enquiries are captured with source tracking. No invented volume claims — tracking is scoped per campaign.</p>
+            <ul id="archStageList" class="mt-4 space-y-2 text-xs text-sky-200">
+              <li>• Tools in delivery: Meta/Google forms, landing pages, source tags</li>
+              <li>• Human check: offer, audience and consent copy before launch</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-5">
+              <button type="button" onclick="switchPage('portfolio')" class="px-4 py-2.5 rounded-lg text-xs font-bold bg-blue-600 text-white">See related work</button>
+              <button type="button" onclick="switchPage('process')" class="px-4 py-2.5 rounded-lg text-xs font-bold bg-slate-800 text-sky-300 border border-sky-500/30">How we deliver</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured work preview -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20" aria-labelledby="feat-title">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+        <div><p class="buddy-eyebrow">Featured work</p><h2 id="feat-title" class="font-display text-3xl sm:text-4xl font-bold mt-2 chrome-text">Proof over promises.</h2></div>
+        <button type="button" onclick="switchPage('portfolio')" class="text-xs font-bold text-sky-300 hover:underline">View all case studies →</button>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <article class="glass-card rounded-2xl p-6"><span class="case-tag case-tag-ok">OPERATIONS · IN USE PATTERN</span><h3 class="font-display text-xl font-bold text-white mt-3">Real-estate CRM & follow-up queues</h3><p class="text-sm text-slate-400 mt-2 leading-relaxed"><strong class="text-slate-200">Problem:</strong> scattered WhatsApp + spreadsheet leads. <strong class="text-slate-200">Approach:</strong> stage-based CRM, daily calling queues, WhatsApp templates with audit trail.</p><div class="case-meta"><span class="case-tag">CRM</span><span class="case-tag">LEAD OPS</span><span class="case-tag">WHATSAPP</span></div><button type="button" onclick="switchPage('portfolio')" class="mt-4 text-xs font-bold text-sky-300 hover:underline">Read case study →</button></article>
+        <article class="glass-card rounded-2xl p-6"><span class="case-tag">AUTOMATION · HANDS-ON BUILD</span><h3 class="font-display text-xl font-bold text-white mt-3">Playwright + n8n intake pipeline</h3><p class="text-sm text-slate-400 mt-2 leading-relaxed"><strong class="text-slate-200">Problem:</strong> manual copy-paste from listings. <strong class="text-slate-200">Approach:</strong> Python Playwright extraction → normalized JSON → n8n webhook → CRM queue.</p><div class="case-meta"><span class="case-tag">PYTHON</span><span class="case-tag">PLAYWRIGHT</span><span class="case-tag">N8N</span></div><button type="button" onclick="switchPage('portfolio')" class="mt-4 text-xs font-bold text-sky-300 hover:underline">Read implementation →</button></article>
       </div>
     </section>
 
@@ -1060,7 +1134,7 @@
             <p class="text-xs text-slate-400 mt-1 mb-3">A planning calculator using illustrative cost-per-lead assumptions—not a forecast or guarantee. Actual results depend on audience, offer, creative, market and campaign setup.</p>
             <div class="space-y-5">
               <div>
-                <label class="block text-xs font-semibold text-slate-300 mb-2">1. Select Your Industry</label>
+                <label for="roiIndustry" class="block text-xs font-semibold text-slate-300 mb-2">1. Select Your Industry</label>
                 <select id="roiIndustry" onchange="calcROI()" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-sky-400 outline-none">
                   <option value="280">Real Estate (Flats, Duplex & Plots)</option>
                   <option value="110">Car Rental & Mobility Fleet</option>
@@ -1070,7 +1144,7 @@
               </div>
               <div>
                 <div class="flex justify-between text-xs font-semibold mb-2">
-                  <span class="text-slate-300">2. Monthly Ad Spend Budget</span>
+                  <label for="roiBudget" class="text-slate-300">2. Monthly Ad Spend Budget</label>
                   <span id="roiBudgetLabel" class="text-cyan-300 font-mono text-sm">₹30,000 / mo</span>
                 </div>
                 <input id="roiBudget" type="range" min="15000" max="150000" step="5000" value="30000" oninput="calcROI()" class="w-full accent-sky-400 cursor-pointer" />
@@ -1092,7 +1166,7 @@
             </div>
           </div>
           <button type="button" onclick="sendROIBrief()" class="mt-6 w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-blue-600 to-cyan-400 text-slate-950 shadow-lg hover:scale-[1.01] transition">
-            🚀 Lock This Pipeline Target on WhatsApp →
+            Send This Planning Estimate to WhatsApp →
           </button>
         </div>
 
@@ -1141,9 +1215,9 @@
         const term = document.getElementById('aiTerminal');
         const names = ['Sample inquiry A (Bhubaneswar)', 'Sample inquiry B (Bhubaneswar)', 'Sample inquiry C (Bhubaneswar)'];
         const pick = names[Math.floor(Math.random() * names.length)];
-        term.innerHTML = `<p class="text-amber-300">⚡ [SIMULATION] Sample lead payload: ${pick}</p>`;
+        term.innerHTML = `<p class="text-amber-300">[SIMULATION] Sample lead payload: ${pick}</p>`;
         setTimeout(() => {
-          term.innerHTML += `<p class="text-cyan-300">🤖 [DEMO] Example intent score: 94/100 (illustrative only)</p>`;
+          term.innerHTML += `<p class="text-cyan-300">[DEMO] Example intent score: 94/100 (illustrative only)</p>`;
           term.scrollTop = term.scrollHeight;
         }, 450);
         setTimeout(() => {
@@ -1192,7 +1266,7 @@
               src="public/images/founder-rahul.png"
               alt="Rahul Kumar Dhal, Founder of BUDDY AI PARTNERS"
               class="w-full h-full object-cover object-center rounded-[14px] founder-photo-filter bg-slate-900"
-              loading="lazy"
+              loading="lazy" decoding="async"
             />
           </div>
 
@@ -1202,10 +1276,10 @@
           
           <div class="flex flex-wrap justify-center gap-2.5 mt-4">
             <a href="https://instagram.com/rahul_kr_dhal" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-pink-600 via-purple-600 to-orange-500 text-white text-xs font-bold shadow-lg hover:scale-105 transition">
-              <span>📸 @rahul_kr_dhal</span>
+              <span>@rahul_kr_dhal</span>
             </a>
             <button type="button" onclick="switchPage('contact')" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-sky-300 border border-sky-500/30 text-xs font-bold transition">
-              <span>💬 Contact Directly</span>
+              <span>Contact Directly</span>
             </button>
           </div>
         </div>
@@ -1323,6 +1397,47 @@
       </div>
 
     </div>
+    <div class="grid lg:grid-cols-2 gap-6 mt-8">
+      <div class="glass-card rounded-2xl p-6 sm:p-8">
+        <p class="buddy-eyebrow">Engineering philosophy</p>
+        <h3 class="font-display text-2xl font-bold text-white mt-2">Smallest useful system first.</h3>
+        <ul class="mt-4 space-y-3 text-sm text-slate-300 leading-relaxed">
+          <li><strong class="text-white">Human approval for high-impact actions.</strong> Publishing, ad spend or customer outreach stays human-reviewed.</li>
+          <li><strong class="text-white">Auditability over black boxes.</strong> Queues, logs and pipeline visibility your team can inspect.</li>
+          <li><strong class="text-white">Documented handover.</strong> Scope, setup, credentials handling and operating notes — no lock-in mystery.</li>
+        </ul>
+      </div>
+      <div class="glass-card rounded-2xl p-6 sm:p-8">
+        <p class="buddy-eyebrow">What is verified vs in progress</p>
+        <h3 class="font-display text-2xl font-bold text-white mt-2">Clear about experience levels.</h3>
+        <p class="text-sm text-slate-300 mt-3 leading-relaxed"><strong class="text-emerald-300">Operational delivery:</strong> real-estate lead operations, CRM workflows, Meta/Google campaigns, landing pages, static-site deployment with HTTPS.</p>
+        <p class="text-sm text-slate-300 mt-2 leading-relaxed"><strong class="text-sky-300">Hands-on builds:</strong> React + FastAPI tools, Python Playwright + n8n pipelines, WhatsApp workflow templates.</p>
+        <p class="text-sm text-slate-400 mt-2 leading-relaxed"><strong class="text-violet-300">Research prototypes:</strong> Next.js/TypeScript experiments, PostgreSQL/Supabase data models, Docker/AWS/EC2/Nginx concepts, multilingual voice-assistant exploration — labelled as prototypes, not production services.</p>
+      </div>
+    </div>
+      <div class="glass-card rounded-2xl p-6 sm:p-8 mt-6 reveal-progress">
+      <div class="flex flex-wrap items-center gap-2"><span class="case-tag">FOUNDER BUILD</span><span class="case-tag case-tag-warn">IN DEVELOPMENT - PROTOTYPE</span></div>
+      <h3 class="font-display text-2xl font-bold text-white mt-3">ATI - Automated Terminal Intelligence</h3>
+      <p class="text-xs font-semibold tracking-widest text-sky-400 mt-1">BUDDY CLI v3 | Built by Rahul Kumar Dhal</p>
+      <p class="text-sm text-slate-300 mt-3 leading-relaxed">An evolving AI-assisted terminal and agent system designed to bring coding workflows, tool integrations, automation, diagnostics and project context into one developer-focused interface.</p>
+      <div class="grid md:grid-cols-2 gap-5 mt-5 items-start">
+        <div class="rounded-xl border border-sky-500/20 bg-[#040a1c] p-4 font-mono text-[11px] leading-relaxed" role="img" aria-label="Conceptual terminal workflow illustration">
+          <p class="text-slate-500">$ buddy inspect --repo .</p>
+          <p class="text-sky-300">context: repo map + open tasks loaded</p>
+          <p class="text-slate-500">$ buddy models</p>
+          <p class="text-cyan-300">router: local Qwen / Ollama / OpenAI-compatible</p>
+          <p class="text-slate-500">$ buddy run tests</p>
+          <p class="text-emerald-300">tools: pytest -q ... 14 passed</p>
+          <p class="text-amber-300">[approval] deploy step needs human OK - paused</p>
+          <p class="text-[10px] text-slate-500 mt-2">Illustrative session. Provider availability varies. Sensitive actions pause for approval.</p>
+        </div>
+        <div>
+          <svg viewBox="0 0 300 150" class="w-full h-auto" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="8.5" font-weight="700"><rect x="6" y="52" width="56" height="46" rx="8" fill="#0e2247" stroke="#38bdf8"/><text x="14" y="70" fill="#bae6fd">CLI</text><text x="14" y="84" fill="#64748b" font-weight="400">v3</text><rect x="72" y="52" width="66" height="46" rx="8" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".6"/><text x="80" y="70" fill="#bae6fd">ROUTER</text><text x="80" y="84" fill="#64748b" font-weight="400">models</text><rect x="148" y="52" width="66" height="46" rx="8" fill="#0e2a55" stroke="#22d3ee"/><text x="156" y="70" fill="#fff">TOOLS</text><text x="156" y="84" fill="#64748b" font-weight="400">verify</text><rect x="224" y="52" width="70" height="46" rx="8" fill="#082f3a" stroke="#22d3ee" stroke-opacity=".6"/><text x="232" y="70" fill="#a5f3fc">HUMAN</text><text x="232" y="84" fill="#64748b" font-weight="400">approval</text></g><g stroke="#38bdf8" fill="none" stroke-width="1.2"><path class="infra-flow" d="M62 75 H72"/><path class="infra-flow" d="M138 75 H148"/><path class="infra-flow-slow" d="M214 75 H224"/></g></svg>
+          <ul class="mt-3 space-y-1.5 text-xs text-slate-300 leading-relaxed"><li>- Project context and repository inspection</li><li>- Model and provider selection via router</li><li>- Tool execution with visible command output</li><li>- Diagnostics and test results</li><li>- Human approval before sensitive actions</li></ul>
+          <p class="text-[11px] text-slate-500 mt-3">Status: active prototype in a development repository. Not a publicly available product. Integrations described as documented capabilities, not all operational.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ========================================================= -->
@@ -1337,113 +1452,77 @@
       </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="glass-card rounded-2xl p-7 flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-sky-400/40 flex items-center justify-center text-2xl mb-5">🧠</div>
-          <h3 class="font-display text-2xl font-bold text-white">1. Custom Business CRMs</h3>
-          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
-            Centralized lead management dashboards built for sales teams—featuring daily call queues, follow-up reminders, role-based access, and GST invoice tracking.
-          </p>
-          <ul class="mt-5 space-y-2 text-xs text-sky-300">
-            <li>✓ Lead assignment &amp; daily calling queues</li>
-            <li>✓ WhatsApp &amp; AI-assisted follow-up templates</li>
-            <li>✓ Booking, commission &amp; GST billing modules</li>
-          </ul>
+    <p class="text-[11px] tracking-widest text-sky-400 font-bold mb-4">GROUP A - OPERATE: CRM, GROWTH, AEO &nbsp;·&nbsp; GROUP B - BUILD: AUTOMATION, WEB/API, INFRA</p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article class="glass-card rounded-2xl p-6 flex flex-col">
+        <span class="case-tag case-tag-ok">01 · CRM SYSTEMS</span>
+        <h3 class="font-display text-xl font-bold text-white mt-3">Custom CRM & Lead Operations</h3>
+        <div class="svc-block mt-4 space-y-2 text-sm text-slate-300 leading-relaxed">
+          <p><strong class="text-white">Problem:</strong> Enquiries scattered across WhatsApp, sheets and calls — no queue, no ownership.</p>
+          <p><strong class="text-white">Deliverables:</strong> Stage-based CRM, assignment + daily calling queues, follow-up reminders, role access, booking/GST-ready records, basic reports.</p>
+          <p class="text-xs text-slate-400"><strong class="text-slate-200">Scope & boundaries:</strong> scoped to agreed stages/integrations; data migration and custom billing logic estimated separately; team training included for handover.</p>
+          <p class="text-xs text-sky-300"><strong>Next step:</strong> Map your stages → request a CRM walkthrough.</p>
         </div>
-        <button type="button" onclick="selectServiceAndContact('Custom Business CRM Deployment')" class="mt-6 w-full py-2.5 rounded-lg bg-blue-600/20 hover:bg-blue-600 text-sky-300 hover:text-white text-xs font-bold border border-sky-500/30 transition">
-          Inquire About Custom CRM →
-        </button>
-      </div>
-
-      <div class="glass-card rounded-2xl p-7 flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-2xl mb-5">📈</div>
-          <h3 class="font-display text-2xl font-bold text-white">2. Performance Marketing</h3>
-          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
-            Targeted Meta (Facebook/Instagram) and Google ad campaigns paired with AI-assisted video creatives and high-converting lead capture forms.
-          </p>
-          <ul class="mt-5 space-y-2 text-xs text-cyan-300">
-            <li>✓ Meta &amp; Google lead generation campaigns</li>
-            <li>✓ Promotional property &amp; brand video creatives</li>
-            <li>✓ Landing page conversion optimization</li>
-          </ul>
+        <button type="button" onclick="selectServiceAndContact('Custom Business CRM Deployment')" class="mt-5 w-full py-2.5 rounded-lg bg-blue-600/20 hover:bg-blue-600 text-sky-300 hover:text-white text-xs font-bold border border-sky-500/30 transition">Inquire About Custom CRM →</button>
+      </article>
+      <article class="glass-card rounded-2xl p-6 flex flex-col">
+        <span class="case-tag">02 · AI AUTOMATION</span>
+        <h3 class="font-display text-xl font-bold text-white mt-3">AI-Assisted Workflow Automation</h3>
+        <div class="svc-block mt-4 space-y-2 text-sm text-slate-300 leading-relaxed">
+          <p><strong class="text-white">Problem:</strong> Repetitive extraction, tagging and follow-up eats sales time.</p>
+          <p><strong class="text-white">Deliverables:</strong> Python Playwright extraction, n8n webhook routing, dedupe/validation, WhatsApp templates, agent-assisted drafting with human approval, plus AI model-provider routing (OpenAI/Groq/OpenRouter/Ollama where fitting) with fallbacks.</p>
+          <p class="text-xs text-slate-400"><strong class="text-slate-200">Scope & boundaries:</strong> site/API changes may require maintenance; no fully autonomous outreach without approval; credentials handled per agreed access.</p>
+          <p class="text-xs text-sky-300"><strong>Next step:</strong> Share one repetitive workflow → get automation scope.</p>
         </div>
-        <button type="button" onclick="selectServiceAndContact('Performance Marketing & Ad Funnels')" class="mt-6 w-full py-2.5 rounded-lg bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white text-xs font-bold border border-cyan-500/30 transition">
-          Inquire About Marketing →
-        </button>
-      </div>
-
-      <div class="glass-card rounded-2xl p-7 flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-indigo-500/20 border border-indigo-400/40 flex items-center justify-center text-2xl mb-5">⚡</div>
-          <h3 class="font-display text-2xl font-bold text-white">3. Web Apps &amp; Automation</h3>
-          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
-            Modern websites and web applications using React and FastAPI, alongside Python Playwright data extraction and n8n webhook pipelines.
-          </p>
-          <ul class="mt-5 space-y-2 text-xs text-indigo-300">
-            <li>✓ Responsive React &amp; FastAPI web platforms</li>
-            <li>✓ Python + Playwright + n8n lead automation</li>
-            <li>✓ Free-tier cloud deployment &amp; SSL setup</li>
-          </ul>
+        <button type="button" onclick="selectServiceAndContact('Custom Web App & Python/n8n Automation')" class="mt-5 w-full py-2.5 rounded-lg bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold border border-indigo-500/30 transition">Inquire About Automation →</button>
+      </article>
+      <article class="glass-card rounded-2xl p-6 flex flex-col">
+        <span class="case-tag">03 · WEB DEVELOPMENT</span>
+        <h3 class="font-display text-xl font-bold text-white mt-3">Websites & Conversion Funnels</h3>
+        <div class="svc-block mt-4 space-y-2 text-sm text-slate-300 leading-relaxed">
+          <p><strong class="text-white">Problem:</strong> Slow or generic pages that do not capture intent.</p>
+          <p><strong class="text-white">Deliverables:</strong> React/Next.js frontend with FastAPI or lightweight backends, REST APIs and webhooks, landing pages, forms + source tracking, on-page SEO fundamentals, performance basics.</p>
+          <p class="text-xs text-slate-400"><strong class="text-slate-200">Scope & boundaries:</strong> content/imagery from client unless scoped; complex portals estimated separately; no ranking guarantees.</p>
+          <p class="text-xs text-sky-300"><strong>Next step:</strong> Send reference sites → get funnel outline.</p>
         </div>
-        <button type="button" onclick="selectServiceAndContact('Custom Web App & Python/n8n Automation')" class="mt-6 w-full py-2.5 rounded-lg bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold border border-indigo-500/30 transition">
-          Inquire About Automation →
-        </button>
+        <button type="button" onclick="selectServiceAndContact('Custom React/FastAPI Website & Python Scraper')" class="mt-5 w-full py-2.5 rounded-lg bg-slate-800 hover:bg-blue-600 text-white text-xs font-bold border border-slate-700 transition">Inquire About Websites →</button>
+      </article>
+      <article class="glass-card rounded-2xl p-6 flex flex-col">
+        <span class="case-tag">04 · INFRASTRUCTURE SUPPORT</span>
+        <h3 class="font-display text-xl font-bold text-white mt-3">Deployment & Infrastructure Support</h3>
+        <div class="svc-block mt-4 space-y-2 text-sm text-slate-300 leading-relaxed">
+          <p><strong class="text-white">Problem:</strong> Deployments stall on DNS, SSL or server setup.</p>
+          <p><strong class="text-white">Deliverables:</strong> GitHub workflow guidance, static/app deploys (Surge/Render/Vercel per fit), HTTPS/SSL checks, Linux/Docker/AWS EC2 + Nginx concepts, Cloudflare R2 object-storage guidance, plus routine server maintenance checklists (updates, logs, backups review).</p>
+          <p class="text-xs text-slate-400"><strong class="text-slate-200">Scope & boundaries:</strong> support and documentation, not 24/7 managed hosting; cloud costs owned by client; advanced scaling scoped separately.</p>
+          <p class="text-xs text-sky-300"><strong>Next step:</strong> Share current hosting → get deploy checklist.</p>
+        </div>
+        <button type="button" onclick="selectServiceAndContact('General Strategy Consultation')" class="mt-5 w-full py-2.5 rounded-lg bg-slate-800 hover:bg-blue-600 text-sky-300 hover:text-white text-xs font-bold border border-sky-500/30 transition">Ask About Deploy Support →</button>
+      </article>
+      <article class="glass-card rounded-2xl p-6 flex flex-col md:col-span-2 lg:col-span-2">
+        <span class="case-tag case-tag-ok">05 · DIGITAL GROWTH</span>
+        <h3 class="font-display text-xl font-bold text-white mt-3">Performance Marketing & Digital Growth</h3>
+        <div class="grid sm:grid-cols-2 gap-4 mt-4 text-sm text-slate-300 leading-relaxed">
+          <div class="svc-block"><p><strong class="text-white">Problem:</strong> Ad spend without clear funnel or follow-up.</p><p class="mt-2"><strong class="text-white">Deliverables:</strong> Meta/Google campaign setup, creatives + copy variants, landing-page alignment, lead routing to CRM/WhatsApp, cadence reporting.</p></div>
+          <div class="svc-block"><p class="text-xs text-slate-400"><strong class="text-slate-200">Scope & boundaries:</strong> budgets paid to platforms; no guaranteed leads, revenue or rankings; creative volume and reporting cadence agreed upfront.</p><p class="text-xs text-sky-300 mt-2"><strong>Next step:</strong> Share offer + monthly budget range → get funnel plan.</p></div>
+        </div>
+        <button type="button" onclick="selectServiceAndContact('Growth Marketing Retainer (₹15k-₹25k/mo)')" class="mt-5 w-full sm:w-auto px-6 py-2.5 rounded-lg bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white text-xs font-bold border border-cyan-500/30 transition">Inquire About Marketing →</button>
+      </article>
+      
+      <article class="glass-card rounded-2xl p-6 flex flex-col md:col-span-2 lg:col-span-3"><div class="rounded-xl overflow-hidden border border-sky-500/20 bg-[#060d22] mb-4" role="img" aria-label="Structured content flowing into citable answers"><svg viewBox="0 0 320 96" class="w-full h-24" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="8" font-weight="700"><rect x="8" y="30" width="88" height="40" rx="7" fill="#0e2247" stroke="#38bdf8"/><text x="16" y="47" fill="#bae6fd">PAGES</text><text x="16" y="60" fill="#64748b" font-weight="400">faq+entity</text><rect x="106" y="30" width="88" height="40" rx="7" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".6"/><text x="114" y="47" fill="#bae6fd">SCHEMA</text><text x="114" y="60" fill="#64748b" font-weight="400">faq/org</text><rect x="204" y="30" width="108" height="40" rx="7" fill="#082f3a" stroke="#22d3ee"/><text x="212" y="47" fill="#a5f3fc">ANSWERS</text><text x="212" y="60" fill="#64748b" font-weight="400">citable</text></g><g stroke="#38bdf8" fill="none" stroke-width="1.2"><path class="infra-flow" d="M96 50 H106"/><path class="infra-flow" d="M194 50 H204"/></g></svg></div>
+      <span class="case-tag">06 - AEO READINESS</span>
+      <h3 class="font-display text-xl font-bold text-white mt-3">Answer Engine Optimization for AI Search</h3>
+      <div class="grid sm:grid-cols-2 gap-4 mt-4 text-sm text-slate-300 leading-relaxed">
+      <div class="svc-block"><p><strong class="text-white">Problem:</strong> Buyers ask AI assistants for recommendations and your business is missing or unclear there.</p><p class="mt-2"><strong class="text-white">Deliverables:</strong> Clear service/location pages, FAQ answer blocks, Organization and FAQ schema where accurate, entity consistency, measurement plan for AI-referred visits.</p></div>
+      <div class="svc-block"><p class="text-xs text-slate-400"><strong class="text-slate-200">Scope and boundaries:</strong> We prepare honest, citable content. We do not guarantee mentions in any AI model, do not promise rankings or trending placement, and do not claim best-in-class status. Model behavior changes frequently.</p><p class="text-xs text-sky-300 mt-2"><strong>Next step:</strong> Share your top 5 customer questions and service areas for an AEO content outline.</p></div>
       </div>
+      <button type="button" onclick="selectServiceAndContact('General Strategy Consultation')" class="mt-5 w-full sm:w-auto px-6 py-2.5 rounded-lg bg-slate-800 hover:bg-blue-600 text-sky-300 hover:text-white text-xs font-bold border border-sky-500/30 transition">Ask About AEO Readiness</button>
+      </article>
+    <div class="grid md:grid-cols-3 gap-5 mt-6">
+    <div class="glass-card rounded-2xl p-5"><span class="case-tag case-tag-ok">ADVISORY - PRODUCTION-READY</span><h3 class="font-display text-lg font-bold text-white mt-2">Audits and automation consulting</h3><p class="text-xs text-slate-300 mt-2 leading-relaxed"><strong class="text-white">Problem:</strong> Unclear bottlenecks across tools and handoffs.</p><p class="text-xs text-slate-300 mt-1 leading-relaxed"><strong class="text-white">Deliverable:</strong> Technical audit, prioritized fix list, scoped next steps. Tools reviewed: CRM, Python/n8n/Playwright, React/FastAPI, deploys.</p></div>
+    <div class="glass-card rounded-2xl p-5"><span class="case-tag">REPORTING - CUSTOM DEV</span><h3 class="font-display text-lg font-bold text-white mt-2">Reporting and knowledge workflows</h3><p class="text-xs text-slate-300 mt-2 leading-relaxed"><strong class="text-white">Problem:</strong> Scattered reports and repeat questions.</p><p class="text-xs text-slate-300 mt-1 leading-relaxed"><strong class="text-white">Deliverable:</strong> AI-assisted summaries, internal FAQ/knowledge pages, operational dashboards. Human review before sharing.</p></div>
+    <div class="glass-card rounded-2xl p-5"><span class="case-tag case-tag-warn">VOICE - EXPERIMENTAL</span><h3 class="font-display text-lg font-bold text-white mt-2">Voice-agent prototypes (Odia/Hindi)</h3><p class="text-xs text-slate-300 mt-2 leading-relaxed"><strong class="text-white">Problem being explored:</strong> Hands-free follow-up for local language callers.</p><p class="text-xs text-slate-400 mt-1 leading-relaxed"><strong class="text-slate-200">Status:</strong> Research prototype only. Accuracy, latency and consent flows need validation. Not a production calling service.</p><div class="rounded-xl overflow-hidden border border-violet-500/25 bg-[#060d22] mt-3" role="img" aria-label="Voice pipeline concept, research prototype"><svg viewBox="0 0 320 96" class="w-full h-20" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="8" font-weight="700"><path d="M14 58 Q30 30 46 58 T78 58 T110 58 T142 58 T174 58 T206 58" stroke="#22d3ee" fill="none" stroke-width="1.6"/><rect x="222" y="34" width="90" height="48" rx="8" fill="#0e2247" stroke="#a78bfa" stroke-opacity=".6"/><text x="230" y="52" fill="#c4b5fd">FLOW</text><text x="230" y="66" fill="#64748b" font-weight="400">prototype</text></g><text x="14" y="88" fill="#64748b" font-size="7.5" font-family="Inter,sans-serif">Odia / Hindi - research prototype</text></svg></div></div>
     </div>
-
-    <section class="buddy-models-panel mt-12 sm:mt-16" aria-labelledby="google-ai-heading">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
-        <div>
-          <span class="buddy-eyebrow">MODEL &amp; TOOL DIRECTORY</span>
-          <h3 id="google-ai-heading" class="font-display text-2xl sm:text-3xl font-bold text-white mt-2">Google AI, clearly organised.</h3>
-          <p class="text-sm text-slate-400 mt-2 max-w-2xl">Model families and developer tools are separated so visitors can tell what is a model, what is a platform, and what is a project integration.</p>
-        </div>
-        <a class="buddy-action-link" href="https://ai.google.dev/" target="_blank" rel="noopener noreferrer">Google AI for Developers ↗</a>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <article class="buddy-model-card">
-          <div class="buddy-model-logo"><img src="public/images/google-gemini-mark.svg" width="44" height="44" alt="" loading="lazy" /></div>
-          <div class="buddy-model-type">MODEL FAMILY</div><h4>Gemini</h4>
-          <p>The BUDDY repository includes a Gemini 2.0 Multimodal Live Odia voice-assistant bridge and a direct Gemini API provider. Treat these as codebase integrations/prototypes, not proof of a live production connection.</p>
-          <a href="https://ai.google.dev/gemini-api/docs" target="_blank" rel="noopener noreferrer">Gemini API docs ↗</a>
-        </article>
-        <article class="buddy-model-card">
-          <div class="buddy-model-logo"><img src="public/images/google-gemma-mark.svg" width="44" height="44" alt="" loading="lazy" /></div>
-          <div class="buddy-model-type">OPEN MODEL FAMILY</div><h4>Gemma</h4>
-          <p>Google's open model family for developer experimentation and local or hosted deployment, depending on the variant.</p>
-          <a href="https://ai.google.dev/gemma" target="_blank" rel="noopener noreferrer">Explore Gemma ↗</a>
-        </article>
-        <article class="buddy-model-card">
-          <div class="buddy-model-logo buddy-google-ai-studio" aria-hidden="true"><span>✦</span></div>
-          <div class="buddy-model-type">DEVELOPER TOOL</div><h4>Google AI Studio</h4>
-          <p>A workspace for testing supported Gemini models and prototyping prompts and API workflows.</p>
-          <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer">Open AI Studio ↗</a>
-        </article>
-        <article class="buddy-model-card">
-          <div class="buddy-model-logo buddy-vertex-mark" aria-hidden="true"><span>◆</span></div>
-          <div class="buddy-model-type">CLOUD PLATFORM</div><h4>Vertex AI</h4>
-          <p>Google Cloud's platform for accessing and deploying supported models and building managed AI applications.</p>
-          <a href="https://cloud.google.com/vertex-ai" target="_blank" rel="noopener noreferrer">Explore Vertex AI ↗</a>
-        </article>
-      </div>
-      <div class="buddy-stack-strip mt-8" aria-label="AI tools and model ecosystems used or explored in project work">
-        <div class="mb-4"><span class="buddy-eyebrow">BROADER AI STACK</span><p class="text-sm text-slate-400 mt-1">Providers and local model tools referenced across project work—not a claim that every provider is connected to this website.</p></div>
-        <div class="flex flex-wrap gap-2">
-          <a class="buddy-provider-chip" href="https://openai.com/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-openai">◎</span>OpenAI</a>
-          <a class="buddy-provider-chip" href="https://groq.com/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-groq">G</span>Groq</a>
-          <a class="buddy-provider-chip" href="https://www.deepseek.com/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-deepseek">D</span>DeepSeek</a>
-          <a class="buddy-provider-chip" href="https://qwen.ai/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-qwen">Q</span>Qwen</a>
-          <a class="buddy-provider-chip" href="https://ollama.com/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-ollama">O</span>Ollama</a>
-          <a class="buddy-provider-chip" href="https://mistral.ai/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-mistral">M</span>Mistral</a>
-          <a class="buddy-provider-chip" href="https://build.nvidia.com/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-nvidia">N</span>NVIDIA / Nemotron</a>
-          <a class="buddy-provider-chip" href="https://huggingface.co/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-hf">H</span>Hugging Face</a>
-          <a class="buddy-provider-chip" href="https://openrouter.ai/" target="_blank" rel="noopener noreferrer"><span class="buddy-provider-mark mark-router">↗</span>OpenRouter</a>
-        </div>
-      </div>
-      <p class="text-xs text-slate-500 mt-4">Model availability changes over time. This directory identifies Google AI families and platforms; it does not imply every model is currently integrated into BUDDY.</p>
-    </section>
+    </div>
   </section>
 
   <!-- ========================================================= -->
@@ -1458,115 +1537,113 @@
       </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      <!-- Project 1 -->
-      <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
-        <div>
-          <div class="buddy-project-visual">
-            <img src="public/images/project-crm.svg" alt="Illustrative CRM dashboard with lead capture, qualification, assignment and follow-up stages; synthetic data only" width="960" height="600" loading="lazy" decoding="async" />
-            <span class="buddy-visual-label">CRM · CONCEPT VISUAL</span>
-          </div>
-          <div class="px-6 pt-5">
-            <span class="text-[10px] font-bold tracking-widest text-sky-300">REAL-ESTATE OPERATIONS</span>
-            <h3 class="font-display text-xl font-bold text-white mt-2">KNR Integrity CRM</h3>
-          </div>
-          <div class="p-6">
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Real-estate lead operations work focused on enquiry organization, assignment, follow-up visibility and team workflows. The preview is illustrative; production access and private customer records are not exposed here.
-            </p>
-          </div>
+    <div class="grid lg:grid-cols-2 gap-6">
+      <article class="glass-card rounded-2xl p-6 sm:p-7">
+        <span class="case-tag case-tag-ok">CASE 01 · OPERATIONS PATTERN · CRM</span>
+        <h3 class="font-display text-2xl font-bold text-white mt-3">Real-Estate CRM & Daily Calling Queues</h3>
+        <div class="mt-4 space-y-3 text-sm leading-relaxed">
+          <p class="text-slate-300"><strong class="text-white">Problem:</strong> Buyer/seller enquiries in spreadsheets and chat threads; missed follow-ups and no ownership. Observed in Bhubaneswar property operations.</p>
+          <p class="text-slate-300"><strong class="text-white">Architecture:</strong> Intake → assignment → stage pipeline (New → Calling → Visit → Negotiation → Booked) → follow-up reminders → reporting. Role-based views for closers vs managers.</p>
+          <p class="text-slate-300"><strong class="text-white">Implementation:</strong> Lead stages and SLA rules mapped first; calling queues and WhatsApp templates added incrementally; GST/billing fields kept separate from pipeline status.</p>
+          <div class="case-meta"><span class="case-tag">CRM DESIGN</span><span class="case-tag">LEAD OPS</span><span class="case-tag">WHATSAPP</span><span class="case-tag">REPORTING</span></div>
+          <p class="text-xs text-slate-400"><strong class="text-emerald-300">Verified result:</strong> Usable queue + stage visibility for the operating team (process outcome, not a revenue claim).</p>
+          <p class="text-xs text-slate-500"><strong>Limitations:</strong> Requires team adoption and data hygiene; integrations scoped per client; no anonymised client screenshots shared.</p>
         </div>
-        <div class="px-6 pb-6">
-          <button type="button" onclick="selectServiceAndContact('Custom Business CRM Deployment')" class="w-full py-2.5 rounded-lg bg-blue-600/20 hover:bg-blue-600 text-sky-300 hover:text-white text-xs font-bold border border-sky-500/30 transition">
-            Request CRM Walkthrough →
-          </button>
+        <button type="button" onclick="selectServiceAndContact('Custom Business CRM Deployment')" class="mt-5 w-full py-2.5 rounded-lg bg-blue-600/20 hover:bg-blue-600 text-sky-300 hover:text-white text-xs font-bold border border-sky-500/30 transition">Request CRM Walkthrough →</button>
+      <div class="rounded-xl overflow-hidden border border-sky-500/20 bg-[#060d22] mt-4" role="img" aria-label="CRM pipeline concept with stages and queues"><svg viewBox="0 0 340 84" class="w-full h-[74px]" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="8" font-weight="700"><rect x="8" y="18" width="74" height="48" rx="7" fill="#0e2247" stroke="#38bdf8"/><text x="16" y="38" fill="#bae6fd">NEW</text><text x="16" y="54" fill="#64748b" font-weight="400">intake</text><rect x="92" y="18" width="74" height="48" rx="7" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".6"/><text x="100" y="38" fill="#bae6fd">CALL</text><text x="100" y="54" fill="#64748b" font-weight="400">queue</text><rect x="176" y="18" width="74" height="48" rx="7" fill="#0e2a55" stroke="#22d3ee"/><text x="184" y="38" fill="#fff">VISIT</text><text x="184" y="54" fill="#64748b" font-weight="400">set</text><rect x="260" y="18" width="72" height="48" rx="7" fill="#082f3a" stroke="#22d3ee" stroke-opacity=".6"/><text x="268" y="38" fill="#a5f3fc">WON</text><text x="268" y="54" fill="#64748b" font-weight="400">done</text></g><g stroke="#38bdf8" fill="none" stroke-width="1.2"><path class="infra-flow" d="M82 42 H92"/><path class="infra-flow" d="M166 42 H176"/><path class="infra-flow" d="M250 42 H260"/></g></svg><p class="text-[9px] font-mono text-slate-500 px-3 py-1.5 border-t border-sky-500/10">CONCEPT PREVIEW - ANONYMISED PATTERN</p></div></article>
+      <article class="glass-card rounded-2xl p-6 sm:p-7">
+        <span class="case-tag">CASE 02 · HANDS-ON BUILD · AUTOMATION</span>
+        <h3 class="font-display text-2xl font-bold text-white mt-3">Playwright + n8n Lead-Intake Pipeline</h3>
+        <div class="mt-4 space-y-3 text-sm leading-relaxed">
+          <p class="text-slate-300"><strong class="text-white">Problem:</strong> Manual copy-paste of property listings into calling sheets; duplicates and missing fields.</p>
+          <p class="text-slate-300"><strong class="text-white">Architecture:</strong> Python Playwright extractor → JSON normalizer (price, locality, contact, source URL) → n8n webhook → CRM queue with dedupe key.</p>
+          <p class="text-slate-300"><strong class="text-white">Implementation:</strong> Sync Playwright scripts with explicit selectors; n8n validates payload, drops invalid rows, logs source; human reviews before bulk outreach.</p>
+          <div class="case-meta"><span class="case-tag">PYTHON</span><span class="case-tag">PLAYWRIGHT</span><span class="case-tag">N8N</span><span class="case-tag">WEBHOOKS</span></div>
+          <p class="text-xs text-slate-400"><strong class="text-emerald-300">Verified result:</strong> Repeatable extraction-to-queue flow demonstrated on sample listings (technique validated, volume depends on source).</p>
+          <p class="text-xs text-slate-500"><strong>Limitations:</strong> Source-site layout changes need selector maintenance; rate limits and terms of sources must be respected.</p>
         </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
-        <div>
-          <div class="buddy-project-visual">
-            <img src="public/images/project-buddy-agents.svg" alt="Conceptual AI agent architecture diagram showing model gateway, tool router, workflow runner, human approval and logs" width="960" height="600" loading="lazy" decoding="async" />
-            <span class="buddy-visual-label">AGENT ARCHITECTURE · CONCEPT</span>
-          </div>
-          <div class="px-6 pt-5">
-            <span class="text-[10px] font-bold tracking-widest text-indigo-300">AI SYSTEMS &amp; ORCHESTRATION</span>
-            <h3 class="font-display text-xl font-bold text-white mt-2">BUDDY AI Agent System</h3>
-          </div>
-          <div class="p-6">
-            <p class="text-xs text-slate-300 leading-relaxed">
-              BUDDY is an evolving autonomous-agent project. This diagram is a conceptual overview; only modules verified in the repository should be treated as implemented, and no live agent run is represented.
-            </p>
-          </div>
+        <button type="button" onclick="selectServiceAndContact('Custom Web App & Python/n8n Automation')" class="mt-5 w-full py-2.5 rounded-lg bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold border border-indigo-500/30 transition">Request Automation Scope →</button>
+      <div class="rounded-xl overflow-hidden border border-sky-500/20 bg-[#060d22] mt-4" role="img" aria-label="Extraction to queue pipeline concept"><svg viewBox="0 0 340 84" class="w-full h-[74px]" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="8" font-weight="700"><rect x="8" y="20" width="100" height="44" rx="7" fill="#0e2247" stroke="#38bdf8"/><text x="16" y="38" fill="#bae6fd">PLAYWRIGHT</text><text x="16" y="53" fill="#64748b" font-weight="400">extract</text><rect x="120" y="20" width="96" height="44" rx="7" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".6"/><text x="128" y="38" fill="#bae6fd">N8N HOOK</text><text x="128" y="53" fill="#64748b" font-weight="400">normalize</text><rect x="228" y="20" width="104" height="44" rx="7" fill="#082f3a" stroke="#22d3ee"/><text x="236" y="38" fill="#a5f3fc">CRM QUEUE</text><text x="236" y="53" fill="#64748b" font-weight="400">route</text></g><g stroke="#38bdf8" fill="none" stroke-width="1.2"><path class="infra-flow" d="M108 42 H120"/><path class="infra-flow" d="M216 42 H228"/></g></svg><p class="text-[9px] font-mono text-slate-500 px-3 py-1.5 border-t border-sky-500/10">CONCEPT PREVIEW - SAMPLE FLOW</p></div></article>
+      <article class="glass-card rounded-2xl p-6 sm:p-7">
+        <span class="case-tag case-tag-ok">CASE 03 · CAMPAIGN WORK · FUNNELS</span>
+        <h3 class="font-display text-2xl font-bold text-white mt-3">Bhubaneswar Property Funnels (3BHK / Triplex)</h3>
+        <div class="mt-4 space-y-3 text-sm leading-relaxed">
+          <p class="text-slate-300"><strong class="text-white">Problem:</strong> Generic boosts attracting low-intent enquiries; weak handoff from ad to site visit.</p>
+          <p class="text-slate-300"><strong class="text-white">Architecture:</strong> Offer-specific creative → landing page with qualification form → CRM/WhatsApp routing → call + visit workflow.</p>
+          <p class="text-slate-300"><strong class="text-white">Implementation:</strong> Locality-led creatives and video cuts, form fields for budget/timeline, source-tagged routing. No ranking or lead-volume guarantees made.</p>
+          <div class="case-meta"><span class="case-tag">META ADS</span><span class="case-tag">LANDING PAGES</span><span class="case-tag">VIDEO CREATIVES</span><span class="case-tag">SEO BASICS</span></div>
+          <p class="text-xs text-slate-400"><strong class="text-emerald-300">Verified result:</strong> Structured funnel and routing in use for residential projects (performance varies by budget, offer, competition).</p>
+          <p class="text-xs text-slate-500"><strong>Limitations:</strong> Results depend on spend, creative testing and market; anonymised data only — no confidential screenshots.</p>
         </div>
-        <div class="px-6 pb-6">
-          <button type="button" onclick="selectServiceAndContact('AI Workflow & Agent Automation')" class="w-full py-2.5 rounded-lg bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-bold border border-indigo-500/30 transition">
-            Discuss an AI Workflow →
-          </button>
+        <button type="button" onclick="selectServiceAndContact('Growth Marketing Retainer (₹15k-₹25k/mo)')" class="mt-5 w-full py-2.5 rounded-lg bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white text-xs font-bold border border-cyan-500/30 transition">Discuss a Funnel →</button>
+      <div class="rounded-xl overflow-hidden border border-sky-500/20 bg-[#060d22] mt-4" role="img" aria-label="Funnel from ad click to site visit, illustrative"><svg viewBox="0 0 340 84" class="w-full h-[74px]" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="8" font-weight="700"><polygon points="12,16 150,16 128,40 34,40" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".5"/><text x="62" y="32" fill="#bae6fd">CLICKS</text><polygon points="34,44 128,44 112,66 50,66" fill="#0e2a55" stroke="#38bdf8" stroke-opacity=".6"/><text x="66" y="59" fill="#bae6fd">VISITS</text><rect x="180" y="16" width="150" height="50" rx="8" fill="#0a1734" stroke="#22d3ee" stroke-opacity=".35"/><text x="190" y="36" fill="#a5f3fc">META / GOOGLE</text><text x="190" y="51" fill="#64748b" font-weight="400">creatives + forms</text></g></svg><p class="text-[9px] font-mono text-slate-500 px-3 py-1.5 border-t border-sky-500/10">ILLUSTRATIVE FUNNEL - NO RESULT CLAIMS</p></div></article>
+      <article class="glass-card rounded-2xl p-6 sm:p-7">
+        <span class="case-tag case-tag-warn">CASE 04 · R&amp;D PROTOTYPE · NOT A PRODUCTION SERVICE</span>
+        <h3 class="font-display text-2xl font-bold text-white mt-3">Agent & Voice-Assistant Lab (Odia/Hindi Exploration)</h3>
+        <div class="mt-4 space-y-3 text-sm leading-relaxed">
+          <p class="text-slate-300"><strong class="text-white">Problem being explored:</strong> Can agent-assisted drafting and multilingual voice drafts reduce content and follow-up effort for local businesses?</p>
+          <p class="text-slate-300"><strong class="text-white">Architecture (prototype):</strong> Draft generator → human review gate → CRM note/media attach. Voice path: speech-to-text → intent draft → human-approved callback task.</p>
+          <p class="text-slate-300"><strong class="text-white">Implementation:</strong> Small React/FastAPI test harnesses, PostgreSQL/Supabase-style data notes, TypeScript/Next.js learning builds. Human approval required before any publish/contact.</p>
+          <div class="case-meta"><span class="case-tag">AGENT DRAFTS</span><span class="case-tag case-tag-warn">PROTOTYPE</span><span class="case-tag">FASTAPI</span><span class="case-tag">HUMAN REVIEW</span></div>
+          <p class="text-xs text-slate-400"><strong class="text-violet-300">Status:</strong> Research prototype only. Not sold as autonomous AI or live calling service.</p>
+          <p class="text-xs text-slate-500"><strong>Limitations:</strong> Language accuracy, latency and compliance need validation; not for high-stakes outreach without oversight.</p>
         </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
-        <div>
-          <div class="buddy-project-visual">
-            <img src="public/images/project-web-platform.svg" alt="Original responsive digital product interface illustration with service cards and analytics; concept visual" width="960" height="600" loading="lazy" decoding="async" />
-            <span class="buddy-visual-label">WEB &amp; GROWTH · CONCEPT VISUAL</span>
-          </div>
-          <div class="px-6 pt-5">
-            <span class="text-[10px] font-bold tracking-widest text-cyan-300">WEB ENGINEERING &amp; DIGITAL GROWTH</span>
-            <h3 class="font-display text-xl font-bold text-white mt-2">KNR Website &amp; Growth Systems</h3>
-          </div>
-          <div class="p-6">
-            <p class="text-xs text-slate-300 leading-relaxed">
-              A visual overview of responsive web experiences, API-connected workflows and conversion-focused layouts. Visit the live KNR Integrity website to see the public real-estate experience; this graphic is an original concept visual, not a screenshot.
-            </p>
-          </div>
-        </div>
-        <div class="px-6 pb-6">
-          <a href="https://knrintegrity.com/" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-2.5 rounded-lg bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white text-xs font-bold border border-cyan-500/30 transition">
-            Visit KNR Integrity Website ↗</a>
-        </div>
-      </div>
+        <button type="button" onclick="selectServiceAndContact('General Strategy Consultation')" class="mt-5 w-full py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-700 transition">Ask About Lab Scope →</button>
+      <div class="rounded-xl overflow-hidden border border-sky-500/20 bg-[#060d22] mt-4" role="img" aria-label="Agent draft loop with human review gate, prototype"><svg viewBox="0 0 340 84" class="w-full h-[74px]" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="8" font-weight="700"><rect x="8" y="22" width="88" height="42" rx="7" fill="#0e2247" stroke="#38bdf8"/><text x="16" y="40" fill="#bae6fd">DRAFT</text><text x="16" y="55" fill="#64748b" font-weight="400">agent</text><rect x="108" y="22" width="96" height="42" rx="7" fill="#0e2247" stroke="#fbbf24" stroke-opacity=".55"/><text x="116" y="40" fill="#fde68a">REVIEW</text><text x="116" y="55" fill="#64748b" font-weight="400">human</text><rect x="216" y="22" width="116" height="42" rx="7" fill="#0a1734" stroke="#64748b"/><text x="224" y="40" fill="#cbd5e1">OUTPUT</text><text x="224" y="55" fill="#64748b" font-weight="400">only if OK</text></g><g stroke="#38bdf8" fill="none" stroke-width="1.2"><path class="infra-flow" d="M96 43 H108"/><path class="infra-flow-slow" d="M204 43 H216"/></g></svg><p class="text-[9px] font-mono text-slate-500 px-3 py-1.5 border-t border-sky-500/10">R AND D PROTOTYPE - NOT PRODUCTION</p></div></article>
     </div>
+    <p class="text-[11px] text-slate-500 mt-6 max-w-4xl leading-relaxed">Evidence note: case studies use anonymised operational patterns. No invented clients, metrics, testimonials or certifications are presented. Prototype work is explicitly labelled.</p>
+  </section>
 
-    <section class="mt-12" aria-labelledby="engineering-projects-heading">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
-        <div><span class="buddy-eyebrow">GITHUB &amp; BUILDER WORK</span><h3 id="engineering-projects-heading" class="font-display text-2xl sm:text-3xl font-bold text-white mt-2">More systems in the lab.</h3><p class="text-sm text-slate-400 mt-2 max-w-2xl">A curated view of the broader engineering journey. Public repositories link to source; private projects are described without exposing code.</p></div>
-        <a href="https://github.com/rahuldhal800-a11y" target="_blank" rel="noopener noreferrer" class="buddy-action-link">Explore GitHub profile ↗</a>
-      </div>
-      <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
-        <article class="buddy-repo-card">
-          <img src="public/images/project-executive-ai.svg" alt="KNR Executive AI conceptual workflow illustration" width="900" height="560" loading="lazy" decoding="async" />
-          <div class="p-4"><div class="flex flex-wrap gap-2"><span class="buddy-repo-status">PUBLIC REPOSITORY</span><span class="buddy-repo-tech">Python</span></div><h4>KNR Executive AI</h4><p>AI-agent project for real-estate business workflows. Review the repository for the current implementation scope.</p><a href="https://github.com/rahuldhal800-a11y/knr-executive-ai" target="_blank" rel="noopener noreferrer">View source ↗</a></div>
-        </article>
-        <article class="buddy-repo-card">
-          <img src="public/images/project-agent-sandbox.svg" alt="AI agent sandbox conceptual code workspace illustration" width="900" height="560" loading="lazy" decoding="async" />
-          <div class="p-4"><div class="flex flex-wrap gap-2"><span class="buddy-repo-status">PUBLIC REPOSITORY</span><span class="buddy-repo-tech">Python</span></div><h4>AI Agents Sandbox</h4><p>Experiments and prototypes for agent patterns. The linked source is the authority for exact features.</p><a href="https://github.com/rahuldhal800-a11y/ai-agents-sandbox" target="_blank" rel="noopener noreferrer">View source ↗</a></div>
-        </article>
-        <article class="buddy-repo-card">
-          <img src="public/images/project-knr-ai-agent.svg" alt="KNR Integrity AI agent conceptual property inquiry workflow illustration" width="900" height="560" loading="lazy" decoding="async" />
-          <div class="p-4"><div class="flex flex-wrap gap-2"><span class="buddy-repo-status buddy-repo-private">PRIVATE PROJECT</span><span class="buddy-repo-tech">TypeScript</span></div><h4>KNR Integrity AI Agent</h4><p>Private agent project for the real-estate context. This public case study uses a conceptual workflow, not private source or production data.</p><a href="https://knrintegrity.com/" target="_blank" rel="noopener noreferrer">View public business site ↗</a></div>
-        </article>
-        <article class="buddy-repo-card">
-          <img src="public/images/project-renthub.svg" alt="RK Rent Hub rental business website concept illustration" width="900" height="560" loading="lazy" decoding="async" />
-          <div class="p-4"><div class="flex flex-wrap gap-2"><span class="buddy-repo-status buddy-repo-private">PRIVATE PROJECT</span><span class="buddy-repo-tech">Web</span></div><h4>RK Rent Hub</h4><p>Digital-first rental business platform in development. The preview is conceptual until the public website is launched.</p><a href="https://github.com/rahuldhal800-a11y" target="_blank" rel="noopener noreferrer">More engineering work ↗</a></div>
-        </article>
-      </div>
-    </section>
-
-    <div class="buddy-github-callout glass-card rounded-2xl p-6 sm:p-8 mt-10 flex flex-col md:flex-row md:items-center justify-between gap-5">
-      <div class="max-w-2xl">
-        <span class="buddy-eyebrow">OPEN-SOURCE &amp; ENGINEERING TRAIL</span>
-        <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mt-2">Explore the code behind the work.</h3>
-        <p class="text-sm text-slate-300 mt-2 leading-relaxed">Browse public repositories and technical experiments. Private products are shown only through approved, sanitized case studies—never exposed source code.</p>
-      </div>
-      <div class="flex flex-wrap gap-3">
-        <a href="https://github.com/rahuldhal800-a11y/knr-executive-ai" target="_blank" rel="noopener noreferrer" class="buddy-action-link">KNR Executive AI ↗</a>
-        <a href="https://github.com/rahuldhal800-a11y/ai-agents-sandbox" target="_blank" rel="noopener noreferrer" class="buddy-action-link">AI Agents Sandbox ↗</a>
-      </div>
+  <!-- ========================================================= -->
+  <!-- PAGE: TECHNOLOGY STACK (TIERED, HONEST)                   -->
+  <!-- ========================================================= -->
+  <section id="page-stack" class="page-view relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="text-xs font-bold uppercase tracking-widest text-sky-400">TECHNOLOGY STACK</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2 chrome-text">Tools grouped by real usage.</h2>
+      <p class="text-slate-400 mt-3 text-sm sm:text-base">Not every logo belongs to one system. Each group reflects a different level of production use — so you know what is dependable today and what is still in the lab.</p>
     </div>
+    <!-- Stack overview rendered from the shared ecosystem-data model (no second hard-coded list) -->
+    <div id="stackOverview" class="grid md:grid-cols-2 gap-6"></div>
+    <p class="text-[11px] text-slate-500 mt-4 leading-relaxed">Coding agents, emerging projects and the complete list live in the searchable directory below. Overview and directory share one data model.</p>
+    <p class="text-[11px] text-slate-500 mt-4 leading-relaxed">Logos via Simple Icons CDN (CC0 1.0, trademarks belong to respective owners). Badges show usage in our work: Production, Hands-on, Experimental. No certifications claimed. No model rankings or best-in-class claims; new model names are listed for familiarity and marked by usage level. Offline fallback shows text labels.</p><div class="glass-card rounded-2xl p-5 mt-4 text-xs text-slate-400 leading-relaxed">Our rule: we recommend the smallest stack that solves the problem. We do not present the full list above as a single deployed system.</div>
+  <div class="glass-card rounded-2xl p-5 sm:p-6 mt-6" id="ecoDirectory">
+    <div class="flex flex-wrap items-end justify-between gap-3"><div><p class="buddy-eyebrow">Searchable directory</p>
+    <h3 class="font-display text-2xl font-bold text-white mt-1">AI Ecosystem Directory</h3>
+    <p class="text-xs text-slate-400 mt-2 max-w-2xl leading-relaxed">Every entry carries exactly one status. Verification-pending names sit apart and make no claims. Data lives in the embedded <span class="font-mono">ecosystem-data</span> block below so the list is easy to update.</p></div>
+    <p id="ecoCount" class="text-[11px] font-mono text-sky-300" role="status" aria-live="polite"></p></div>
+    <div class="eco-controls mt-4">
+    <input id="ecoSearch" type="search" placeholder="Search name, provider, category, capability..." aria-label="Search tools" class="w-full px-4 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white focus:border-sky-400 outline-none" />
+    <select id="ecoCat" aria-label="Filter by category" class="w-full px-3 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-xs text-white"><option value="">All categories</option><option value="models">AI models</option><option value="agents">Coding agents</option><option value="platforms">Agent platforms</option><option value="emerging">Emerging agents</option><option value="media">Media and voice</option><option value="devinfra">Dev and infra</option></select>
+    <select id="ecoStatus" aria-label="Filter by status" class="w-full px-3 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-xs text-white"><option value="">All statuses</option><option>Production</option><option>Hands-on</option><option>Experimental</option><option>Researching</option><option>Verification pending</option></select>
+    <button type="button" id="ecoSort" aria-pressed="false" class="px-4 py-2.5 rounded-lg text-xs font-bold bg-slate-800 text-sky-300 border border-sky-500/30">Sort A-Z</button>
+    </div>
+    <div id="ecoProd"></div>
+    <div id="ecoSections"></div>
+    <div id="ecoPending"></div>
+    <script type="application/json" id="ecosystem-data">
+[{"n": "OpenAI", "p": "OpenAI", "c": "models", "s": "GPT models", "d": "OpenAI models via API and router playgrounds.", "u": "", "r": "", "t": "Model", "st": "Hands-on", "v": "2026-10-16", "e": "Prior automation evidence"}, {"n": "Groq", "p": "Groq", "c": "models", "s": "Fast inference", "d": "Groq fast-inference endpoints for low-latency drafts.", "u": "", "r": "", "t": "Service", "st": "Hands-on", "v": "2026-10-16", "e": "Prior automation evidence"}, {"n": "OpenRouter", "p": "OpenRouter", "c": "platforms", "s": "Model routing", "d": "Vendor-neutral model routing across providers.", "u": "https://openrouter.ai", "r": "", "t": "Service", "st": "Experimental", "v": "2026-10-16", "e": "Evaluation in progress"}, {"n": "Ollama", "p": "Ollama", "c": "platforms", "s": "Local runtime", "d": "Local model runtime for offline drafts and tests.", "u": "https://ollama.com", "r": "", "t": "Runtime", "st": "Experimental", "v": "2026-10-16", "e": "Buddy repo Ollama fallback"}, {"n": "Hugging Face", "p": "Hugging Face", "c": "models", "s": "Model ecosystem", "d": "Pretrained models and datasets for local runtimes.", "u": "https://huggingface.co", "r": "", "t": "Platform", "st": "Experimental", "v": "2026-10-16", "e": "Buddy Qwen HF runtime docs"}, {"n": "LangChain", "p": "LangChain", "c": "platforms", "s": "Agent framework", "d": "Agent chains and tool orchestration patterns.", "u": "", "r": "", "t": "Framework", "st": "Experimental", "v": "2026-10-16", "e": "Evaluation in progress"}, {"n": "Claude", "p": "Anthropic", "c": "models", "s": "Claude models", "d": "Claude models for drafting and review tasks.", "u": "", "r": "", "t": "Model", "st": "Hands-on", "v": "2026-10-16", "e": "Prior stack evidence"}, {"n": "Grok", "p": "xAI", "c": "models", "s": "Grok models", "d": "Grok models for comparison drafts.", "u": "", "r": "", "t": "Model", "st": "Hands-on", "v": "2026-10-16", "e": "Prior stack evidence"}, {"n": "GLM", "p": "Zhipu AI", "c": "models", "s": "GLM models", "d": "GLM models for multilingual comparison.", "u": "", "r": "", "t": "Model", "st": "Experimental", "v": "2026-10-16", "e": "Evaluation in progress"}, {"n": "GPT Series", "p": "OpenAI", "c": "models", "s": "GPT family", "d": "GPT family capabilities tracked as versions appear.", "u": "", "r": "", "t": "Model", "st": "Experimental", "v": "2026-10-16", "e": "Familiarity tracking"}, {"n": "Python", "p": "Python Software Foundation", "c": "devinfra", "s": "Language", "d": "Automation scripts, scrapers and API backends.", "u": "https://www.python.org", "r": "", "t": "Language", "st": "Production", "v": "2026-10-16", "e": "Live delivery evidence"}, {"n": "JavaScript", "p": "ECMA", "c": "devinfra", "s": "Web logic", "d": "Interactive funnels and browser logic.", "u": "", "r": "", "t": "Language", "st": "Hands-on", "v": "2026-10-16", "e": "Funnel builds"}, {"n": "TypeScript", "p": "Microsoft", "c": "devinfra", "s": "Typed builds", "d": "Typed frontends for larger builds.", "u": "", "r": "", "t": "Language", "st": "Hands-on", "v": "2026-10-16", "e": "Learning builds"}, {"n": "React", "p": "Meta", "c": "devinfra", "s": "UI library", "d": "Funnel and dashboard interfaces.", "u": "https://react.dev", "r": "", "t": "Library", "st": "Production", "v": "2026-10-16", "e": "Live delivery evidence"}, {"n": "Next.js", "p": "Vercel", "c": "devinfra", "s": "Web framework", "d": "Full-stack web apps and landing systems.", "u": "https://nextjs.org", "r": "", "t": "Framework", "st": "Experimental", "v": "2026-10-16", "e": "Learning builds"}, {"n": "FastAPI", "p": "FastAPI", "c": "devinfra", "s": "API framework", "d": "REST APIs and webhook receivers.", "u": "https://fastapi.tiangolo.com", "r": "", "t": "Framework", "st": "Hands-on", "v": "2026-10-16", "e": "Project integrations"}, {"n": "PostgreSQL", "p": "PostgreSQL", "c": "devinfra", "s": "Database", "d": "Relational data modelling for apps.", "u": "https://www.postgresql.org", "r": "", "t": "Database", "st": "Experimental", "v": "2026-10-16", "e": "Data modelling notes"}, {"n": "MCP", "p": "Anthropic", "c": "platforms", "s": "Model context", "d": "Open standard linking models to tools and data.", "u": "", "r": "", "t": "Protocol", "st": "Experimental", "v": "2026-10-16", "e": "Stack evaluation"}, {"n": "Docker", "p": "Docker", "c": "devinfra", "s": "Containers", "d": "Container concepts for reproducible deploys.", "u": "https://www.docker.com", "r": "", "t": "Platform", "st": "Experimental", "v": "2026-10-16", "e": "Infra concepts"}, {"n": "Linux", "p": "Linux", "c": "devinfra", "s": "Servers", "d": "Server setup and maintenance support.", "u": "", "r": "", "t": "OS", "st": "Hands-on", "v": "2026-10-16", "e": "Deploy support work"}, {"n": "AWS", "p": "Amazon", "c": "devinfra", "s": "Cloud", "d": "Cloud concepts for hosting and scaling.", "u": "https://aws.amazon.com", "r": "", "t": "Cloud", "st": "Experimental", "v": "2026-10-16", "e": "Infra concepts"}, {"n": "GitHub", "p": "GitHub", "c": "devinfra", "s": "Code platform", "d": "Code hosting, Actions workflows and deploys.", "u": "https://github.com", "r": "", "t": "Platform", "st": "Production", "v": "2026-10-16", "e": "Live delivery evidence"}, {"n": "Nginx", "p": "Nginx", "c": "devinfra", "s": "Proxy", "d": "Reverse-proxy concepts for app serving.", "u": "https://nginx.org", "r": "", "t": "Software", "st": "Experimental", "v": "2026-10-16", "e": "Infra concepts"}, {"n": "Cloudflare", "p": "Cloudflare", "c": "devinfra", "s": "CDN and DNS", "d": "CDN, DNS and tunnel concepts.", "u": "https://www.cloudflare.com", "r": "", "t": "Service", "st": "Experimental", "v": "2026-10-16", "e": "Infra concepts"}, {"n": "Vercel", "p": "Vercel", "c": "devinfra", "s": "Deploy", "d": "Frontend and full-stack deploys.", "u": "https://vercel.com", "r": "", "t": "Cloud", "st": "Hands-on", "v": "2026-10-16", "e": "Deploy support work"}, {"n": "Google Cloud", "p": "Google", "c": "devinfra", "s": "Cloud", "d": "Cloud platform services evaluation.", "u": "", "r": "", "t": "Cloud", "st": "Experimental", "v": "2026-10-16", "e": "Evaluation in progress"}, {"n": "NVIDIA", "p": "NVIDIA", "c": "devinfra", "s": "AI compute", "d": "GPU compute for local model workloads.", "u": "https://www.nvidia.com", "r": "", "t": "Hardware", "st": "Experimental", "v": "2026-10-16", "e": "Evaluation in progress"}, {"n": "n8n", "p": "n8n", "c": "platforms", "s": "Workflows", "d": "Webhook routing and workflow automation.", "u": "https://n8n.io", "r": "", "t": "Platform", "st": "Hands-on", "v": "2026-10-16", "e": "Project integrations"}, {"n": "Playwright", "p": "Microsoft", "c": "devinfra", "s": "Browser automation", "d": "Browser extraction and end-to-end checks.", "u": "https://playwright.dev", "r": "", "t": "Library", "st": "Hands-on", "v": "2026-10-16", "e": "Project integrations"}, {"n": "Meta Ads", "p": "", "c": "devinfra", "s": "Lead ads", "d": "Paid lead campaigns with routing.", "u": "https://www.facebook.com/business", "r": "", "t": "Service", "st": "Production", "v": "2026-10-16", "e": "Campaign operations"}, {"n": "Google Ads", "p": "Google", "c": "devinfra", "s": "Search ads", "d": "Search and performance campaigns.", "u": "https://ads.google.com", "r": "", "t": "Service", "st": "Production", "v": "2026-10-16", "e": "Campaign operations"}, {"n": "SEO", "p": "", "c": "devinfra", "s": "Organic basics", "d": "On-page structure and discovery hygiene.", "u": "", "r": "", "t": "Practice", "st": "Production", "v": "2026-10-16", "e": "Client delivery evidence"}, {"n": "Google Analytics", "p": "Google", "c": "devinfra", "s": "Traffic data", "d": "Visit and funnel measurement.", "u": "https://analytics.google.com", "r": "", "t": "Service", "st": "Hands-on", "v": "2026-10-16", "e": "Marketing measurement"}, {"n": "Search Console", "p": "Google", "c": "devinfra", "s": "SEO data", "d": "Indexing and query visibility data.", "u": "https://search.google.com/search-console", "r": "", "t": "Service", "st": "Hands-on", "v": "2026-10-16", "e": "SEO workflows"}, {"n": "YouTube", "p": "Google", "c": "devinfra", "s": "Video reach", "d": "Video distribution for creatives.", "u": "https://www.youtube.com", "r": "", "t": "Platform", "st": "Hands-on", "v": "2026-10-16", "e": "Creative distribution"}, {"n": "OpenClaw", "p": "", "c": "emerging", "s": "Agent CLI", "d": "Terminal agent workflows under evaluation.", "u": "", "r": "", "t": "Tool", "st": "Experimental", "v": "2026-10-16", "e": "Trend tracking"}, {"n": "OmniRoute", "p": "", "c": "platforms", "s": "Model routing", "d": "Name and availability not yet confirmed.", "u": "", "r": "", "t": "Service", "st": "Verification pending", "v": "2026-10-16", "e": "Identity unconfirmed"}, {"n": "OpenCode", "p": "", "c": "agents", "s": "Dev agent", "d": "Agentic coding assistant used in workflows.", "u": "", "r": "", "t": "Tool", "st": "Hands-on", "v": "2026-10-16", "e": "Used in delivery"}, {"n": "God's Eye", "p": "", "c": "emerging", "s": "Internal R and D", "d": "Internal research project, details private.", "u": "", "r": "", "t": "Project", "st": "Experimental", "v": "2026-10-16", "e": "Internal only"}, {"n": "Gemini", "p": "Google", "c": "models", "s": "Gemini models", "d": "Google flagship models for multimodal tasks.", "u": "https://deepmind.google/technologies/gemini/", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "DeepSeek", "p": "DeepSeek", "c": "models", "s": "Open models", "d": "Efficient open models for reasoning tasks.", "u": "https://www.deepseek.com", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Llama", "p": "Meta", "c": "models", "s": "Open models", "d": "Open-weight models for self-hosted use.", "u": "https://www.llama.com", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Mistral", "p": "Mistral AI", "c": "models", "s": "Open models", "d": "European open models and APIs.", "u": "https://mistral.ai", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Qwen", "p": "Alibaba", "c": "models", "s": "Qwen models", "d": "Local default brain in Buddy runtime.", "u": "https://github.com/QwenLM/Qwen3", "r": "", "t": "Model", "st": "Hands-on", "v": "2026-10-16", "e": "Buddy repo README"}, {"n": "Phi", "p": "Microsoft", "c": "models", "s": "Small models", "d": "Small efficient models for edge use.", "u": "", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Nemotron", "p": "NVIDIA", "c": "models", "s": "Open models", "d": "NVIDIA open models for enterprise use.", "u": "", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Command", "p": "Cohere", "c": "models", "s": "Command models", "d": "RAG-focused enterprise models.", "u": "https://cohere.com", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "AI21 Labs", "p": "AI21 Labs", "c": "models", "s": "Jurassic models", "d": "Enterprise language models.", "u": "https://www.ai21.com", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Nova", "p": "Amazon", "c": "models", "s": "Nova models", "d": "Amazon multimodal foundation models.", "u": "", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Kimi", "p": "Moonshot AI", "c": "models", "s": "Kimi models", "d": "Long-context conversational models.", "u": "https://kimi.moonshot.cn", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "MiniMax", "p": "", "c": "models", "s": "Media models", "d": "Conversation and media generation models.", "u": "", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "ERNIE", "p": "Baidu", "c": "models", "s": "ERNIE models", "d": "Chinese-language foundation models.", "u": "", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Hunyuan", "p": "Tencent", "c": "models", "s": "Hunyuan models", "d": "Multimodal foundation models.", "u": "", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Granite", "p": "IBM", "c": "models", "s": "Granite models", "d": "Open enterprise models from IBM.", "u": "https://github.com/ibm-granite/granite", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Claude Code", "p": "Anthropic", "c": "agents", "s": "Terminal agent", "d": "Terminal-native coding assistant.", "u": "https://docs.anthropic.com/en/docs/claude-code", "r": "", "t": "Tool", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Codex", "p": "OpenAI", "c": "agents", "s": "Coding agent", "d": "Cloud coding tasks and delegation.", "u": "https://github.com/openai/codex", "r": "", "t": "Tool", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Gemini CLI", "p": "Google", "c": "agents", "s": "Terminal agent", "d": "Google terminal coding assistant.", "u": "https://github.com/google-gemini/gemini-cli", "r": "", "t": "Tool", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Cursor", "p": "Cursor", "c": "agents", "s": "AI editor", "d": "AI-first code editor with agents.", "u": "https://cursor.com", "r": "", "t": "App", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Windsurf", "p": "Windsurf", "c": "agents", "s": "AI editor", "d": "Agentic IDE with flows.", "u": "https://windsurf.com", "r": "", "t": "App", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Cline", "p": "Cline", "c": "agents", "s": "VS Code agent", "d": "Autonomous coding assistant for VS Code.", "u": "https://github.com/cline/cline", "r": "", "t": "Tool", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Roo Code", "p": "Roo", "c": "agents", "s": "VS Code agent", "d": "Deep debugging coding assistant.", "u": "https://github.com/RooVetGit/Roo-Code", "r": "", "t": "Tool", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Aider", "p": "Aider", "c": "agents", "s": "Pair programmer", "d": "Terminal pair-programming with git.", "u": "https://aider.chat", "r": "https://github.com/Aider-AI/aider", "t": "Tool", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Continue", "p": "Continue", "c": "agents", "s": "IDE assistant", "d": "Open-source autopilot in the IDE.", "u": "https://www.continue.dev", "r": "https://github.com/continuedev/continue", "t": "Tool", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "GitHub Copilot", "p": "GitHub", "c": "agents", "s": "Code assistant", "d": "AI completions and chat in editors.", "u": "https://github.com/features/copilot", "r": "", "t": "Service", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Zed AI", "p": "Zed", "c": "agents", "s": "Editor AI", "d": "Fast editor with built-in assistance.", "u": "https://zed.dev", "r": "https://github.com/zed-industries/zed", "t": "App", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Goose", "p": "Block", "c": "agents", "s": "Local agent", "d": "Open-source on-machine agent.", "u": "https://github.com/block/goose", "r": "", "t": "Tool", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Agents SDK", "p": "OpenAI", "c": "platforms", "s": "Agent framework", "d": "Python framework for multi-agent workflows.", "u": "https://openai.github.io/openai-agents-python", "r": "", "t": "Framework", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Google ADK", "p": "Google", "c": "platforms", "s": "Agent framework", "d": "Google agent development kit.", "u": "", "r": "", "t": "Framework", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "LangGraph", "p": "", "c": "platforms", "s": "Agent graphs", "d": "Stateful graph orchestration over LangChain.", "u": "", "r": "", "t": "Framework", "st": "Experimental", "v": "2026-10-16", "e": "LangChain evaluation"}, {"n": "CrewAI", "p": "CrewAI", "c": "platforms", "s": "Multi-agent", "d": "Role-based agent crews.", "u": "https://www.crewai.com", "r": "https://github.com/crewAIInc/crewAI", "t": "Framework", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "AutoGen", "p": "Microsoft", "c": "platforms", "s": "Multi-agent", "d": "Conversable agent framework.", "u": "https://github.com/microsoft/autogen", "r": "", "t": "Framework", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Pydantic AI", "p": "Pydantic", "c": "platforms", "s": "Agent framework", "d": "Type-safe agents on Pydantic validation.", "u": "https://ai.pydantic.dev", "r": "https://github.com/pydantic/pydantic-ai", "t": "Framework", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Semantic Kernel", "p": "Microsoft", "c": "platforms", "s": "Agent SDK", "d": "Enterprise agent orchestration SDK.", "u": "https://github.com/microsoft/semantic-kernel", "r": "", "t": "Framework", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Dify", "p": "Dify", "c": "platforms", "s": "LLM apps", "d": "No-code LLM app builder and ops.", "u": "https://dify.ai", "r": "https://github.com/langgenius/dify", "t": "Platform", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Flowise", "p": "Flowise", "c": "platforms", "s": "Visual flows", "d": "Drag-and-drop LLM flow builder.", "u": "https://flowiseai.com", "r": "https://github.com/FlowiseAI/Flowise", "t": "Platform", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Langflow", "p": "Langflow", "c": "platforms", "s": "Visual flows", "d": "Python-based visual agent builder.", "u": "https://www.langflow.org", "r": "https://github.com/langflow-ai/langflow", "t": "Platform", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Haystack", "p": "deepset", "c": "platforms", "s": "RAG framework", "d": "Composable LLM and search pipelines.", "u": "https://github.com/deepset-ai/haystack", "r": "", "t": "Framework", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "LiteLLM", "p": "BerriAI", "c": "platforms", "s": "Proxy gateway", "d": "Unified gateway across many providers.", "u": "https://github.com/BerriAI/litellm", "r": "", "t": "Library", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "vLLM", "p": "", "c": "platforms", "s": "Serving", "d": "High-throughput model serving engine.", "u": "https://github.com/vllm-project/vllm", "r": "", "t": "Runtime", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "HF Inference", "p": "Hugging Face", "c": "platforms", "s": "Serverless API", "d": "Serverless inference for hosted models.", "u": "https://huggingface.co/docs/api-inference", "r": "", "t": "Service", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "OpenDots", "p": "", "c": "emerging", "s": "Agent project", "d": "Name and scope not yet confirmed.", "u": "", "r": "", "t": "Project", "st": "Verification pending", "v": "2026-10-16", "e": "Identity unconfirmed"}, {"n": "Argon 4", "p": "", "c": "emerging", "s": "Agent project", "d": "Exact identity and availability unverified.", "u": "", "r": "", "t": "Project", "st": "Verification pending", "v": "2026-10-16", "e": "Identity unconfirmed"}, {"n": "Hormuz", "p": "", "c": "emerging", "s": "Agent project", "d": "Exact identity and availability unverified.", "u": "", "r": "", "t": "Project", "st": "Verification pending", "v": "2026-10-16", "e": "Identity unconfirmed"}, {"n": "DSH", "p": "", "c": "emerging", "s": "Agent project", "d": "Exact identity and availability unverified.", "u": "", "r": "", "t": "Project", "st": "Verification pending", "v": "2026-10-16", "e": "Identity unconfirmed"}, {"n": "Veo", "p": "Google", "c": "media", "s": "Video AI", "d": "Text-to-video generation from Google.", "u": "https://deepmind.google/technologies/veo/", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Sora", "p": "OpenAI", "c": "media", "s": "Video AI", "d": "Text-to-video generation from OpenAI.", "u": "https://openai.com/sora", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Runway", "p": "Runway", "c": "media", "s": "Video AI", "d": "Creative video generation suite.", "u": "https://runwayml.com", "r": "", "t": "Service", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Kling AI", "p": "", "c": "media", "s": "Video AI", "d": "Video generation models.", "u": "", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Luma", "p": "Luma", "c": "media", "s": "Video AI", "d": "Dream Machine video generation.", "u": "https://lumalabs.ai", "r": "", "t": "Service", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Pika", "p": "Pika", "c": "media", "s": "Video AI", "d": "Short-form video generation.", "u": "https://pika.art", "r": "", "t": "Service", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "ComfyUI", "p": "ComfyUI", "c": "media", "s": "Image flows", "d": "Node-based image generation UI.", "u": "https://github.com/comfyanonymous/ComfyUI", "r": "", "t": "Tool", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Stable Diffusion", "p": "Stability AI", "c": "media", "s": "Image models", "d": "Open image generation models.", "u": "https://github.com/Stability-AI/stablediffusion", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "FLUX", "p": "Black Forest Labs", "c": "media", "s": "Image models", "d": "High-fidelity image generation.", "u": "https://blackforestlabs.ai", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "ElevenLabs", "p": "ElevenLabs", "c": "media", "s": "Voice AI", "d": "Lifelike text to speech and dubbing.", "u": "https://elevenlabs.io", "r": "", "t": "Service", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Whisper", "p": "OpenAI", "c": "media", "s": "Speech to text", "d": "Robust speech recognition models.", "u": "https://github.com/openai/whisper", "r": "", "t": "Model", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Coqui TTS", "p": "Coqui", "c": "media", "s": "Voice AI", "d": "Open voice synthesis toolkit.", "u": "https://github.com/coqui-ai/TTS", "r": "", "t": "Library", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Piper TTS", "p": "", "c": "media", "s": "Voice AI", "d": "Fast local neural voice synthesis.", "u": "", "r": "", "t": "Software", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Redis", "p": "Redis", "c": "devinfra", "s": "Cache", "d": "In-memory cache and queues.", "u": "https://redis.io", "r": "", "t": "Database", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Supabase", "p": "Supabase", "c": "devinfra", "s": "Backend", "d": "Postgres backend with auth and storage.", "u": "https://supabase.com", "r": "", "t": "Platform", "st": "Experimental", "v": "2026-10-16", "e": "Data modelling notes"}, {"n": "Antigravity", "p": "Google", "c": "agents", "s": "Agentic IDE", "d": "Google agentic development platform for building apps.", "u": "https://antigravity.google", "r": "", "t": "App", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Android", "p": "Google", "c": "devinfra", "s": "Mobile OS", "d": "Mobile platform for PWA and on-device workflows.", "u": "https://www.android.com", "r": "", "t": "OS", "st": "Hands-on", "v": "2026-10-16", "e": "Buddy mobile PWA integration"}, {"n": "Termux", "p": "Termux", "c": "devinfra", "s": "Terminal", "d": "Android terminal emulator for on-device dev work.", "u": "https://termux.dev", "r": "https://github.com/termux/termux-app", "t": "App", "st": "Hands-on", "v": "2026-10-16", "e": "Buddy Termux setup docs"}, {"n": "AI Studio", "p": "Google", "c": "platforms", "s": "Studio console", "d": "Browser console for Gemini prototyping and API keys.", "u": "https://aistudio.google.com", "r": "", "t": "Service", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}, {"n": "Vertex AI", "p": "Google", "c": "platforms", "s": "ML platform", "d": "Google Cloud platform for deploying Gemini and open models.", "u": "https://cloud.google.com/vertex-ai", "r": "", "t": "Cloud", "st": "Researching", "v": "2026-10-16", "e": "Potential tool watch"}]</script>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- PAGE: PROCESS (7 STEPS)                                   -->
+  <!-- ========================================================= -->
+  <section id="page-process" class="page-view relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="text-xs font-bold uppercase tracking-widest text-sky-400">DELIVERY PROCESS</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2 chrome-text">From discovery to supported handover.</h2>
+      <p class="text-slate-400 mt-3 text-sm sm:text-base">A fixed sequence with clear exits — you always know what happens next and what you receive.</p>
+    </div>
+    <ol class="proc-flow">
+    <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">◉</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 1</p><h3 class="font-bold text-white">Discover</h3><p class="text-xs text-slate-300 mt-1">Map the journey.</p><p class="text-[11px] text-slate-500 mt-1">Exit: target + leaks.</p></li>
+    <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">⬡</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 2</p><h3 class="font-bold text-white">Architect</h3><p class="text-xs text-slate-300 mt-1">Design the fix.</p><p class="text-[11px] text-slate-500 mt-1">Exit: scope + plan.</p></li>
+    <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">⬢</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 3</p><h3 class="font-bold text-white">Build</h3><p class="text-xs text-slate-300 mt-1">Ship working pieces.</p><p class="text-[11px] text-slate-500 mt-1">Exit: demo ready.</p></li>
+    <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">✔</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 4</p><h3 class="font-bold text-white">Test</h3><p class="text-xs text-slate-300 mt-1">Prove it works.</p><p class="text-[11px] text-slate-500 mt-1">Exit: checks pass.</p></li>
+    <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">▲</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 5</p><h3 class="font-bold text-white">Deploy</h3><p class="text-xs text-slate-300 mt-1">Go live safely.</p><p class="text-[11px] text-slate-500 mt-1">Exit: live + SSL.</p></li>
+    <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">↻</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 6</p><h3 class="font-bold text-white">Improve</h3><p class="text-xs text-slate-300 mt-1">Refine from use.</p><p class="text-[11px] text-slate-500 mt-1">Exit: handover.</p></li>
+    </ol>
+    <div class="text-center mt-8"><button type="button" onclick="switchPage('contact')" class="px-6 py-3.5 rounded-xl font-bold text-sm uppercase tracking-wide bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950">Start with discovery →</button></div>
   </section>
 
   <!-- ========================================================= -->
@@ -1579,9 +1656,7 @@
       <div class="lg:col-span-7 space-y-6">
         <span class="text-xs font-bold uppercase tracking-widest text-sky-400">TRANSPARENT PRICING TIERS</span>
         <h2 class="font-display text-3xl sm:text-4xl font-bold chrome-text">Flexible Packages for Every Stage</h2>
-        <p class="text-slate-400 text-sm">
-          No hidden retainers or locked contracts. Start with a focused campaign or deploy a complete custom CRM and automation workflow.
-        </p>
+        <p class="text-slate-400 text-sm leading-relaxed">Approved starting ranges. Final scope is confirmed after discovery. Ad budgets and cloud costs are paid separately to platforms/providers. We do not guarantee leads, revenue or rankings.</p>
 
         <div class="grid sm:grid-cols-2 gap-6 pt-2">
           <div class="glass-card rounded-2xl p-6 border-sky-500/30 flex flex-col justify-between">
@@ -1589,11 +1664,12 @@
               <span class="text-xs font-bold uppercase text-sky-400">GROWTH MARKETING RETAINER</span>
               <p class="font-display text-3xl font-bold text-white mt-2">₹15k – ₹25k<span class="text-xs text-slate-400 font-normal"> / month</span></p>
               <ul class="mt-4 space-y-2.5 text-xs text-slate-300">
-                <li>✓ Meta &amp; Google Ad Campaign Management</li>
-                <li>✓ High-Converting Landing Page Setup</li>
-                <li>✓ Promotional Ad Creatives &amp; Copywriting</li>
-                <li>✓ Direct WhatsApp Lead Routing &amp; Reporting</li>
+                <li>✓ Meta & Google campaign setup + ongoing optimization</li>
+                <li>✓ Landing page alignment + form/source tracking</li>
+                <li>✓ Agreed creative volume + copy variants</li>
+                <li>✓ WhatsApp routing + cadence reporting</li>
               </ul>
+              <p class="text-[11px] text-slate-500 mt-3 leading-relaxed"><strong class="text-slate-300">Not included:</strong> ad spend, advanced video shoots, third-party tool fees. Performance varies by budget, offer and competition.</p>
             </div>
             <button type="button" onclick="selectServiceAndContact('Growth Marketing Retainer (₹15k-₹25k/mo)')" class="mt-6 w-full py-2.5 rounded-lg bg-slate-800 hover:bg-blue-600 text-white text-xs font-bold transition">
               Select Growth Plan
@@ -1606,11 +1682,12 @@
               <span class="text-xs font-bold uppercase text-cyan-300">CUSTOM AI CRM &amp; AUTOMATION</span>
               <p class="font-display text-3xl font-bold text-white mt-2">₹30k – ₹50k<span class="text-xs text-slate-400 font-normal"> / project</span></p>
               <ul class="mt-4 space-y-2.5 text-xs text-slate-300">
-                <li>✓ Custom White-Label Business CRM Setup</li>
-                <li>✓ Python Playwright &amp; n8n Webhook Pipelines</li>
-                <li>✓ AI Lead Qualification &amp; Follow-up Flows</li>
-                <li>✓ Team Onboarding &amp; Technical Support</li>
+                <li>✓ Scoped CRM stages, queues, roles + reporting</li>
+                <li>✓ Python Playwright + n8n intake pipeline (where applicable)</li>
+                <li>✓ AI-assisted drafts/templates with human approval</li>
+                <li>✓ Handover docs + team onboarding session</li>
               </ul>
+              <p class="text-[11px] text-slate-500 mt-3 leading-relaxed"><strong class="text-slate-300">Not included:</strong> large data migration, custom billing logic beyond agreed scope, 24/7 hosting. Prototype/AI-agent work labelled separately.</p>
             </div>
             <button type="button" onclick="selectServiceAndContact('Custom AI CRM & Automation Suite (₹30k-₹50k)')" class="mt-6 w-full py-2.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-bold transition">
               Select Custom CRM Suite
@@ -1623,49 +1700,43 @@
       <div class="lg:col-span-5 glass-card rounded-2xl p-7">
         <h3 class="font-display text-2xl font-bold text-white">Start Your Project</h3>
         <p class="text-xs text-slate-400 mt-1 mb-5">
-          Send your project brief directly via WhatsApp or copy the formatted brief to message us on Instagram.
+          Send your project brief via WhatsApp (+91 73280 89908), Telegram, or copy it for Instagram DM.
         </p>
 
+        <p class="text-[11px] text-amber-300/90 bg-amber-500/10 border border-amber-400/20 rounded-lg p-2.5 mb-4">WhatsApp routing: your brief opens addressed to BUDDY AI PARTNERS on +91 73280 89908. Your brief is never discarded silently — use Copy or Instagram if needed.</p>
         <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4" novalidate>
           <div>
             <label for="clientName" class="block text-xs font-semibold text-slate-300 mb-1">Your Name &amp; Company *</label>
-            <input id="clientName" name="clientName" type="text" required placeholder="e.g. Rajesh Mohanty — Apex Developers" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-sm text-white focus:border-sky-400 outline-none" />
+            <input id="clientName" name="clientName" type="text" required maxlength="120" autocomplete="name" placeholder="e.g. Rajesh Mohanty — Apex Developers" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-sm text-white focus:border-sky-400 outline-none" />
           </div>
-
           <div>
             <label for="clientPhone" class="block text-xs font-semibold text-slate-300 mb-1">Phone / WhatsApp Number *</label>
-            <input id="clientPhone" name="clientPhone" type="tel" required placeholder="e.g. +91 98765 43210" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-sm text-white focus:border-sky-400 outline-none" />
+            <input id="clientPhone" name="clientPhone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[+0-9 ()-]{8,20}" placeholder="e.g. +91 98765 43210" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-sm text-white focus:border-sky-400 outline-none" />
+            <p class="text-[11px] text-slate-500 mt-1">Enter at least 8 digits. No phone number is displayed publicly; it is only included in the brief you choose to send.</p>
           </div>
-
           <div>
             <label for="clientService" class="block text-xs font-semibold text-slate-300 mb-1">Service Required</label>
             <select id="clientService" name="clientService" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-sm text-white focus:border-sky-400 outline-none">
-              <option value="Custom AI CRM & Automation Suite (₹30k-₹50k)">Custom AI CRM &amp; Automation Suite (₹30k–₹50k)</option>
-              <option value="Growth Marketing Retainer (₹15k-₹25k/mo)">Growth Marketing Retainer (₹15k–₹25k/mo)</option>
-              <option value="Custom React/FastAPI Website & Python Scraper">Custom React/FastAPI Website &amp; Python Scraper</option>
-              <option value="General Strategy Consultation">General Strategy Consultation</option>
-              <option value="NRI / Overseas Business Digital Operations">NRI / Overseas Business Digital Operations</option>
+              <option value="Custom Business CRM Deployment">Custom CRM &amp; Lead Operations</option>
+              <option value="Custom Web App & Python/n8n Automation">AI Workflow Automation (Python / n8n)</option>
+              <option value="Custom React/FastAPI Website & Python Scraper">Websites &amp; Conversion Funnels</option>
+              <option value="General Strategy Consultation">Deployment &amp; Infrastructure Support</option>
+              <option value="Growth Marketing Retainer (₹15k-₹25k/mo)">Performance Marketing Retainer (₹15k–₹25k/mo)</option>
+              <option value="Custom AI CRM & Automation Suite (₹30k-₹50k)">Custom System Build (₹30k–₹50k range)</option>
+              <option value="NRI / Overseas Business Digital Operations">NRI / Overseas Business Operations</option>
             </select>
           </div>
-
           <div>
             <label for="clientGoal" class="block text-xs font-semibold text-slate-300 mb-1">Project Brief / Goal *</label>
-            <textarea id="clientGoal" name="clientGoal" rows="3" required placeholder="Tell us about your business and what you want to automate or scale..." class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-sm text-white focus:border-sky-400 outline-none"></textarea>
+            <textarea id="clientGoal" name="clientGoal" rows="4" required maxlength="1500" placeholder="Business, current process/tools, goal, timeline… (min 10 characters)" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-sm text-white focus:border-sky-400 outline-none"></textarea>
           </div>
-
-          <p id="formFeedback" class="text-xs font-semibold hidden"></p>
-
-          <button type="submit" class="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 shadow-lg shadow-emerald-500/20 hover:scale-[1.01] transition">
-            💬 Send Brief via WhatsApp
-          </button>
-
+          <p id="formFeedback" class="text-xs font-semibold hidden" role="status" aria-live="polite"></p>
+          <button type="submit" class="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 shadow-lg shadow-emerald-500/20 hover:scale-[1.01] transition">Send Brief via WhatsApp</button>
           <div class="grid grid-cols-2 gap-2.5 pt-1">
-            <button type="button" onclick="copyBriefToClipboard()" class="py-2.5 px-3 rounded-xl font-bold text-xs bg-slate-800 hover:bg-slate-700 text-sky-300 border border-slate-700 transition">
-              📋 Copy Brief Text
-            </button>
-            <a href="https://instagram.com/rahul_kr_dhal" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl font-bold text-xs text-center bg-slate-800 hover:bg-slate-700 text-pink-400 border border-pink-500/30 transition">
-              📸 DM on Instagram
-            </a>
+            <a href="https://wa.me/917328089908" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl font-bold text-xs text-center bg-emerald-600 hover:bg-emerald-500 text-white transition">WhatsApp: +91 73280 89908</a>
+            <a href="https://t.me/917328089908" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl font-bold text-xs text-center bg-slate-800 hover:bg-slate-700 text-sky-300 border border-sky-500/30 transition">Telegram: +91 73280 89908</a>
+            <button type="button" onclick="copyBriefToClipboard()" class="py-2.5 px-3 rounded-xl font-bold text-xs bg-slate-800 hover:bg-slate-700 text-sky-300 border border-slate-700 transition">Copy Brief Text</button>
+            <a href="https://instagram.com/rahul_kr_dhal" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl font-bold text-xs text-center bg-slate-800 hover:bg-slate-700 text-pink-400 border border-pink-500/30 transition">DM on Instagram</a>
           </div>
         </form>
       </div>
@@ -1675,52 +1746,59 @@
 
   <!-- FOOTER -->
   <footer class="relative z-10 border-t border-slate-800/80 bg-[#03050c] py-10 mt-16 no-print">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-      <div>
-        <p>© 2026 <strong class="text-white">BUDDY AI PARTNERS</strong> • Bhubaneswar, Odisha, India.</p>
-        <p class="text-[11px] text-slate-500 mt-0.5">Founded &amp; Engineered by Rahul Kumar Dhal.</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card rounded-2xl p-5 sm:p-6 mb-6 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+        <div><h2 class="font-display text-xl font-bold text-white">Have a lead, ops or growth bottleneck?</h2><p class="text-xs text-slate-400 mt-1">Send a short brief — we reply with scope and next steps, no inflated promises.</p></div>
+        <button type="button" onclick="switchPage('contact')" class="px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wide bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950 shrink-0">Start a conversation</button>
       </div>
-      <div class="flex flex-wrap gap-5 items-center">
-        <button type="button" onclick="switchPage('home')" class="hover:text-sky-400 transition">Home</button>
-        <button type="button" onclick="switchPage('about')" class="hover:text-sky-400 transition">About &amp; Founder</button>
-        <button type="button" onclick="switchPage('services')" class="hover:text-sky-400 transition">Services</button>
-        <button type="button" onclick="switchPage('portfolio')" class="hover:text-sky-400 transition">Portfolio</button>
-        <a href="https://instagram.com/rahul_kr_dhal" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 transition">Instagram</a>
-        <button type="button" onclick="window.print()" class="text-sky-400 font-semibold hover:underline">Save PDF Profile</button>
+      <div class="grid sm:grid-cols-3 gap-6 text-xs text-slate-400">
+        <div><p class="font-bold text-white tracking-wider flex items-center gap-2"><img src="public/images/logo.svg" alt="BUDDY AI PARTNERS logo" width="20" height="20" loading="lazy" decoding="async" />BUDDY AI PARTNERS</p><p class="mt-2 leading-relaxed">Bhubaneswar, Odisha, India · Remote-first delivery.<br/>Founder: Rahul Kumar Dhal.<br/>Udyam MSME-registered sole proprietorship; GST-ready billing.</p><p class="text-[11px] text-slate-500 mt-2">WhatsApp/Telegram: <a class="underline" href="tel:+917328089908">+91 73280 89908</a> · <a class="underline" href="https://wa.me/917328089908" target="_blank" rel="noopener noreferrer">wa.me/917328089908</a> · <a class="underline" href="https://t.me/917328089908" target="_blank" rel="noopener noreferrer">Telegram</a><br/>Instagram DM available. Facebook: link on request (no URL configured).</p></div>
+        <nav aria-label="Footer Navigation" class="flex flex-wrap gap-x-5 gap-y-2 items-start">
+          <button type="button" onclick="switchPage('home')" class="hover:text-sky-400 transition">Home</button>
+          <button type="button" onclick="switchPage('about')" class="hover:text-sky-400 transition">About</button>
+          <button type="button" onclick="switchPage('services')" class="hover:text-sky-400 transition">Services</button>
+          <button type="button" onclick="switchPage('portfolio')" class="hover:text-sky-400 transition">Portfolio</button>
+          <button type="button" onclick="switchPage('stack')" class="hover:text-sky-400 transition">Stack</button>
+          <button type="button" onclick="switchPage('process')" class="hover:text-sky-400 transition">Process</button>
+          <button type="button" onclick="switchPage('contact')" class="hover:text-sky-400 transition">Pricing & Contact</button>
+        </nav>
+        <div class="flex flex-col gap-2">
+          <a href="https://instagram.com/rahul_kr_dhal" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 transition">Instagram: @rahul_kr_dhal</a>
+          <a href="https://wa.me/917328089908" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">WhatsApp: +91 73280 89908</a>
+          <a href="https://t.me/917328089908" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition">Telegram: +91 73280 89908</a>
+          <button type="button" onclick="window.print()" class="text-left text-sky-400 font-semibold hover:underline">Save PDF Profile</button>
+          <span class="text-[11px] text-slate-500">© 2026 BUDDY AI PARTNERS. Practical systems, honest scope.</span>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Floating Buddy Project Guide: a transparent, rule-based chooser (not a live AI chat) -->
-  <aside class="buddy-assistant no-print" aria-label="Buddy project guide">
+  <!-- Floating Buddy Project Guide: compact rule-based chooser (not a live AI service) -->
+  <aside class="buddy-assistant no-print" aria-label="Buddy project guide" id="buddyAssistant">
     <section id="buddyGuidePanel" class="buddy-guide-panel" aria-labelledby="buddyGuideTitle" hidden>
       <div class="flex items-start justify-between gap-3">
         <div>
-          <p class="buddy-eyebrow">PROJECT GUIDE · INTERACTIVE</p>
-          <h2 id="buddyGuideTitle" class="font-display text-xl font-bold text-white mt-2">Let's find your best starting point.</h2>
+          <p class="buddy-eyebrow">RULE-BASED GUIDE · NOT LIVE AI</p>
+          <h2 id="buddyGuideTitle" class="font-display text-lg font-bold text-white mt-1">Find your starting point.</h2>
         </div>
         <button type="button" class="text-slate-400 hover:text-white text-xl px-2" aria-label="Close project guide" onclick="toggleBuddyGuide(false)">×</button>
       </div>
-      <p class="text-xs text-slate-400 leading-relaxed mt-3">I'm a visual project guide, not a live AI chat. Choose an area and I'll prefill the enquiry form for you.</p>
-      <div class="grid gap-2 mt-4">
-        <button type="button" class="buddy-guide-option" onclick="chooseBuddyPath('Custom AI CRM & Automation Suite (₹30k-₹50k)','I want to discuss a CRM, lead-management system or AI-assisted workflow. Business / process: ')"><span>◈</span> CRM &amp; AI automation</button>
-        <button type="button" class="buddy-guide-option" onclick="chooseBuddyPath('Growth Marketing Retainer (₹15k-₹25k/mo)','I want to improve lead generation and campaign conversion. Business / audience: ')"><span>↗</span> Leads &amp; performance marketing</button>
-        <button type="button" class="buddy-guide-option" onclick="chooseBuddyPath('NRI / Overseas Business Digital Operations','I am an NRI or overseas business owner exploring remote digital delivery. Country / goal: ')"><span>◎</span> NRI / overseas business</button>
-        <button type="button" class="buddy-guide-option" onclick="chooseBuddyPath('Custom React/FastAPI Website & Python Scraper','I need a website, internal tool or data workflow. Required outcome: ')"><span>⌘</span> Website or custom software</button>
+      <p class="text-xs text-slate-400 leading-relaxed mt-2">Rule-based helper only — no backend, no chat history. Pick one to prefill the contact form.</p>
+      <div class="grid gap-2 mt-3">
+        <button type="button" class="buddy-guide-option" onclick="chooseBuddyPath('Custom Business CRM Deployment','I want to discuss a CRM / lead-management system. Business / process: ')"><span>◈</span> CRM &amp; operations</button>
+        <button type="button" class="buddy-guide-option" onclick="chooseBuddyPath('Growth Marketing Retainer (₹15k-₹25k/mo)','I want to improve lead generation. Business / audience: ')"><span>↗</span> Leads &amp; marketing</button>
+        <button type="button" class="buddy-guide-option" onclick="chooseBuddyPath('NRI / Overseas Business Digital Operations','I am exploring remote delivery. Country / goal: ')"><span>◎</span> NRI / overseas</button>
+        <button type="button" class="buddy-guide-option" onclick="chooseBuddyPath('Custom React/FastAPI Website & Python Scraper','I need a website or data workflow. Required outcome: ')"><span>⌘</span> Website / software</button>
       </div>
-      <p class="text-[10px] text-slate-500 mt-3">Your choices stay on this page until you decide to submit or copy the brief.</p>
+      <div class="flex items-center justify-between mt-3">
+        <p class="text-[10px] text-slate-500">Stays on this page until you submit.</p>
+        <button type="button" onclick="dismissBuddy()" class="text-[11px] text-slate-400 hover:text-white underline">Hide guide</button>
+      </div>
     </section>
-    <button id="buddyGuideToggle" type="button" class="buddy-guide-toggle" aria-expanded="false" aria-controls="buddyGuidePanel" onclick="toggleBuddyGuide()">
-      <span class="buddy-guide-avatar" aria-hidden="true">
-        <svg viewBox="0 0 40 40" fill="none">
-          <path d="M18 7C13 3 6 7 7 13C2 16 4 23 8 24C6 30 12 34 17 30L19 27V10L18 7ZM22 7C27 3 34 7 33 13C38 16 36 23 32 24C34 30 28 34 23 30L21 27V10L22 7Z" stroke="#E0F2FE" stroke-width="1.8" fill="#38BDF8" fill-opacity=".22" stroke-linejoin="round"/>
-          <path d="M20 8V31" stroke="#BAE6FD" stroke-width="1.5"/>
-          <circle cx="15" cy="19" r="1.8" fill="#fff"/><circle cx="25" cy="19" r="1.8" fill="#fff"/>
-          <path d="M15 25Q20 29 25 25" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </span>
-      <span>Ask Buddy</span>
-      <span aria-hidden="true">✦</span>
+    <button id="buddyGuideToggle" type="button" class="buddy-guide-toggle" aria-expanded="false" aria-controls="buddyGuidePanel" onclick="toggleBuddyGuide()" style="padding:.5rem .8rem .5rem .5rem;font-size:.75rem;">
+      <span class="buddy-guide-avatar" aria-hidden="true" style="width:1.9rem;height:1.9rem;font-weight:800;font-size:.9rem;">B</span>
+      <span>Guide</span>
+      <span aria-hidden="true">·</span>
     </button>
   </aside>
 
@@ -1731,29 +1809,37 @@
      * Enter your 12-digit WhatsApp Business number (e.g., "919876543210" without '+' or spaces)
      * so messages route directly to your phone.
      */
-    const WHATSAPP_NUMBER = ""; 
+    const WHATSAPP_NUMBER = "917328089908"; 
 
-    // 1. Multi-Page View Router
+        // 1. Multi-Page View Router
     function switchPage(pageId) {
-      document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
-      const target = document.getElementById('page-' + pageId);
+      document.querySelectorAll('.page-view').forEach(function(p){ p.classList.remove('active'); });
+      var target = document.getElementById('page-' + pageId);
       if (target) target.classList.add('active');
-
-      document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.className = (btn.dataset.nav === pageId)
-          ? "nav-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-600 text-white transition"
-          : "nav-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition";
+      document.querySelectorAll('.nav-btn').forEach(function(btn) {
+        var active = btn.dataset.nav === pageId;
+        btn.className = active
+          ? "nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-blue-600 text-white transition"
+          : "nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition";
+        if (active) btn.setAttribute('aria-current','page'); else btn.removeAttribute('aria-current');
       });
-
-      document.querySelectorAll('.mnav-btn').forEach(btn => {
+      document.querySelectorAll('.mnav-btn').forEach(function(btn) {
         btn.className = (btn.dataset.mnav === pageId)
-          ? "mnav-btn text-xs font-semibold px-3.5 py-1.5 rounded-md bg-blue-600 text-white whitespace-nowrap"
-          : "mnav-btn text-xs font-semibold px-3.5 py-1.5 rounded-md bg-slate-800 text-slate-300 whitespace-nowrap";
+          ? "mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-blue-600 text-white"
+          : "mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300";
       });
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      try {
+    var __roots = document.querySelectorAll('#ecoDirectory');
+    var __inStack = __roots.length === 1 && !!document.querySelector('#page-stack #ecoDirectory');
+    if (__roots.length !== 1 || !__inStack) console.error('[directory-regression] FAIL roots=' + __roots.length + ' inStack=' + __inStack);
+    else if (window.__ecoVerified !== pageId) { window.__ecoVerified = pageId; console.log('[directory-regression] PASS single root inside #page-stack (at ' + pageId + ')'); }
+  } catch (e) {}
+  var rm = false;
+      try { rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e){}
+      try { window.scrollTo({ top: 0, behavior: rm ? 'auto' : 'smooth' }); } catch(e){ window.scrollTo(0,0); }
     }
-
+    
+    
     function selectServiceAndContact(serviceName) {
       switchPage('contact');
       const select = document.getElementById('clientService');
@@ -1807,8 +1893,8 @@
           <h2 class="font-display text-2xl sm:text-3xl font-bold text-white">${s.title}</h2>
           <p class="text-sm text-slate-300 leading-relaxed">${s.desc}</p>
         </div>
-        <div class="p-4 rounded-xl bg-slate-900/90 border border-sky-500/20 mt-6 flex items-center justify-between">
-          <span class="text-xs font-mono text-cyan-300">⚡ ${s.metric}</span>
+        <div class="p-4 rounded-xl bg-slate-900/90 border border-sky-500/20 mt-6 flex items-center justify-between gap-3">
+          <span class="text-xs font-mono text-cyan-300">◆ ${s.metric}</span>
           <button type="button" onclick="switchPage('services')" class="text-xs font-bold text-sky-400 hover:underline">Details →</button>
         </div>
       `;
@@ -1828,22 +1914,31 @@
       currentSlide = idx;
       renderSlide(currentSlide);
     }
-    setInterval(() => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      renderSlide(currentSlide);
-    }, 5000);
+    const reduceMotionCarousel = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotionCarousel) {
+      setInterval(() => {
+        if (document.hidden) return;
+        currentSlide = (currentSlide + 1) % slides.length;
+        renderSlide(currentSlide);
+      }, 6000);
+    }
     renderSlide(0);
-    calcROI();
+    if (document.getElementById('roiIndustry')) { try { calcROI(); } catch(e){} }
 
     // 3. Validated Contact & WhatsApp Flow
     function buildBriefMessage() {
-      const name = document.getElementById('clientName').value.trim();
-      const phone = document.getElementById('clientPhone').value.trim();
-      const service = document.getElementById('clientService').value;
-      const goal = document.getElementById('clientGoal').value.trim();
+      const nameEl = document.getElementById('clientName');
+      const phoneEl = document.getElementById('clientPhone');
+      const goalEl = document.getElementById('clientGoal');
+      const svcEl = document.getElementById('clientService');
+      const name = nameEl ? nameEl.value.trim() : '';
+      const phone = phoneEl ? phoneEl.value.trim() : '';
+      const service = svcEl ? svcEl.value : '';
+      const goal = goalEl ? goalEl.value.trim() : '';
       const phoneDigits = phone.replace(/\D/g, '');
+      const valid = Boolean(name.length >= 2 && phoneDigits.length >= 8 && phoneDigits.length <= 15 && goal.length >= 10);
       return {
-        valid: Boolean(name && phoneDigits.length >= 8 && goal),
+        valid,
         text: `Hello Rahul (BUDDY AI PARTNERS),\n\n*Name/Company:* ${name}\n*Phone:* ${phone}\n*Service:* ${service}\n*Project Brief:* ${goal}`
       };
     }
@@ -1860,7 +1955,7 @@
       e.preventDefault();
       const brief = buildBriefMessage();
       if (!brief.valid) {
-        showFeedback("Enter your name/company, a valid phone number, and a project brief before sending.", true);
+        showFeedback("Enter your name (2+ chars), a valid phone (8-15 digits), and a brief of at least 10 characters before sending.", true);
         return;
       }
       const cleanNumber = WHATSAPP_NUMBER.replace(/[^0-9]/g, '');
@@ -1879,25 +1974,64 @@
     function copyBriefToClipboard() {
       const brief = buildBriefMessage();
       if (!brief.valid) {
-        showFeedback("Please fill in your Name, Phone Number, and Project Brief first.", true);
+        showFeedback("Please complete name, valid phone and a 10+ character brief first — nothing was copied or discarded.", true);
+        return;
+      }
+      if (!navigator.clipboard || !navigator.clipboard.writeText) {
+        showFeedback("Copy is not available in this browser. Please manually copy the text from the brief field.", true);
         return;
       }
       navigator.clipboard.writeText(brief.text).then(() => {
-        showFeedback("Project brief copied! You can now paste it into WhatsApp or Instagram DM.", false);
+        showFeedback("Project brief copied. Paste it into WhatsApp or Instagram DM.", false);
+      }).catch(() => {
+        showFeedback("Copy failed. Please manually select and copy your brief text.", true);
       });
     }
 
+    // Architecture tabs (home)
+    const archContent = {
+      capture: { title: "Capture — collect inquiries without losing them", desc: "Meta lead forms, website forms and listing enquiries are captured with source tracking. No invented volume claims — tracking is scoped per campaign.", list: ["Tools in delivery: Meta/Google forms, landing pages, source tags", "Human check: offer, audience and consent copy before launch"] },
+      normalize: { title: "Normalize — clean and validate before routing", desc: "Python Playwright extracts structured fields; n8n validates, dedupes and logs. Invalid rows are quarantined, not silently dropped.", list: ["Tools hands-on: Python, Playwright, n8n webhooks, JSON", "Human check: review dedupe keys and field mapping"] },
+      route: { title: "Route & CRM — queues your team can trust", desc: "Leads move to stage pipelines with owners, reminders and an audit trail. Role access keeps managers and closers aligned.", list: ["Tools in delivery: CRM stages, calling queues, WhatsApp templates", "Human check: assignment rules and SLA ownership"] },
+      act: { title: "Act & Review — follow up, then improve", desc: "Calls, WhatsApp follow-ups and visit booking happen with human approval. Reports feed back into the next campaign or workflow fix.", list: ["Tools: call queues, WhatsApp, visit tracking, basic reports", "Human check: approve outreach; review results weekly"] }
+    };
+    function setArch(key) {
+      const c = archContent[key];
+      if (!c) return;
+      const t = document.getElementById('archStageTitle');
+      const d = document.getElementById('archStageDesc');
+      const l = document.getElementById('archStageList');
+      if (t) t.textContent = c.title;
+      if (d) d.textContent = c.desc;
+      if (l) l.innerHTML = c.list.map(x => `<li>• ${x}</li>`).join('');
+      document.querySelectorAll('.arch-tab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.arch === key)));
+    }
 
-    // 4. Buddy project guide — routes choices to the real enquiry form without claiming live AI.
+
+    // 4. Buddy project guide — compact rule-based chooser, dismissible, no live AI claims.
     function toggleBuddyGuide(forceOpen) {
+      try {
+        if (localStorage.getItem('buddy-dismissed') === '1' && typeof forceOpen !== 'boolean') return;
+      } catch(e){}
       const panel = document.getElementById('buddyGuidePanel');
       const button = document.getElementById('buddyGuideToggle');
       if (!panel || !button) return;
       const shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : panel.hidden;
       panel.hidden = !shouldOpen;
       button.setAttribute('aria-expanded', String(shouldOpen));
-      if (shouldOpen) panel.querySelector('button')?.focus({ preventScroll: true });
+      if (shouldOpen && panel.querySelector('button')) { try { panel.querySelector('button').focus({ preventScroll: true }); } catch(e){} }
     }
+    function dismissBuddy() {
+      try { localStorage.setItem('buddy-dismissed','1'); } catch(e){}
+      const aside = document.getElementById('buddyAssistant');
+      if (aside) aside.style.display = 'none';
+    }
+    try {
+      if (localStorage.getItem('buddy-dismissed') === '1') {
+        const aside = document.getElementById('buddyAssistant');
+        if (aside) aside.style.display = 'none';
+      }
+    } catch(e){}
 
     function chooseBuddyPath(serviceName, briefText) {
       toggleBuddyGuide(false);
@@ -1913,6 +2047,65 @@
       if (event.key === 'Escape') toggleBuddyGuide(false);
     });
 
+    try {
+      var __rm = false;
+      try { __rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e){}
+      if (!__rm && 'IntersectionObserver' in window) {
+        var __io = new IntersectionObserver(function(es){ es.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in-view'); try { __io.unobserve(en.target); } catch(e){} } }); }, {threshold: 0.25});
+        document.querySelectorAll('.reveal-progress').forEach(function(el){ __io.observe(el); });
+        var __st=document.createElement('style'); __st.textContent='.reveal-progress.in-view::after{width:100%;}'; document.head.appendChild(__st);
+      } else {
+        document.querySelectorAll('.reveal-progress').forEach(function(el){ el.classList.add('in-view'); });
+      }
+    } catch(e){}
+    // 4b. Ecosystem directory: search, filter, A-Z over embedded data.
+    var ECO_ICONS={'Python':'python','React':'react','JavaScript':'javascript','TypeScript':'typescript','Next.js':'nextdotjs','FastAPI':'fastapi','PostgreSQL':'postgresql','Redis':'redis','Docker':'docker','Linux':'linux','AWS':'amazonaws','GitHub':'github','Nginx':'nginx','Cloudflare':'cloudflare','Vercel':'vercel','NVIDIA':'nvidia','Google Cloud':'googlecloud','n8n':'n8n','Playwright':'playwright','Meta Ads':'meta','Google Ads':'googleads','YouTube':'youtube','Google Analytics':'googleanalytics','Search Console':'googlesearchconsole','Hugging Face':'huggingface','Ollama':'ollama','LangChain':'langchain','OpenAI':'openai','Claude':'claude','Groq':'groq','Mistral':'mistral','DeepSeek':'deepseek','Supabase':'supabase','Android':'android','Termux':'termux','Antigravity':'google','Whisper':'openai','Stable Diffusion':'stabilityai'};
+var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Agent platforms'],['emerging','Emerging agents'],['media','Media and voice'],['devinfra','Dev and infra']];
+    var ECO_STATE={q:'',cat:'',st:'',az:false};
+    function ecoEsc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+    function ecoBadge(st){var c=st==='Production'?'use-prod':(st==='Hands-on'?'use-hands':(st==='Experimental'?'use-exp':''));return '<span class="use-badge '+c+'">'+ecoEsc(st)+'</span>';}
+    function ecoCard(r){var links='';if(r.u){links+='<a href="'+ecoEsc(r.u)+'" target="_blank" rel="noopener noreferrer">Website</a>';}if(r.r){links+='<a href="'+ecoEsc(r.r)+'" target="_blank" rel="noopener noreferrer">Repo</a>';}if(!links){links='<span class="text-slate-500">Link pending verification</span>';}
+    return '<article class="eco-card"><div class="eco-title">'+(ECO_ICONS[r.n]?'<img class="eco-ico" loading="lazy" width="22" height="22" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/'+ECO_ICONS[r.n]+'.svg" alt="" aria-hidden="true" onerror="this.remove()" />':'')+'<h4>'+ecoEsc(r.n)+'</h4></div><p class="text-[11px] text-slate-500">'+ecoEsc(r.p||'Independent')+' - '+ecoEsc(r.s)+'</p><p class="eco-desc">'+ecoEsc(r.d)+'</p><div class="eco-meta">'+ecoBadge(r.st)+'<span class="eco-tag">'+ecoEsc(r.t)+'</span></div><details class="mt-2 text-[11px] text-slate-400"><summary class="cursor-pointer text-sky-300 font-bold">Details</summary><p class="mt-1">Verified: '+ecoEsc(r.v)+' - '+ecoEsc(r.e)+'</p></details><div class="eco-links">'+links+'</div></article>';}
+    function ecoData(){try{return JSON.parse(document.getElementById('ecosystem-data').textContent);}catch(e){return [];}}
+    function ecoRender(){var all=ecoData();var q=ECO_STATE.q.toLowerCase();var list=all.filter(function(r){if(ECO_STATE.cat&&r.c!==ECO_STATE.cat)return false;if(ECO_STATE.st&&r.st!==ECO_STATE.st)return false;if(q){var hay=(r.n+' '+r.p+' '+r.c+' '+r.s+' '+r.d+' '+r.t).toLowerCase();if(hay.indexOf(q)<0)return false;}return true;});
+    if(ECO_STATE.az){list=list.slice().sort(function(a,b){return a.n.localeCompare(b.n);});}
+    var pend=list.filter(function(r){return r.st==='Verification pending';});var rest=list.filter(function(r){return r.st!=='Verification pending';});
+    var prod=all.filter(function(r){return r.st==='Production';});
+    document.getElementById('ecoProd').innerHTML='<p class="eco-sec-title">Verified production ('+prod.length+')</p><p class="text-xs text-slate-300">'+prod.map(function(r){return ecoEsc(r.n);}).join(' - ')+'</p>';
+    var html='';ECO_CATS.forEach(function(pair){var items=rest.filter(function(r){return r.c===pair[0];});if(!items.length)return;html+='<p class="eco-sec-title">'+pair[1]+' ('+items.length+')</p><div class="eco-grid">'+items.map(ecoCard).join('')+'</div>';});
+    document.getElementById('ecoSections').innerHTML=html||'<p class="text-sm text-slate-400 mt-4">No tools match the current filters.</p>';
+    document.getElementById('ecoPending').innerHTML=pend.length?'<p class="eco-sec-title">Identity and verification pending ('+pend.length+')</p><p class="text-[11px] text-slate-500 mb-2">These names could not be confidently identified. No facts claimed.</p><div class="eco-grid">'+pend.map(ecoCard).join('')+'</div>':'';
+    document.getElementById('ecoCount').textContent=list.length+' of '+all.length+' shown';}
+    try{document.getElementById('ecoSearch').addEventListener('input',function(e){ECO_STATE.q=e.target.value;ecoRender();});document.getElementById('ecoCat').addEventListener('change',function(e){ECO_STATE.cat=e.target.value;ecoRender();});document.getElementById('ecoStatus').addEventListener('change',function(e){ECO_STATE.st=e.target.value;ecoRender();});document.getElementById('ecoSort').addEventListener('click',function(e){ECO_STATE.az=!ECO_STATE.az;e.target.setAttribute('aria-pressed',String(ECO_STATE.az));ecoRender();});ecoRender();}catch(e){}
+    // 4c. Stack overview: 10 curated groups rendered from the same dataset.
+    var OVERVIEW=[['AI Models and Inference',{d:'The models we route to, from hands-on local runtimes to tracked releases.',cat:'models'}],['AI Providers and Model Routing',{d:'APIs and gateways that serve models to apps and agents.',names:['OpenAI','Groq','OpenRouter','LiteLLM','HF Inference','Ollama','vLLM','OmniRoute','AI Studio','Vertex AI']}],['Agent Frameworks and Memory',{d:'Libraries for building tool-using, stateful agents.',names:['LangChain','LangGraph','CrewAI','AutoGen','Pydantic AI','Semantic Kernel','Haystack','Agents SDK','Google ADK','MCP']}],['Frontend and Backend Development',{d:'Languages and frameworks behind funnels, sites and APIs.',names:['React','Next.js','JavaScript','TypeScript','Python','FastAPI']}],['Databases and Storage',{d:'Where app and lead data lives.',names:['PostgreSQL','Redis','Supabase']}],['Infrastructure, Containers and Deployment',{d:'Runtimes, servers and clouds that host systems.',names:['Docker','Linux','AWS','GitHub','Nginx','Cloudflare','Vercel','Google Cloud','NVIDIA']}],['Browser Automation and Workflow Orchestration',{d:'Pipelines that move leads and data without manual work.',names:['Playwright','n8n','Dify','Flowise','Langflow']}],['Digital Marketing, Analytics and SEO',{d:'Channels and measurement for growth work.',names:['Meta Ads','Google Ads','SEO','Google Analytics','Search Console','YouTube']}],['Voice, Audio and Video AI',{d:'Generative media and speech technologies we track.',cat:'media'}],['Android, Termux and Edge Computing',{d:'On-device and local-first runtimes.',names:['Android','Termux','Ollama','Qwen']}]];
+    function ovDot(st){var c=st==='Production'?'#34d399':(st==='Hands-on'?'#38bdf8':(st==='Experimental'?'#a78bfa':(st==='Verification pending'?'#fbbf24':'#64748b')));return '<span aria-hidden="true" style="display:inline-block;width:7px;height:7px;border-radius:99px;background:'+c+';flex:0 0 auto;"></span>';}
+    function ovChip(r){var ic=(typeof ECO_ICONS!=='undefined'&&ECO_ICONS[r.n])?'<img loading="lazy" width="18" height="18" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/'+ECO_ICONS[r.n]+'.svg" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;background:#fff;border-radius:5px;padding:2px;flex:0 0 auto;" onerror="this.remove()" />':'';return '<span style="display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .6rem;border-radius:.6rem;border:1px solid rgba(56,189,248,.16);background:rgba(8,16,36,.8);font-size:.72rem;color:#e2e8f0;" title="'+ecoEsc(r.n)+'">'+ic+'<span>'+ecoEsc(r.n)+'</span></span>';}
+    function ovRender(){try{var el=document.getElementById('stackOverview');if(!el)return;var all=ecoData();var byName={};all.forEach(function(r){byName[r.n]=r;});var html='';OVERVIEW.forEach(function(g){var items=g[1].cat?all.filter(function(r){return r.c===g[1].cat;}):g[1].names.map(function(n){return byName[n];}).filter(Boolean);if(!items.length)return;html+='<div class="stack-tier"><p class="stack-cat">'+ecoEsc(g[0])+' ('+items.length+')</p><p style="font-size:11px;color:#94a3b8;margin-top:4px;">'+ecoEsc(g[1].d||'')+'</p><div style="display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem;">'+items.map(ovChip).join('')+'</div></div>';});html+='<div style="grid-column:1/-1;text-align:center;"><button type="button" onclick="document.getElementById(\'ecoDirectory\').scrollIntoView();document.getElementById(\'ecoSearch\').focus({preventScroll:true})" style="padding:.7rem 1.4rem;border-radius:.7rem;font-size:.75rem;font-weight:800;background:linear-gradient(135deg,#2563eb,#06b6d4);color:#fff;cursor:pointer;">Browse the searchable directory</button></div>';el.innerHTML=html;}catch(e){}}
+    try{ovRender();}catch(e){}
+        // 6. Hero command-center demo: lead token travels pipeline stages.
+    var HERO_STAGES=[{x:119,n:'A.S'},{x:195,n:'R.D'},{x:271,n:'K.J'},{x:343,n:'M.M'}];
+    var heroIdx=0,heroTimer=0,heroPaused=false,waN=12,heroCycles=0;
+    function heroPaint(){var t=document.getElementById('leadToken');if(!t)return;var s=HERO_STAGES[heroIdx];t.setAttribute('transform','translate('+s.x+',150)');var lb=document.getElementById('leadTokenLabel');if(lb)lb.textContent=s.n;for(var i=0;i<4;i++){var c=document.getElementById('hcol'+i);if(c)c.setAttribute('stroke-opacity',i===heroIdx?'.9':'.18');}}
+    function heroStep(){if(document.hidden||heroPaused)return;heroIdx=(heroIdx+1)%HERO_STAGES.length;heroPaint();if(heroIdx===3){waN=Math.min(waN+1,19);var w=document.getElementById('waCount');if(w)w.textContent='WhatsApp sent - '+waN;if(heroIdx===3)heroCycles++;}}
+    function heroStart(){try{var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;heroPaint();if(rm||!('IntersectionObserver' in window)){return;}}catch(e){return;}clearInterval(heroTimer);heroTimer=setInterval(heroStep,1700);}
+    try{document.getElementById('heroReplay').addEventListener('click',function(){heroIdx=0;waN=12;var w=document.getElementById('waCount');if(w)w.textContent='WhatsApp sent - 12';heroPaused=false;var pb=document.getElementById('heroPause');if(pb){pb.textContent='Pause';pb.setAttribute('aria-pressed','false');}heroPaint();heroStart();});}catch(e){}
+    try{document.getElementById('heroPause').addEventListener('click',function(){heroPaused=!heroPaused;this.textContent=heroPaused?'Play':'Pause';this.setAttribute('aria-pressed',String(heroPaused));});}catch(e){}
+    // 7. Pipeline autoplay with node states + replay.
+    var ARCH_ORDER=['capture','normalize','route','act'],archIdx=0,archTimer=0,archAuto=true;
+    var ARCH_NODE={capture:'arch-n1',normalize:'arch-n2',route:'arch-n3',act:'arch-n4'};
+    function archPaint(key){try{for(var k in ARCH_NODE){var n=document.getElementById(ARCH_NODE[k]);if(!n)continue;var order=ARCH_ORDER.indexOf(k),cur=ARCH_ORDER.indexOf(key);n.setAttribute('opacity',order<=cur?'1':'.35');n.setAttribute('stroke-width',k===key?'2.2':'1.2');}var pr=document.getElementById('archProgress');if(pr)pr.style.width=((ARCH_ORDER.indexOf(key)+1)/ARCH_ORDER.length*100)+'%';}catch(e){}}
+    function archGo(key){try{if(typeof setArch==='function')setArch(key);}catch(e){}archPaint(key);}
+    function archTick(){if(document.hidden||!archAuto)return;archIdx=(archIdx+1)%ARCH_ORDER.length;archGo(ARCH_ORDER[archIdx]);}
+    function archStart(){try{if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){archGo('capture');return;}}catch(e){}clearInterval(archTimer);archTimer=setInterval(archTick,2600);}
+    try{document.getElementById('archReplay').addEventListener('click',function(){archIdx=0;archAuto=true;archGo('capture');archStart();});}catch(e){}
+    try{document.querySelectorAll('.arch-tab').forEach(function(b){b.addEventListener('click',function(){archAuto=false;clearInterval(archTimer);try{archPaint(b.dataset.arch);}catch(e){}});});archPaint('capture');archStart();}catch(e){}
+    // 8. Mobile menu with focus + Escape.
+    function toggleMenu(force){try{var m=document.getElementById('mobileMenu'),b=document.getElementById('menuBtn');if(!m||!b)return;var open=typeof force==='boolean'?force:m.hidden;m.hidden=!open;b.setAttribute('aria-expanded',String(open));b.setAttribute('aria-label',open?'Close menu':'Open menu');document.getElementById('menuIcoOpen').classList.toggle('hidden',open);document.getElementById('menuIcoClose').classList.toggle('hidden',!open);if(open){var f=m.querySelector('button');if(f)f.focus({preventScroll:true});}}catch(e){}}
+    function closeMenu(){try{var m=document.getElementById('mobileMenu');if(m&&!m.hidden){toggleMenu(false);document.getElementById('menuBtn').focus({preventScroll:true});}}catch(e){}}
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'){toggleMenu(false);}});
+    // 9. Scroll reveals (progressive enhancement; content visible without JS).
+    try{(function(){var rm=false;try{rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}if(rm||!('IntersectionObserver' in window))return;var els=document.querySelectorAll('#arch-title,#feat-title,.proc-step');els.forEach(function(el){el.classList.add('reveal');});var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');io.unobserve(en.target);}});},{threshold:.12});els.forEach(function(el){io.observe(el);});})();}catch(e){}
     // 5. Adaptive neural starfield. It uses no tracking, APIs or external data.
     const canvas = document.getElementById('galaxyCanvas');
     const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
@@ -1933,7 +2126,7 @@
       canvas.style.width = sceneWidth + 'px';
       canvas.style.height = sceneHeight + 'px';
       ctx.setTransform(sceneRatio, 0, 0, sceneRatio, 0, 0);
-      const count = sceneWidth < 600 ? 36 : (sceneWidth < 1024 ? 54 : 78);
+      const count = sceneWidth < 600 ? 26 : (sceneWidth < 1024 ? 40 : 60);
       stars = Array.from({ length: count }, () => ({
         x: Math.random() * sceneWidth,
         y: Math.random() * sceneHeight,
