@@ -6,39 +6,51 @@ import { test, expect } from '@playwright/test';
 
 const BASE_URL = process.env.BUDDY_TEST_BASE_URL || 'http://localhost:8765';
 
-const SECTIONS = [
-  'page-home',
-  'page-about',
-  'page-services',
-  'page-portfolio',
-  'page-stack',
-  'page-process',
-  'page-contact',
-];
+// data-nav values on the desktop header buttons map to #page-<id> sections.
+const SECTIONS = ['home', 'about', 'services', 'portfolio', 'stack', 'process', 'contact'];
 
 test.describe('Navigation sections', () => {
   for (const pageId of SECTIONS) {
     test(`switches to ${pageId} and keeps only one active`, async ({ page }) => {
       await page.goto(`${BASE_URL}/`);
       await page.click(`button[data-nav="${pageId}"]`);
-      await expect(page.locator(`#${pageId}.active`)).toBeVisible();
+      await expect(page.locator(`#page-${pageId}.active`)).toBeVisible();
       // Exactly one page-view should have the active class
       const activeCount = await page.locator('.page-view.active').count();
       expect(activeCount).toBe(1);
     });
   }
+
+  test('Buddy AI header pill switches to the buddy page', async ({ page }) => {
+    await page.goto(`${BASE_URL}/`);
+    await page.click('button[aria-label="Open Buddy AI preview chat"]');
+    await expect(page.locator('#page-buddy.active')).toBeVisible();
+    const activeCount = await page.locator('.page-view.active').count();
+    expect(activeCount).toBe(1);
+  });
 });
 
 test.describe('Mobile navigation', () => {
+  const MNAV = ['home', 'about', 'services', 'portfolio', 'stack', 'process', 'buddy', 'contact'];
+
   test('opens hamburger menu and shows all destinations', async ({ page }) => {
     await page.setViewportSize({ width: 360, height: 844 });
     await page.goto(`${BASE_URL}/`);
     await page.click('#menuBtn');
     await expect(page.locator('#mobileMenu')).toBeVisible();
-    for (const label of ['Home', 'About & Founder', 'Services', 'Portfolio', 'Stack', 'Process', 'Pricing & Contact']) {
-      await expect(page.locator('button', { hasText: label })).toBeVisible();
+    for (const id of MNAV) {
+      await expect(page.locator(`#mobileMenu button[data-mnav="${id}"]`)).toBeVisible();
     }
     await page.click('#menuBtn');
+    await expect(page.locator('#mobileMenu')).toBeHidden();
+  });
+
+  test('mobile menu navigates and closes itself', async ({ page }) => {
+    await page.setViewportSize({ width: 360, height: 844 });
+    await page.goto(`${BASE_URL}/`);
+    await page.click('#menuBtn');
+    await page.click('#mobileMenu button[data-mnav="buddy"]');
+    await expect(page.locator('#page-buddy.active')).toBeVisible();
     await expect(page.locator('#mobileMenu')).toBeHidden();
   });
 
@@ -81,21 +93,26 @@ test.describe('Directory single-root invariant', () => {
 
   test('directory is absent from all other sections', async ({ page }) => {
     await page.goto(`${BASE_URL}/`);
-    for (const pageId of ['page-home', 'page-about', 'page-services', 'page-portfolio', 'page-process', 'page-contact']) {
+    for (const pageId of ['home', 'about', 'services', 'portfolio', 'process', 'contact']) {
       await page.click(`button[data-nav="${pageId}"]`);
       await page.waitForLoadState('networkidle');
-      const count = await page.locator(`#${pageId} #ecoDirectory`).count();
+      const count = await page.locator(`#page-${pageId} #ecoDirectory`).count();
       expect(count).toBe(0);
     }
   });
 
-  test('directory renders 104 entries after JS render', async ({ page }) => {
+  test('directory renders all 104 entries after JS render', async ({ page }) => {
     await page.goto(`${BASE_URL}/`);
     await page.click('button[data-nav="stack"]');
-    // Eco-cards are rendered dynamically from ecosystem-data JSON; wait for them
+    // Main section cards render into #ecoSections; verification-pending
+    // entries render into #ecoPending. Together they cover the full dataset.
     await page.waitForSelector('#ecoSections .eco-card', { state: 'attached', timeout: 10000 });
-    const count = await page.locator('#ecoSections .eco-card').count();
-    expect(count).toBe(104);
+    await page.waitForSelector('#ecoPending .eco-card', { state: 'attached', timeout: 10000 });
+    const mainCount = await page.locator('#ecoSections .eco-card').count();
+    const pendCount = await page.locator('#ecoPending .eco-card').count();
+    expect(mainCount).toBe(99);
+    expect(pendCount).toBe(5);
+    expect(mainCount + pendCount).toBe(104);
   });
 
   test('stack overview renders 10 category groups', async ({ page }) => {
@@ -109,10 +126,12 @@ test.describe('Directory single-root invariant', () => {
 });
 
 test.describe('Assets load', () => {
-  test('logo loads', async ({ page }) => {
+  test('logo loads in header and footer', async ({ page }) => {
     await page.goto(`${BASE_URL}/`);
-    const logo = page.locator('img[src="public/images/logo.svg"]');
-    await expect(logo).toHaveAttribute('src', 'public/images/logo.svg');
+    const logos = page.locator('img[src="public/images/logo.svg"]');
+    await expect(logos).toHaveCount(2);
+    const allLoaded = await logos.evaluateAll(imgs => imgs.every(i => i.complete && i.naturalWidth > 0));
+    expect(allLoaded).toBe(true);
   });
 
   test('founder portrait loads', async ({ page }) => {
