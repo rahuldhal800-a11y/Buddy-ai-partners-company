@@ -1002,7 +1002,19 @@
       background:radial-gradient(ellipse at center, rgba(34,211,238,.10), rgba(37,99,235,.06) 45%, transparent 70%);
       filter:blur(70px); pointer-events:none; z-index:-1; border-radius:50%;
     }
-  </style>
+  
+    /* NAV OVERFLOW HOTFIX — suppress orphaned left-edge navigation only.
+       Keep the canonical header navigation and the intentional mobile drawer. */
+    #oracleNav, #oracle-nav, .oracle-nav, [data-oracle-nav],
+    #floatingNav, #floating-nav, .floating-nav, .floating-sidebar,
+    #sideNav, #side-nav, .side-nav, .side-navigation,
+    #verticalNav, #vertical-nav, .vertical-nav, .vertical-navigation,
+    [aria-label="Oracle Navigation"], [data-floating-navigation] {
+      display: none !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+</style>
 
   <!-- Search and social metadata -->
   <meta name="robots" content="index,follow,max-image-preview:large" />
@@ -3307,6 +3319,43 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
         else animateGalaxy();
       });
     }
+  </script>
+
+  <!-- Runtime guard for legacy/injected floating navigation outside the canonical header. -->
+  <script id="buddy-nav-overflow-guard">
+    (function () {
+      'use strict';
+      var labels = /^(services|portfolio|stack|process|buddy ai(?:\s*[—–-]\s*live preview)?|pricing(?:\s*&\s*contact)?)$/i;
+      var selector = 'a, button, [role="link"], [role="menuitem"]';
+      function removeOrphanNavigation() {
+        try {
+          document.querySelectorAll(selector).forEach(function (item) {
+            if (!labels.test((item.textContent || '').replace(/\s+/g, ' ').trim())) return;
+            if (item.closest('header, footer, nav[aria-label="Main Navigation"], nav[aria-label="Mobile Navigation"], nav[aria-label="Footer Navigation"]')) return;
+            var rect = item.getBoundingClientRect();
+            var style = window.getComputedStyle(item);
+            var leftEdge = rect.left <= 56 && rect.width > 0 && rect.width < Math.min(360, window.innerWidth * 0.45);
+            var floating = style.position === 'fixed' || style.position === 'sticky';
+            if (!leftEdge && !floating) return;
+            var owner = item.closest('nav, aside, [role="navigation"], [data-floating-navigation], .floating-sidebar, .floating-nav, .side-nav, .vertical-nav');
+            if (!owner && floating) owner = item;
+            if (owner && !owner.closest('header, footer')) {
+              owner.style.setProperty('display', 'none', 'important');
+              owner.style.setProperty('visibility', 'hidden', 'important');
+              owner.setAttribute('data-buddy-orphan-nav-hidden', 'true');
+            }
+          });
+        } catch (error) {
+          console.warn('[Buddy nav guard] Unable to inspect legacy navigation:', error);
+        }
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', removeOrphanNavigation, { once: true });
+      else removeOrphanNavigation();
+      if ('MutationObserver' in window && document.documentElement) {
+        var observer = new MutationObserver(function () { removeOrphanNavigation(); });
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+      }
+    }());
   </script>
 </body>
 </html>
