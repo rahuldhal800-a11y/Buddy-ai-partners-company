@@ -7,7 +7,7 @@
   <meta name="description" content="BUDDY AI PARTNERS builds custom CRM workflows, AI-assisted automation, websites and performance marketing systems for real-estate and service businesses. Remote-first delivery from Bhubaneswar, India." />
   <meta name="keywords" content="Buddy AI Partners, Rahul Kumar Dhal, AI Automation Bhubaneswar, Custom CRM India, Digital Marketing Agency Odisha, React FastAPI Developer, Python Playwright Automation" />
   <meta name="author" content="Rahul Kumar Dhal" />
-  <meta name="theme-color" content="#040711" />
+  <meta name="theme-color" content="#050811" />
 
   <!-- Open Graph / Social Metadata -->
   <meta property="og:type" content="website" />
@@ -25,7 +25,7 @@
 
   <style>
     :root {
-      --bg-deep: #040711;
+      --bg-deep: #050811;
       --accent-blue: #2563eb;
       --accent-cyan: #00f0ff;
     }
@@ -529,7 +529,7 @@
     /* PREMIUM ENTERPRISE UPGRADE — enterprise infra visual, architecture, stack, process */
     .skip-link {position:absolute;left:-9999px;top:0;background:#38bdf8;color:#040711;padding:.7rem 1rem;font-weight:800;font-size:.8rem;z-index:100;border-radius:0 0 .6rem 0;}
     .skip-link:focus {left:0;}
-    section[id], main[id] {scroll-margin-top:7.5rem;}
+    section[id], main[id] {scroll-margin-top:90px;}
     .infra-panel {position:relative;isolation:isolate;overflow:hidden;border-radius:1.5rem;border:1px solid rgba(56,189,248,.28);background:radial-gradient(ellipse at 50% 0%,rgba(37,99,235,.22),transparent 55%),linear-gradient(180deg,#0a1430 0%,#050b1d 55%,#03060f 100%);box-shadow:0 30px 90px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.06);}
     .infra-grid-bg {position:absolute;inset:0;opacity:.5;pointer-events:none;background-image:linear-gradient(rgba(125,211,252,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(125,211,252,.06) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse at 50% 40%,#000 30%,transparent 78%);}
     .infra-flow {stroke-dasharray:6 6;animation:infraDash 2.8s linear infinite;}
@@ -603,6 +603,256 @@
     .svc-details-body p + p { margin-top:.5rem; }
     @media (min-width:768px){ .svc-tile-grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; } }
     @media (max-width:640px){ .svc-card-media { aspect-ratio:16/10; } }
+
+    /* ============================================================
+       PRODUCTION RESPONSIVENESS & DESIGN TOKENS PASS
+       ============================================================ */
+    :root {
+      --obsidian: #050811;
+      --glass-surface: rgba(15, 23, 42, .75);
+      --glass-line: rgba(56, 189, 248, .2);
+      --cyan-start: #00f2fe;
+      --cyan-end: #4facfe;
+      --status-emerald: #10b981;
+    }
+    html { scroll-padding-top: 90px; }
+    section[id], main[id] { scroll-margin-top: 90px; }
+    /* Page containers clear the sticky header (pt-24) */
+    #page-about, #page-services, #page-portfolio,
+    #page-stack, #page-process, #page-contact { padding-top: 6rem; }
+    /* No horizontal overflow anywhere */
+    img, svg, video, canvas { max-width: 100%; }
+    /* Mobile drawer slide-down */
+    @keyframes menuDrop { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+    #mobileMenu:not([hidden]) { animation: menuDrop .28s cubic-bezier(.2,.7,.2,1); }
+    /* 8-tile service grid: 1 → 2 → 4 */
+    .svc-tile-grid { grid-template-columns: minmax(0,1fr); gap: 1.5rem; }
+    @media (min-width:640px) { .svc-tile-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+    @media (min-width:1024px) { .svc-tile-grid { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1.5rem; } }
+    /* 01/02/03 feature grid: 1 → 3 */
+    .buddy-feature-grid { grid-template-columns: minmax(0,1fr); gap: 1.5rem; }
+    @media (min-width:768px) { .buddy-feature-grid { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+
+    /* ============================================================
+       HERO: LIVE SYSTEM ARCHITECTURE CARD (code-generated)
+       ============================================================ */
+    .hax-live { display:inline-flex; align-items:center; gap:.35rem; font-size:8.5px; font-weight:800; letter-spacing:.09em; color:#a5f3fc; padding:.3rem .55rem; border-radius:999px; border:1px solid rgba(0,242,254,.35); background:rgba(8,20,40,.78); white-space:nowrap; }
+    .hax-live-dot { width:6px; height:6px; border-radius:99px; background:var(--status-emerald); box-shadow:0 0 10px rgba(16,185,129,.9); animation:haxPulse 1.8s ease-in-out infinite; flex:0 0 auto; }
+    @keyframes haxPulse { 0%,100% { opacity:.4; } 50% { opacity:1; } }
+    .hax-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:.7rem; }
+    @media (min-width:640px) { .hax-grid { grid-template-columns:minmax(0,1fr) 20px minmax(0,1.08fr) 20px minmax(0,1fr); align-items:stretch; gap:.35rem; } }
+    .hax-node { min-width:0; border:1px solid rgba(56,189,248,.16); border-radius:.9rem; background:rgba(6,14,31,.65); padding:.55rem .55rem .6rem; }
+    .hax-label { font-size:8px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:#7dd3fc; margin-bottom:.45rem; }
+    .hax-chip { display:flex; align-items:center; gap:.4rem; padding:.4rem .45rem; border:1px solid rgba(56,189,248,.18); border-radius:.6rem; background:rgba(10,19,42,.75); }
+    .hax-chip + .hax-chip { margin-top:.4rem; }
+    .hax-ico { display:grid; place-items:center; width:1.35rem; height:1.35rem; border-radius:.45rem; font-size:.6rem; font-weight:900; color:#040711; flex:0 0 auto; }
+    .hax-ico-meta { background:linear-gradient(135deg,var(--cyan-start),var(--cyan-end)); }
+    .hax-ico-google { background:linear-gradient(135deg,#a5f3fc,#60a5fa); }
+    .hax-chip-tx { min-width:0; }
+    .hax-chip-tx b { display:block; font-size:.6rem; color:#e0f2fe; line-height:1.2; }
+    .hax-chip-tx small { display:block; font-size:.5rem; color:#8fa3bd; line-height:1.25; overflow-wrap:anywhere; }
+    .hax-link { display:none; }
+    @media (min-width:640px) { .hax-link { display:block; width:100%; height:100%; min-height:96px; } }
+    .hax-core-node { display:flex; flex-direction:column; }
+    .hax-core { position:relative; width:2.4rem; height:2.4rem; margin:.05rem auto .55rem; display:grid; place-items:center; }
+    .hax-core-ring { position:absolute; inset:0; border-radius:99px; border:2px solid rgba(0,242,254,.22); border-top-color:var(--cyan-start); border-right-color:var(--cyan-end); box-shadow:0 0 18px rgba(0,242,254,.25); animation:haxSpin 5s linear infinite; }
+    .hax-core-tx { font-size:.6rem; font-weight:900; letter-spacing:.05em; color:#a5f3fc; }
+    @keyframes haxSpin { to { transform:rotate(360deg); } }
+    .hax-status { display:flex; flex-direction:column; gap:.34rem; margin-top:auto; }
+    .hax-status span { display:flex; align-items:center; gap:.35rem; font-size:.52rem; color:#cbd5e1; line-height:1.3; }
+    .hax-dot { width:5px; height:5px; border-radius:99px; flex:0 0 auto; animation:haxPulse 2s ease-in-out infinite; }
+    .hax-dot-emerald { background:var(--status-emerald); }
+    .hax-dot-cyan { background:#22d3ee; animation-delay:.5s; }
+    .hax-dot-amber { background:#fbbf24; animation-delay:1s; }
+    .hax-notifs { position:relative; height:104px; }
+    .hax-notif { position:absolute; inset:0; padding:.5rem .55rem; border:1px solid rgba(56,189,248,.2); border-radius:.6rem; background:linear-gradient(145deg,rgba(14,24,48,.95),rgba(5,10,24,.95)); opacity:0; animation:haxNotif 12s infinite; }
+    .hax-notif b { display:block; font-size:.58rem; color:#e0f2fe; line-height:1.25; }
+    .hax-notif small { display:block; margin-top:.22rem; font-size:.5rem; color:#8fa3bd; line-height:1.35; overflow-wrap:anywhere; }
+    .hax-n2 { animation-delay:4s; }
+    .hax-n3 { animation-delay:8s; }
+    @keyframes haxNotif {
+      0% { opacity:0; transform:translateY(12px); }
+      3% { opacity:1; transform:translateY(0); }
+      30% { opacity:1; transform:translateY(0); }
+      33% { opacity:0; transform:translateY(-12px); }
+      100% { opacity:0; transform:translateY(-12px); }
+    }
+    .hax-foot { display:flex; align-items:center; gap:.4rem; margin-top:.85rem; padding:0 .25rem; font-size:.55rem; letter-spacing:.06em; color:#94a3b8; flex-wrap:wrap; }
+    .hax-foot strong { color:#e0f2fe; }
+    @media (prefers-reduced-motion:reduce) {
+      .hax-notifs { height:auto; display:flex; flex-direction:column; gap:.4rem; }
+      .hax-notif { position:static; opacity:1; animation:none; }
+      .hax-core-ring, .hax-live-dot, .hax-dot { animation:none; }
+    }
+
+    /* ============================================================
+       8 SERVICE MICRO-UIs (pure CSS/SVG animated scenes)
+       ============================================================ */
+    .svc-ani .svc-media-tag { position:absolute; top:.6rem; left:.6rem; z-index:2; }
+    .uag { position:absolute; inset:0; overflow:hidden; }
+    .uag::before { content:""; position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(125,211,252,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(125,211,252,.06) 1px,transparent 1px); background-size:22px 22px; -webkit-mask-image:radial-gradient(ellipse at 50% 45%,#000 25%,transparent 82%); mask-image:radial-gradient(ellipse at 50% 45%,#000 25%,transparent 82%); }
+    @media (prefers-reduced-motion:reduce) { .uag-pkg, .uag-drop { display:none; } }
+
+    /* 1. AI agents — chat sequence */
+    .uag-orb { position:absolute; width:8px; height:8px; border-radius:99px; background:radial-gradient(circle,#22d3ee,rgba(34,211,238,0)); box-shadow:0 0 10px rgba(34,211,238,.8); animation:haxPulse 2.4s ease-in-out infinite; }
+    .uag-orb.o1 { left:12%; top:15%; } .uag-orb.o2 { right:16%; top:22%; animation-delay:.8s; } .uag-orb.o3 { right:28%; bottom:12%; animation-delay:1.5s; }
+    .uag-bubble { position:absolute; max-width:64%; padding:.42rem .6rem; border-radius:.7rem; font-size:.56rem; line-height:1.35; font-family:'Inter',sans-serif; }
+    .uag-bub-user { left:8%; top:14%; color:#040711; font-weight:800; background:linear-gradient(135deg,var(--cyan-start),var(--cyan-end)); border-bottom-left-radius:.2rem; animation:uagChatA 9s ease-in-out infinite; }
+    .uag-bub-ai { left:20%; bottom:12%; color:#e0f2fe; background:rgba(10,19,42,.92); border:1px solid rgba(56,189,248,.35); border-bottom-right-radius:.2rem; animation:uagChatB 9s ease-in-out infinite; }
+    .uag-typing { position:absolute; left:10%; top:50%; display:inline-flex; gap:.25rem; padding:.4rem .55rem; border-radius:.7rem; background:rgba(10,19,42,.85); border:1px solid rgba(56,189,248,.25); animation:uagChatT 9s ease-in-out infinite; }
+    .uag-typing i { width:4px; height:4px; border-radius:99px; background:#7dd3fc; animation:haxPulse 1s ease-in-out infinite; }
+    .uag-typing i:nth-child(2) { animation-delay:.18s; } .uag-typing i:nth-child(3) { animation-delay:.36s; }
+    @keyframes uagChatA { 0%,4% { opacity:0; transform:translateY(8px); } 9%,86% { opacity:1; transform:translateY(0); } 94%,100% { opacity:0; } }
+    @keyframes uagChatT { 0%,11%,30% { opacity:0; } 15%,25% { opacity:1; } 34%,100% { opacity:0; } }
+    @keyframes uagChatB { 0%,32% { opacity:0; transform:translateY(8px); } 38%,86% { opacity:1; transform:translateY(0); } 94%,100% { opacity:0; } }
+
+    /* 2. Business setup — auto-checking checklist */
+    .uag-check { display:flex; flex-direction:column; justify-content:center; gap:.5rem; padding:0 12%; }
+    .uag-check-row { display:flex; align-items:center; gap:.5rem; font-size:.58rem; color:#cbd5e1; padding:.4rem .6rem; border:1px solid rgba(56,189,248,.18); border-radius:.55rem; background:rgba(8,16,36,.7); }
+    .uag-check-row i { width:.95rem; height:.95rem; border:1.5px solid rgba(56,189,248,.55); border-radius:.3rem; display:grid; place-items:center; font-style:normal; font-size:.55rem; font-weight:900; color:#040711; background:transparent; flex:0 0 auto; animation:uagTickBox 9s ease-in-out infinite; }
+    .uag-check-row i::after { content:"✓"; opacity:0; animation:uagTickInk 9s ease-in-out infinite; }
+    .uag-check-row:nth-child(2) i, .uag-check-row:nth-child(2) i::after { animation-delay:1.8s; }
+    .uag-check-row:nth-child(3) i, .uag-check-row:nth-child(3) i::after { animation-delay:3.6s; }
+    @keyframes uagTickBox { 0%,7% { background:transparent; border-color:rgba(56,189,248,.55); box-shadow:none; } 9%,88% { background:var(--status-emerald); border-color:var(--status-emerald); box-shadow:0 0 12px rgba(16,185,129,.45); } 96%,100% { background:transparent; border-color:rgba(56,189,248,.55); box-shadow:none; } }
+    @keyframes uagTickInk { 0%,7% { opacity:0; } 9%,88% { opacity:1; } 96%,100% { opacity:0; } }
+    .uag-progress { height:5px; border-radius:99px; background:rgba(148,163,184,.15); overflow:hidden; margin:0 .2rem; }
+    .uag-progress span { display:block; height:100%; width:6%; border-radius:99px; background:linear-gradient(90deg,var(--cyan-start),var(--status-emerald)); box-shadow:0 0 10px rgba(0,242,254,.5); animation:uagBar 9s ease-in-out infinite; }
+    @keyframes uagBar { 0% { width:6%; } 12% { width:34%; } 34% { width:62%; } 56%,88% { width:100%; } 96%,100% { width:6%; } }
+
+    /* 3. Social — conveyor pipeline */
+    .uag-conveyor { display:flex; align-items:flex-start; justify-content:space-between; gap:.45rem; padding:13% 8% 0; }
+    .uag-stage { flex:1; min-width:0; text-align:center; font-size:.5rem; letter-spacing:.06em; font-weight:800; color:#7dd3fc; padding:.55rem .25rem; border:1px solid rgba(56,189,248,.28); border-radius:.55rem; background:rgba(8,16,36,.72); }
+    .uag-stage.st2 { color:#fde68a; border-color:rgba(251,191,36,.4); }
+    .uag-stage.st3 { color:#6ee7b7; border-color:rgba(16,185,129,.4); }
+    .uag-belt { position:absolute; left:8%; right:8%; top:70%; height:2px; background:linear-gradient(90deg,rgba(56,189,248,.05),rgba(56,189,248,.45),rgba(56,189,248,.05)); }
+    .uag-pkg { position:absolute; top:62%; left:9%; width:15%; height:9%; border-radius:.35rem; background:linear-gradient(135deg,var(--cyan-start),var(--cyan-end)); box-shadow:0 0 14px rgba(0,242,254,.55); animation:uagMove 9s cubic-bezier(.5,.05,.5,.95) infinite; }
+    @keyframes uagMove { 0%,6% { transform:translateX(0); opacity:1; } 28%,38% { transform:translateX(193%); } 60%,78% { transform:translateX(387%); background:linear-gradient(135deg,#34d399,#10b981); box-shadow:0 0 22px rgba(16,185,129,.85); } 92% { transform:translateX(387%); opacity:.15; } 100% { transform:translateX(387%); opacity:0; } }
+
+    /* 4. CRM — mini kanban with travelling card */
+    .uag-kan { display:flex; gap:4%; padding:12% 7% 0; height:100%; }
+    .uag-kan-col { flex:1; min-width:0; border:1px solid rgba(56,189,248,.16); border-radius:.55rem; background:rgba(8,16,36,.6); padding:.4rem .35rem; }
+    .uag-kan-col b { display:block; font-size:.46rem; letter-spacing:.1em; color:#7dd3fc; margin-bottom:.3rem; }
+    .uag-kan-slot { display:block; height:.5rem; border-radius:.25rem; background:rgba(148,163,184,.14); margin-top:.3rem; }
+    .uag-kan-card { position:absolute; left:7.6%; top:40%; width:24.4%; padding:.35rem .45rem; border-radius:.5rem; border:1px solid rgba(0,242,254,.5); background:linear-gradient(145deg,#0e1a30,#0a1220); box-shadow:0 10px 24px rgba(0,0,0,.45),0 0 12px rgba(0,242,254,.2); animation:uagKan 10s ease-in-out infinite; font-size:.48rem; color:#cbd5e1; }
+    .uag-kan-card b { display:block; font-size:.52rem; color:#a5f3fc; }
+    @keyframes uagKan { 0%,10% { transform:translateX(0); } 26%,44% { transform:translateX(118%); border-color:rgba(251,191,36,.55); } 60%,92% { transform:translateX(236%); border-color:rgba(16,185,129,.6); } 98%,100% { transform:translateX(236%); opacity:0; } }
+
+    /* 5. Web & app — editor + morphing wireframe */
+    .uag-editor { position:absolute; left:7%; top:15%; width:47%; height:70%; border:1px solid rgba(56,189,248,.28); border-radius:.6rem; background:rgba(5,12,29,.92); padding:.5rem .55rem; }
+    .uag-ed-head { display:flex; gap:.22rem; margin-bottom:.42rem; }
+    .uag-ed-head i { width:5px; height:5px; border-radius:99px; background:#f87171; }
+    .uag-ed-head i:nth-child(2) { background:#fbbf24; } .uag-ed-head i:nth-child(3) { background:#34d399; }
+    .uag-ed-line { display:block; height:4px; border-radius:2px; background:rgba(125,211,252,.22); margin-top:.34rem; }
+    .uag-ed-line.l1 { width:66%; background:linear-gradient(90deg,#38bdf8,#818cf8); }
+    .uag-ed-line.l2 { width:80%; }
+    .uag-ed-line.l4 { width:70%; }
+    .uag-typing-line { position:relative; width:0; background:linear-gradient(90deg,var(--cyan-start),var(--cyan-end)); animation:uagType 7s steps(14) infinite; }
+    .uag-typing-line::after { content:""; position:absolute; right:-3px; top:-2px; width:2px; height:8px; background:#00f2fe; animation:haxPulse .8s steps(1) infinite; }
+    @keyframes uagType { 0% { width:0; } 55%,92% { width:74%; } 100% { width:74%; } }
+    .uag-wire { position:absolute; right:7%; top:18%; height:64%; width:26%; border:1px solid rgba(56,189,248,.35); border-radius:.5rem; background:rgba(10,19,42,.85); padding:.4rem .35rem; animation:uagWire 8s ease-in-out infinite; }
+    .uag-wire span { display:block; border-radius:.25rem; background:rgba(125,211,252,.28); }
+    .uag-wire span:nth-child(1) { height:22%; margin-bottom:12%; }
+    .uag-wire span:nth-child(2) { height:16%; margin-bottom:10%; }
+    .uag-wire span:nth-child(3) { height:16%; }
+    @keyframes uagWire { 0%,18% { width:26%; } 42%,58% { width:44%; } 82%,100% { width:26%; } }
+
+    /* 6. Integration — hex nodes + laser beams */
+    .uag-hex svg { width:100%; height:100%; display:block; }
+    .uag-hex .hx { fill:rgba(14,34,71,.85); stroke:#38bdf8; stroke-width:1.2; animation:haxPulse 3s ease-in-out infinite; }
+    .uag-hex .hx2 { animation-delay:.6s; } .uag-hex .hx3 { animation-delay:1.2s; }
+
+    /* 7. Marketing — 3-tier funnel + drops */
+    .uag-funnel { display:flex; flex-direction:column; justify-content:center; gap:.45rem; padding:0 11%; }
+    .uag-tier-row { display:flex; align-items:center; gap:.55rem; min-width:0; }
+    .uag-tier { height:.55rem; border-radius:99px; background:linear-gradient(90deg,rgba(0,242,254,.65),rgba(79,172,254,.35)); box-shadow:0 0 10px rgba(0,242,254,.25); flex:0 0 auto; }
+    .uag-tier.t1 { width:78%; } .uag-tier.t2 { width:52%; }
+    .uag-tier.t3 { width:26%; background:linear-gradient(90deg,#34d399,#10b981); box-shadow:0 0 14px rgba(16,185,129,.45); }
+    .uag-tier-row em { font-style:normal; font-size:.5rem; color:#8fa3bd; white-space:nowrap; font-family:'Inter',sans-serif; }
+    .uag-drop { position:absolute; left:33%; top:10%; width:5px; height:5px; border-radius:99px; background:#00f2fe; box-shadow:0 0 10px rgba(0,242,254,.9); animation:uagDrop 4.5s ease-in infinite; }
+    .uag-drop.d2 { left:45%; animation-delay:1.5s; } .uag-drop.d3 { left:55%; animation-delay:3s; }
+    @keyframes uagDrop { 0% { transform:translateY(0); opacity:0; } 12% { opacity:1; } 70% { transform:translateY(66px); opacity:1; } 84%,100% { transform:translateY(76px); opacity:0; } }
+
+    /* 8. Content — audio waveform + language badges */
+    .uag-wave { display:flex; align-items:center; gap:.6rem; padding:0 9%; }
+    .uag-bars { flex:1; display:flex; align-items:center; gap:3px; height:58%; min-width:0; }
+    .uag-bars i { flex:1; border-radius:99px; background:linear-gradient(180deg,var(--cyan-start),var(--cyan-end)); transform-origin:center; animation:uagBarPulse 1.6s ease-in-out infinite; }
+    .uag-bars i:nth-child(odd) { animation-delay:.2s; } .uag-bars i:nth-child(3n) { animation-delay:.45s; } .uag-bars i:nth-child(4n) { animation-delay:.7s; }
+    @keyframes uagBarPulse { 0%,100% { transform:scaleY(.5); } 50% { transform:scaleY(1); } }
+    .uag-lang { display:flex; flex-direction:column; gap:.3rem; flex:0 0 auto; }
+    .uag-lang span { font-size:.5rem; font-weight:700; letter-spacing:.06em; color:#a5f3fc; padding:.22rem .45rem; border:1px solid rgba(56,189,248,.3); border-radius:99px; background:rgba(8,20,40,.75); text-align:center; }
+
+    /* ============================================================
+       BUDDY CRM WORKSPACE — KNR INTEGRITY PRODUCTION-STYLE DEMO
+       ============================================================ */
+    .crm-status { position:relative; z-index:10; display:flex; flex-wrap:wrap; gap:.35rem .95rem; padding:.5rem .7rem; border:1px solid rgba(56,189,248,.18); border-radius:.7rem; background:rgba(6,14,31,.7); font-size:.56rem; color:#cbd5e1; font-family:'Inter',sans-serif; }
+    .crm-stat em { font-style:normal; color:#7dd3fc; }
+    .crm-stage em { color:#a5f3fc; font-weight:700; }
+    .crm-flow { position:relative; z-index:10; display:flex; align-items:center; gap:.3rem; margin-top:.6rem; overflow-x:auto; scrollbar-width:none; }
+    .crm-flow::-webkit-scrollbar { display:none; }
+    .crm-pipe { display:inline-flex; align-items:center; gap:.3rem; padding:.3rem .55rem; font-size:.52rem; font-weight:700; letter-spacing:.05em; color:#8fa3bd; border:1px solid rgba(56,189,248,.16); border-radius:99px; background:rgba(8,16,36,.6); white-space:nowrap; transition:color .3s ease, border-color .3s ease, box-shadow .3s ease; }
+    .crm-pipe i { width:5px; height:5px; border-radius:99px; background:#475569; }
+    .crm-pipe.crm-on { color:#e0f2fe; border-color:rgba(0,242,254,.5); box-shadow:0 0 14px rgba(0,242,254,.18); }
+    .crm-pipe.crm-on i { background:var(--cyan-start); box-shadow:0 0 8px rgba(0,242,254,.9); }
+    .crm-pipe-sep { color:#334155; font-size:.55rem; }
+    .crm-board { position:relative; z-index:10; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.55rem; margin-top:.65rem; }
+    @media (min-width:640px) { .crm-board { grid-template-columns:repeat(4,minmax(0,1fr)); } }
+    .crm-col { min-width:0; border:1px solid rgba(56,189,248,.14); border-radius:.7rem; background:rgba(6,13,29,.72); padding:.5rem .45rem .55rem; transition:border-color .35s ease, box-shadow .35s ease; }
+    .crm-col.crm-active { border-color:rgba(0,242,254,.55); box-shadow:0 0 20px rgba(0,242,254,.12), inset 0 0 0 1px rgba(0,242,254,.12); }
+    .crm-col-h { display:flex; align-items:center; justify-content:space-between; gap:.3rem; font-size:.5rem; font-weight:800; letter-spacing:.1em; color:#7dd3fc; margin-bottom:.45rem; }
+    .crm-sla { font-size:.44rem; font-weight:700; letter-spacing:.04em; color:#fde68a; border:1px solid rgba(251,191,36,.35); border-radius:99px; padding:.1rem .35rem; white-space:nowrap; }
+    .crm-cab { color:#6ee7b7; border-color:rgba(16,185,129,.4); }
+    .crm-card { padding:.45rem .5rem; border-radius:.55rem; border:1px solid rgba(56,189,248,.18); background:linear-gradient(145deg,rgba(14,24,48,.94),rgba(5,10,24,.94)); margin-bottom:.45rem; }
+    .crm-card:last-child { margin-bottom:0; }
+    .crm-card b { display:block; font-size:.56rem; color:#e0f2fe; line-height:1.25; }
+    .crm-card small { display:block; font-size:.5rem; color:#8fa3bd; line-height:1.4; margin-top:.2rem; overflow-wrap:anywhere; }
+    .crm-tags { display:flex; flex-wrap:wrap; gap:.25rem; margin-top:.35rem; }
+    .crm-tag { font-style:normal; font-size:.46rem; font-weight:700; letter-spacing:.04em; padding:.12rem .38rem; border-radius:99px; border:1px solid rgba(56,189,248,.2); color:#7dd3fc; background:rgba(8,20,40,.8); white-space:nowrap; }
+    .crm-tag-budget { color:#fde68a; border-color:rgba(251,191,36,.35); }
+    .crm-tag-ok { color:#6ee7b7; border-color:rgba(16,185,129,.45); }
+    .crm-tag-amber { color:#fcd34d; border-color:rgba(251,191,36,.5); background:rgba(69,26,3,.4); }
+    .crm-won { border-color:rgba(16,185,129,.5); box-shadow:0 0 14px rgba(16,185,129,.12); }
+    .crm-arrive { opacity:0; transform:translateY(-14px); transition:opacity .45s ease, transform .45s ease; }
+    .crm-arrive.crm-show { opacity:1; transform:translateY(0); }
+    .crm-foot { position:relative; z-index:10; display:flex; flex-wrap:wrap; align-items:center; gap:.5rem .9rem; margin-top:.7rem; font-size:.55rem; color:#94a3b8; font-family:'Inter',sans-serif; }
+    .crm-wa b { color:#e0f2fe; font-size:.56rem; }
+    .crm-dot { display:inline-block; width:6px; height:6px; border-radius:99px; margin-right:.35rem; vertical-align:middle; animation:haxPulse 2s ease-in-out infinite; }
+    .crm-dot-emerald { background:var(--status-emerald); }
+    .crm-dot-amber { background:#fbbf24; }
+    .crm-appr { display:inline-flex; align-items:center; padding:.22rem .5rem; border-radius:99px; border:1px solid rgba(251,191,36,.3); color:#cbd5e1; transition:color .3s ease, border-color .3s ease, background .3s ease, box-shadow .3s ease; }
+    .crm-appr.crm-amber { color:#fde68a; border-color:rgba(251,191,36,.75); background:rgba(69,26,3,.45); box-shadow:0 0 16px rgba(251,191,36,.25); }
+    .crm-note { margin-left:auto; font-family:ui-monospace,monospace; font-size:.5rem; color:#64748b; }
+    @media (prefers-reduced-motion:reduce) { .crm-arrive { opacity:1; transform:none; } }
+
+    /* ============================================================
+       KNR INTEGRITY SPOTLIGHT — TABS, CHIPS, CORRIDOR MATRIX
+       ============================================================ */
+    .knr-metrics { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.6rem; margin-top:1rem; }
+    @media (min-width:768px) { .knr-metrics { grid-template-columns:repeat(4,minmax(0,1fr)); } }
+    .knr-metric { border:1px solid rgba(56,189,248,.18); border-radius:.8rem; padding:.7rem .75rem; background:rgba(8,16,36,.7); min-width:0; }
+    .knr-metric b { display:block; font-family:'Space Grotesk',sans-serif; font-size:1.1rem; color:#f8fafc; }
+    .knr-metric small { display:block; font-size:.6rem; color:#8fa3bd; margin-top:.15rem; line-height:1.35; }
+    .knr-tabs { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.1rem; }
+    .knr-tab { padding:.6rem .95rem; border-radius:.7rem; border:1px solid rgba(56,189,248,.2); background:rgba(10,19,42,.8); color:#cbd5e1; font-size:.72rem; font-weight:700; transition:background .25s ease,color .25s ease,border-color .25s ease,transform .25s ease; }
+    .knr-tab:hover { border-color:rgba(0,242,254,.5); }
+    .knr-tab.knr-on { background:linear-gradient(135deg,#2563eb,#06b6d4); color:#fff; border-color:transparent; }
+    .knr-panel { margin-top:1rem; }
+    .knr-panel[hidden] { display:none; }
+    .knr-chips { display:flex; flex-wrap:wrap; gap:.45rem; }
+    .knr-chip { font-size:.68rem; font-weight:700; color:#a5f3fc; padding:.5rem .7rem; border-radius:99px; border:1px solid rgba(56,189,248,.3); background:rgba(8,20,40,.75); transition:border-color .2s ease,transform .2s ease; }
+    .knr-chip:hover { border-color:rgba(0,242,254,.6); transform:translateY(-1px); }
+    .knr-chat { margin-top:.8rem; border:1px solid rgba(56,189,248,.18); border-radius:.8rem; background:rgba(5,12,29,.85); padding:.8rem; min-height:74px; }
+    .knr-msg { font-size:.78rem; line-height:1.6; color:#cbd5e1; }
+    .knr-msg-ai::before { content:"Ask Buddy AI"; display:block; font-size:.55rem; letter-spacing:.14em; color:#7dd3fc; font-weight:800; margin-bottom:.35rem; text-transform:uppercase; }
+    .knr-note { font-size:.58rem; color:#64748b; margin-top:.6rem; line-height:1.5; }
+    .knr-corr { display:flex; flex-direction:column; gap:.85rem; }
+    .knr-corr-top { display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap; font-size:.72rem; }
+    .knr-corr-top b { color:#e0f2fe; font-size:.78rem; }
+    .knr-corr-top span { color:#8fa3bd; }
+    .knr-corr-top em { font-style:normal; margin-left:auto; color:#6ee7b7; font-weight:800; font-size:.68rem; }
+    .knr-bar { margin-top:.4rem; height:7px; border-radius:99px; background:rgba(148,163,184,.14); overflow:hidden; }
+    .knr-bar span { display:block; height:100%; width:var(--w,50%); border-radius:99px; background:linear-gradient(90deg,var(--cyan-start),var(--cyan-end)); box-shadow:0 0 10px rgba(0,242,254,.35); animation:knrFill 1.1s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes knrFill { from { width:0; } }
+    .knr-emi { display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; margin-top:1rem; padding:.6rem .8rem; border:1px solid rgba(16,185,129,.3); border-radius:.7rem; background:rgba(6,26,22,.45); font-size:.72rem; color:#cbd5e1; }
   </style>
 
   <!-- Search and social metadata -->
@@ -682,7 +932,7 @@
   <canvas id="galaxyCanvas" class="fixed inset-0 pointer-events-none z-0" aria-hidden="true"></canvas>
 
   <!-- STICKY NAVIGATION HEADER -->
-  <header class="sticky top-0 z-50 bg-[#040711]/90 backdrop-blur-xl border-b border-sky-500/20 no-print">
+  <header class="sticky top-0 z-50 bg-[#050811]/90 backdrop-blur-xl border-b border-sky-500/20 no-print">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Identity -->
@@ -697,7 +947,7 @@
       </button>
 
       <!-- Desktop Tabs -->
-      <nav aria-label="Main Navigation" class="hidden md:flex items-center gap-1 bg-slate-900/85 p-1.5 rounded-full border border-slate-700/60">
+      <nav aria-label="Main Navigation" class="hidden lg:flex items-center gap-1 bg-slate-900/85 p-1.5 rounded-full border border-slate-700/60">
         <button type="button" onclick="switchPage('home')" data-nav="home" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-blue-600 text-white transition">Home</button>
         <button type="button" onclick="switchPage('about')" data-nav="about" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">About</button>
         <button type="button" onclick="switchPage('services')" data-nav="services" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">Services</button>
@@ -709,36 +959,32 @@
 
       <!-- Header CTAs -->
       <div class="flex items-center gap-2.5">
-        <button type="button" onclick="window.print()" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-slate-800/90 hover:bg-slate-700 text-sky-300 border border-sky-400/30 transition">
+        <button type="button" onclick="window.print()" class="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-slate-800/90 hover:bg-slate-700 text-sky-300 border border-sky-400/30 transition">
           <span>📄 Save Profile PDF</span>
         </button>
         <button type="button" onclick="switchPage('contact')" class="px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white shadow-lg shadow-blue-600/30 transition">
           Start Project
         </button>
-      </div>
-    </div>
-
-    <!-- Mobile Navigation Bar -->
-        <div class="md:hidden relative">
-      <div class="flex items-center justify-between px-4 py-2 border-t border-slate-800/80 bg-[#050915]">
-        <span class="text-[11px] font-bold tracking-widest text-slate-400 uppercase">Menu</span>
-        <button type="button" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu" onclick="toggleMenu()" class="p-2 rounded-lg bg-slate-800 border border-slate-700 text-sky-300">
+        <!-- Hamburger (visible below lg) -->
+        <button type="button" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu" onclick="toggleMenu()" class="lg:hidden p-2.5 rounded-xl bg-slate-800/90 border border-slate-700 text-sky-300 hover:border-sky-500/50 transition">
           <svg id="menuIcoOpen" class="w-5 h-5" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
           <svg id="menuIcoClose" class="w-5 h-5 hidden" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         </button>
       </div>
-      <nav id="mobileMenu" aria-label="Mobile Navigation" hidden class="absolute left-0 right-0 top-full z-50 px-3 pb-4 pt-1 bg-[#050915]/98 backdrop-blur-xl border-b border-slate-800/80">
-        <div class="flex flex-col gap-1.5">
-          <button type="button" onclick="switchPage('home');closeMenu()" data-mnav="home" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Home</button>
-          <button type="button" onclick="switchPage('about');closeMenu()" data-mnav="about" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">About & Founder</button>
-          <button type="button" onclick="switchPage('services');closeMenu()" data-mnav="services" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Services</button>
-          <button type="button" onclick="switchPage('portfolio');closeMenu()" data-mnav="portfolio" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Portfolio</button>
-          <button type="button" onclick="switchPage('stack');closeMenu()" data-mnav="stack" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Stack</button>
-          <button type="button" onclick="switchPage('process');closeMenu()" data-mnav="process" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Process</button>
-          <button type="button" onclick="switchPage('contact');closeMenu()" data-mnav="contact" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Pricing & Contact</button>
-        </div>
-      </nav>
     </div>
+
+    <!-- Mobile Navigation Drawer (slides down below header, glassmorphic) -->
+    <nav id="mobileMenu" aria-label="Mobile Navigation" hidden class="lg:hidden absolute left-0 right-0 top-full z-50 px-3 pb-4 pt-2 bg-[#050915]/95 backdrop-blur-xl border-b border-slate-800/80 shadow-2xl shadow-black/50">
+      <div class="flex flex-col gap-1.5">
+        <button type="button" onclick="switchPage('home');closeMenu()" data-mnav="home" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Home</button>
+        <button type="button" onclick="switchPage('about');closeMenu()" data-mnav="about" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">About &amp; Founder</button>
+        <button type="button" onclick="switchPage('services');closeMenu()" data-mnav="services" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Services</button>
+        <button type="button" onclick="switchPage('portfolio');closeMenu()" data-mnav="portfolio" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Portfolio</button>
+        <button type="button" onclick="switchPage('stack');closeMenu()" data-mnav="stack" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Stack</button>
+        <button type="button" onclick="switchPage('process');closeMenu()" data-mnav="process" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Process</button>
+        <button type="button" onclick="switchPage('contact');closeMenu()" data-mnav="contact" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Pricing &amp; Contact</button>
+      </div>
+    </nav>
   </header>
 
   <!-- ========================================================= -->
@@ -786,16 +1032,43 @@
           </div>
         </div>
 
-        <!-- Right Hero Visual -->
+        <!-- Right Hero Visual: code-generated live architecture card -->
         <div class="lg:col-span-5">
-          <figure class="infra-panel p-3 sm:p-4 m-0">
-            <div class="hero-visual-frame">
-              <img src="public/images/ai-command-center.webp" alt="Illustrative AI systems visual: analytics panels, a glowing central AI agent core and a connected network globe" width="1920" height="1072" loading="eager" decoding="async" fetchpriority="high" />
+          <figure class="infra-panel p-3 sm:p-4 m-0 hax-panel" aria-label="Live preview of the production lead-system architecture: Meta and Google traffic feeds the Buddy AI and n8n engine, which routes qualified property leads into WhatsApp follow-up and the CRM">
+            <div class="flex items-center justify-between gap-2 mb-3 px-0.5 flex-wrap">
+              <span class="text-[9px] font-bold tracking-[.2em] text-sky-300 uppercase">System Architecture</span>
+              <span class="hax-live"><span class="hax-live-dot" aria-hidden="true"></span>PRODUCTION ARCHITECTURE PREVIEW</span>
             </div>
-            <figcaption class="flex items-center gap-2 mt-3 px-1 text-[10px] tracking-wider text-slate-400">
-              <span class="w-1.5 h-1.5 rounded-full bg-sky-400" aria-hidden="true"></span>
-              <strong class="text-sky-200">ILLUSTRATIVE VISUAL</strong> — concept render, not connected to live client systems
-            </figcaption>
+            <div class="hax-grid">
+              <!-- Node 1: traffic & capture -->
+              <div class="hax-node">
+                <p class="hax-label">Traffic &amp; Capture</p>
+                <div class="hax-chip"><span class="hax-ico hax-ico-meta" aria-hidden="true">M</span><span class="hax-chip-tx"><b>Meta Ads</b><small>Costa Crestview · 3BHK</small></span></div>
+                <div class="hax-chip"><span class="hax-ico hax-ico-google" aria-hidden="true">G</span><span class="hax-chip-tx"><b>Google Search</b><small>Patia IT Corridor</small></span></div>
+              </div>
+              <svg class="hax-link" viewBox="0 0 22 120" preserveAspectRatio="none" aria-hidden="true"><path class="infra-flow" d="M1 30 C 12 30, 10 88, 21 88"/><circle class="infra-pulse" cx="1" cy="30" r="2.2" fill="#22d3ee"/></svg>
+              <!-- Node 2: engine -->
+              <div class="hax-node hax-core-node">
+                <p class="hax-label">Buddy AI · n8n Engine</p>
+                <div class="hax-core" aria-hidden="true"><span class="hax-core-ring"></span><span class="hax-core-tx">AI</span></div>
+                <div class="hax-status">
+                  <span><i class="hax-dot hax-dot-emerald"></i>Playwright Scraper Active</span>
+                  <span><i class="hax-dot hax-dot-cyan"></i>n8n Webhook: 200 OK</span>
+                  <span><i class="hax-dot hax-dot-amber"></i>Ask Buddy AI Concierge: Qualifying</span>
+                </div>
+              </div>
+              <svg class="hax-link" viewBox="0 0 22 120" preserveAspectRatio="none" aria-hidden="true"><path class="infra-flow" d="M1 30 C 12 30, 10 88, 21 88"/><circle class="infra-pulse" cx="21" cy="88" r="2.2" fill="#22d3ee"/></svg>
+              <!-- Node 3: live CRM output, auto-cycling -->
+              <div class="hax-node">
+                <p class="hax-label">Live CRM Output</p>
+                <div class="hax-notifs">
+                  <article class="hax-notif hax-n1"><b>New Lead: S. Patnaik</b><small>Patia 3BHK (&lt; ₹1 Cr) • Routed to WhatsApp</small></article>
+                  <article class="hax-notif hax-n2"><b>Site Visit Booked: M. Mishra</b><small>The Harmonious Haven (Rasulgarh) • Cab Scheduled</small></article>
+                  <article class="hax-notif hax-n3"><b>ORERA Verified: ORA/0216/2024</b><small>Archid Elite Brochure Sent</small></article>
+                </div>
+              </div>
+            </div>
+            <figcaption class="hax-foot"><span class="hax-live-dot" aria-hidden="true"></span><strong>KNR INTEGRITY</strong>&nbsp;· Bhubaneswar — pipeline live simulation with production inventory context</figcaption>
           </figure>
         </div>
       </div>
@@ -812,35 +1085,35 @@
       </div>
       <div class="svc-tile-grid">
         <button type="button" onclick="switchPage('services')" class="svc-tile">
-          <span class="svc-tile-img"><img src="public/images/ai-agent-orchestration.webp" alt="" width="1200" height="896" loading="lazy" decoding="async" /></span>
+          <span class="svc-tile-img"><span class="uag uag-chat" aria-hidden="true"><span class="uag-orb o1"></span><span class="uag-orb o2"></span><span class="uag-orb o3"></span><span class="uag-bubble uag-bub-user">Ask Buddy AI ⚡</span><span class="uag-typing"><i></i><i></i><i></i></span><span class="uag-bubble uag-bub-ai">3BHK · Patia · ~₹95L — free cab site visit?</span></span></span>
           <span class="svc-tile-body"><span class="svc-tile-title">Custom AI Agents</span><span class="svc-tile-desc">Research, support &amp; workflow agents</span></span>
         </button>
         <button type="button" onclick="switchPage('services')" class="svc-tile">
-          <span class="svc-tile-img"><img src="public/images/business-ai-systems.webp" alt="" width="1200" height="896" loading="lazy" decoding="async" /></span>
+          <span class="svc-tile-img"><span class="uag uag-check" aria-hidden="true"><span class="uag-check-row"><i></i>SOP + workflow mapped</span><span class="uag-check-row"><i></i>GST / MSME records ready</span><span class="uag-check-row"><i></i>Internal knowledge base live</span><span class="uag-progress"><span></span></span></span></span>
           <span class="svc-tile-body"><span class="svc-tile-title">AI for Business Setup</span><span class="svc-tile-desc">SOPs, enquiries &amp; internal knowledge</span></span>
         </button>
         <button type="button" onclick="switchPage('services')" class="svc-tile">
-          <span class="svc-tile-img"><img src="public/images/social-media-automation.webp" alt="" width="1200" height="896" loading="lazy" decoding="async" /></span>
+          <span class="svc-tile-img"><span class="uag uag-conveyor" aria-hidden="true"><span class="uag-stage st1">DRAFT</span><span class="uag-stage st2">HUMAN REVIEW</span><span class="uag-stage st3">PUBLISHED</span><span class="uag-belt"></span><span class="uag-pkg"></span></span></span>
           <span class="svc-tile-body"><span class="svc-tile-title">Social Media Automation</span><span class="svc-tile-desc">Draft → review → schedule → publish</span></span>
         </button>
         <button type="button" onclick="switchPage('services')" class="svc-tile">
-          <span class="svc-tile-img"><img src="public/images/crm-business-dashboard.webp" alt="" width="1200" height="896" loading="lazy" decoding="async" /></span>
+          <span class="svc-tile-img"><span class="uag uag-kan" aria-hidden="true"><span class="uag-kan-col"><b>NEW</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-col"><b>CALLING</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-col"><b>SITE VISIT</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-card"><b>S. Patnaik</b>₹78L · Kantabada</span></span></span>
           <span class="svc-tile-body"><span class="svc-tile-title">CRM &amp; Lead Operations</span><span class="svc-tile-desc">Pipeline, calling queues &amp; follow-ups</span></span>
         </button>
         <button type="button" onclick="switchPage('services')" class="svc-tile">
-          <span class="svc-tile-img"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="320" height="200" fill="#050c1d"/><rect x="30" y="34" width="220" height="132" rx="10" fill="#0b1836" stroke="#38bdf8" stroke-opacity=".6"/><rect x="30" y="34" width="220" height="22" rx="10" fill="#10234f"/><circle cx="44" cy="45" r="3" fill="#22d3ee"/><circle cx="56" cy="45" r="3" fill="#38bdf8" opacity=".6"/><circle cx="68" cy="45" r="3" fill="#64748b" opacity=".6"/><rect x="44" y="68" width="90" height="10" rx="5" fill="#1d4ed8" opacity=".8"/><rect x="44" y="86" width="192" height="6" rx="3" fill="#334155"/><rect x="44" y="98" width="150" height="6" rx="3" fill="#334155"/><rect x="44" y="114" width="56" height="34" rx="6" fill="#0e2a55" stroke="#22d3ee" stroke-opacity=".5"/><rect x="108" y="114" width="56" height="34" rx="6" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".4"/><rect x="172" y="114" width="64" height="34" rx="6" fill="#082f3a" stroke="#22d3ee" stroke-opacity=".4"/><rect x="238" y="88" width="52" height="86" rx="8" fill="#0b1836" stroke="#38bdf8" stroke-opacity=".55"/><rect x="244" y="98" width="40" height="30" rx="4" fill="#10234f"/><rect x="244" y="134" width="40" height="5" rx="2.5" fill="#334155"/><rect x="244" y="145" width="30" height="5" rx="2.5" fill="#334155"/><circle cx="264" cy="162" r="5" fill="#22d3ee" opacity=".8"/></svg></span>
+          <span class="svc-tile-img"><span class="uag uag-dev" aria-hidden="true"><span class="uag-editor"><span class="uag-ed-head"><i></i><i></i><i></i></span><span class="uag-ed-line l1"></span><span class="uag-ed-line l2"></span><span class="uag-ed-line uag-typing-line"></span><span class="uag-ed-line l4"></span></span><span class="uag-wire"><span></span><span></span><span></span></span></span></span>
           <span class="svc-tile-body"><span class="svc-tile-title">Web &amp; App Development</span><span class="svc-tile-desc">Sites, dashboards &amp; APIs</span></span>
         </button>
         <button type="button" onclick="switchPage('services')" class="svc-tile">
-          <span class="svc-tile-img"><img src="public/images/ai-workflow-pipeline.webp" alt="" width="1200" height="896" loading="lazy" decoding="async" /></span>
+          <span class="svc-tile-img"><span class="uag uag-hex" aria-hidden="true"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid meet"><path d="M82 75 H134" class="infra-flow" stroke="#38bdf8" stroke-width="1.4" fill="none"/><path d="M186 75 H238" class="infra-flow" stroke="#38bdf8" stroke-width="1.4" fill="none"/><circle cx="82" cy="75" r="2.4" fill="#22d3ee" class="infra-pulse"/><circle cx="186" cy="75" r="2.4" fill="#22d3ee" class="infra-pulse" style="animation-delay:.9s"/><polygon class="hx hx1" points="55,42 81,57 81,93 55,108 29,93 29,57"/><polygon class="hx hx2" points="160,42 186,57 186,93 160,108 134,93 134,57"/><polygon class="hx hx3" points="265,42 291,57 291,93 265,108 239,93 239,57"/><g font-family="Inter,sans-serif" text-anchor="middle"><text x="55" y="79" font-size="10" font-weight="800" fill="#e0f2fe">PW</text><text x="160" y="79" font-size="10" font-weight="800" fill="#e0f2fe">n8n</text><text x="265" y="79" font-size="10" font-weight="800" fill="#e0f2fe">PG</text><text x="55" y="126" font-size="8" font-weight="700" fill="#7dd3fc">PLAYWRIGHT</text><text x="160" y="126" font-size="8" font-weight="700" fill="#7dd3fc">N8N</text><text x="265" y="126" font-size="8" font-weight="700" fill="#7dd3fc">POSTGRESQL</text></g></svg></span></span>
           <span class="svc-tile-body"><span class="svc-tile-title">AI Integration &amp; Workflows</span><span class="svc-tile-desc">Connected systems, APIs &amp; approvals</span></span>
         </button>
         <button type="button" onclick="switchPage('services')" class="svc-tile">
-          <span class="svc-tile-img"><img src="public/images/lead-generation-funnel.webp" alt="" width="1200" height="896" loading="lazy" decoding="async" /></span>
+          <span class="svc-tile-img"><span class="uag uag-funnel" aria-hidden="true"><span class="uag-drop d1"></span><span class="uag-drop d2"></span><span class="uag-drop d3"></span><span class="uag-tier-row"><span class="uag-tier t1"></span><em>Impressions</em></span><span class="uag-tier-row"><span class="uag-tier t2"></span><em>Qualified leads</em></span><span class="uag-tier-row"><span class="uag-tier t3"></span><em>₹280 CPL</em></span></span></span>
           <span class="svc-tile-body"><span class="svc-tile-title">Digital Marketing &amp; Leads</span><span class="svc-tile-desc">Campaigns, funnels &amp; lead routing</span></span>
         </button>
         <button type="button" onclick="switchPage('services')" class="svc-tile">
-          <span class="svc-tile-img"><img src="public/images/ai-content-studio.webp" alt="" width="1200" height="896" loading="lazy" decoding="async" /></span>
+          <span class="svc-tile-img"><span class="uag uag-wave" aria-hidden="true"><span class="uag-bars"><i style="height:22%"></i><i style="height:45%"></i><i style="height:70%"></i><i style="height:38%"></i><i style="height:86%"></i><i style="height:55%"></i><i style="height:30%"></i><i style="height:72%"></i><i style="height:48%"></i><i style="height:90%"></i><i style="height:40%"></i><i style="height:62%"></i><i style="height:26%"></i><i style="height:52%"></i></span><span class="uag-lang"><span>Odia</span><span>Hindi</span><span>English</span></span></span></span>
           <span class="svc-tile-body"><span class="svc-tile-title">AI Content, Voice &amp; Video</span><span class="svc-tile-desc">Plan, draft, produce, review</span></span>
         </button>
       </div>
@@ -856,116 +1129,54 @@
       <div class="grid lg:grid-cols-12 gap-8 items-start">
         <!-- Interactive CRM demo -->
         <div class="lg:col-span-7 space-y-4">
-          <div class="infra-panel p-4 sm:p-5" role="img" aria-label="Concept illustration of a CRM and automation workspace with lead pipeline, assignments and follow-up status">
-<div class="flex items-center justify-between relative z-10 mb-3">
-<span class="text-[11px] font-bold tracking-widest text-sky-300 uppercase">Buddy CRM - Workspace</span>
- <span class="text-[9px] font-mono px-2 py-0.5 rounded-full border border-amber-400/40 text-amber-300">INTERACTIVE DEMO</span>
+                    <div class="infra-panel p-4 sm:p-5" aria-label="Interactive CRM pipeline simulation with production-style sample data for KNR Integrity, Bhubaneswar">
+<div class="relative z-10 flex items-center justify-between flex-wrap gap-2 mb-3">
+<span class="text-[11px] font-bold tracking-widest text-sky-300 uppercase">Buddy CRM — Workspace</span>
+<span class="flex items-center gap-2">
+<span class="text-[9px] font-mono px-2 py-0.5 rounded-full border border-amber-400/40 text-amber-300">● LIVE SIMULATION</span>
 <span class="flex gap-1.5"><button type="button" id="heroReplay" aria-label="Replay workflow demo" class="text-[10px] font-bold px-2 py-1 rounded-md bg-slate-800 text-sky-300 border border-sky-500/30">Replay</button><button type="button" id="heroPause" aria-label="Pause workflow demo" aria-pressed="false" class="text-[10px] font-bold px-2 py-1 rounded-md bg-slate-800 text-sky-300 border border-sky-500/30">Pause</button></span>
+</span>
 </div>
-<svg viewBox="0 0 400 290" class="w-full h-auto relative z-10" aria-hidden="true">
-<defs>
-<linearGradient id="heroBg" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0" stop-color="#050a14"/>
-<stop offset="1" stop-color="#02060c"/>
-</linearGradient>
-<linearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0" stop-color="#0e1a30"/>
-<stop offset="1" stop-color="#0a1220"/>
-</linearGradient>
-<linearGradient id="activeGrad" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0" stop-color="#1d2d4a"/>
-<stop offset="1" stop-color="#0e1a30"/>
-</linearGradient>
-<linearGradient id="cyanGrad" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0" stop-color="#22d3ee"/>
-<stop offset="1" stop-color="#2563eb"/>
-</linearGradient>
-<filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-<feGaussianBlur stdDeviation="6" result="blur"/>
-<feComposite in="SourceGraphic" in2="blur" operator="over"/>
-</filter>
-</defs>
-<rect x="4" y="4" width="392" height="282" rx="12" fill="url(#heroBg)" stroke="#38bdf8" stroke-opacity=".25"/>
-<rect x="4" y="4" width="76" height="282" rx="12" fill="#0b1836"/>
-<g font-family="Inter,sans-serif" font-size="8" font-weight="700">
-<text x="14" y="24" fill="#e0f2fe">BUDDY</text><text x="14" y="34" fill="#64748b" font-weight="400">CRM</text>
-<circle cx="18" cy="52" r="3" fill="#64748b"/><text x="26" y="55" fill="#64748b">Boards</text>
-<circle cx="18" cy="70" r="3" fill="#7dd3fc"/><text x="26" y="73" fill="#7dd3fc">Leads</text>
-<circle cx="18" cy="88" r="3" fill="#64748b"/><text x="26" y="91" fill="#64748b">Calls</text>
-<circle cx="18" cy="106" r="3" fill="#64748b"/><text x="26" y="109" fill="#64748b">Visits</text>
-<circle cx="18" cy="124" r="3" fill="#64748b"/><text x="26" y="127" fill="#64748b">Billing</text>
-<circle cx="18" cy="142" r="3" fill="#64748b"/><text x="26" y="145" fill="#64748b">Reports</text>
-<rect x="14" y="250" width="56" height="22" rx="6" fill="#082f3a" stroke="#22d3ee" stroke-opacity=".5"/><text x="22" y="264" fill="#a5f3fc">+ Follow-up</text>
-</g>
-<g font-family="Inter,sans-serif" font-size="8" font-weight="700">
-<text x="92" y="24" fill="#7dd3fc">NEW</text>
-<rect id="hcol0" x="86" y="32" width="66" height="150" rx="8" fill="url(#cardGrad)" stroke="#38bdf8" stroke-opacity=".35"/>
-<rect x="91" y="40" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
-<circle cx="99" cy="50" r="3" fill="#22d3ee" class="infra-pulse"/>
-<text x="105" y="52" fill="#e0f2fe" font-size="7">A. Sharma</text>
-<text x="105" y="63" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
-<rect x="91" y="76" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
-<circle cx="99" cy="86" r="3" fill="#22d3ee" class="infra-pulse"/>
-<text x="105" y="88" fill="#e0f2fe" font-size="7">S. Patnaik</text>
-<text x="105" y="99" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
-<text x="168" y="24" fill="#7dd3fc">CALLING</text>
-<rect id="hcol1" x="162" y="32" width="66" height="150" rx="8" fill="url(#cardGrad)" stroke="#38bdf8" stroke-opacity=".35"/>
-<rect x="167" y="40" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
-<circle cx="175" cy="50" r="3" fill="#22d3ee" class="infra-pulse"/>
-<text x="181" y="52" fill="#e0f2fe" font-size="7">R. Das</text>
-<text x="181" y="63" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
-<rect x="167" y="76" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
-<circle cx="175" cy="86" r="3" fill="#22d3ee" class="infra-pulse"/>
-<text x="181" y="88" fill="#e0f2fe" font-size="7">P. Sahoo</text>
-<text x="181" y="99" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
-<text x="244" y="24" fill="#7dd3fc">VISIT</text>
-<rect id="hcol2" x="238" y="32" width="66" height="150" rx="8" fill="url(#cardGrad)" stroke="#38bdf8" stroke-opacity=".35"/>
-<rect x="243" y="40" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
-<circle cx="251" cy="50" r="3" fill="#22d3ee" class="infra-pulse"/>
-<text x="257" y="52" fill="#e0f2fe" font-size="7">K. Jena</text>
-<text x="257" y="63" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
-<text x="316" y="24" fill="#7dd3fc">BOOKED</text>
-<rect id="hcol3" x="310" y="32" width="66" height="150" rx="8" fill="url(#activeGrad)" stroke="#38bdf8" stroke-opacity=".5"/>
-<rect x="315" y="40" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
-<circle cx="323" cy="50" r="3" fill="#22d3ee" class="infra-pulse"/>
-<text x="329" y="52" fill="#e0f2fe" font-size="7">M. Mishra</text>
-<text x="329" y="63" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
-</g>
-<g font-family="Inter,sans-serif" font-size="7.5">
-<text x="92" y="200" fill="#7dd3fc" font-weight="700">THIS WEEK</text>
-<rect x="92" y="234" width="12" height="34" rx="3" fill="#2563eb" opacity=".75"/>
-<rect x="112" y="216" width="12" height="52" rx="3" fill="#2563eb" opacity=".75"/>
-<rect x="132" y="226" width="12" height="42" rx="3" fill="#2563eb" opacity=".75"/>
-<rect x="152" y="204" width="12" height="64" rx="3" fill="#2563eb" opacity=".75"/>
-<rect x="172" y="212" width="12" height="56" rx="3" fill="#2563eb" opacity=".75"/>
-<rect x="192" y="196" width="12" height="72" rx="3" fill="#2563eb" opacity=".75"/>
-<rect x="216" y="196" width="168" height="76" rx="8" fill="#0a1734" stroke="#22d3ee" stroke-opacity=".3"/>
-<text x="226" y="212" fill="#a5f3fc" font-weight="700">AUTOMATION</text>
-<circle cx="230" cy="226" r="3" fill="#34d399" class="infra-pulse"/><text id="waCount" x="238" y="229" fill="#cbd5e1">WhatsApp sent - 12</text>
-<circle cx="230" cy="242" r="3" fill="#fbbf24"/><text x="238" y="245" fill="#cbd5e1">2 need human OK</text>
-<text x="226" y="261" fill="#64748b">n8n + Playwright - scoped demo</text>
-</g>
-<g id="leadToken" style="transition:transform 1.1s cubic-bezier(.2,.7,.2,1)" transform="translate(119,150)"><rect x="-26" y="-14" width="52" height="28" rx="9" fill="#0b1a36" stroke="#22d3ee" stroke-width="1.4"/><circle cx="-15" cy="0" r="5" fill="#22d3ee"/><text id="leadTokenLabel" x="-6" y="4" fill="#fff" font-size="10" font-weight="700" font-family="Inter,sans-serif">A.S</text></g>
-<g stroke="#38bdf8" fill="none" stroke-width="1.2" opacity=".85">
-<path class="infra-flow" d="M92 52 H120"/>
-<path class="infra-flow" d="M168 52 H186"/>
-<path class="infra-flow" d="M244 52 H260"/>
-<path class="infra-flow-slow" d="M312 52 H328"/>
-</g>
-<g stroke="#22d3ee" fill="none" stroke-width="1.2" opacity=".9">
-<path class="infra-flow" d="M152 204 L152 186 M232 204 L232 186 M312 204 L312 186"/>
-<path class="infra-flow-slow" d="M72 204 L72 186"/>
-</g>
-<g fill="#22d3ee" opacity=".9">
-<circle cx="99" cy="200" r="2.5" class="infra-pulse"/>
-<circle cx="175" cy="200" r="2.5" class="infra-pulse"/>
-<circle cx="251" cy="200" r="2.5" class="infra-pulse"/>
-<circle cx="323" cy="200" r="2.5" class="infra-pulse"/>
-</g>
-</svg>
-<div class="relative z-10 flex flex-wrap items-center gap-2 mt-3 text-[10px] tracking-wider text-slate-400"><span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span><strong class="text-sky-200">ILLUSTRATIVE DATA</strong>&nbsp;NOT LIVE RESULTS</span><span class="ml-auto font-mono text-slate-500">CRM - PIPELINE - FOLLOW-UP</span></div>
+<div class="crm-status">
+  <span class="crm-stat"><b>Client:</b>&nbsp;KNR Integrity <em>(ORERA: ORA/0216/2024)</em></span>
+  <span class="crm-stat"><b>Active inventory:</b>&nbsp;60+ verified projects</span>
+  <span class="crm-stat crm-stage"><b>Pipeline:</b>&nbsp;<em id="crmStageLabel">Booked · human approval</em></span>
+</div>
+<div class="crm-flow" aria-hidden="true">
+  <span class="crm-pipe" id="crmPipe1"><i></i>Webhook</span><span class="crm-pipe-sep">→</span>
+  <span class="crm-pipe" id="crmPipe2"><i></i>Calling SLA</span><span class="crm-pipe-sep">→</span>
+  <span class="crm-pipe" id="crmPipe3"><i></i>Site visit</span><span class="crm-pipe-sep">→</span>
+  <span class="crm-pipe" id="crmPipe4"><i></i>Booked</span>
+</div>
+<div class="crm-board" id="crmBoard">
+  <div class="crm-col" id="crmCol0">
+    <p class="crm-col-h">NEW</p>
+    <article class="crm-card"><b>A. Sharma</b><small>Patia IT Corridor (Archid Elite 3BHK)</small><span class="crm-tags"><i class="crm-tag crm-tag-budget">₹95L</i><i class="crm-tag">Meta Ad</i></span></article>
+    <article class="crm-card"><b>S. Patnaik</b><small>Costa Fortune Crestview (Kantabada)</small><span class="crm-tags"><i class="crm-tag crm-tag-budget">₹78L</i><i class="crm-tag">Ask Buddy AI</i></span></article>
+    <article class="crm-card crm-arrive" id="crmArrival"><b>Webhook lead</b><small>Meta form instant delivery · dedupe passed</small><span class="crm-tags"><i class="crm-tag crm-tag-ok">n8n 200 OK</i></span></article>
+  </div>
+  <div class="crm-col" id="crmCol1">
+    <p class="crm-col-h">CALLING <span class="crm-sla">SLA queue</span></p>
+    <article class="crm-card"><b>R. Das</b><small>The Harmonious Haven (Rasulgarh Triplex)</small><span class="crm-tags"><i class="crm-tag crm-tag-budget">₹2.45 Cr</i><i class="crm-tag crm-tag-amber">SLA &lt; 5m</i></span></article>
+    <article class="crm-card"><b>P. Sahoo</b><small>Grace Urban Ville (Ghangapatna Duplex)</small><span class="crm-tags"><i class="crm-tag crm-tag-budget">₹85L</i><i class="crm-tag">Follow-up #2</i></span></article>
+  </div>
+  <div class="crm-col" id="crmCol2">
+    <p class="crm-col-h">SITE VISIT <span class="crm-sla crm-cab">Free AC cab</span></p>
+    <article class="crm-card"><b>K. Jena</b><small>Kalvik Adidev (Patia)</small><span class="crm-tags"><i class="crm-tag crm-tag-ok">Visit: Today 4:30 PM</i><i class="crm-tag">Pickup: Jagamara HQ</i></span></article>
+  </div>
+  <div class="crm-col" id="crmCol3">
+    <p class="crm-col-h">BOOKED / WON</p>
+    <article class="crm-card crm-won"><b>M. Mishra</b><small>Freehold Gharabadi Plot (Sundarpada)</small><span class="crm-tags"><i class="crm-tag crm-tag-ok">30-Yr title verified</i><i class="crm-tag crm-tag-budget">₹0 brokerage</i></span></article>
+  </div>
+</div>
+<div class="crm-foot">
+  <span class="crm-wa"><i class="crm-dot crm-dot-emerald"></i><b id="waCount">WhatsApp sent — 12</b></span>
+  <span class="crm-appr" id="crmApproval"><i class="crm-dot crm-dot-amber"></i>Human approval required</span>
+  <span class="crm-note">n8n + Playwright · webhook demo · production-style sample data</span>
+</div>
 </div>
         </div>
+
         <!-- Core capability carousel -->
         <div class="lg:col-span-5 space-y-4">
           <div class="glass-card rounded-2xl p-6 relative overflow-hidden">
@@ -1013,7 +1224,7 @@
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="glass-card rounded-2xl overflow-hidden">
           <div class="h-48 relative overflow-hidden bg-[#08142e] p-5" role="img" aria-label="Pipeline stages diagram for disciplined follow-up">
             <svg viewBox="0 0 300 110" class="w-full h-full" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="9" font-weight="700"><rect x="4" y="28" width="68" height="48" rx="8" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".5"/><text x="14" y="48" fill="#bae6fd">NEW</text><text x="14" y="62" fill="#64748b" font-weight="400">intake</text><rect x="80" y="28" width="68" height="48" rx="8" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".5"/><text x="90" y="48" fill="#bae6fd">CALL</text><text x="90" y="62" fill="#64748b" font-weight="400">queue</text><rect x="156" y="28" width="68" height="48" rx="8" fill="#0e2247" stroke="#22d3ee" stroke-opacity=".6"/><text x="166" y="48" fill="#fff">VISIT</text><text x="166" y="62" fill="#64748b" font-weight="400">booked</text><rect x="232" y="28" width="64" height="48" rx="8" fill="#082f3a" stroke="#22d3ee" stroke-opacity=".5"/><text x="240" y="48" fill="#a5f3fc">WON</text><text x="240" y="62" fill="#64748b" font-weight="400">review</text></g><g stroke="#38bdf8" stroke-width="1.3" fill="none" opacity=".8"><path class="infra-flow" d="M72 52 H80"/><path class="infra-flow" d="M148 52 H156"/><path class="infra-flow" d="M224 52 H232"/></g></svg>
@@ -1320,8 +1531,8 @@
               <p class="text-slate-400">[DEMO MODE] No live lead sources are connected in this preview.</p>
             </div>
           </div>
-          <button type="button" onclick="simulateWebhook()" class="mt-6 w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-400/40 transition">
-            ▶ Run Workflow Demo
+          <button type="button" id="termTrigger" onclick="simulateWebhook()" class="mt-6 w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-400/40 transition">
+            ⚡ Trigger Test Lead — uses your calculator inputs
           </button>
         </div>
       </div>
@@ -1348,19 +1559,52 @@
         selectServiceAndContact('Growth Marketing Retainer (₹15k-₹25k/mo)');
         document.getElementById('clientGoal').value = `Industry: ${industry} | Monthly Ad Budget: ${budget} | Illustrative CPL assumption: ${cpl} | Illustrative leads: ${leads}/mo | Illustrative visits at 25% planning ratio: ${visits}/mo. These are planning estimates, not guaranteed results.`;
       }
-      function simulateWebhook() {
+      let termAuto = true, termStreamed = false;
+      function termLine(cls, txt) {
         const term = document.getElementById('aiTerminal');
-        const names = ['Sample inquiry A (Bhubaneswar)', 'Sample inquiry B (Bhubaneswar)', 'Sample inquiry C (Bhubaneswar)'];
-        const pick = names[Math.floor(Math.random() * names.length)];
-        term.innerHTML = `<p class="text-amber-300">[SIMULATION] Sample lead payload: ${pick}</p>`;
-        setTimeout(() => {
-          term.innerHTML += `<p class="text-cyan-300">[DEMO] Example intent score: 94/100 (illustrative only)</p>`;
-          term.scrollTop = term.scrollHeight;
-        }, 450);
-        setTimeout(() => {
-          term.innerHTML += `<p class="text-emerald-400">✅ [DEMO] Example CRM assignment and WhatsApp action (not executed)</p>`;
-          term.scrollTop = term.scrollHeight;
-        }, 950);
+        if (!term) return;
+        term.innerHTML += `<p class="${cls}">${txt}</p>`;
+        term.scrollTop = term.scrollHeight;
+      }
+      function termStream() {
+        if (termStreamed) return;
+        termStreamed = true;
+        const term = document.getElementById('aiTerminal');
+        if (!term) return;
+        term.innerHTML = '';
+        const lines = [
+          ['text-emerald-300', '[00:00:01] [SIMULATION] n8n webhook received — POST /webhook/meta-leads · 200 OK'],
+          ['text-slate-300', '[00:00:01] payload: {source:"Meta Lead Ad", campaign:"Costa Crestview · 3BHK", corridor:"Patia IT Hub"}'],
+          ['text-cyan-300', '[00:00:02] Ask Buddy AI intent score 91/100 → routed to CALLING queue (SLA &lt; 5 min)'],
+          ['text-emerald-300', '[00:00:03] WhatsApp template dispatched — "Hi! Your Patia site-visit slots…" (status: delivered)'],
+          ['text-amber-300', '[00:00:04] CRM sync complete — lead staged for human approval ✓ (demo pipeline, nothing sent)'],
+        ];
+        let rm = false;
+        try { rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+        lines.forEach((l, i) => {
+          if (rm || i === 0) { termLine(l[0], l[1]); return; }
+          setTimeout(() => { if (termAuto) termLine(l[0], l[1]); }, i * 700);
+        });
+      }
+      try {
+        if (document.readyState !== 'loading') setTimeout(termStream, 600);
+        else document.addEventListener('DOMContentLoaded', () => setTimeout(termStream, 600));
+      } catch (e) {}
+      function simulateWebhook() {
+        termAuto = false;
+        let industry = 'Real Estate Growth', budget = '—', leads = '—', visits = '—';
+        try {
+          calcROI();
+          const indSelect = document.getElementById('roiIndustry');
+          if (indSelect && indSelect.options && indSelect.options[indSelect.selectedIndex]) industry = indSelect.options[indSelect.selectedIndex].text;
+          budget = document.getElementById('roiBudgetLabel').innerText || '—';
+          leads = document.getElementById('roiLeads').innerText || '—';
+          visits = document.getElementById('roiVisits').innerText || '—';
+        } catch (e) {}
+        termLine('text-sky-400', '[SIMULATION] Test lead injected from Growth Calculator');
+        termLine('text-slate-300', `payload: ${industry} · budget ${budget} → est. ${leads} leads, ${visits} site visits/mo (planning)`);
+        setTimeout(() => termLine('text-cyan-300', '[00:00:01] n8n webhook → 200 OK · routed to CRM pipeline'), 500);
+        setTimeout(() => termLine('text-emerald-400', '[00:00:03] Example WhatsApp + CRM action — staged for human approval (not executed)'), 1050);
       }
     </script>
 
@@ -1454,7 +1698,7 @@
       <h3 class="font-display text-2xl sm:text-4xl font-bold text-white mt-1">Professional Track Record &amp; Certifications</h3>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-7">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       
       <!-- Experience 1: Real Estate Digital & Lead Operations (1.5 Years) -->
       <div class="glass-card rounded-2xl p-6 border-t-4 border-t-emerald-400 flex flex-col justify-between">
@@ -1602,8 +1846,8 @@
     <p class="text-[11px] tracking-widest text-sky-400 font-bold mb-4">VISUAL SERVICE SYSTEM · OPEN A CARD FOR DETAILS &amp; BOUNDARIES</p>
     <div class="grid md:grid-cols-2 gap-6">
       <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-card-media">
-          <img src="public/images/ai-agent-orchestration.webp" alt="Illustration of a central AI processor chip connected to orbiting business data sources" width="1200" height="896" loading="lazy" decoding="async" />
+        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
+          <span class="uag uag-chat" aria-hidden="true"><span class="uag-orb o1"></span><span class="uag-orb o2"></span><span class="uag-orb o3"></span><span class="uag-bubble uag-bub-user">Ask Buddy AI ⚡</span><span class="uag-typing"><i></i><i></i><i></i></span><span class="uag-bubble uag-bub-ai">3BHK · Patia · ~₹95L — free cab site visit?</span></span>
           <span class="case-tag case-tag-ok svc-media-tag">A · AI AGENTS</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
@@ -1623,8 +1867,8 @@
       </article>
 
       <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-card-media">
-          <img src="public/images/business-ai-systems.webp" alt="Illustration of connected business module blocks routing data through an approval gateway" width="1200" height="896" loading="lazy" decoding="async" />
+        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
+          <span class="uag uag-check" aria-hidden="true"><span class="uag-check-row"><i></i>SOP + workflow mapped</span><span class="uag-check-row"><i></i>GST / MSME records ready</span><span class="uag-check-row"><i></i>Internal knowledge base live</span><span class="uag-progress"><span></span></span></span>
           <span class="case-tag svc-media-tag">B · BUSINESS SETUP</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
@@ -1643,8 +1887,8 @@
       </article>
 
       <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-card-media">
-          <img src="public/images/social-media-automation.webp" alt="Illustration of media content panels flowing through an automated review pipeline" width="1200" height="896" loading="lazy" decoding="async" />
+        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
+          <span class="uag uag-conveyor" aria-hidden="true"><span class="uag-stage st1">DRAFT</span><span class="uag-stage st2">HUMAN REVIEW</span><span class="uag-stage st3">PUBLISHED</span><span class="uag-belt"></span><span class="uag-pkg"></span></span>
           <span class="case-tag svc-media-tag">C · SOCIAL AUTOMATION</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
@@ -1664,8 +1908,8 @@
       </article>
 
       <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-card-media">
-          <img src="public/images/crm-business-dashboard.webp" alt="Illustration of a CRM dashboard on desktop and mobile with lead tables and conversation panels" width="1200" height="896" loading="lazy" decoding="async" />
+        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
+          <span class="uag uag-kan" aria-hidden="true"><span class="uag-kan-col"><b>NEW</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-col"><b>CALLING</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-col"><b>SITE VISIT</b><span class="uag-kan-slot"></span><span class="uag-kan-slot"></span></span><span class="uag-kan-card"><b>S. Patnaik</b>₹78L · Kantabada</span></span>
           <span class="case-tag case-tag-ok svc-media-tag">D · CRM SYSTEMS</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
@@ -1689,8 +1933,8 @@
       </article>
 
       <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-card-media">
-          <svg viewBox="0 0 340 191" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="340" height="191" fill="#050c1d"/><g font-family="Inter,sans-serif" font-size="9" font-weight="700"><rect x="12" y="72" width="70" height="48" rx="8" fill="#0e2247" stroke="#38bdf8"/><text x="20" y="92" fill="#bae6fd">DESIGN</text><text x="20" y="106" fill="#64748b" font-weight="400">wireframe</text><rect x="94" y="72" width="70" height="48" rx="8" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".6"/><text x="102" y="92" fill="#bae6fd">BUILD</text><text x="102" y="106" fill="#64748b" font-weight="400">React/FastAPI</text><rect x="176" y="72" width="70" height="48" rx="8" fill="#0e2a55" stroke="#22d3ee"/><text x="184" y="92" fill="#fff">DEPLOY</text><text x="184" y="106" fill="#64748b" font-weight="400">live + SSL</text><rect x="258" y="72" width="70" height="48" rx="8" fill="#082f3a" stroke="#22d3ee"/><text x="266" y="92" fill="#a5f3fc">TRACK</text><text x="266" y="106" fill="#64748b" font-weight="400">analytics</text></g><g stroke="#38bdf8" fill="none" stroke-width="1.2"><path class="infra-flow" d="M82 96 H94"/><path class="infra-flow" d="M164 96 H176"/><path class="infra-flow-slow" d="M246 96 H258"/></g><g fill="#22d3ee"><circle cx="88" cy="96" r="2" class="infra-pulse"/><circle cx="170" cy="96" r="2" class="infra-pulse"/><circle cx="252" cy="96" r="2" class="infra-pulse"/></g></svg>
+        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
+          <span class="uag uag-dev" aria-hidden="true"><span class="uag-editor"><span class="uag-ed-head"><i></i><i></i><i></i></span><span class="uag-ed-line l1"></span><span class="uag-ed-line l2"></span><span class="uag-ed-line uag-typing-line"></span><span class="uag-ed-line l4"></span></span><span class="uag-wire"><span></span><span></span><span></span></span></span>
           <span class="case-tag svc-media-tag">E · WEB &amp; APPS</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
@@ -1711,8 +1955,8 @@
       </article>
 
       <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-card-media">
-          <img src="public/images/ai-workflow-pipeline.webp" alt="Illustration of a dashboard cube, database hub and analytics modules connected by data streams" width="1200" height="896" loading="lazy" decoding="async" />
+        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
+          <span class="uag uag-hex" aria-hidden="true"><svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid meet"><path d="M82 75 H134" class="infra-flow" stroke="#38bdf8" stroke-width="1.4" fill="none"/><path d="M186 75 H238" class="infra-flow" stroke="#38bdf8" stroke-width="1.4" fill="none"/><circle cx="82" cy="75" r="2.4" fill="#22d3ee" class="infra-pulse"/><circle cx="186" cy="75" r="2.4" fill="#22d3ee" class="infra-pulse" style="animation-delay:.9s"/><polygon class="hx hx1" points="55,42 81,57 81,93 55,108 29,93 29,57"/><polygon class="hx hx2" points="160,42 186,57 186,93 160,108 134,93 134,57"/><polygon class="hx hx3" points="265,42 291,57 291,93 265,108 239,93 239,57"/><g font-family="Inter,sans-serif" text-anchor="middle"><text x="55" y="79" font-size="10" font-weight="800" fill="#e0f2fe">PW</text><text x="160" y="79" font-size="10" font-weight="800" fill="#e0f2fe">n8n</text><text x="265" y="79" font-size="10" font-weight="800" fill="#e0f2fe">PG</text><text x="55" y="126" font-size="8" font-weight="700" fill="#7dd3fc">PLAYWRIGHT</text><text x="160" y="126" font-size="8" font-weight="700" fill="#7dd3fc">N8N</text><text x="265" y="126" font-size="8" font-weight="700" fill="#7dd3fc">POSTGRESQL</text></g></svg></span>
           <span class="case-tag svc-media-tag">F · INTEGRATION</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
@@ -1732,8 +1976,8 @@
       </article>
 
       <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-card-media">
-          <img src="public/images/lead-generation-funnel.webp" alt="Illustration of a glowing data funnel narrowing into a circuit board with analytics bars" width="1200" height="896" loading="lazy" decoding="async" />
+        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
+          <span class="uag uag-funnel" aria-hidden="true"><span class="uag-drop d1"></span><span class="uag-drop d2"></span><span class="uag-drop d3"></span><span class="uag-tier-row"><span class="uag-tier t1"></span><em>Impressions</em></span><span class="uag-tier-row"><span class="uag-tier t2"></span><em>Qualified leads</em></span><span class="uag-tier-row"><span class="uag-tier t3"></span><em>₹280 CPL</em></span></span>
           <span class="case-tag case-tag-ok svc-media-tag">G · GROWTH</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
@@ -1754,8 +1998,8 @@
       </article>
 
       <article class="glass-card rounded-2xl overflow-hidden flex flex-col">
-        <div class="svc-card-media">
-          <img src="public/images/ai-content-studio.webp" alt="Illustration of a studio microphone surrounded by audio waveforms and media player panels" width="1200" height="896" loading="lazy" decoding="async" />
+        <div class="svc-ani h-36 bg-slate-900/80 rounded-t-xl overflow-hidden relative border-b border-cyan-500/20">
+          <span class="uag uag-wave" aria-hidden="true"><span class="uag-bars"><i style="height:22%"></i><i style="height:45%"></i><i style="height:70%"></i><i style="height:38%"></i><i style="height:86%"></i><i style="height:55%"></i><i style="height:30%"></i><i style="height:72%"></i><i style="height:48%"></i><i style="height:90%"></i><i style="height:40%"></i><i style="height:62%"></i><i style="height:26%"></i><i style="height:52%"></i></span><span class="uag-lang"><span>Odia</span><span>Hindi</span><span>English</span></span></span>
           <span class="case-tag svc-media-tag">H · CONTENT &amp; MEDIA</span>
         </div>
         <div class="p-6 flex flex-col flex-1">
@@ -1775,7 +2019,7 @@
       </article>
     </div>
     <p class="text-[11px] tracking-widest text-sky-400 font-bold mt-10 mb-4">ALSO AVAILABLE — SPECIALIST TRACKS</p>
-    <div class="grid md:grid-cols-3 gap-5">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     <div class="glass-card rounded-2xl p-5"><span class="case-tag case-tag-ok">ADVISORY - PRODUCTION-READY</span><h3 class="font-display text-lg font-bold text-white mt-2">Audits and automation consulting</h3><p class="text-xs text-slate-300 mt-2 leading-relaxed"><strong class="text-white">Problem:</strong> Unclear bottlenecks across tools and handoffs.</p><p class="text-xs text-slate-300 mt-1 leading-relaxed"><strong class="text-white">Deliverable:</strong> Technical audit, prioritized fix list, scoped next steps. Tools reviewed: CRM, Python/n8n/Playwright, React/FastAPI, deploys.</p></div>
     <div class="glass-card rounded-2xl p-5"><span class="case-tag">REPORTING - CUSTOM DEV</span><h3 class="font-display text-lg font-bold text-white mt-2">Reporting and knowledge workflows</h3><p class="text-xs text-slate-300 mt-2 leading-relaxed"><strong class="text-white">Problem:</strong> Scattered reports and repeat questions.</p><p class="text-xs text-slate-300 mt-1 leading-relaxed"><strong class="text-white">Deliverable:</strong> AI-assisted summaries, internal FAQ/knowledge pages, operational dashboards. Human review before sharing.</p></div>
     <div class="glass-card rounded-2xl p-5"><span class="case-tag case-tag-warn">VOICE - EXPERIMENTAL</span><h3 class="font-display text-lg font-bold text-white mt-2">Voice-agent prototypes (Odia/Hindi)</h3><p class="text-xs text-slate-300 mt-2 leading-relaxed"><strong class="text-white">Problem being explored:</strong> Hands-free follow-up for local language callers.</p><p class="text-xs text-slate-400 mt-1 leading-relaxed"><strong class="text-slate-200">Status:</strong> Research prototype only. Accuracy, latency and consent flows need validation. Not a production calling service.</p><div class="rounded-xl overflow-hidden border border-violet-500/25 bg-[#060d22] mt-3" role="img" aria-label="Voice pipeline concept, research prototype"><svg viewBox="0 0 320 96" class="w-full h-20" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="8" font-weight="700"><path d="M14 58 Q30 30 46 58 T78 58 T110 58 T142 58 T174 58 T206 58" stroke="#22d3ee" fill="none" stroke-width="1.6"/><rect x="222" y="34" width="90" height="48" rx="8" fill="#0e2247" stroke="#a78bfa" stroke-opacity=".6"/><text x="230" y="52" fill="#c4b5fd">FLOW</text><text x="230" y="66" fill="#64748b" font-weight="400">prototype</text></g><text x="14" y="88" fill="#64748b" font-size="7.5" font-family="Inter,sans-serif">Odia / Hindi - research prototype</text></svg></div></div>
@@ -1794,7 +2038,44 @@
       </p>
     </div>
 
-     <div class="flex flex-wrap gap-2 mb-6">
+         <div class="glass-card rounded-2xl p-6 sm:p-8 mb-6 reveal-progress" id="knrSpotlight">
+      <div class="flex flex-wrap items-center gap-2"><span class="case-tag case-tag-ok">FLAGSHIP LIVE DEPLOYMENT</span><span class="case-tag">REAL ESTATE · BHUBANESWAR</span><a href="https://knrintegrity.com" target="_blank" rel="noopener noreferrer" class="case-tag" style="text-decoration:none">knrintegrity.com ↗</a></div>
+      <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mt-3">KNR Integrity — Sovereign Real Estate Advisory &amp; AI Lead Engine</h3>
+      <p class="text-sm text-slate-300 mt-2 leading-relaxed">Direct-to-builder advisory for Bhubaneswar's growth corridors, powered by an automated lead engine: ad capture → Ask Buddy AI qualification → WhatsApp follow-up → CRM pipeline with human approval gates.</p>
+      <div class="knr-metrics">
+        <span class="knr-metric"><b>60+</b><small>ORERA projects indexed</small></span>
+        <span class="knr-metric"><b>1,250+</b><small>families settled</small></span>
+        <span class="knr-metric"><b>24/7</b><small>Ask Buddy AI property concierge</small></span>
+        <span class="knr-metric"><b>Python + n8n</b><small>automated lead routing</small></span>
+      </div>
+      <div class="knr-tabs" role="tablist" aria-label="KNR Integrity interactive previews">
+        <button type="button" class="knr-tab knr-on" id="knrTabAsk" role="tab" aria-selected="true" aria-controls="knrAskPanel" onclick="knrTab('ask')">Tab 1 · Ask Buddy AI Concierge</button>
+        <button type="button" class="knr-tab" id="knrTabMatrix" role="tab" aria-selected="false" aria-controls="knrMatrixPanel" onclick="knrTab('matrix')">Tab 2 · Corridor Price &amp; EMI Matrix</button>
+      </div>
+      <div id="knrAskPanel" class="knr-panel" role="tabpanel" aria-labelledby="knrTabAsk">
+        <div class="knr-chips">
+          <button type="button" class="knr-chip" id="knrChip1" onclick="knrAsk(this)" data-a="Strong matches in Patia under ₹1 Cr: Archid Elite (3BHK, ~₹95L, ORERA verified) and Costa Fortune Crestview (Kantabada, ~₹78L). Both have fresh inventory updates this week — I can send the current price sheet over WhatsApp.">Patia 3 BHK &lt; ₹1 Cr</button>
+          <button type="button" class="knr-chip" id="knrChip2" onclick="knrAsk(this)" data-a="Costa Fortune Crestview (Kantabada): 2/3BHK inventory from ~₹68L–₹92L with ORERA approvals in place. Unit sizes, floor plans and payment schedules are shared on WhatsApp after a quick budget check.">Costa Crestview Units</button>
+          <button type="button" class="knr-chip" id="knrChip3" onclick="knrAsk(this)" data-a="KNR works on a builder-mandate advisory model: you pay the project price, not a middleman margin. Every resale or freehold deal also passes a 30-year title verification before booking.">Why ₹0 Brokerage?</button>
+          <button type="button" class="knr-chip" id="knrChip4" onclick="knrAsk(this)" data-a="Free AC cab site visit: pick the project and a slot — pickup runs from the Jagamara HQ and covers the main corridors. The cab is scheduled once you confirm the slot on WhatsApp.">Free Cab Site Visit</button>
+        </div>
+        <div class="knr-chat">
+          <div class="knr-msg knr-msg-ai" id="knrAnswer" aria-live="polite">Ask about Patia budgets, Costa Crestview inventory, zero-brokerage or the free cab visit — tap a prompt above.</div>
+        </div>
+        <p class="knr-note">Interactive preview of the concierge experience on knrintegrity.com — responses shown are representative examples of the live flow.</p>
+      </div>
+      <div id="knrMatrixPanel" class="knr-panel" role="tabpanel" aria-labelledby="knrTabMatrix" hidden>
+        <div class="knr-corr">
+          <div class="knr-corr-row"><div class="knr-corr-top"><b>Patia IT Hub</b><span>₹6,500–₹9,500/sqft</span><em>+14.5% YoY</em></div><div class="knr-bar"><span style="--w:92%"></span></div></div>
+          <div class="knr-corr-row"><div class="knr-corr-top"><b>Trisulia CDA</b><span>₹4,400–₹6,300/sqft</span><em>+12.8% YoY</em></div><div class="knr-bar"><span style="--w:76%"></span></div></div>
+          <div class="knr-corr-row"><div class="knr-corr-top"><b>Khandagiri–AIIMS Axis</b><span>₹5,200–₹7,400/sqft</span><em>+11.2% YoY</em></div><div class="knr-bar"><span style="--w:64%"></span></div></div>
+        </div>
+        <div class="knr-emi"><span>Planning EMI strip:</span><b>₹60L</b><span>@</span><b>8.5%*</b><span>·</span><span>20 yrs</span><span>≈</span><b style="color:#6ee7b7">₹52,070/mo</b></div>
+        <p class="knr-note">Indicative corridor planning ranges for this demo — project rates vary by floor, facing and approvals, and the EMI figure is a planning assumption. Confirm live inventory and current rates with the KNR advisory desk.</p>
+      </div>
+    </div>
+
+<div class="flex flex-wrap gap-2 mb-6">
       <input id="labSearch" type="search" placeholder="Filter projects: crm, agent, python..." aria-label="Filter projects" class="flex-1 min-w-[180px] px-4 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white focus:border-sky-400 outline-none" />
       <select id="labStatus" aria-label="Filter by status" class="px-4 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-xs text-white"><option value="">All statuses</option><option value="active">Active</option><option value="prototype">Prototype</option><option value="experiment">Experiment</option></select>
     </div>
@@ -2110,7 +2391,7 @@
         <button type="button" onclick="switchPage('contact')" class="px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wide bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950 shrink-0">Start a conversation</button>
       </div>
       <div class="grid sm:grid-cols-3 gap-6 text-xs text-slate-400">
-        <div><p class="font-bold text-white tracking-wider flex items-center gap-2"><img src="public/images/logo.svg" alt="BUDDY AI PARTNERS logo" width="20" height="20" loading="lazy" decoding="async" />BUDDY AI PARTNERS</p><p class="mt-2 leading-relaxed">Bhubaneswar, Odisha, India · Remote-first delivery.<br/>Founder: Rahul Kumar Dhal.<br/>Udyam MSME-registered sole proprietorship; GST-ready billing.</p><p class="text-[11px] text-slate-500 mt-2">WhatsApp/Telegram: <a class="underline" href="tel:+917328089908">+91 73280 89908</a> · <a class="underline" href="https://wa.me/917328089908" target="_blank" rel="noopener noreferrer">wa.me/917328089908</a> · <a class="underline" href="https://t.me/917328089908" target="_blank" rel="noopener noreferrer">Telegram</a><br/>Instagram DM available. Facebook: link on request (no URL configured).</p></div>
+        <div><p class="font-bold text-white tracking-wider flex items-center gap-2"><img src="public/images/logo.svg" alt="BUDDY AI PARTNERS logo" width="20" height="20" loading="lazy" decoding="async" />BUDDY AI PARTNERS</p><p class="mt-2 leading-relaxed">Bhubaneswar, Odisha, India · Remote-first delivery.<br/>Founder: Rahul Kumar Dhal.<br/>Udyam MSME-registered sole proprietorship; GST-ready billing.</p><p class="text-[11px] text-slate-500 mt-2">WhatsApp/Telegram: <a class="underline" href="tel:+917328089908">+91 73280 89908</a> · <a class="underline" href="https://wa.me/917328089908" target="_blank" rel="noopener noreferrer">wa.me/917328089908</a> · <a class="underline" href="https://t.me/917328089908" target="_blank" rel="noopener noreferrer">Telegram</a><br/>Instagram DM available.</p></div>
         <nav aria-label="Footer Navigation" class="flex flex-wrap gap-x-5 gap-y-2 items-start">
           <button type="button" onclick="switchPage('home')" class="hover:text-sky-400 transition">Home</button>
           <button type="button" onclick="switchPage('about')" class="hover:text-sky-400 transition">About</button>
@@ -2441,15 +2722,26 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
     function ovChip(r){var ic=(typeof ECO_ICONS!=='undefined'&&ECO_ICONS[r.n])?'<img loading="lazy" width="18" height="18" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/'+ECO_ICONS[r.n]+'.svg" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;background:#fff;border-radius:5px;padding:2px;flex:0 0 auto;" onerror="this.remove()" />':'';return '<span style="display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .6rem;border-radius:.6rem;border:1px solid rgba(56,189,248,.16);background:rgba(8,16,36,.8);font-size:.72rem;color:#e2e8f0;" title="'+ecoEsc(r.n)+'">'+ic+'<span>'+ecoEsc(r.n)+'</span></span>';}
     function ovRender(){try{var el=document.getElementById('stackOverview');if(!el)return;var all=ecoData();var byName={};all.forEach(function(r){byName[r.n]=r;});var html='';OVERVIEW.forEach(function(g){var items=g[1].cat?all.filter(function(r){return r.c===g[1].cat;}):g[1].names.map(function(n){return byName[n];}).filter(Boolean);if(!items.length)return;html+='<div class="stack-tier"><p class="stack-cat">'+ecoEsc(g[0])+' ('+items.length+')</p><p style="font-size:11px;color:#94a3b8;margin-top:4px;">'+ecoEsc(g[1].d||'')+'</p><div style="display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem;">'+items.map(ovChip).join('')+'</div></div>';});html+='<div style="grid-column:1/-1;text-align:center;"><button type="button" onclick="document.getElementById(\'ecoDirectory\').scrollIntoView();document.getElementById(\'ecoSearch\').focus({preventScroll:true})" style="padding:.7rem 1.4rem;border-radius:.7rem;font-size:.75rem;font-weight:800;background:linear-gradient(135deg,#2563eb,#06b6d4);color:#fff;cursor:pointer;">Browse the searchable directory</button></div>';el.innerHTML=html;}catch(e){}}
     try{ovRender();}catch(e){}
-        // 6. Hero command-center demo: lead token travels pipeline stages.
-    var HERO_STAGES=[{x:99,n:'A.S'},{x:175,n:'R.D'},{x:251,n:'K.J'},{x:323,n:'M.M'}];
-    var heroIdx=0,heroTimer=0,heroPaused=false,waN=12,heroCycles=0;
-    function heroPaint(){var t=document.getElementById('leadToken');if(!t)return;var s=HERO_STAGES[heroIdx];t.setAttribute('transform','translate('+s.x+',150)');var lb=document.getElementById('leadTokenLabel');if(lb)lb.textContent=s.n;for(var i=0;i<4;i++){var c=document.getElementById('hcol'+i);if(c)c.setAttribute('stroke-opacity',i===heroIdx?'.9':'.18');}}
-    function heroStep(){if(document.hidden||heroPaused)return;heroIdx=(heroIdx+1)%HERO_STAGES.length;heroPaint();if(heroIdx===3){waN=Math.min(waN+1,19);var w=document.getElementById('waCount');if(w)w.textContent='WhatsApp sent - '+waN;if(heroIdx===3)heroCycles++;}}
-    function heroStart(){try{var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;heroPaint();if(rm||!('IntersectionObserver' in window)){return;}}catch(e){return;}clearInterval(heroTimer);heroTimer=setInterval(heroStep,1700);}
-    try{document.getElementById('heroReplay').addEventListener('click',function(){heroIdx=0;waN=12;var w=document.getElementById('waCount');if(w)w.textContent='WhatsApp sent - 12';heroPaused=false;var pb=document.getElementById('heroPause');if(pb){pb.textContent='Pause';pb.setAttribute('aria-pressed','false');}heroPaint();heroStart();});}catch(e){}
-    try{document.getElementById('heroPause').addEventListener('click',function(){heroPaused=!heroPaused;this.textContent=heroPaused?'Play':'Pause';this.setAttribute('aria-pressed',String(heroPaused));});}catch(e){}
+                // 6. Buddy CRM workspace demo: webhook arrival, stage autoplay, WhatsApp counter.
+    var CRM_ORDER=['new','calling','visit','booked'];
+    var CRM_STAGE_NAME={new:'New lead via webhook',calling:'SLA calling queue',visit:'Site visit · cab concierge',booked:'Booked · human approval'};
+    var crmIdx=3,crmTimer=0,crmPaused=false,crmWa=12;
+    function crmPaint(){try{var i,k;
+      for(i=0;i<CRM_ORDER.length;i++){var col=document.getElementById('crmCol'+i);if(col)col.classList.toggle('crm-active',i===crmIdx);}
+      var lb=document.getElementById('crmStageLabel');if(lb)lb.textContent=CRM_STAGE_NAME[CRM_ORDER[crmIdx]];
+      var arrive=document.getElementById('crmArrival');if(arrive)arrive.classList.toggle('crm-show',crmIdx===0);
+      var appr=document.getElementById('crmApproval');if(appr)appr.classList.toggle('crm-amber',crmIdx===3);
+      for(k=0;k<4;k++){var p=document.getElementById('crmPipe'+(k+1));if(p)p.classList.toggle('crm-on',k===crmIdx);}
+    }catch(e){}}
+    function crmSetWa(){try{var w=document.getElementById('waCount');if(w)w.textContent='WhatsApp sent — '+crmWa;}catch(e){}}
+    function heroStep(){if(document.hidden||crmPaused)return;crmIdx=(crmIdx+1)%CRM_ORDER.length;if(crmIdx===3){crmWa=Math.min(crmWa+1,19);crmSetWa();}crmPaint();}
+    function heroPaint(){crmPaint();crmSetWa();}
+    function heroStart(){try{var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;crmPaint();if(rm||!('IntersectionObserver' in window)){return;}}catch(e){return;}clearInterval(crmTimer);crmTimer=setInterval(heroStep,2000);}
+    try{document.getElementById('heroReplay').addEventListener('click',function(){crmIdx=0;crmWa=12;crmSetWa();crmPaused=false;var pb=document.getElementById('heroPause');if(pb){pb.textContent='Pause';pb.setAttribute('aria-pressed','false');}crmPaint();heroStart();});}catch(e){}
+    try{document.getElementById('heroPause').addEventListener('click',function(){crmPaused=!crmPaused;this.textContent=crmPaused?'Play':'Pause';this.setAttribute('aria-pressed',String(crmPaused));});}catch(e){}
+    try{heroStart();}catch(e){}
     // 7. Pipeline autoplay with node states + replay.
+// 7. Pipeline autoplay with node states + replay.
     var ARCH_ORDER=['capture','normalize','route','act'],archIdx=0,archTimer=0,archAuto=true;
     var ARCH_NODE={capture:'arch-n1',normalize:'arch-n2',route:'arch-n3',act:'arch-n4'};
     function archPaint(key){try{for(var k in ARCH_NODE){var n=document.getElementById(ARCH_NODE[k]);if(!n)continue;var order=ARCH_ORDER.indexOf(k),cur=ARCH_ORDER.indexOf(key);n.setAttribute('opacity',order<=cur?'1':'.35');n.setAttribute('stroke-width',k===key?'2.2':'1.2');}var pr=document.getElementById('archProgress');if(pr)pr.style.width=((ARCH_ORDER.indexOf(key)+1)/ARCH_ORDER.length*100)+'%';}catch(e){}}
@@ -2466,6 +2758,16 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
     try{(function(){var rm=false;try{rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}if(rm||!('IntersectionObserver' in window))return;var els=document.querySelectorAll('#arch-title,#feat-title,.proc-step');els.forEach(function(el){el.classList.add('reveal');});var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');io.unobserve(en.target);}});},{threshold:.12});els.forEach(function(el){io.observe(el);});})();}catch(e){}
         // 10. Engineering Lab filter: text + status over portfolio project cards.
     try{(function(){var s=document.getElementById('labSearch'),f=document.getElementById('labStatus');if(!s||!f)return;function run(){var q=s.value.toLowerCase(),st=f.value;document.querySelectorAll('#page-portfolio [data-proj]').forEach(function(c){var hay=((c.getAttribute('data-proj')||'')+' '+(c.getAttribute('data-tech')||'')+' '+c.textContent).toLowerCase();var ok=(!q||hay.indexOf(q)>=0)&&(!st||(c.getAttribute('data-status')||'')===st);c.style.display=ok?'':'none';});}s.addEventListener('input',run);f.addEventListener('change',run);})();}catch(e){}
+    // 4d. KNR Integrity spotlight: tab switcher + Ask Buddy preview chips.
+    function knrTab(name){try{
+      var isAsk=name!=='matrix';
+      var ask=document.getElementById('knrAskPanel'),mx=document.getElementById('knrMatrixPanel');
+      var tbAsk=document.getElementById('knrTabAsk'),tbMx=document.getElementById('knrTabMatrix');
+      if(ask)ask.hidden=!isAsk;if(mx)mx.hidden=isAsk;
+      if(tbAsk){tbAsk.classList.toggle('knr-on',isAsk);tbAsk.setAttribute('aria-selected',String(isAsk));}
+      if(tbMx){tbMx.classList.toggle('knr-on',!isAsk);tbMx.setAttribute('aria-selected',String(!isAsk));}
+    }catch(e){}}
+    function knrAsk(btn){try{var el=document.getElementById('knrAnswer');if(!el||!btn)return;el.textContent=btn.getAttribute('data-a')||'';}catch(e){}}
     // 5. Adaptive neural starfield. It uses no tracking, APIs or external data.
     const canvas = document.getElementById('galaxyCanvas');
     const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;

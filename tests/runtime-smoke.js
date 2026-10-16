@@ -37,6 +37,12 @@ let m;
 while ((m = re.exec(html)) !== null) {
   const cls = (m[0].match(/class="([^"]*)"/) || [])[1] || '';
   if (!reg[m[2]]) reg[m[2]] = makeEl(m[1], m[2], cls);
+  const el = reg[m[2]];
+  (m[0].match(/\sdata-[a-z-]+="[^"]*"/g) || []).forEach(a => {
+    const eq = a.indexOf('=');
+    el.attrs[a.slice(0, eq).trim()] = a.slice(eq + 1).replace(/^"|"$/g, '');
+  });
+  if (/\shidden(?:\s|>)/.test(m[0])) el.hidden = true;
 }
 try {
   const dh = html.match(/id="ecosystem-data">\n([\s\S]*?)<\/script>/);
@@ -91,11 +97,21 @@ try {
   ECO_STATE.q = 'agent'; ECO_STATE.cat = 'agents'; ECO_STATE.st = 'Researching'; ecoRender();
   if (!reg['ecoSections'].innerHTML.includes('Cursor')) fail('combined filter broken');
   ECO_STATE.q = ''; ECO_STATE.cat = ''; ECO_STATE.st = ''; ecoRender();
-  heroStep(); archTick(); setArch('route');
+  heroStep(); heroStep(); heroStep(); heroStep(); archTick(); setArch('route');
+  if (reg['crmStageLabel'].textContent !== 'Booked · human approval') fail('crm demo did not complete cycle: ' + reg['crmStageLabel'].textContent);
+  if (!/13/.test(reg['waCount'].textContent)) fail('crm WhatsApp counter did not increment: ' + reg['waCount'].textContent);
+  knrTab('matrix'); knrAsk(reg['knrChip1']);
+  if (reg['knrMatrixPanel'].hidden !== false) fail('knr spotlight tab did not switch');
+  if (!reg['knrAnswer'].textContent) fail('knr Ask Buddy chip did not render an answer');
+  simulateWebhook();
+  if (!/SIMULATION/.test(reg['aiTerminal'].innerHTML)) fail('terminal test-lead trigger did not render');
   console.log('demos tick OK;',
-    'token=' + reg['leadToken'].attrs.transform,
+    'stage=' + reg['crmStageLabel'].textContent,
+    'wa=' + reg['waCount'].textContent,
     'progress=' + reg['archProgress'].style.width,
-    'count=' + reg['ecoCount'].textContent);
+    'count=' + reg['ecoCount'].textContent,
+    'knr.answer=' + reg['knrAnswer'].textContent.slice(0, 28) + '…',
+    'term.lines=' + (reg['aiTerminal'].innerHTML.match(/<p /g) || []).length);
 } catch (e) { fail('assert threw: ' + e.message); }
 console.log(failures.length ? ('FAILURES:' + failures.length) : 'ALL-RUNTIME-CHECKS-PASS');
 process.exit(failures.length ? 1 : 0);
