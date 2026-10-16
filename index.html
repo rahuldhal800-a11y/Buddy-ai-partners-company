@@ -570,7 +570,7 @@
     @media (max-width:640px){
       header .max-w-7xl>.flex{height:4rem;}
       header nav[aria-label="Mobile Navigation"]{padding:.4rem .6rem;gap:.4rem;}
-      .mnav-btn{font-size:11px!important;padding:.4rem .6rem!important;}
+      .mnav-btn{font-size:11px!important;padding:.5rem 1rem!important;}
       .tech-logo-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
       #page-home>section:first-child{padding-bottom:1.5rem;}
     }
@@ -701,14 +701,15 @@
           <svg id="menuIcoClose" class="w-5 h-5 hidden" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         </button>
       </div>
-      <nav id="mobileMenu" aria-label="Mobile Navigation" hidden class="absolute left-0 right-0 top-full z-50 px-3 pb-3 pt-1 bg-[#050915]/98 backdrop-blur-xl border-b border-slate-800/80">
-        <div class="grid grid-cols-2 gap-2">          <button type="button" onclick="switchPage('home');closeMenu()" data-mnav="home" class="mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300">Home</button>
-          <button type="button" onclick="switchPage('about');closeMenu()" data-mnav="about" class="mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300">About & Founder</button>
-          <button type="button" onclick="switchPage('services');closeMenu()" data-mnav="services" class="mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300">Services</button>
-          <button type="button" onclick="switchPage('portfolio');closeMenu()" data-mnav="portfolio" class="mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300">Portfolio</button>
-          <button type="button" onclick="switchPage('stack');closeMenu()" data-mnav="stack" class="mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300">Stack</button>
-          <button type="button" onclick="switchPage('process');closeMenu()" data-mnav="process" class="mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300">Process</button>
-          <button type="button" onclick="switchPage('contact');closeMenu()" data-mnav="contact" class="mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300">Pricing & Contact</button>
+      <nav id="mobileMenu" aria-label="Mobile Navigation" hidden class="absolute left-0 right-0 top-full z-50 px-3 pb-4 pt-1 bg-[#050915]/98 backdrop-blur-xl border-b border-slate-800/80">
+        <div class="flex flex-col gap-1.5">
+          <button type="button" onclick="switchPage('home');closeMenu()" data-mnav="home" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Home</button>
+          <button type="button" onclick="switchPage('about');closeMenu()" data-mnav="about" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">About & Founder</button>
+          <button type="button" onclick="switchPage('services');closeMenu()" data-mnav="services" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Services</button>
+          <button type="button" onclick="switchPage('portfolio');closeMenu()" data-mnav="portfolio" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Portfolio</button>
+          <button type="button" onclick="switchPage('stack');closeMenu()" data-mnav="stack" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Stack</button>
+          <button type="button" onclick="switchPage('process');closeMenu()" data-mnav="process" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Process</button>
+          <button type="button" onclick="switchPage('contact');closeMenu()" data-mnav="contact" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Pricing & Contact</button>
         </div>
       </nav>
     </div>
@@ -768,7 +769,29 @@
 <span class="flex gap-1.5"><button type="button" id="heroReplay" aria-label="Replay workflow demo" class="text-[10px] font-bold px-2 py-1 rounded-md bg-slate-800 text-sky-300 border border-sky-500/30">Replay</button><button type="button" id="heroPause" aria-label="Pause workflow demo" aria-pressed="false" class="text-[10px] font-bold px-2 py-1 rounded-md bg-slate-800 text-sky-300 border border-sky-500/30">Pause</button></span>
 </div>
 <svg viewBox="0 0 400 290" class="w-full h-auto relative z-10" aria-hidden="true">
-<rect x="4" y="4" width="392" height="282" rx="12" fill="#070f26" stroke="#38bdf8" stroke-opacity=".35"/>
+<defs>
+<linearGradient id="heroBg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#050a14"/>
+<stop offset="1" stop-color="#02060c"/>
+</linearGradient>
+<linearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#0e1a30"/>
+<stop offset="1" stop-color="#0a1220"/>
+</linearGradient>
+<linearGradient id="activeGrad" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#1d2d4a"/>
+<stop offset="1" stop-color="#0e1a30"/>
+</linearGradient>
+<linearGradient id="cyanGrad" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#22d3ee"/>
+<stop offset="1" stop-color="#2563eb"/>
+</linearGradient>
+<filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+<feGaussianBlur stdDeviation="6" result="blur"/>
+<feComposite in="SourceGraphic" in2="blur" operator="over"/>
+</filter>
+</defs>
+<rect x="4" y="4" width="392" height="282" rx="12" fill="url(#heroBg)" stroke="#38bdf8" stroke-opacity=".25"/>
 <rect x="4" y="4" width="76" height="282" rx="12" fill="#0b1836"/>
 <g font-family="Inter,sans-serif" font-size="8" font-weight="700">
 <text x="14" y="24" fill="#e0f2fe">BUDDY</text><text x="14" y="34" fill="#64748b" font-weight="400">CRM</text>
@@ -782,7 +805,7 @@
 </g>
 <g font-family="Inter,sans-serif" font-size="8" font-weight="700">
 <text x="92" y="24" fill="#7dd3fc">NEW</text>
-<rect id="hcol0" x="86" y="32" width="66" height="150" rx="8" fill="#0a1734" stroke="#38bdf8" stroke-opacity=".18"/>
+<rect id="hcol0" x="86" y="32" width="66" height="150" rx="8" fill="url(#cardGrad)" stroke="#38bdf8" stroke-opacity=".35"/>
 <rect x="91" y="40" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
 <circle cx="99" cy="50" r="3" fill="#22d3ee" class="infra-pulse"/>
 <text x="105" y="52" fill="#e0f2fe" font-size="7">A. Sharma</text>
@@ -792,7 +815,7 @@
 <text x="105" y="88" fill="#e0f2fe" font-size="7">S. Patnaik</text>
 <text x="105" y="99" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
 <text x="168" y="24" fill="#7dd3fc">CALLING</text>
-<rect id="hcol1" x="162" y="32" width="66" height="150" rx="8" fill="#0a1734" stroke="#38bdf8" stroke-opacity=".18"/>
+<rect id="hcol1" x="162" y="32" width="66" height="150" rx="8" fill="url(#cardGrad)" stroke="#38bdf8" stroke-opacity=".35"/>
 <rect x="167" y="40" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
 <circle cx="175" cy="50" r="3" fill="#22d3ee" class="infra-pulse"/>
 <text x="181" y="52" fill="#e0f2fe" font-size="7">R. Das</text>
@@ -802,13 +825,13 @@
 <text x="181" y="88" fill="#e0f2fe" font-size="7">P. Sahoo</text>
 <text x="181" y="99" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
 <text x="244" y="24" fill="#7dd3fc">VISIT</text>
-<rect id="hcol2" x="238" y="32" width="66" height="150" rx="8" fill="#0a1734" stroke="#38bdf8" stroke-opacity=".18"/>
+<rect id="hcol2" x="238" y="32" width="66" height="150" rx="8" fill="url(#cardGrad)" stroke="#38bdf8" stroke-opacity=".35"/>
 <rect x="243" y="40" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
 <circle cx="251" cy="50" r="3" fill="#22d3ee" class="infra-pulse"/>
 <text x="257" y="52" fill="#e0f2fe" font-size="7">K. Jena</text>
 <text x="257" y="63" fill="#64748b" font-size="6.5" font-weight="400">Due today</text>
 <text x="316" y="24" fill="#7dd3fc">BOOKED</text>
-<rect id="hcol3" x="310" y="32" width="66" height="150" rx="8" fill="#0a1734" stroke="#38bdf8" stroke-opacity=".18"/>
+<rect id="hcol3" x="310" y="32" width="66" height="150" rx="8" fill="url(#activeGrad)" stroke="#38bdf8" stroke-opacity=".5"/>
 <rect x="315" y="40" width="56" height="30" rx="6" fill="#10234f" stroke="#38bdf8" stroke-opacity=".35"/>
 <circle cx="323" cy="50" r="3" fill="#22d3ee" class="infra-pulse"/>
 <text x="329" y="52" fill="#e0f2fe" font-size="7">M. Mishra</text>
@@ -826,9 +849,25 @@
 <text x="226" y="212" fill="#a5f3fc" font-weight="700">AUTOMATION</text>
 <circle cx="230" cy="226" r="3" fill="#34d399" class="infra-pulse"/><text id="waCount" x="238" y="229" fill="#cbd5e1">WhatsApp sent - 12</text>
 <circle cx="230" cy="242" r="3" fill="#fbbf24"/><text x="238" y="245" fill="#cbd5e1">2 need human OK</text>
- <text x="226" y="261" fill="#64748b">n8n + Playwright - scoped demo</text>
+<text x="226" y="261" fill="#64748b">n8n + Playwright - scoped demo</text>
 </g>
 <g id="leadToken" style="transition:transform 1.1s cubic-bezier(.2,.7,.2,1)" transform="translate(119,150)"><rect x="-26" y="-14" width="52" height="28" rx="9" fill="#0b1a36" stroke="#22d3ee" stroke-width="1.4"/><circle cx="-15" cy="0" r="5" fill="#22d3ee"/><text id="leadTokenLabel" x="-6" y="4" fill="#fff" font-size="10" font-weight="700" font-family="Inter,sans-serif">A.S</text></g>
+<g stroke="#38bdf8" fill="none" stroke-width="1.2" opacity=".85">
+<path class="infra-flow" d="M92 52 H120"/>
+<path class="infra-flow" d="M168 52 H186"/>
+<path class="infra-flow" d="M244 52 H260"/>
+<path class="infra-flow-slow" d="M312 52 H328"/>
+</g>
+<g stroke="#22d3ee" fill="none" stroke-width="1.2" opacity=".9">
+<path class="infra-flow" d="M152 204 L152 186 M232 204 L232 186 M312 204 L312 186"/>
+<path class="infra-flow-slow" d="M72 204 L72 186"/>
+</g>
+<g fill="#22d3ee" opacity=".9">
+<circle cx="99" cy="200" r="2.5" class="infra-pulse"/>
+<circle cx="175" cy="200" r="2.5" class="infra-pulse"/>
+<circle cx="251" cy="200" r="2.5" class="infra-pulse"/>
+<circle cx="323" cy="200" r="2.5" class="infra-pulse"/>
+</g>
 </svg>
 <div class="relative z-10 flex flex-wrap items-center gap-2 mt-3 text-[10px] tracking-wider text-slate-400"><span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span><strong class="text-sky-200">ILLUSTRATIVE DATA</strong>&nbsp;NOT LIVE RESULTS</span><span class="ml-auto font-mono text-slate-500">CRM - PIPELINE - FOLLOW-UP</span></div>
 </div>
@@ -1495,6 +1534,7 @@
           <p class="text-xs text-slate-400"><strong class="text-slate-200">Scope & boundaries:</strong> content/imagery from client unless scoped; complex portals estimated separately; no ranking guarantees.</p>
           <p class="text-xs text-sky-300"><strong>Next step:</strong> Send reference sites → get funnel outline.</p>
         </div>
+        <div class="rounded-xl overflow-hidden border border-sky-500/20 bg-[#060d22] mt-4" role="img" aria-label="Web development funnel concept"><svg viewBox="0 0 340 84" class="w-full h-[74px]" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="8" font-weight="700"><rect x="8" y="18" width="70" height="44" rx="7" fill="#0e2247" stroke="#38bdf8"/><text x="14" y="36" fill="#bae6fd">DESIGN</text><text x="14" y="52" fill="#64748b" font-weight="400">wireframe</text><rect x="86" y="18" width="70" height="44" rx="7" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".6"/><text x="94" y="36" fill="#bae6fd">BUILD</text><text x="94" y="52" fill="#64748b" font-weight="400">React/FastAPI</text><rect x="164" y="18" width="70" height="44" rx="7" fill="#0e2a55" stroke="#22d3ee"/><text x="172" y="36" fill="#fff">DEPLOY</text><text x="172" y="52" fill="#64748b" font-weight="400">HTTPS live</text><rect x="242" y="18" width="88" height="44" rx="7" fill="#082f3a" stroke="#22d3ee"/><text x="248" y="36" fill="#a5f3fc">TRACK</text><text x="248" y="52" fill="#64748b" font-weight="400">analytics</text></g><g stroke="#38bdf8" fill="none" stroke-width="1.2"><path class="infra-flow" d="M82 40 H86"/><path class="infra-flow" d="M164 40 H176"/><path class="infra-flow" d="M244 40 H254"/></g></svg></div>
         <button type="button" onclick="selectServiceAndContact('Custom React/FastAPI Website & Python Scraper')" class="mt-5 w-full py-2.5 rounded-lg bg-slate-800 hover:bg-blue-600 text-white text-xs font-bold border border-slate-700 transition">Inquire About Websites →</button>
       </article>
       <article class="glass-card rounded-2xl p-6 flex flex-col">
@@ -1506,6 +1546,7 @@
           <p class="text-xs text-slate-400"><strong class="text-slate-200">Scope & boundaries:</strong> support and documentation, not 24/7 managed hosting; cloud costs owned by client; advanced scaling scoped separately.</p>
           <p class="text-xs text-sky-300"><strong>Next step:</strong> Share current hosting → get deploy checklist.</p>
         </div>
+        <div class="rounded-xl overflow-hidden border border-sky-500/20 bg-[#060d22] mt-4" role="img" aria-label="Infrastructure deployment pipeline concept"><svg viewBox="0 0 340 84" class="w-full h-[74px]" aria-hidden="true"><g font-family="Inter,sans-serif" font-size="8" font-weight="700"><rect x="8" y="18" width="68" height="44" rx="7" fill="#0e2247" stroke="#38bdf8"/><text x="14" y="36" fill="#bae6fd">GITHUB</text><text x="14" y="52" fill="#64748b" font-weight="400">workflow</text><rect x="84" y="18" width="74" height="44" rx="7" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".6"/><text x="92" y="36" fill="#bae6fd">BUILD</text><text x="92" y="52" fill="#64748b" font-weight="400">test</text><rect x="166" y="18" width="70" height="44" rx="7" fill="#0e2a55" stroke="#22d3ee"/><text x="174" y="36" fill="#fff">DEPLOY</text><text x="174" y="52" fill="#64748b" font-weight="400">Surge/Vercel</text><rect x="244" y="18" width="88" height="44" rx="7" fill="#082f3a" stroke="#22d3ee"/><text x="250" y="36" fill="#a5f3fc">MONITOR</text><text x="250" y="52" fill="#64748b" font-weight="400">SSL/uptime</text></g><g stroke="#38bdf8" fill="none" stroke-width="1.2"><path class="infra-flow" d="M76 40 H84"/><path class="infra-flow" d="M166 40 H176"/><path class="infra-flow" d="M244 40 H254"/></g></svg></div>
         <button type="button" onclick="selectServiceAndContact('General Strategy Consultation')" class="mt-5 w-full py-2.5 rounded-lg bg-slate-800 hover:bg-blue-600 text-sky-300 hover:text-white text-xs font-bold border border-sky-500/30 transition">Ask About Deploy Support →</button>
       </article>
       <article class="glass-card rounded-2xl p-6 flex flex-col md:col-span-2 lg:col-span-2">
@@ -1690,14 +1731,48 @@
       <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2 chrome-text">From discovery to supported handover.</h2>
       <p class="text-slate-400 mt-3 text-sm sm:text-base">A fixed sequence with clear exits — you always know what happens next and what you receive.</p>
     </div>
-    <ol class="proc-flow">
-    <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">◉</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 1</p><h3 class="font-bold text-white">Discover</h3><p class="text-xs text-slate-300 mt-1">Map the journey.</p><p class="text-[11px] text-slate-500 mt-1">Exit: target + leaks.</p></li>
-    <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">⬡</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 2</p><h3 class="font-bold text-white">Architect</h3><p class="text-xs text-slate-300 mt-1">Design the fix.</p><p class="text-[11px] text-slate-500 mt-1">Exit: scope + plan.</p></li>
-    <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">⬢</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 3</p><h3 class="font-bold text-white">Build</h3><p class="text-xs text-slate-300 mt-1">Ship working pieces.</p><p class="text-[11px] text-slate-500 mt-1">Exit: demo ready.</p></li>
-    <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">✔</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 4</p><h3 class="font-bold text-white">Test</h3><p class="text-xs text-slate-300 mt-1">Prove it works.</p><p class="text-[11px] text-slate-500 mt-1">Exit: checks pass.</p></li>
-    <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">▲</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 5</p><h3 class="font-bold text-white">Deploy</h3><p class="text-xs text-slate-300 mt-1">Go live safely.</p><p class="text-[11px] text-slate-500 mt-1">Exit: live + SSL.</p></li>
-    <li class="proc-step glass-card p-5"><span class="buddy-number" aria-hidden="true">↻</span><p class="text-[10px] font-bold tracking-widest text-sky-400 mt-3">STEP 6</p><h3 class="font-bold text-white">Improve</h3><p class="text-xs text-slate-300 mt-1">Refine from use.</p><p class="text-[11px] text-slate-500 mt-1">Exit: handover.</p></li>
-    </ol>
+    <div class="rounded-xl overflow-hidden border border-sky-500/20 bg-[#060d22] p-6 mt-4" role="img" aria-label="Delivery process pipeline from discovery to improve">
+    <svg viewBox="0 0 400 150" class="w-full h-[110px]" aria-hidden="true">
+    <g font-family="Inter,sans-serif" font-size="7.5" font-weight="700">
+    <!-- Step 1: Discover -->
+    <rect x="4" y="34" width="56" height="44" rx="7" fill="#0e2247" stroke="#38bdf8"/>
+    <text x="12" y="52" fill="#bae6fd">DISCOVER</text>
+    <text x="12" y="66" fill="#64748b" font-size="6">map leaks</text>
+    <!-- Step 2: Architect -->
+    <rect x="70" y="34" width="56" height="44" rx="7" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".6"/>
+    <text x="78" y="52" fill="#bae6fd">ARCHITECT</text>
+    <text x="78" y="66" fill="#64748b" font-size="6">scope plan</text>
+    <!-- Step 3: Build -->
+    <rect x="136" y="34" width="56" height="44" rx="7" fill="#0e2a55" stroke="#22d3ee"/>
+    <text x="144" y="52" fill="#fff">BUILD</text>
+    <text x="144" y="66" fill="#64748b" font-size="6">staging</text>
+    <!-- Step 4: Test -->
+    <rect x="202" y="18" width="56" height="56" rx="7" fill="#0e2247" stroke="#38bdf8" stroke-opacity=".5"/>
+    <text x="210" y="36" fill="#bae6fd">TEST</text>
+    <text x="210" y="52" fill="#64748b" font-size="6">validate</text>
+    <!-- Step 5: Deploy -->
+    <rect x="268" y="20" width="56" height="44" rx="7" fill="#082f3a" stroke="#22d3ee"/>
+    <text x="276" y="38" fill="#a5f3fc">DEPLOY</text>
+    <text x="276" y="52" fill="#64748b" font-size="6">live+SSL</text>
+    <!-- Step 6: Improve -->
+    <rect x="334" y="18" width="56" height="48" rx="7" fill="#0a1734" stroke="#22d3ee" stroke-opacity=".6"/>
+    <text x="342" y="38" fill="#c4b5fd">IMPROVE</text>
+    <text x="342" y="52" fill="#64748b" font-size="6">iterate</text>
+    </g>
+    <g stroke="#38bdf8" fill="none" stroke-width="1.2" opacity=".85">
+    <path class="infra-flow" d="M64 56 H70"/>
+    <path class="infra-flow" d="M132 56 H136"/>
+    <path class="infra-flow" d="M198 44 H202"/>
+    <path class="infra-flow" d="M264 44 H268"/>
+    <path class="infra-flow-slow" d="M330 44 H334"/>
+    </g>
+    <g fill="#22d3ee">
+    <circle cx="76" cy="56" r="2" class="infra-pulse"/>
+    <circle cx="200" cy="40" r="2" class="infra-pulse"/>
+    <circle cx="276" cy="40" r="2" class="infra-pulse"/>
+    </g>
+    </svg>
+    <p class="text-[9px] font-mono text-slate-500 px-3 py-1.5 border-t border-sky-500/10 mt-2">ILLUSTRATIVE PIPELINE · NOT LIVE EXECUTION</p></div>
     <div class="text-center mt-8"><button type="button" onclick="switchPage('contact')" class="px-6 py-3.5 rounded-xl font-bold text-sm uppercase tracking-wide bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950">Start with discovery →</button></div>
   </section>
 
@@ -2149,7 +2224,7 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
     function ovRender(){try{var el=document.getElementById('stackOverview');if(!el)return;var all=ecoData();var byName={};all.forEach(function(r){byName[r.n]=r;});var html='';OVERVIEW.forEach(function(g){var items=g[1].cat?all.filter(function(r){return r.c===g[1].cat;}):g[1].names.map(function(n){return byName[n];}).filter(Boolean);if(!items.length)return;html+='<div class="stack-tier"><p class="stack-cat">'+ecoEsc(g[0])+' ('+items.length+')</p><p style="font-size:11px;color:#94a3b8;margin-top:4px;">'+ecoEsc(g[1].d||'')+'</p><div style="display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem;">'+items.map(ovChip).join('')+'</div></div>';});html+='<div style="grid-column:1/-1;text-align:center;"><button type="button" onclick="document.getElementById(\'ecoDirectory\').scrollIntoView();document.getElementById(\'ecoSearch\').focus({preventScroll:true})" style="padding:.7rem 1.4rem;border-radius:.7rem;font-size:.75rem;font-weight:800;background:linear-gradient(135deg,#2563eb,#06b6d4);color:#fff;cursor:pointer;">Browse the searchable directory</button></div>';el.innerHTML=html;}catch(e){}}
     try{ovRender();}catch(e){}
         // 6. Hero command-center demo: lead token travels pipeline stages.
-    var HERO_STAGES=[{x:119,n:'A.S'},{x:195,n:'R.D'},{x:271,n:'K.J'},{x:343,n:'M.M'}];
+    var HERO_STAGES=[{x:99,n:'A.S'},{x:175,n:'R.D'},{x:251,n:'K.J'},{x:323,n:'M.M'}];
     var heroIdx=0,heroTimer=0,heroPaused=false,waN=12,heroCycles=0;
     function heroPaint(){var t=document.getElementById('leadToken');if(!t)return;var s=HERO_STAGES[heroIdx];t.setAttribute('transform','translate('+s.x+',150)');var lb=document.getElementById('leadTokenLabel');if(lb)lb.textContent=s.n;for(var i=0;i<4;i++){var c=document.getElementById('hcol'+i);if(c)c.setAttribute('stroke-opacity',i===heroIdx?'.9':'.18');}}
     function heroStep(){if(document.hidden||heroPaused)return;heroIdx=(heroIdx+1)%HERO_STAGES.length;heroPaint();if(heroIdx===3){waN=Math.min(waN+1,19);var w=document.getElementById('waCount');if(w)w.textContent='WhatsApp sent - '+waN;if(heroIdx===3)heroCycles++;}}
