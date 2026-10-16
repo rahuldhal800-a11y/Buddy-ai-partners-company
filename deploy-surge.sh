@@ -55,9 +55,12 @@ PY
 
 # dist is generated output. Rebuild it from source files only.
 rm -rf "$DIST"
-mkdir -p "$DIST/public/images"
+mkdir -p "$DIST/public"
 cp "$ROOT/index.html" "$DIST/index.html"
-cp "$ROOT/public/images/founder-rahul.png" "$DIST/public/images/founder-rahul.png"
+# Copy every checked-in local visual (founder portrait, workflow SVGs, model marks).
+cp -R "$ROOT/public/images" "$DIST/public/images"
+test -f "$DIST/public/images/founder-rahul.png" || { echo "ERROR: founder image was not copied."; exit 1; }
+test -f "$DIST/public/images/hero-agent-network.svg" || { echo "ERROR: hero illustration was not copied."; exit 1; }
 [ ! -f "$ROOT/robots.txt" ] || cp "$ROOT/robots.txt" "$DIST/robots.txt"
 [ ! -f "$ROOT/sitemap.xml" ] || cp "$ROOT/sitemap.xml" "$DIST/sitemap.xml"
 
