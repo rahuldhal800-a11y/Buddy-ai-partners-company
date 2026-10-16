@@ -1439,6 +1439,15 @@
       </div>
     </div>
   </section>
+    <div class="mt-6">
+    <p class="buddy-eyebrow mb-4">BUILD TIMELINE - VERIFIED DATES WHERE SHOWN</p>
+    <ol class="space-y-4">
+    <li class="glass-card rounded-2xl p-5"><p class="text-[11px] font-mono text-slate-500">PRIOR - APPROXIMATE</p><h4 class="font-bold text-white mt-1">Operations and growth foundations</h4><p class="text-xs text-slate-400 mt-1">Enterprise FinTech operations and real-estate digital marketing built the ops discipline behind every system below.</p></li>
+    <li class="glass-card rounded-2xl p-5"><p class="text-[11px] font-mono text-slate-500">2026-08-04 - GITHUB RECORD</p><h4 class="font-bold text-white mt-1">Public building begins</h4><p class="text-xs text-slate-400 mt-1">ai-agents-sandbox and knr-executive-ai created: Genesis world experiments and the AEGIS agent codebase.</p></li>
+    <li class="glass-card rounded-2xl p-5"><p class="text-[11px] font-mono text-slate-500">2026-10 - REPO RECORDS</p><h4 class="font-bold text-white mt-1">Buddy orchestration and Genesis 3D</h4><p class="text-xs text-slate-400 mt-1">Slack CRM orchestration lands in Buddy; Genesis world ships WebGL 3D with diagnostics.</p></li>
+    <li class="glass-card rounded-2xl p-5"><p class="text-[11px] font-mono text-slate-500">2026-10 - APPROXIMATE</p><h4 class="font-bold text-white mt-1">BUDDY AI PARTNERS launches publicly</h4><p class="text-xs text-slate-400 mt-1">Company site, CRM platform, rental automation and client delivery practice come together.</p></li>
+    </ol>
+    </div>
 
   <!-- ========================================================= -->
   <!-- PAGE 3: SERVICES & CAPABILITIES                           -->
@@ -1531,12 +1540,57 @@
   <section id="page-portfolio" class="page-view relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
     <div class="text-center max-w-3xl mx-auto mb-14">
       <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">PORTFOLIO &amp; PROJECTS</span>
-      <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2 chrome-text">Real Systems &amp; Campaign Work</h2>
+      <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2 chrome-text">Systems I Have Built</h2>
       <p class="text-slate-400 mt-3 text-sm sm:text-base">
-        Selected software architectures, automation pipelines, and digital marketing campaigns developed by Rahul Kumar Dhal.
+        Code-verified projects by Rahul Kumar Dhal: flagship systems, public experiments and operational patterns. Private work is shown sanitized, with demos on request.
       </p>
     </div>
 
+     <div class="flex flex-wrap gap-2 mb-6">
+      <input id="labSearch" type="search" placeholder="Filter projects: crm, agent, python..." aria-label="Filter projects" class="flex-1 min-w-[180px] px-4 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-sm text-white focus:border-sky-400 outline-none" />
+      <select id="labStatus" aria-label="Filter by status" class="px-4 py-2.5 rounded-lg bg-slate-900/90 border border-slate-700 text-xs text-white"><option value="">All statuses</option><option value="active">Active</option><option value="prototype">Prototype</option><option value="experiment">Experiment</option></select>
+    </div>
+    <div class="glass-card rounded-2xl p-6 sm:p-8 mb-6 reveal-progress" data-proj="knr-integrity-crm" data-tech="python fastapi react crm" data-status="active">
+      <div class="flex flex-wrap items-center gap-2"><span class="case-tag case-tag-ok">FLAGSHIP</span><span class="case-tag">PRIVATE REPO - DEMO ON REQUEST</span><span class="case-tag case-tag-ok">ACTIVE DEVELOPMENT</span></div>
+      <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mt-3">KNR Integrity CRM - Real-Estate Technology Platform</h3>
+      <p class="text-sm text-slate-300 mt-3 leading-relaxed"><strong class="text-white">Problem:</strong> A real-estate team losing enquiries across chats and spreadsheets needed one system for leads, assignments, follow-ups, call history, team operations and reporting.</p>
+      <p class="text-sm text-slate-300 mt-2 leading-relaxed"><strong class="text-white">What I built:</strong> Lead intake and stage pipeline, assignment and daily calling queues, follow-up reminders with call history, role-based team views, and booking/reporting records - plus the business website presence and an AI-agent assist component as parts of the same product.</p>
+      <div class="case-meta"><span class="case-tag">PYTHON</span><span class="case-tag">FASTAPI</span><span class="case-tag">REACT</span><span class="case-tag">CRM OPS</span><span class="case-tag">WHATSAPP</span></div>
+      <p class="text-[11px] text-slate-500 mt-3">Private repository. Public case study uses synthetic demo data only - no source files, routes, records or credentials are exposed.</p>
+      <div class="flex flex-wrap gap-2 mt-4"><button type="button" onclick="selectServiceAndContact('Custom Business CRM Deployment')" class="px-5 py-2.5 rounded-lg text-xs font-bold text-slate-950 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400">Request a CRM Demonstration</button></div>
+      </div>
+    <p class="buddy-eyebrow mt-2 mb-4">CODE-VERIFIED BUILDS - PUBLIC SOURCE WHERE LINKED</p>
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+      <article class="glass-card rounded-2xl p-6 flex flex-col" data-proj="knr-executive-ai" data-tech="python pytorch agents" data-status="prototype">
+      <div class="flex flex-wrap gap-2"><span class="case-tag">PUBLIC REPO</span><span class="case-tag case-tag-warn">PROTOTYPE / RESEARCH</span></div>
+      <h3 class="font-display text-xl font-bold text-white mt-3">KNR Executive AI - AEGIS Agent System</h3>
+      <p class="text-xs text-slate-400 mt-1">Real-estate AI agent. From-scratch decoder Transformer (byte tokenizer, causal attention), pretraining entry point, provider router, tool layer, LoRA pipeline, eval benchmark and mobile PWA.</p>
+      <div class="case-meta"><span class="case-tag">PYTHON</span><span class="case-tag">PYTORCH</span><span class="case-tag">AGENTS</span><span class="case-tag">EVALS</span></div>
+      <p class="text-[11px] text-slate-500 mt-2">Research checkpoint only - the small dev dataset cannot yield a frontier model. Honest evals over loss, held-out validation and tool use before any release claim.</p>
+      <a href="https://github.com/rahuldhal800-a11y/knr-executive-ai" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-xs font-bold text-sky-300 hover:underline">View source on GitHub</a>
+      </article>
+      <article class="glass-card rounded-2xl p-6 flex flex-col" data-proj="ai-agents-sandbox" data-tech="python threejs pytest" data-status="experiment">
+      <div class="flex flex-wrap gap-2"><span class="case-tag">PUBLIC REPO</span><span class="case-tag">ACTIVE EXPERIMENT</span></div>
+      <h3 class="font-display text-xl font-bold text-white mt-3">AI Agents Sandbox - Genesis World</h3>
+      <p class="text-xs text-slate-400 mt-1">Autonomous digital-being simulation: WebGL 3D world with Canvas fallback, developmental learning (stages newborn to sage), memory, voice interaction and operator kill switch. No paid API needed.</p>
+      <div class="case-meta"><span class="case-tag">PYTHON</span><span class="case-tag">THREE.JS</span><span class="case-tag">PYTEST</span></div>
+      <a href="https://github.com/rahuldhal800-a11y/ai-agents-sandbox" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-xs font-bold text-sky-300 hover:underline">View source on GitHub</a>
+      </article>
+      <article class="glass-card rounded-2xl p-6 flex flex-col" data-proj="rk-rent-hub" data-tech="python sqlite web" data-status="prototype">
+      <div class="flex flex-wrap gap-2"><span class="case-tag">PRIVATE REPO</span><span class="case-tag case-tag-warn">MVP PROTOTYPE</span></div>
+      <h3 class="font-display text-xl font-bold text-white mt-3">RK Rent Hub - Rental Automation</h3>
+      <p class="text-xs text-slate-400 mt-1">Rental ops engine: SQLite CRM, listing ingestion, inquiry matching, draft outreach and marketing copy - stopping at a human approval gate before anything touches owners, money or contracts.</p>
+      <div class="case-meta"><span class="case-tag">PYTHON</span><span class="case-tag">SQLITE</span><span class="case-tag">STATIC WEB</span></div>
+      <p class="text-[11px] text-slate-500 mt-2">Private repository. Fully autonomous deal-closing stays off by design.</p>
+      </article>
+      <article class="glass-card rounded-2xl p-6 flex flex-col" data-proj="buddy-ati" data-tech="python agents cli" data-status="active">
+      <div class="flex flex-wrap gap-2"><span class="case-tag">PRIVATE REPO</span><span class="case-tag case-tag-ok">ACTIVE DEVELOPMENT</span></div>
+      <h3 class="font-display text-xl font-bold text-white mt-3">BUDDY - Autonomous Terminal Intelligence</h3>
+      <p class="text-xs text-slate-400 mt-1">Agent runtime: Qwen local brain with Ollama/OpenAI-compatible fallback, plan-execute-verify loop, shell/files/git/Playwright tools, Cloudflare remote access and pytest + CI checks.</p>
+      <div class="case-meta"><span class="case-tag">PYTHON</span><span class="case-tag">QWEN</span><span class="case-tag">PLAYWRIGHT</span></div>
+      <button type="button" onclick="switchPage('about')" class="mt-4 text-left text-xs font-bold text-sky-300 hover:underline">See the ATI showcase</button>
+      </article>
+      </div>
     <div class="grid lg:grid-cols-2 gap-6">
       <article class="glass-card rounded-2xl p-6 sm:p-7">
         <span class="case-tag case-tag-ok">CASE 01 · OPERATIONS PATTERN · CRM</span>
@@ -2106,6 +2160,8 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
     document.addEventListener('keydown',function(e){if(e.key==='Escape'){toggleMenu(false);}});
     // 9. Scroll reveals (progressive enhancement; content visible without JS).
     try{(function(){var rm=false;try{rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}if(rm||!('IntersectionObserver' in window))return;var els=document.querySelectorAll('#arch-title,#feat-title,.proc-step');els.forEach(function(el){el.classList.add('reveal');});var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');io.unobserve(en.target);}});},{threshold:.12});els.forEach(function(el){io.observe(el);});})();}catch(e){}
+        // 10. Engineering Lab filter: text + status over portfolio project cards.
+    try{(function(){var s=document.getElementById('labSearch'),f=document.getElementById('labStatus');if(!s||!f)return;function run(){var q=s.value.toLowerCase(),st=f.value;document.querySelectorAll('#page-portfolio [data-proj]').forEach(function(c){var hay=((c.getAttribute('data-proj')||'')+' '+(c.getAttribute('data-tech')||'')+' '+c.textContent).toLowerCase();var ok=(!q||hay.indexOf(q)>=0)&&(!st||(c.getAttribute('data-status')||'')===st);c.style.display=ok?'':'none';});}s.addEventListener('input',run);f.addEventListener('change',run);})();}catch(e){}
     // 5. Adaptive neural starfield. It uses no tracking, APIs or external data.
     const canvas = document.getElementById('galaxyCanvas');
     const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
