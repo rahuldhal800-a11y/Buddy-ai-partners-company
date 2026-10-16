@@ -80,12 +80,12 @@ try {
 } catch (e) { fail('app eval threw: ' + e.message); }
 try {
   const active = () => Object.values(reg).filter(e => e._cls.has('page-view') && e._cls.has('active')).map(e => e.id);
-  for (const pg of ['home', 'stack', 'process', 'contact', 'portfolio', 'services', 'about']) {
+  for (const pg of ['home', 'stack', 'process', 'contact', 'portfolio', 'services', 'about', 'buddy']) {
     switchPage(pg);
     const a = active();
     if (a.length !== 1 || a[0] !== 'page-' + pg) fail('switchPage(' + pg + '): active=' + JSON.stringify(a));
   }
-  console.log('navigation isolation: 7/7 single-active OK');
+  console.log('navigation isolation: 8/8 single-active OK');
   const cards = () => (reg['ecoSections'].innerHTML.match(/eco-card/g) || []).length;
   const n1 = cards();
   switchPage('home'); switchPage('stack'); switchPage('stack');
@@ -105,6 +105,14 @@ try {
   if (!reg['knrAnswer'].textContent) fail('knr Ask Buddy chip did not render an answer');
   simulateWebhook();
   if (!/SIMULATION/.test(reg['aiTerminal'].innerHTML)) fail('terminal test-lead trigger did not render');
+  switchPage('buddy');
+  baiPick(0); baiPick(0); baiPick(0);
+  if (reg['baiBriefGoal'].textContent !== 'More qualified leads') fail('buddy goal capture failed: ' + reg['baiBriefGoal'].textContent);
+  reg['baiInput'].value = 'Test User'; baiSend();
+  baiPick(0); baiPick(0);
+  if (reg['baiBriefName'].textContent !== 'Test User') fail('buddy name capture failed: ' + reg['baiBriefName'].textContent);
+  if (!/wa\.me\/917328089908/.test(reg['baiWa'].href || '')) fail('buddy WhatsApp handoff href missing');
+  console.log('buddy chat OK;', 'goal=' + reg['baiBriefGoal'].textContent, '| budget=' + reg['baiBriefBudget'].textContent, '| slot=' + reg['baiBriefSlot'].textContent);
   console.log('demos tick OK;',
     'stage=' + reg['crmStageLabel'].textContent,
     'wa=' + reg['waCount'].textContent,

@@ -853,6 +853,77 @@
     .knr-bar span { display:block; height:100%; width:var(--w,50%); border-radius:99px; background:linear-gradient(90deg,var(--cyan-start),var(--cyan-end)); box-shadow:0 0 10px rgba(0,242,254,.35); animation:knrFill 1.1s cubic-bezier(.2,.7,.2,1) both; }
     @keyframes knrFill { from { width:0; } }
     .knr-emi { display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; margin-top:1rem; padding:.6rem .8rem; border:1px solid rgba(16,185,129,.3); border-radius:.7rem; background:rgba(6,26,22,.45); font-size:.72rem; color:#cbd5e1; }
+
+    /* ============================================================
+       GLOBAL ENGAGEMENT LAYER — page transitions, card lift
+       ============================================================ */
+    .page-view.active { animation: pageIn .45s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes pageIn { from { opacity:0; transform:translateY(12px); } }
+    .glass-card { transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease; }
+    .glass-card:hover { border-color: rgba(56,189,248,.38); box-shadow: 0 12px 38px rgba(2,10,30,.55); transform: translateY(-3px); }
+    .glass-card.reveal { transition: opacity .6s ease, transform .6s ease, border-color .3s ease, box-shadow .3s ease; }
+    @media (hover:none) { .glass-card:hover { transform:none; } }
+    @media (prefers-reduced-motion:reduce) {
+      .page-view.active { animation:none; }
+      .glass-card, .glass-card:hover { transition:none; transform:none; }
+    }
+
+    /* ============================================================
+       BUDDY AI PREVIEW PAGE — CHAT, ORB, BRIEF, HANDOFF
+       ============================================================ */
+    .bai-orb { position:relative; width:104px; height:104px; margin:0 auto; flex:0 0 auto; }
+    .bai-orb-core { position:absolute; inset:22px; border-radius:99px; background:radial-gradient(circle at 35% 30%, #67e8f9, #2563eb 60%, #0b1b3f); box-shadow:0 0 34px rgba(0,242,254,.45), inset 0 0 18px rgba(255,255,255,.25); animation:baiBreathe 3.4s ease-in-out infinite; }
+    .bai-orb-ring { position:absolute; inset:0; border-radius:99px; border:1px dashed rgba(56,189,248,.4); animation:baiSpin 14s linear infinite; }
+    .bai-orb-ring2 { position:absolute; inset:10px; border-radius:99px; border:1px solid rgba(0,242,254,.18); animation:baiSpin 9s linear infinite reverse; }
+    .bai-orb-sat { position:absolute; top:50%; left:50%; width:8px; height:8px; margin:-4px; border-radius:99px; background:var(--cyan-start); box-shadow:0 0 10px rgba(0,242,254,.9); animation:baiOrbit 6s linear infinite; }
+    .bai-orb-sat.s2 { background:var(--status-emerald); animation-duration:8s; animation-delay:-2s; }
+    .bai-orb-sat.s3 { background:#fbbf24; animation-duration:10s; animation-delay:-5s; }
+    @keyframes baiSpin { to { transform:rotate(360deg); } }
+    @keyframes baiBreathe { 0%,100% { transform:scale(1); } 50% { transform:scale(1.06); } }
+    @keyframes baiOrbit { from { transform:rotate(0deg) translateX(52px) rotate(0deg); } to { transform:rotate(360deg) translateX(52px) rotate(-360deg); } }
+    .bai-shell { display:flex; flex-direction:column; border:1px solid rgba(56,189,248,.22); border-radius:1.1rem; background:linear-gradient(160deg, rgba(9,17,38,.92), rgba(5,10,24,.96)); overflow:hidden; }
+    .bai-top { display:flex; align-items:center; gap:.6rem; padding:.7rem .9rem; border-bottom:1px solid rgba(56,189,248,.16); background:rgba(7,14,32,.85); }
+    .bai-avatar { width:34px; height:34px; border-radius:99px; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #67e8f9, #2563eb 65%, #0b1b3f); box-shadow:0 0 16px rgba(0,242,254,.4); display:flex; align-items:center; justify-content:center; font-weight:800; color:#040712; font-size:.85rem; }
+    .bai-pill { font-size:.5rem; font-weight:800; letter-spacing:.1em; padding:.22rem .5rem; border-radius:99px; border:1px solid rgba(16,185,129,.45); color:#6ee7b7; background:rgba(6,26,22,.5); white-space:nowrap; }
+    .bai-pill-live { border-color:rgba(0,242,254,.5); color:#a5f3fc; background:rgba(8,26,44,.5); }
+    .bai-log { display:flex; flex-direction:column; gap:.55rem; padding:.9rem; height:380px; overflow-y:auto; scroll-behavior:smooth; }
+    .bai-msg { max-width:88%; padding:.55rem .7rem; border-radius:.85rem; font-size:.76rem; line-height:1.55; overflow-wrap:anywhere; animation:baiMsg .35s ease both; }
+    @keyframes baiMsg { from { opacity:0; transform:translateY(8px); } }
+    .bai-bot { align-self:flex-start; background:rgba(12,22,46,.95); border:1px solid rgba(56,189,248,.22); color:#dbeafe; border-bottom-left-radius:.25rem; }
+    .bai-bot::before { content:"BUDDY"; display:block; font-size:.48rem; font-weight:800; letter-spacing:.16em; color:#7dd3fc; margin-bottom:.25rem; }
+    .bai-user { align-self:flex-end; background:linear-gradient(135deg,#1d4ed8,#0891b2); color:#f0f9ff; border-bottom-right-radius:.25rem; }
+    .bai-steps { align-self:flex-start; max-width:88%; padding:.5rem .7rem; border-radius:.85rem; border:1px dashed rgba(56,189,248,.3); background:rgba(6,13,29,.7); font-size:.68rem; color:#7dd3fc; line-height:1.7; }
+    .bai-typing { align-self:flex-start; display:inline-flex; gap:4px; padding:.6rem .8rem; border-radius:.85rem; background:rgba(12,22,46,.95); border:1px solid rgba(56,189,248,.22); }
+    .bai-typing i { width:6px; height:6px; border-radius:99px; background:#38bdf8; animation:baiDots 1.2s ease-in-out infinite; }
+    .bai-typing i:nth-child(2) { animation-delay:.18s; } .bai-typing i:nth-child(3) { animation-delay:.36s; }
+    @keyframes baiDots { 0%,60%,100% { transform:translateY(0); opacity:.45; } 30% { transform:translateY(-4px); opacity:1; } }
+    .bai-chips { display:flex; flex-wrap:wrap; gap:.4rem; padding:0 .9rem .7rem; }
+    .bai-chip { font-size:.68rem; font-weight:700; color:#a5f3fc; padding:.5rem .75rem; border-radius:99px; border:1px solid rgba(56,189,248,.32); background:rgba(8,20,40,.75); transition:border-color .2s ease, transform .2s ease; animation:baiMsg .35s ease both; }
+    .bai-chip:hover { border-color:rgba(0,242,254,.65); transform:translateY(-1px); }
+    .bai-inputrow { display:flex; gap:.5rem; padding:.7rem .9rem; border-top:1px solid rgba(56,189,248,.16); background:rgba(7,14,32,.85); }
+    .bai-input { flex:1; min-width:0; background:rgba(8,16,36,.9); border:1px solid rgba(56,189,248,.25); border-radius:.7rem; padding:.6rem .8rem; font-size:.76rem; color:#e2e8f0; outline:none; }
+    .bai-input:focus { border-color:rgba(0,242,254,.6); }
+    .bai-send { padding:.6rem 1rem; border-radius:.7rem; font-size:.72rem; font-weight:800; background:linear-gradient(135deg,#2563eb,#06b6d4); color:#fff; white-space:nowrap; transition:transform .2s ease; }
+    .bai-send:hover { transform:translateY(-1px); }
+    .bai-brief { border:1px solid rgba(56,189,248,.2); border-radius:.9rem; background:rgba(6,13,29,.85); padding:.9rem; }
+    .bai-brief-row { display:flex; justify-content:space-between; gap:.6rem; padding:.38rem 0; border-bottom:1px dashed rgba(56,189,248,.12); font-size:.7rem; }
+    .bai-brief-row:last-of-type { border-bottom:0; }
+    .bai-brief-row b { color:#7dd3fc; font-weight:700; flex:0 0 auto; }
+    .bai-brief-row span { color:#cbd5e1; text-align:right; overflow-wrap:anywhere; }
+    .bai-brief-row span.bai-empty { color:#475569; }
+    .bai-handoff { display:grid; grid-template-columns:1fr; gap:.5rem; margin-top:.7rem; }
+    .bai-handoff a, .bai-handoff button { display:block; text-align:center; padding:.7rem .8rem; border-radius:.7rem; font-size:.72rem; font-weight:800; transition:transform .2s ease, filter .2s ease; }
+    .bai-handoff a:hover, .bai-handoff button:hover { transform:translateY(-1px); filter:brightness(1.08); }
+    .bai-disabled { opacity:.4; pointer-events:none; }
+    .bai-toast { position:fixed; left:50%; bottom:5.5rem; transform:translateX(-50%) translateY(20px); z-index:120; padding:.7rem 1rem; border-radius:.8rem; background:rgba(8,16,36,.96); border:1px solid rgba(56,189,248,.4); color:#e0f2fe; font-size:.74rem; font-weight:700; opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; }
+    .bai-toast.bai-show { opacity:1; transform:translateX(-50%) translateY(0); }
+    .bai-agent { border:1px solid rgba(56,189,248,.16); border-radius:.9rem; background:rgba(8,16,36,.75); padding:.85rem; min-width:0; transition:border-color .3s ease, transform .3s ease; }
+    .bai-agent:hover { border-color:rgba(0,242,254,.45); transform:translateY(-2px); }
+    .bai-agent-ico { width:30px; height:30px; border-radius:.55rem; display:flex; align-items:center; justify-content:center; font-size:.95rem; background:rgba(0,242,254,.1); border:1px solid rgba(0,242,254,.3); }
+    @media (prefers-reduced-motion:reduce) {
+      .bai-orb-core, .bai-orb-ring, .bai-orb-ring2, .bai-orb-sat, .bai-msg, .bai-chip, .bai-typing i { animation:none!important; }
+      .bai-log { scroll-behavior:auto; }
+    }
   </style>
 
   <!-- Search and social metadata -->
@@ -959,6 +1030,9 @@
 
       <!-- Header CTAs -->
       <div class="flex items-center gap-2.5">
+        <button type="button" onclick="switchPage('buddy')" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 shadow-lg shadow-cyan-500/25 hover:scale-[1.02] transition" aria-label="Open Buddy AI preview chat">
+          <span>✦ Buddy AI</span>
+        </button>
         <button type="button" onclick="window.print()" class="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-slate-800/90 hover:bg-slate-700 text-sky-300 border border-sky-400/30 transition">
           <span>📄 Save Profile PDF</span>
         </button>
@@ -982,6 +1056,7 @@
         <button type="button" onclick="switchPage('portfolio');closeMenu()" data-mnav="portfolio" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Portfolio</button>
         <button type="button" onclick="switchPage('stack');closeMenu()" data-mnav="stack" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Stack</button>
         <button type="button" onclick="switchPage('process');closeMenu()" data-mnav="process" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Process</button>
+        <button type="button" onclick="switchPage('buddy');closeMenu()" data-mnav="buddy" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300" style="background-image:linear-gradient(90deg,#0891b2,#34d399);color:#020617;">✦ Buddy AI — live preview</button>
         <button type="button" onclick="switchPage('contact');closeMenu()" data-mnav="contact" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Pricing &amp; Contact</button>
       </div>
     </nav>
@@ -1610,7 +1685,7 @@
 
     <!-- QUICK NAVIGATION GATEWAY -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <button type="button" onclick="switchPage('services')" class="glass-card rounded-2xl p-6 text-left group">
           <span class="text-xs font-bold text-sky-400 uppercase">01 / Capabilities</span>
           <h3 class="font-display text-xl font-bold text-white mt-2 group-hover:text-sky-300">Explore Our Services →</h3>
@@ -1621,8 +1696,13 @@
           <h3 class="font-display text-xl font-bold text-white mt-2 group-hover:text-cyan-300">Meet Rahul Kumar Dhal →</h3>
           <p class="text-xs text-slate-400 mt-2">3.5+ years across enterprise operations at Concentrix (CoinDCX) and real estate growth.</p>
         </button>
+        <button type="button" onclick="switchPage('buddy')" class="glass-card rounded-2xl p-6 text-left group" style="border-color:rgba(0,242,254,.3);">
+          <span class="text-xs font-bold text-emerald-400 uppercase">03 / AI Intake Operator</span>
+          <h3 class="font-display text-xl font-bold text-white mt-2 group-hover:text-emerald-300">Chat with Buddy AI →</h3>
+          <p class="text-xs text-slate-400 mt-2">Get researched, tailored recommendations and book a prepared meeting — right now.</p>
+        </button>
         <button type="button" onclick="switchPage('contact')" class="glass-card rounded-2xl p-6 text-left group">
-          <span class="text-xs font-bold text-blue-400 uppercase">03 / Transparent Packages</span>
+          <span class="text-xs font-bold text-blue-400 uppercase">04 / Transparent Packages</span>
           <h3 class="font-display text-xl font-bold text-white mt-2 group-hover:text-blue-300">View Pricing &amp; Connect →</h3>
           <p class="text-xs text-slate-400 mt-2">Clear monthly retainers and custom system builds with direct WhatsApp onboarding.</p>
         </button>
@@ -2383,6 +2463,125 @@
     </div>
   </section>
 
+  <!-- ========================================================= -->
+  <!-- PAGE 8: BUDDY AI — INTERACTIVE PREVIEW & LEAD CAPTURE      -->
+  <!-- Set data-buddy-endpoint on <body> to your n8n webhook URL  -->
+  <!-- to make the chat live; empty = scripted preview mode.      -->
+  <!-- ========================================================= -->
+  <section id="page-buddy" class="page-view relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+
+    <div class="glass-card rounded-2xl p-6 sm:p-8 mb-6 reveal-progress">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+        <div class="bai-orb" aria-hidden="true">
+          <span class="bai-orb-ring"></span><span class="bai-orb-ring2"></span>
+          <span class="bai-orb-core"></span>
+          <span class="bai-orb-sat"></span><span class="bai-orb-sat s2"></span><span class="bai-orb-sat s3"></span>
+        </div>
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="case-tag case-tag-ok">BUDDY AI · INTERACTIVE PREVIEW</span>
+            <span class="case-tag">WEB SEARCH · THINKING · MEETING HANDOFF</span>
+          </div>
+          <h1 class="font-display text-3xl sm:text-4xl font-bold text-white mt-3">Talk to Buddy before you talk to me.</h1>
+          <p class="text-sm text-slate-300 mt-2 leading-relaxed max-w-3xl">Buddy is the AI operator behind BUDDY AI PARTNERS. It researches context, thinks through your requirement, suggests concrete improvements and collects your meeting details — then hands the full brief to Rahul, so the call starts at the solution, not the introduction.</p>
+          <p class="text-[11px] text-slate-500 mt-2">Runs fully in your browser — nothing is sent anywhere until you tap a handoff button. <span id="baiModeNote">Preview mode: scripted demo flow, connectable to a live n8n webhook.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-6">
+      <div class="lg:col-span-8 min-w-0">
+        <div class="bai-shell">
+          <div class="bai-top">
+            <span class="bai-avatar" aria-hidden="true">B</span>
+            <div class="min-w-0">
+              <p class="text-sm font-bold text-white leading-tight">Buddy <span class="text-slate-400 font-normal">— AI intake operator</span></p>
+              <p class="text-[10px] text-slate-500">Replies in ~1s · Business hours IST · Human always in the loop</p>
+            </div>
+            <span class="bai-pill ml-auto" id="baiModePill">● PREVIEW MODE</span>
+          </div>
+          <div class="bai-log" id="baiLog" aria-live="polite">
+            <div class="bai-msg bai-bot">Hi 👋 I'm Buddy. I research, think and prepare your brief before a single call. What should we improve first?</div>
+          </div>
+          <div class="bai-chips" id="baiChips"></div>
+          <div class="bai-inputrow">
+            <label class="sr-only" for="baiInput">Type your message</label>
+            <input id="baiInput" class="bai-input" type="text" maxlength="600" placeholder="Type a question, or tap an option above…" autocomplete="off" onkeydown="if(event.key==='Enter'){event.preventDefault();baiSend();}" />
+            <button type="button" class="bai-send" onclick="baiSend()">Send</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-4 min-w-0 flex flex-col gap-6">
+        <div class="bai-brief">
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="font-display text-lg font-bold text-white">Session brief</h2>
+            <span class="text-[10px] font-mono text-slate-500">auto-built by Buddy</span>
+          </div>
+          <div class="mt-2">
+            <div class="bai-brief-row"><b>Goal</b><span id="baiBriefGoal" class="bai-empty">—</span></div>
+            <div class="bai-brief-row"><b>Budget</b><span id="baiBriefBudget" class="bai-empty">—</span></div>
+            <div class="bai-brief-row"><b>Timeline</b><span id="baiBriefTime" class="bai-empty">—</span></div>
+            <div class="bai-brief-row"><b>Name</b><span id="baiBriefName" class="bai-empty">—</span></div>
+            <div class="bai-brief-row"><b>Channel</b><span id="baiBriefChannel" class="bai-empty">—</span></div>
+            <div class="bai-brief-row"><b>Meeting slot</b><span id="baiBriefSlot" class="bai-empty">—</span></div>
+          </div>
+          <div class="bai-handoff">
+            <a id="baiWa" href="https://wa.me/917328089908" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 text-white">Send brief on WhatsApp →</a>
+            <button type="button" id="baiTg" onclick="baiHandoff('tg')" class="bg-slate-800 text-sky-300 border border-sky-500/30">Copy brief + open Telegram</button>
+            <button type="button" id="baiIg" onclick="baiHandoff('ig')" class="bg-slate-800 text-pink-400 border border-pink-500/30">Copy brief + open Instagram DM</button>
+            <button type="button" onclick="switchPage('contact')" class="bg-slate-800 text-slate-300 border border-slate-700">Prefer the full form? Open contact →</button>
+          </div>
+          <p class="text-[10px] text-slate-500 mt-3 leading-relaxed">The brief is composed from this chat only. WhatsApp opens prefilled; Telegram and Instagram copy the brief so you can paste it in the DM.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5">
+          <h2 class="font-display text-lg font-bold text-white">Why customers call this the easy part</h2>
+          <ul class="text-xs text-slate-400 mt-2 space-y-2 leading-relaxed">
+            <li>No form fatigue — Buddy asks one question at a time.</li>
+            <li>Your words become a structured brief, not a vague "hi".</li>
+            <li>Pick WhatsApp, Telegram or Instagram — your channel, your call.</li>
+            <li>Rahul confirms the slot with context already in hand.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass-card rounded-2xl p-6 sm:p-8 mt-6 reveal-progress">
+      <h2 class="font-display text-2xl font-bold text-white">What Buddy handles so you don't have to</h2>
+      <p class="text-sm text-slate-400 mt-1">The same operator loop running on this site is what gets deployed for your business.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+        <div class="bai-agent"><div class="bai-agent-ico">🔍</div><h3 class="font-bold text-white text-sm mt-2.5">Web search &amp; research</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Scans listings, competitor pages and market context, then assembles a research pack before any recommendation is made.</p></div>
+        <div class="bai-agent"><div class="bai-agent-ico">🧠</div><h3 class="font-bold text-white text-sm mt-2.5">Thinking &amp; planning</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Breaks your requirement into scope, budget and timeline options — with trade-offs explained, not generic advice.</p></div>
+        <div class="bai-agent"><div class="bai-agent-ico">📋</div><h3 class="font-bold text-white text-sm mt-2.5">Requirement capture</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Turns a casual chat into a structured brief: goal, budget, timeline, decision-maker and preferred channel.</p></div>
+        <div class="bai-agent"><div class="bai-agent-ico">📅</div><h3 class="font-bold text-white text-sm mt-2.5">Meeting handoff</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Collects name, channel and slot, then delivers the brief so the human call starts at the solution stage.</p></div>
+        <div class="bai-agent"><div class="bai-agent-ico">💬</div><h3 class="font-bold text-white text-sm mt-2.5">Follow-ups on your channel</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">WhatsApp, Telegram or Instagram nudges with SLA timers and human-approval gates — nothing leaves without review.</p></div>
+        <div class="bai-agent"><div class="bai-agent-ico">🤖</div><h3 class="font-bold text-white text-sm mt-2.5">Agent team execution</h3><p class="text-xs text-slate-400 mt-1.5 leading-relaxed">After the deal closes, Buddy spawns task agents — content, reporting, reminders — so delivery runs while you sell.</p></div>
+      </div>
+    </div>
+
+    <div class="glass-card rounded-2xl p-6 sm:p-8 mt-6 reveal-progress">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="case-tag case-tag-ok">EVERY DAY, AUTOMATICALLY</span>
+        <span class="case-tag">HUMAN APPROVAL AT EVERY MONEY STEP</span>
+      </div>
+      <h2 class="font-display text-2xl font-bold text-white mt-3">Buddy runs the agency. Rahul closes the deals.</h2>
+      <p class="text-sm text-slate-400 mt-2 max-w-3xl">This is the same loop customers buy: it captures on this website, qualifies on WhatsApp, routes to the CRM, prepares meetings — then keeps the business running with scheduled agents.</p>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-5 mt-5">
+        <div class="bai-agent"><p class="text-[10px] font-mono text-cyan-300">STEP 01 · CAPTURE</p><p class="text-xs text-slate-300 mt-2 leading-relaxed">Ads, website and this chat feed one intake pipe — no lead lost in DMs.</p></div>
+        <div class="bai-agent"><p class="text-[10px] font-mono text-cyan-300">STEP 02 · QUALIFY</p><p class="text-xs text-slate-300 mt-2 leading-relaxed">Buddy scores intent, checks budget and books the slot that fits.</p></div>
+        <div class="bai-agent"><p class="text-[10px] font-mono text-cyan-300">STEP 03 · HANDOFF</p><p class="text-xs text-slate-300 mt-2 leading-relaxed">Rahul receives the brief on WhatsApp before the meeting starts.</p></div>
+        <div class="bai-agent"><p class="text-[10px] font-mono text-cyan-300">STEP 04 · EXECUTE</p><p class="text-xs text-slate-300 mt-2 leading-relaxed">Task agents run follow-ups, reports and delivery checklists on schedule.</p></div>
+      </div>
+      <div class="flex flex-wrap gap-3 mt-6">
+        <button type="button" onclick="switchPage('contact')" class="px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wide bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950">Skip the chat — brief me directly</button>
+        <button type="button" onclick="switchPage('portfolio')" class="px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wide bg-slate-800 text-sky-300 border border-sky-500/30">See Buddy in production: KNR Integrity →</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="bai-toast" id="baiToast" role="status" aria-live="polite"></div>
+
   <!-- FOOTER -->
   <footer class="relative z-10 border-t border-slate-800/80 bg-[#03050c] pt-10 pb-24 sm:pb-10 mt-16 no-print">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -2399,6 +2598,7 @@
           <button type="button" onclick="switchPage('portfolio')" class="hover:text-sky-400 transition">Portfolio</button>
           <button type="button" onclick="switchPage('stack')" class="hover:text-sky-400 transition">Stack</button>
           <button type="button" onclick="switchPage('process')" class="hover:text-sky-400 transition">Process</button>
+          <button type="button" onclick="switchPage('buddy')" class="hover:text-sky-400 transition">Buddy AI Preview</button>
           <button type="button" onclick="switchPage('contact')" class="hover:text-sky-400 transition">Pricing & Contact</button>
         </nav>
         <div class="flex flex-col gap-2">
@@ -2428,6 +2628,7 @@
         <button type="button" class="buddy-guide-option" onclick="chooseBuddyPath('Growth Marketing Retainer (₹15k-₹25k/mo)','I want to improve lead generation. Business / audience: ')"><span>↗</span> Leads &amp; marketing</button>
         <button type="button" class="buddy-guide-option" onclick="chooseBuddyPath('NRI / Overseas Business Digital Operations','I am exploring remote delivery. Country / goal: ')"><span>◎</span> NRI / overseas</button>
         <button type="button" class="buddy-guide-option" onclick="chooseBuddyPath('Custom React/FastAPI Website & Python Scraper','I need a website or data workflow. Required outcome: ')"><span>⌘</span> Website / software</button>
+        <button type="button" class="buddy-guide-option" onclick="switchPage('buddy');toggleBuddyGuide(false)" style="border-color:rgba(0,242,254,.45);"><span>✦</span> Open the full Buddy AI preview →</button>
       </div>
       <div class="flex items-center justify-between mt-3">
         <p class="text-[10px] text-slate-500">Stays on this page until you submit.</p>
@@ -2455,6 +2656,7 @@
       document.querySelectorAll('.page-view').forEach(function(p){ p.classList.remove('active'); });
       var target = document.getElementById('page-' + pageId);
       if (target) target.classList.add('active');
+      if (pageId === 'buddy') { try { baiStart(); } catch (e) {} }
       document.querySelectorAll('.nav-btn').forEach(function(btn) {
         var active = btn.dataset.nav === pageId;
         btn.className = active
@@ -2754,8 +2956,168 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
     function toggleMenu(force){try{var m=document.getElementById('mobileMenu'),b=document.getElementById('menuBtn');if(!m||!b)return;var open=typeof force==='boolean'?force:m.hidden;m.hidden=!open;b.setAttribute('aria-expanded',String(open));b.setAttribute('aria-label',open?'Close menu':'Open menu');document.getElementById('menuIcoOpen').classList.toggle('hidden',open);document.getElementById('menuIcoClose').classList.toggle('hidden',!open);if(open){var f=m.querySelector('button');if(f)f.focus({preventScroll:true});}}catch(e){}}
     function closeMenu(){try{var m=document.getElementById('mobileMenu');if(m&&!m.hidden){toggleMenu(false);document.getElementById('menuBtn').focus({preventScroll:true});}}catch(e){}}
     document.addEventListener('keydown',function(e){if(e.key==='Escape'){toggleMenu(false);}});
+    // 8. Buddy AI preview chat: scripted qualification flow, session brief,
+    // channel handoff (WhatsApp / Telegram / Instagram). If body has
+    // data-buddy-endpoint, free-text messages POST there (n8n webhook) and
+    // replies render live; otherwise the scripted preview answers.
+    var BAI = { started:false, step:0, goal:'', budget:'', timeline:'', name:'', channel:'', slot:'', awaitingName:false, endpoint:(document.body && document.body.getAttribute('data-buddy-endpoint')) || '' };
+    var BAI_RECS = {
+      'More qualified leads': 'For lead volume the pattern I deploy is: Meta/Google capture → my qualification questions → WhatsApp follow-up with SLA timers, all logged in a CRM so nothing slips. Most leads cool down in the first 48 hours — this loop removes that gap.',
+      'CRM & follow-ups': 'For CRM & follow-ups: a stage-based pipeline (New → Calling → Site visit → Booked) with daily calling queues, message templates and human-approval gates before anything is sent. There is a live KNR Integrity workspace demo in the Portfolio if you want to see the exact shape.',
+      'Website / software': 'For website & software: a fast, conversion-first site with automation behind it — intake forms route straight into n8n workflows and the CRM. Python + n8n + React/FastAPI is the delivery stack.',
+      'Talk to Rahul': 'Perfect — two quick details so Rahul arrives prepared instead of asking questions you already answered here. He personally replies, usually within business hours.'
+    };
+    function baiEl(id){ return document.getElementById(id); }
+    function baiLogEl(){ return baiEl('baiLog'); }
+    function baiScroll(){ try{ var l=baiLogEl(); l.scrollTop=l.scrollHeight; }catch(e){} }
+    function baiMsg(txt, who){
+      try{
+        var l=baiLogEl(); if(!l) return;
+        l.innerHTML += '<div class="bai-msg ' + (who==='user'?'bai-user':'bai-bot') + '">' + txt + '</div>';
+        baiScroll();
+      }catch(e){}
+    }
+    var BAI_CHIPS=[];
+    function baiChips(list){
+      try{
+        BAI_CHIPS = list || [];
+        var c=baiEl('baiChips'); if(!c) return;
+        if(!BAI_CHIPS.length){ c.innerHTML=''; return; }
+        c.innerHTML = BAI_CHIPS.map(function(t,i){ return '<button type="button" class="bai-chip" onclick="baiPick(' + i + ')">' + t + '</button>'; }).join('');
+      }catch(e){}
+    }
+    function baiTyping(){
+      try{
+        var l=baiLogEl(); if(!l) return;
+        l.innerHTML += '<div class="bai-typing" id="baiTyping"><i></i><i></i><i></i></div>';
+        baiScroll();
+        setTimeout(function(){ try{ var t=baiEl('baiTyping'); if(t && t.parentNode) t.remove(); }catch(e){} }, 620);
+      }catch(e){}
+    }
+    function baiBot(txt, chips, steps){
+      baiTyping();
+      if(steps){
+        try{
+          var l=baiLogEl();
+          l.innerHTML += '<div class="bai-steps">' + steps.join('<br/>') + '</div>';
+          baiScroll();
+        }catch(e){}
+      }
+      baiMsg(txt, 'bot');
+      baiChips(chips || []);
+    }
+    function baiBriefRender(){
+      try{
+        function set(id, v){ var el=baiEl(id); if(!el) return; el.textContent = v || '—'; if(v) el.classList.remove('bai-empty'); else el.classList.add('bai-empty'); }
+        set('baiBriefGoal', BAI.goal); set('baiBriefBudget', BAI.budget); set('baiBriefTime', BAI.timeline);
+        set('baiBriefName', BAI.name); set('baiBriefChannel', BAI.channel); set('baiBriefSlot', BAI.slot);
+        var brief = 'Hi Rahul — Buddy AI preview brief:%0A• Goal: ' + BAI.goal + '%0A• Budget: ' + BAI.budget + '%0A• Timeline: ' + BAI.timeline + '%0A• Name: ' + BAI.name + '%0A• Preferred channel: ' + BAI.channel + '%0A• Meeting slot: ' + BAI.slot;
+        var wa=baiEl('baiWa');
+        if(wa) wa.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + brief;
+      }catch(e){}
+    }
+    function baiBriefText(){
+      return 'Hi Rahul — Buddy AI preview brief:\n• Goal: ' + BAI.goal + '\n• Budget: ' + BAI.budget + '\n• Timeline: ' + BAI.timeline + '\n• Name: ' + BAI.name + '\n• Preferred channel: ' + BAI.channel + '\n• Meeting slot: ' + BAI.slot;
+    }
+    function baiToast(txt){
+      try{ var t=baiEl('baiToast'); if(!t) return; t.textContent=txt; t.classList.add('bai-show'); setTimeout(function(){ t.classList.remove('bai-show'); },2400); }catch(e){}
+    }
+    function baiCopyBrief(){
+      try{
+        var txt=baiBriefText();
+        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt); baiToast('Brief copied — paste it in the DM ✓'); }
+        else baiToast('Copy not available here — select the brief text manually.');
+      }catch(e){}
+    }
+    function baiHandoff(kind){
+      baiCopyBrief();
+      try{
+        if(kind==='tg') window.open('https://t.me/917328089908','_blank','noopener');
+        if(kind==='ig') window.open('https://instagram.com/rahul_kr_dhal','_blank','noopener');
+      }catch(e){}
+    }
+    function baiPick(i){
+      var c=baiEl('baiChips'); if(!c) return;
+      var btns=c.querySelectorAll ? c.querySelectorAll('.bai-chip') : [];
+      var label = null;
+      if(btns && btns.length && btns[i]) label = btns[i].textContent;
+      if(!label) label = BAI_CHIPS[i] || null;
+      if(!label) return;
+      baiMsg(label, 'user'); baiChips([]);
+      baiAdvance(label);
+    }
+    function baiSend(){
+      var inp=baiEl('baiInput'); if(!inp) return;
+      var txt=(inp.value||'').trim(); if(!txt) return;
+      inp.value='';
+      baiMsg(txt.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'), 'user');
+      if(BAI.awaitingName){
+        BAI.name=txt; BAI.awaitingName=false; baiBriefRender();
+        baiBot('Thanks, ' + txt + '. Which channel should the brief go through?', ['WhatsApp','Telegram','Instagram']);
+        return;
+      }
+      if(BAI.endpoint){
+        baiLive(txt);
+        return;
+      }
+      baiBot('Noted: “' + txt + '”. In live mode (n8n connected) I answer free-flow questions, search the web and think through them. In this preview I log your words and keep the guided flow — tap an option below or keep typing.', ['Restart the preview']);
+      BAI.step = -1;
+    }
+    function baiLive(txt){
+      baiTyping();
+      try{
+        fetch(BAI.endpoint, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ message: txt, page:'buddy-ai', session: [BAI.goal, BAI.budget, BAI.timeline].join(' | ') }) })
+          .then(function(r){ return r.json(); })
+          .then(function(d){ baiMsg((d && (d.reply || d.output || d.text)) || 'I received that.', 'bot'); })
+          .catch(function(){ baiBot('Live endpoint unreachable right now — falling back to preview mode. Your message: “' + txt + '”', ['Restart the preview']); });
+      }catch(e){ baiBot('Live endpoint unreachable right now — falling back to preview mode.', []); }
+    }
+    function baiAdvance(label){
+      if(label==='Restart the preview'){ baiReset(); return; }
+      switch(BAI.step){
+        case 0:
+          BAI.goal=label; baiBriefRender();
+          baiBot(BAI_RECS[label] || BAI_RECS['Talk to Rahul'], null, ['🔍 Searching context for: ' + label + '…','🧠 Drafting a recommendation…','✅ Ready — here is my take:']);
+          baiBot('What monthly budget are you comfortable with?', ['< ₹15k / mo','₹15–25k / mo','₹25k+ or project-based']);
+          BAI.step=1; break;
+        case 1:
+          BAI.budget=label; baiBriefRender();
+          baiBot('Got it. What timeline are we working with?', ['ASAP','This month','Just researching']);
+          BAI.step=2; break;
+        case 2:
+          BAI.timeline=label; baiBriefRender();
+          baiBot('Almost there — I will put this into a brief for Rahul. What name should I write?', []);
+          BAI.step=3; BAI.awaitingName=true; break;
+        case 3:
+          BAI.channel=label; baiBriefRender();
+          baiBot('And when should Rahul call you?', ['Tomorrow · 11:00 AM','Tomorrow · 6:00 PM','This weekend']);
+          BAI.step=4; break;
+        case 4:
+          BAI.slot=label; baiBriefRender();
+          baiBot('All set, ' + BAI.name + '. Your brief is ready in the panel → send it through <b>' + BAI.channel + '</b> (WhatsApp opens prefilled; Telegram &amp; Instagram copy the brief to paste). Rahul confirms the ' + label + ' slot with the full context.', []);
+          BAI.step=5; break;
+        default:
+          baiBot('Use the handoff buttons on the right to send the brief, or tap below to start over.', ['Restart the preview']);
+      }
+    }
+    function baiReset(){
+      BAI.step=0; BAI.goal=''; BAI.budget=''; BAI.timeline=''; BAI.name=''; BAI.channel=''; BAI.slot=''; BAI.awaitingName=false;
+      baiBriefRender();
+      try{ baiLogEl().innerHTML='<div class="bai-msg bai-bot">Fresh start 🌱 — what should we improve first?</div>'; }catch(e){}
+      baiChips(['More qualified leads','CRM & follow-ups','Website / software','Talk to Rahul']);
+    }
+    function baiStart(){
+      if(BAI.started) return; BAI.started=true;
+      BAI.step=0;
+      if(BAI.endpoint){
+        try{ var p=baiEl('baiModePill'); if(p){ p.textContent='● LIVE · n8n'; p.classList.add('bai-pill-live'); } var n=baiEl('baiModeNote'); if(n) n.textContent='Live mode: messages route to the connected n8n webhook.'; }catch(e){}
+      }
+      baiChips(['More qualified leads','CRM & follow-ups','Website / software','Talk to Rahul']);
+      baiBriefRender();
+    }
+
     // 9. Scroll reveals (progressive enhancement; content visible without JS).
-    try{(function(){var rm=false;try{rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}if(rm||!('IntersectionObserver' in window))return;var els=document.querySelectorAll('#arch-title,#feat-title,.proc-step');els.forEach(function(el){el.classList.add('reveal');});var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');io.unobserve(en.target);}});},{threshold:.12});els.forEach(function(el){io.observe(el);});})();}catch(e){}
+    try{(function(){var rm=false;try{rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}if(rm||!('IntersectionObserver' in window))return;var els=document.querySelectorAll('#arch-title,#feat-title,.proc-step,.glass-card');els.forEach(function(el){el.classList.add('reveal');});var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');io.unobserve(en.target);}});},{threshold:.12});els.forEach(function(el){io.observe(el);});})();}catch(e){}
         // 10. Engineering Lab filter: text + status over portfolio project cards.
     try{(function(){var s=document.getElementById('labSearch'),f=document.getElementById('labStatus');if(!s||!f)return;function run(){var q=s.value.toLowerCase(),st=f.value;document.querySelectorAll('#page-portfolio [data-proj]').forEach(function(c){var hay=((c.getAttribute('data-proj')||'')+' '+(c.getAttribute('data-tech')||'')+' '+c.textContent).toLowerCase();var ok=(!q||hay.indexOf(q)>=0)&&(!st||(c.getAttribute('data-status')||'')===st);c.style.display=ok?'':'none';});}s.addEventListener('input',run);f.addEventListener('change',run);})();}catch(e){}
     // 4d. KNR Integrity spotlight: tab switcher + Ask Buddy preview chips.
