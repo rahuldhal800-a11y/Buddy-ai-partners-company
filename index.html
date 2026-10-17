@@ -1158,7 +1158,7 @@
 <body class="relative min-h-screen selection:bg-blue-600 selection:text-white portal-open">
 <!-- Cinematic Welcome & Digital Office Entry Section -->
 
-<section id="digital-office-entry" class="cinematic-bg fixed inset-0 z-[99999] flex flex-col items-center justify-center text-center px-6 bg-[#050811] overflow-hidden" aria-label="Digital office entry">
+<section id="digital-office-entry" class="cinematic-bg fixed inset-0 z-[99999] bg-[#050811] overflow-hidden" aria-label="Digital office entry">
   <style>
     body.portal-open { overflow: hidden; }
     .cinematic-bg { background: radial-gradient(circle at 50% 32%, #0b1930 0%, #060a17 55%, #04060f 100%); }
@@ -1249,7 +1249,8 @@
 
   <div class="nebula" aria-hidden="true"></div>
 
-  <div class="max-w-md mx-auto space-y-6 relative z-10">
+  <div class="relative z-10 h-full w-full overflow-y-auto overscroll-contain flex">
+  <div class="max-w-md w-full mx-auto space-y-6 text-center px-6 py-10 m-auto">
     <div class="portal-orb animate-assembly">
       <div class="portal-halo" aria-hidden="true"></div>
       <div class="portal-orbit" aria-hidden="true"></div>
@@ -1281,6 +1282,7 @@
         Initialize &amp; Enter Workspace <span aria-hidden="true">→</span>
       </button>
     </div>
+  </div>
   </div>
 
   <script>
@@ -3600,6 +3602,16 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
             setTimeout(fastLane, 40);
           }
         }
+
+        // Safety net: never leave the page scroll-locked once the entry screen is gone.
+        try {
+          setInterval(function () {
+            if (!document.getElementById('digital-office-entry') &&
+                document.body.classList.contains('portal-open')) {
+              document.body.classList.remove('portal-open');
+            }
+          }, 1500);
+        } catch (e) {}
 
         // Convert "live endpoint configured" into a visible trust signal on the Buddy page.
         try {
