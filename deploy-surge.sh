@@ -15,6 +15,10 @@ test -f "$ROOT/public/images/logo.svg" || {
   echo "ERROR: logo missing at public/images/logo.svg; refusing to build/deploy."
   exit 1
 }
+test -f "$ROOT/public/images/og-cover.jpg" || {
+  echo "ERROR: social preview image missing at public/images/og-cover.jpg; refusing to build/deploy."
+  exit 1
+}
 
 # Validate HTML IDs, local image paths and structured data before creating dist.
 python3 - "$ROOT/index.html" "$ROOT" <<'PY'
@@ -64,6 +68,7 @@ cp "$ROOT/index.html" "$DIST/index.html"
 cp -r "$ROOT/public/images/." "$DIST/public/images/"
 [ ! -f "$ROOT/robots.txt" ] || cp "$ROOT/robots.txt" "$DIST/robots.txt"
 [ ! -f "$ROOT/sitemap.xml" ] || cp "$ROOT/sitemap.xml" "$DIST/sitemap.xml"
+[ ! -f "$ROOT/llms.txt" ] || cp "$ROOT/llms.txt" "$DIST/llms.txt"
 
 echo ""
 echo "Build complete:"

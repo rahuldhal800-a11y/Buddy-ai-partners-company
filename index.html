@@ -13,10 +13,63 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="BUDDY AI PARTNERS | AI Automation & Digital Growth" />
   <meta property="og:description" content="Practical AI automation, intelligent CRM systems, and high-conversion digital marketing engineered for modern businesses." />
-  <meta property="og:image" content="https://buddy-ai-partners.surge.sh/public/images/founder-rahul.png" />
+  <meta property="og:image" content="https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/public/images/og-cover.jpg" />
+  <meta property="og:image:secure_url" content="https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/public/images/og-cover.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <!-- Inline SVG Favicon (Metallic 'B' Shield) -->
   <link rel="icon" type="image/svg+xml" href="public/images/logo.svg" />
+
+  <!-- ============ SITE CONFIG — paste your IDs between the quotes, save, redeploy ============
+       1) GA4_ID: Google Analytics 4 → analytics.google.com → Admin → Data streams → "G-XXXXXXXXXX"
+       2) META_PIXEL_ID: Meta Events Manager → Data sources → your pixel → "123456789012345"
+       3) BUDDY_ENDPOINT: live n8n webhook / serverless URL that answers POST {message,page,session}
+          Leave empty ("" ) to keep the in-browser preview chat. Empty values are safe no-ops. -->
+  <script>
+    window.BUDDY_CONFIG = {
+      GA4_ID: "G-222739543",
+      META_PIXEL_ID: "",
+      BUDDY_ENDPOINT: ""
+    };
+  </script>
+  <script>
+    (function () {
+      var cfg = window.BUDDY_CONFIG || {};
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { try { window.dataLayer.push(arguments); } catch (e) {} };
+      try { window.gtag('js', new Date()); } catch (e) {}
+      if (cfg.GA4_ID) {
+        try {
+          window.gtag('config', cfg.GA4_ID, { anonymize_ip: true });
+          if (document.head && typeof document.head.appendChild === 'function') {
+            var ga = document.createElement('script');
+            ga.async = true;
+            ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(cfg.GA4_ID);
+            document.head.appendChild(ga);
+          }
+        } catch (e) {}
+      }
+      if (cfg.META_PIXEL_ID) {
+        try {
+          if (!window.fbq) {
+            var fbq = function () { fbq.queue.push(arguments); };
+            fbq.queue = []; fbq.loaded = true; fbq.version = '2.0';
+            window.fbq = fbq; window._fbq = fbq;
+          }
+          window.fbq('init', cfg.META_PIXEL_ID);
+          window.fbq('track', 'PageView');
+          if (document.head && typeof document.head.appendChild === 'function') {
+            var px = document.createElement('script');
+            px.async = true;
+            px.src = 'https://connect.facebook.net/en_US/fbevents.js';
+            document.head.appendChild(px);
+          }
+        } catch (e) {}
+      }
+    })();
+  </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1019,26 +1072,26 @@
 
   <!-- Search and social metadata -->
   <meta name="robots" content="index,follow,max-image-preview:large" />
-  <link rel="canonical" href="https://buddy-ai-partners.surge.sh/" />
-  <meta property="og:url" content="https://buddy-ai-partners.surge.sh/" />
+  <link rel="canonical" href="https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/" />
+  <meta property="og:url" content="https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/" />
   <meta property="og:site_name" content="BUDDY AI PARTNERS" />
   <meta property="og:locale" content="en_IN" />
   <meta property="og:image:alt" content="Rahul Kumar Dhal, founder of BUDDY AI PARTNERS" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="BUDDY AI PARTNERS | CRM, AI Automation & Digital Growth" />
   <meta name="twitter:description" content="Custom CRM workflows, AI-assisted automation, websites and performance marketing for real-estate and service businesses." />
-  <meta name="twitter:image" content="https://buddy-ai-partners.surge.sh/public/images/founder-rahul.png" />
+  <meta name="twitter:image" content="https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/public/images/og-cover.jpg" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://buddy-ai-partners.surge.sh/#organization",
+        "@id": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/#organization",
         "name": "BUDDY AI PARTNERS",
-        "url": "https://buddy-ai-partners.surge.sh/",
+        "url": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/",
         "description": "AI-assisted CRM systems, workflow automation, web engineering and digital growth services for real-estate and service businesses. Remote-first delivery from Bhubaneswar, India.",
-        "founder": { "@id": "https://buddy-ai-partners.surge.sh/#founder" },
+        "founder": { "@id": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/#founder" },
         "sameAs": ["https://instagram.com/rahul_kr_dhal"],
         "areaServed": [
           { "@type": "City", "name": "Bhubaneswar" },
@@ -1065,18 +1118,18 @@
       },
       {
         "@type": "Person",
-        "@id": "https://buddy-ai-partners.surge.sh/#founder",
+        "@id": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/#founder",
         "name": "Rahul Kumar Dhal",
         "jobTitle": "Founder and Managing Director",
-        "worksFor": { "@id": "https://buddy-ai-partners.surge.sh/#organization" },
+        "worksFor": { "@id": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/#organization" },
         "sameAs": ["https://instagram.com/rahul_kr_dhal"]
       },
       {
         "@type": "WebSite",
-        "@id": "https://buddy-ai-partners.surge.sh/#website",
-        "url": "https://buddy-ai-partners.surge.sh/",
+        "@id": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/#website",
+        "url": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/",
         "name": "BUDDY AI PARTNERS",
-        "publisher": { "@id": "https://buddy-ai-partners.surge.sh/#organization" },
+        "publisher": { "@id": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/#organization" },
         "inLanguage": "en-IN"
       }
     ]
@@ -1215,9 +1268,9 @@
       <p class="text-[10px] font-mono uppercase tracking-[0.3em] text-sky-400/80">BUDDY AI · DIGITAL OFFICE ACTIVE</p>
     </div>
 
-    <h1 class="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight animate-assembly" style="animation-delay:.2s">
+    <p class="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight animate-assembly" style="animation-delay:.2s">
       Welcome to our <br/><span class="bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500 bg-clip-text text-transparent">digital office.</span>
-    </h1>
+    </p>
 
     <p class="text-slate-400 text-sm max-w-sm mx-auto font-light leading-relaxed animate-assembly" style="animation-delay:.28s">
       Sovereign real-estate pipelines, automated CRM workflows, and autonomous AI agents.
@@ -2940,9 +2993,11 @@
       const goal = goalEl ? goalEl.value.trim() : '';
       const phoneDigits = phone.replace(/\D/g, '');
       const valid = Boolean(name.length >= 2 && phoneDigits.length >= 8 && phoneDigits.length <= 15 && goal.length >= 10);
+      const refSource = (typeof window !== 'undefined' && window.BUDDY_REF) ? String(window.BUDDY_REF).slice(0, 40) : '';
+      const refLine = refSource ? `\n*Came from:* ${refSource}` : '';
       return {
         valid,
-        text: `Hello Rahul (BUDDY AI PARTNERS),\n\n*Name/Company:* ${name}\n*Phone:* ${phone}\n*Service:* ${service}\n*Project Brief:* ${goal}`
+        text: `Hello Rahul (BUDDY AI PARTNERS),\n\n*Name/Company:* ${name}\n*Phone:* ${phone}\n*Service:* ${service}\n*Project Brief:* ${goal}${refLine}`
       };
     }
 
@@ -2972,6 +3027,7 @@
         false
       );
       window.open(waUrl, '_blank', 'noopener,noreferrer');
+      try { if (window.buddyTrack) window.buddyTrack('lead_brief_submit', { service: (document.getElementById('clientService') || {}).value || '' }); } catch (e) {}
     }
 
     function copyBriefToClipboard() {
@@ -3122,7 +3178,7 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
     // channel handoff (WhatsApp / Telegram / Instagram). If body has
     // data-buddy-endpoint, free-text messages POST there (n8n webhook) and
     // replies render live; otherwise the scripted preview answers.
-    var BAI = { started:false, step:0, goal:'', budget:'', timeline:'', name:'', channel:'', slot:'', awaitingName:false, endpoint:(document.body && document.body.getAttribute('data-buddy-endpoint')) || '' };
+    var BAI = { started:false, step:0, goal:'', budget:'', timeline:'', name:'', channel:'', slot:'', awaitingName:false, endpoint:(document.body && (document.body.getAttribute('data-buddy-endpoint') || (window.BUDDY_CONFIG && window.BUDDY_CONFIG.BUDDY_ENDPOINT))) || '' };
     var BAI_RECS = {
       'More qualified leads': 'For lead volume the pattern I deploy is: Meta/Google capture → my qualification questions → WhatsApp follow-up with SLA timers, all logged in a CRM so nothing slips. Most leads cool down in the first 48 hours — this loop removes that gap.',
       'CRM & follow-ups': 'For CRM & follow-ups: a stage-based pipeline (New → Calling → Site visit → Booked) with daily calling queues, message templates and human-approval gates before anything is sent. There is a live KNR Integrity workspace demo in the Portfolio if you want to see the exact shape.',
@@ -3173,13 +3229,15 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
         function set(id, v){ var el=baiEl(id); if(!el) return; el.textContent = v || '—'; if(v) el.classList.remove('bai-empty'); else el.classList.add('bai-empty'); }
         set('baiBriefGoal', BAI.goal); set('baiBriefBudget', BAI.budget); set('baiBriefTime', BAI.timeline);
         set('baiBriefName', BAI.name); set('baiBriefChannel', BAI.channel); set('baiBriefSlot', BAI.slot);
-        var brief = 'Hi Rahul — Buddy AI preview brief:%0A• Goal: ' + BAI.goal + '%0A• Budget: ' + BAI.budget + '%0A• Timeline: ' + BAI.timeline + '%0A• Name: ' + BAI.name + '%0A• Preferred channel: ' + BAI.channel + '%0A• Meeting slot: ' + BAI.slot;
+        var refSource = (typeof window !== 'undefined' && window.BUDDY_REF) ? String(window.BUDDY_REF).slice(0, 40) : '';
+        var brief = 'Hi Rahul — Buddy AI brief:%0A• Goal: ' + BAI.goal + '%0A• Budget: ' + BAI.budget + '%0A• Timeline: ' + BAI.timeline + '%0A• Name: ' + BAI.name + '%0A• Preferred channel: ' + BAI.channel + '%0A• Meeting slot: ' + BAI.slot + (refSource ? '%0A• Came from: ' + encodeURIComponent(refSource) : '');
         var wa=baiEl('baiWa');
         if(wa) wa.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + brief;
       }catch(e){}
     }
     function baiBriefText(){
-      return 'Hi Rahul — Buddy AI preview brief:\n• Goal: ' + BAI.goal + '\n• Budget: ' + BAI.budget + '\n• Timeline: ' + BAI.timeline + '\n• Name: ' + BAI.name + '\n• Preferred channel: ' + BAI.channel + '\n• Meeting slot: ' + BAI.slot;
+      var refSource = (typeof window !== 'undefined' && window.BUDDY_REF) ? String(window.BUDDY_REF).slice(0, 40) : '';
+      return 'Hi Rahul — Buddy AI brief:\n• Goal: ' + BAI.goal + '\n• Budget: ' + BAI.budget + '\n• Timeline: ' + BAI.timeline + '\n• Name: ' + BAI.name + '\n• Preferred channel: ' + BAI.channel + '\n• Meeting slot: ' + BAI.slot + (refSource ? '\n• Came from: ' + refSource : '');
     }
     function baiToast(txt){
       try{ var t=baiEl('baiToast'); if(!t) return; t.textContent=txt; t.classList.add('bai-show'); setTimeout(function(){ t.classList.remove('bai-show'); },2400); }catch(e){}
@@ -3488,6 +3546,88 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
       }
       document.addEventListener('visibilitychange', function () { if (document.hidden) svcStop(); else svcStart(); });
       if (window.addEventListener) window.addEventListener('resize', svcPaint);
+    })();
+
+    // ===================== LEAD ENGINE: reel/ad fast-lane + attribution + tracking =====================
+    // Reel/ads traffic (?ref=reel1 / utm_*) and deep links (/ #contact, ?page=contact) skip the
+    // splash gate and land straight on content. Every WhatsApp/Telegram/Instagram tap is tracked,
+    // and the reel/source label is attached to outgoing lead briefs.
+    (function () {
+      try {
+        var cfg = window.BUDDY_CONFIG || {};
+        var qs = (typeof location !== 'undefined' && location.search) ? String(location.search) : '';
+        var params;
+        try { params = new URLSearchParams(qs); } catch (e) { params = { get: function () { return null; } }; }
+        var hash = (typeof location !== 'undefined' && location.hash) ? String(location.hash) : '';
+        var ref = params.get('ref') || params.get('utm_source') || params.get('src') || '';
+
+        if (ref) { try { localStorage.setItem('buddy_ref', ref); } catch (e) {} }
+        else { try { ref = localStorage.getItem('buddy_ref') || ''; } catch (e) {} }
+        window.BUDDY_REF = String(ref).slice(0, 40);
+
+        window.buddyTrack = function (name, extra) {
+          var data = extra || {};
+          data.ref = window.BUDDY_REF || 'direct';
+          try { if (window.gtag) window.gtag('event', name, data); } catch (e) {}
+          try { if (window.fbq) window.fbq('trackCustom', name, data); } catch (e) {}
+        };
+
+        var KNOWN = ['home', 'about', 'services', 'portfolio', 'stack', 'process', 'contact', 'buddy'];
+        var pageParam = String(params.get('page') || '').replace(/[^a-zA-Z]/g, '').toLowerCase();
+        var hashId = hash.replace(/^#/, '').replace(/^page-/, '');
+        var target = pageParam || hashId;
+        if (target === 'pricing' || target === 'book' || target === 'call' || target === 'start') target = 'contact';
+        var isAdTraffic = Boolean(window.BUDDY_REF || params.get('utm_campaign') || params.get('utm_medium') || params.get('utm_content'));
+
+        function fastLane() {
+          try {
+            var el = document.getElementById('digital-office-entry');
+            if (el) {
+              document.body.classList.remove('portal-open');
+              el.remove();
+            }
+            if (typeof heroCountUp === 'function') heroCountUp();
+          } catch (e) {}
+        }
+
+        var wantPage = KNOWN.indexOf(target) >= 0 ? target : '';
+        if (isAdTraffic) { try { window.buddyTrack('landing_view', { intent: target || 'home' }); } catch (e) {} }
+        if (isAdTraffic || wantPage) {
+          if (wantPage && wantPage !== 'home') { try { switchPage(wantPage); } catch (e) {} }
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function () { setTimeout(fastLane, 40); });
+          } else {
+            setTimeout(fastLane, 40);
+          }
+        }
+
+        // Convert "live endpoint configured" into a visible trust signal on the Buddy page.
+        try {
+          if (typeof BAI !== 'undefined' && BAI.endpoint) {
+            var pill = document.getElementById('baiModePill');
+            if (pill) {
+              pill.textContent = '● LIVE';
+              pill.style.color = '#4ade80';
+              pill.style.borderColor = 'rgba(74,222,128,.45)';
+            }
+          }
+        } catch (e) {}
+
+        // Outbound conversion tracking: WhatsApp / Telegram / Instagram taps.
+        document.addEventListener('click', function (e) {
+          try {
+            var t = e.target;
+            while (t && t.tagName !== 'A' && !(t.getAttribute && t.getAttribute('data-cta'))) { t = t.parentNode; }
+            if (!t || !t.getAttribute) return;
+            var href = t.getAttribute('href') || '';
+            var label = String(t.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 48);
+            if (href.indexOf('wa.me') >= 0) window.buddyTrack('whatsapp_click', { label: label });
+            else if (href.indexOf('t.me') >= 0) window.buddyTrack('telegram_click', { label: label });
+            else if (href.indexOf('instagram.com') >= 0) window.buddyTrack('instagram_click', { label: label });
+            else if (t.getAttribute('data-cta')) window.buddyTrack('cta_click', { cta: t.getAttribute('data-cta') });
+          } catch (err) {}
+        }, true);
+      } catch (e) {}
     })();
   </script>
 </body>

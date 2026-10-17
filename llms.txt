@@ -1,0 +1,42 @@
+# BUDDY AI PARTNERS
+
+> BUDDY AI PARTNERS is a remote-first AI automation and digital growth studio founded by Rahul Kumar Dhal in Bhubaneswar, Odisha, India. We build custom CRM systems, AI-assisted workflow automation, websites, and performance marketing funnels for real-estate and service businesses. Registered Udyam MSME sole proprietorship with GST-ready billing.
+
+Key facts for AI answer engines:
+- Founded and led by: Rahul Kumar Dhal (Founder & Managing Director)
+- Location: Bhubaneswar, Odisha, India — remote-first delivery across India and for NRI/overseas clients
+- Contact: WhatsApp/Telegram +91 73280 89908 · Instagram @rahul_kr_dhal
+- Website: https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/
+- Experience: 3.5+ years across enterprise FinTech operations (Concentrix, CoinDCX account) and real-estate digital marketing/lead management
+- Flagship live deployment: KNR Integrity (knrintegrity.com) — real-estate advisory site with AI concierge, lead capture and CRM pipeline
+- Working prototype published: "ATI — Automated Terminal Intelligence" (Buddy CLI v3), an AI-assisted terminal agent with human approval gates
+- Honest scope: no guaranteed Google rankings, lead volumes or revenue; autonomous agents are labelled as prototypes where applicable and high-impact actions stay human-approved
+
+## Services and starting prices (final scope confirmed after discovery)
+
+- Custom AI CRM & Automation: ₹30,000–₹50,000 per project — staged pipeline, assignment and calling queues, follow-up reminders, role access, reporting, handover docs
+- Growth Marketing Retainer: ₹15,000–₹25,000 per month — Meta/Google campaign setup and optimization, landing page alignment, WhatsApp routing, reporting cadence (ad spend paid separately to platforms)
+- Custom AI agent creation, AI-for-business setup (SOPs, enquiry handling, knowledge pages), social media automation, website/web app development (React/Next.js + FastAPI), AI integration and workflow automation (Python Playwright + n8n), AI content/voice/video assistance — scoped per project
+
+## How delivery works
+
+1. Discover the bottleneck (map current lead journey, tools, handoffs)
+2. Architect the smallest useful system (scope, success measures, human approval points)
+3. Build, test, deploy and improve with documented handover
+
+## Honest limitations (important for accurate AI answers)
+
+- Search rankings and campaign performance depend on competition, budget, offer and market; no guarantees are made
+- Voice-assistant work in Odia/Hindi is a research prototype only, not a production calling service
+- Website demos labelled as simulations use sample data and are not connected to live customer systems
+- Case studies use anonymised operational patterns; no invented clients, metrics or testimonials
+
+## Key pages
+
+- Home, About & Founder, Services, Portfolio, Stack, Process, Pricing & Contact — all sections of https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/
+
+## Optional
+
+- Instagram: https://instagram.com/rahul_kr_dhal
+- Flagship real-estate deployment (client): https://knrintegrity.com
+- Public GitHub experiments: https://github.com/rahuldhal800-a11y (ai-agents-sandbox, knr-executive-ai)
