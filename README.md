@@ -2,6 +2,12 @@
 
 Premium public website for BUDDY AI PARTNERS — custom CRM workflows, AI-assisted automation, websites, and performance marketing.
 
+## Hosting (important)
+
+- **Primary (indexable):** https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/ — deployed automatically by GitHub Actions (`.github/workflows/pages.yml`) on every push to `main`. Canonical URLs, Open Graph, sitemap and llms.txt all point here.
+- **Secondary (backup only):** https://buddy-ai-partners.surge.sh/ — Surge locks `robots.txt` to `Disallow: /` on `*.surge.sh` subdomains (sintaxi/surge#288), so this copy can never be indexed by search engines. Keep it for preview/backup; never share it as the main link.
+- A custom domain can be attached to the GitHub Pages site later; when it is, update the canonical base in `index.html`, `sitemap.xml`, `robots.txt` and `llms.txt`.
+
 ## Run locally in Termux
 
 Stop your current preview server with Ctrl+C, then run:
