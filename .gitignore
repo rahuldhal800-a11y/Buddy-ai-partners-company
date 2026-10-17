@@ -3,3 +3,7 @@ dist/
 
 # Node.js dependencies
 node_modules/
+
+# Private business operations (prospects, pricing strategy, invoices) — never publish
+business/
+
