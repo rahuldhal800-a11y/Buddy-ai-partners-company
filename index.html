@@ -621,10 +621,10 @@
     .svc-tile { position:relative; text-align:left; border-radius:1rem; overflow:hidden; border:1px solid rgba(56,189,248,.18); background:#070f22; transition:border-color .25s ease; cursor:pointer; padding:0; }
     .svc-tile:hover { border-color:rgba(56,189,248,.55); }
     .svc-tile:focus-visible { outline:2px solid #38bdf8; outline-offset:2px; }
-    .svc-tile-img { display:block; aspect-ratio:16/10; overflow:hidden; background:#060d22; }
+    .svc-tile-img { display:block; position:relative; aspect-ratio:16/10; overflow:hidden; background:#060d22; }
     .svc-tile-img img { width:100%; height:100%; object-fit:cover; display:block; }
     .svc-tile-img svg { width:100%; height:100%; display:block; }
-    .svc-tile-body { display:block; padding:.6rem .75rem .75rem; }
+    .svc-tile-body { display:block; position:relative; z-index:2; padding:.6rem .75rem .75rem; }
     .svc-tile-title { display:block; font-weight:700; color:#fff; font-size:.8rem; line-height:1.25; }
     .svc-tile-desc { display:block; font-size:.66rem; color:#8fa3bd; margin-top:.25rem; line-height:1.4; }
     .svc-card-media { position:relative; aspect-ratio:16/9; overflow:hidden; background:#060d22; border-bottom:1px solid rgba(56,189,248,.15); }
@@ -677,6 +677,19 @@
     @media (min-width:640px) { .svc-stage { height: 360px; } }
     @media (min-width:1024px) { .svc-stage { height: 385px; } }
     @media (prefers-reduced-motion:reduce) { .svc-slide { transition: none; } }
+    @media (max-width:767px) {
+      #svcCardsMobile, #caseCardsMobile, #featuredMobile {
+        display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+        gap: .9rem; padding: 2px 2px 12px; scrollbar-width: none;
+        -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
+      }
+      #svcCardsMobile > .svc-card, #caseCardsMobile > article, #featuredMobile > article {
+        flex: 0 0 88%; scroll-snap-align: center;
+      }
+      #svcCardsMobile::-webkit-scrollbar, #caseCardsMobile::-webkit-scrollbar, #featuredMobile::-webkit-scrollbar { display: none; }
+    }
+    #buddyAssistant { transition: transform .35s ease, opacity .35s ease; }
+    body.fab-hidden #buddyAssistant { transform: translateY(140%); opacity: 0; pointer-events: none; }
     /* Hero stat strip */
     .hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: .75rem; }
     .hero-stat { position: relative; padding: .7rem .75rem .75rem; border-radius: .9rem; border: 1px solid rgba(56,189,248,.14); background: linear-gradient(160deg, rgba(13,24,48,.72), rgba(6,12,26,.72)); overflow: hidden; }
@@ -1653,7 +1666,7 @@
         <div><p class="buddy-eyebrow">Featured work</p><h2 id="feat-title" class="font-display text-3xl sm:text-4xl font-bold mt-2 chrome-text">Proof over promises.</h2></div>
         <button type="button" onclick="switchPage('portfolio')" class="text-xs font-bold text-sky-300 hover:underline">View all case studies →</button>
       </div>
-      <div class="grid md:grid-cols-2 gap-6">
+      <div class="grid md:grid-cols-2 gap-6" id="featuredMobile">
         <article class="glass-card rounded-2xl p-6"><span class="case-tag case-tag-ok">OPERATIONS · IN USE PATTERN</span><h3 class="font-display text-xl font-bold text-white mt-3">Real-estate CRM & follow-up queues</h3><p class="text-sm text-slate-400 mt-2 leading-relaxed"><strong class="text-slate-200">Problem:</strong> scattered WhatsApp + spreadsheet leads. <strong class="text-slate-200">Approach:</strong> stage-based CRM, daily calling queues, WhatsApp templates with audit trail.</p><div class="case-meta"><span class="case-tag">CRM</span><span class="case-tag">LEAD OPS</span><span class="case-tag">WHATSAPP</span></div><button type="button" onclick="switchPage('portfolio')" class="mt-4 text-xs font-bold text-sky-300 hover:underline">Read case study →</button></article>
         <article class="glass-card rounded-2xl p-6"><span class="case-tag">AUTOMATION · HANDS-ON BUILD</span><h3 class="font-display text-xl font-bold text-white mt-3">Playwright + n8n intake pipeline</h3><p class="text-sm text-slate-400 mt-2 leading-relaxed"><strong class="text-slate-200">Problem:</strong> manual copy-paste from listings. <strong class="text-slate-200">Approach:</strong> Python Playwright extraction → normalized JSON → n8n webhook → CRM queue.</p><div class="case-meta"><span class="case-tag">PYTHON</span><span class="case-tag">PLAYWRIGHT</span><span class="case-tag">N8N</span></div><button type="button" onclick="switchPage('portfolio')" class="mt-4 text-xs font-bold text-sky-300 hover:underline">Read implementation →</button></article>
       </div>
@@ -2141,7 +2154,7 @@
     </div>
 
     <p class="text-[11px] tracking-widest text-sky-400 font-bold mb-4">VISUAL SERVICE SYSTEM · OPEN A CARD FOR DETAILS &amp; BOUNDARIES</p>
-    <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid md:grid-cols-2 gap-6" id="svcCardsMobile">
       <article class="svc-card rounded-2xl overflow-hidden flex flex-col">
         <div class="svc-ani h-40 overflow-hidden relative">
           <span class="uag uag-chat" aria-hidden="true"><span class="uag-orb o1"></span><span class="uag-orb o2"></span><span class="uag-orb o3"></span><span class="uag-bubble uag-bub-user">Ask Buddy AI ⚡</span><span class="uag-typing"><i></i><i></i><i></i></span><span class="uag-bubble uag-bub-ai">3BHK · Patia · ~₹95L — free cab site visit?</span></span>
@@ -2386,7 +2399,7 @@
       <div class="flex flex-wrap gap-2 mt-4"><button type="button" onclick="selectServiceAndContact('Custom Business CRM Deployment')" class="px-5 py-2.5 rounded-lg text-xs font-bold text-slate-950 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400">Request a CRM Demonstration</button></div>
       </div>
     <p class="buddy-eyebrow mt-2 mb-4">CODE-VERIFIED BUILDS - PUBLIC SOURCE WHERE LINKED</p>
-      <div class="grid md:grid-cols-2 gap-6 mb-6">
+      <div class="grid md:grid-cols-2 gap-6 mb-6" id="caseCardsMobile">
       <article class="glass-card rounded-2xl p-6 flex flex-col" data-proj="knr-executive-ai" data-tech="python pytorch agents" data-status="prototype">
       <div class="flex flex-wrap gap-2"><span class="case-tag">PUBLIC REPO</span><span class="case-tag case-tag-warn">PROTOTYPE / RESEARCH</span></div>
       <h3 class="font-display text-xl font-bold text-white mt-3">KNR Executive AI - AEGIS Agent System</h3>
@@ -3339,7 +3352,7 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
     }
 
     // 9. Scroll reveals (progressive enhancement; content visible without JS).
-    try{(function(){var rm=false;try{rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}if(rm||!('IntersectionObserver' in window))return;var els=document.querySelectorAll('#arch-title,#feat-title,.proc-step,.glass-card');els.forEach(function(el){el.classList.add('reveal');});var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');io.unobserve(en.target);}});},{threshold:.12});els.forEach(function(el){io.observe(el);});})();}catch(e){}
+    try{(function(){var rm=false;try{rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}if(rm||!('IntersectionObserver' in window))return;var els=document.querySelectorAll('#arch-title,#feat-title,.proc-step,.glass-card,.svc-card,.buddy-lab-card,.knr-metric');els.forEach(function(el){el.classList.add('reveal');});var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');io.unobserve(en.target);}});},{threshold:.12});els.forEach(function(el){io.observe(el);});})();}catch(e){}
         // 10. Engineering Lab filter: text + status over portfolio project cards.
     try{(function(){var s=document.getElementById('labSearch'),f=document.getElementById('labStatus');if(!s||!f)return;function run(){var q=s.value.toLowerCase(),st=f.value;document.querySelectorAll('#page-portfolio [data-proj]').forEach(function(c){var hay=((c.getAttribute('data-proj')||'')+' '+(c.getAttribute('data-tech')||'')+' '+c.textContent).toLowerCase();var ok=(!q||hay.indexOf(q)>=0)&&(!st||(c.getAttribute('data-status')||'')===st);c.style.display=ok?'':'none';});}s.addEventListener('input',run);f.addEventListener('change',run);})();}catch(e){}
     // 4d. KNR Integrity spotlight: tab switcher + Ask Buddy preview chips.
@@ -3611,6 +3624,19 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
               document.body.classList.remove('portal-open');
             }
           }, 1500);
+        } catch (e) {}
+
+        // Hide the floating Guide button while scrolling down; bring it back on scroll up.
+        try {
+          var __lastY = window.scrollY || 0;
+          window.addEventListener('scroll', function () {
+            var y = window.scrollY || 0;
+            var delta = y - __lastY;
+            if (Math.abs(delta) < 8) return;
+            if (y > 300 && delta > 0) document.body.classList.add('fab-hidden');
+            else if (delta < 0) document.body.classList.remove('fab-hidden');
+            __lastY = y;
+          }, { passive: true });
         } catch (e) {}
 
         // Convert "live endpoint configured" into a visible trust signal on the Buddy page.
