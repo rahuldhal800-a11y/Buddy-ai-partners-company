@@ -690,6 +690,39 @@
     }
     #buddyAssistant { transition: transform .35s ease, opacity .35s ease; }
     body.fab-hidden #buddyAssistant { transform: translateY(140%); opacity: 0; pointer-events: none; }
+    /* ============================================================
+       MOTION PACK: guided tour pill, page transitions, stagger reveals,
+       scroll progress bar, stack micro-interactions.
+       ============================================================ */
+    #tourPill { position: fixed; right: max(.9rem, env(safe-area-inset-right)); bottom: calc(max(.9rem, env(safe-area-inset-bottom)) + 4.6rem); z-index: 70; display: flex; align-items: stretch; gap: .35rem; transition: transform .35s ease, opacity .35s ease; }
+    #tourPill button { border: 1px solid rgba(56,189,248,.35); background: rgba(8,16,36,.92); color: #e2e8f0; font-size: .72rem; font-weight: 800; padding: .5rem .85rem; border-radius: 999px; cursor: pointer; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    #tourPill button:hover { border-color: rgba(56,189,248,.75); }
+    #tourToggle { display: inline-flex; align-items: center; gap: .4rem; }
+    #tourCount { color: #7dd3fc; font-weight: 700; }
+    #tourPill.touring #tourToggle { border-color: rgba(34,211,238,.8); color: #a5f3fc; }
+    #tourEnd { padding: .5rem .6rem; }
+    body.fab-hidden:not(.touring) #tourPill { transform: translateY(180%); opacity: 0; pointer-events: none; }
+    body.portal-open #tourPill, body.portal-open #scrollProgress { opacity: 0; pointer-events: none; }
+    .tour-stop { scroll-margin-top: 80px; }
+    .tour-active { border-radius: 1.1rem; animation: tourPulse 2.4s ease-in-out infinite; }
+    @keyframes tourPulse { 0%,100% { box-shadow: 0 0 0 2px rgba(56,189,248,.30), 0 0 30px rgba(34,211,238,.12); } 50% { box-shadow: 0 0 0 3px rgba(56,189,248,.55), 0 0 46px rgba(34,211,238,.22); } }
+    .page-view.page-in { animation: pageIn .55s cubic-bezier(.22,.8,.3,1) both; }
+    @keyframes pageIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    #scrollProgress { position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 85; background: linear-gradient(90deg,#2563eb,#22d3ee); border-radius: 0 999px 999px 0; pointer-events: none; transition: opacity .3s ease; }
+    .reveal.stag { transition-delay: calc(min(var(--i,0), 12) * 55ms); }
+    .reveal.stag-s { transition-delay: calc(min(var(--i,0), 12) * 26ms); }
+    .ov-chip { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .ov-chip:hover { transform: translateY(-2px); border-color: rgba(56,189,248,.6) !important; box-shadow: 0 8px 20px rgba(34,211,238,.16); }
+    .eco-card { transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+    .eco-card:hover { transform: translateY(-3px); border-color: rgba(56,189,248,.45); box-shadow: 0 12px 30px rgba(8,47,73,.55); }
+    #ecoCount.pop { animation: countPop .5s ease; }
+    @keyframes countPop { 0% { transform: scale(1); } 40% { transform: scale(1.22); color: #6ee7b7; } 100% { transform: scale(1); } }
+    @media (prefers-reduced-motion: reduce) {
+      .tour-active { animation: none; box-shadow: 0 0 0 2px rgba(56,189,248,.35); }
+      .page-view.page-in { animation: none; }
+      .reveal.stag, .reveal.stag-s { transition-delay: 0ms; }
+      #tourPill { transition: none; }
+    }
     /* Hero stat strip */
     .hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: .75rem; }
     .hero-stat { position: relative; padding: .7rem .75rem .75rem; border-radius: .9rem; border: 1px solid rgba(56,189,248,.14); background: linear-gradient(160deg, rgba(13,24,48,.72), rgba(6,12,26,.72)); overflow: hidden; }
@@ -2872,6 +2905,16 @@
     </button>
   </aside>
 
+  <div id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- GUIDED PLAY TOUR (opt-in presentation mode; pauses on any real user input) -->
+  <div id="tourPill" class="no-print" role="group" aria-label="Guided tour">
+    <button type="button" id="tourToggle" aria-pressed="false" title="Auto-scroll guided tour of the site">
+      <span id="tourGlyph" aria-hidden="true">&#9654;</span><span id="tourLabel">Play tour</span><span id="tourCount" hidden></span>
+    </button>
+    <button type="button" id="tourEnd" aria-label="End guided tour" hidden>&#10005;</button>
+  </div>
+
   <!-- APPLICATION SCRIPTS -->
   <script>
     /**
@@ -2885,7 +2928,7 @@
     function switchPage(pageId) {
       document.querySelectorAll('.page-view').forEach(function(p){ p.classList.remove('active'); });
       var target = document.getElementById('page-' + pageId);
-      if (target) target.classList.add('active');
+      if (target) { target.classList.add('active'); try { target.classList.remove('page-in'); void target.offsetWidth; target.classList.add('page-in'); } catch (e) {} }
       if (pageId === 'buddy') { try { baiStart(); } catch (e) {} }
       document.querySelectorAll('.nav-btn').forEach(function(btn) {
         var active = btn.dataset.nav === pageId;
@@ -3136,6 +3179,8 @@
     var ECO_ICONS={'Python':'python','React':'react','JavaScript':'javascript','TypeScript':'typescript','Next.js':'nextdotjs','FastAPI':'fastapi','PostgreSQL':'postgresql','Redis':'redis','Docker':'docker','Linux':'linux','AWS':'amazonaws','GitHub':'github','Nginx':'nginx','Cloudflare':'cloudflare','Vercel':'vercel','NVIDIA':'nvidia','Google Cloud':'googlecloud','n8n':'n8n','Playwright':'playwright','Meta Ads':'meta','Google Ads':'googleads','YouTube':'youtube','Google Analytics':'googleanalytics','Search Console':'googlesearchconsole','Hugging Face':'huggingface','Ollama':'ollama','LangChain':'langchain','OpenAI':'openai','Claude':'claude','Groq':'groq','Mistral':'mistral','DeepSeek':'deepseek','Supabase':'supabase','Android':'android','Termux':'termux','Antigravity':'google','Whisper':'openai','Stable Diffusion':'stabilityai'};
 var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Agent platforms'],['emerging','Emerging agents'],['media','Media and voice'],['devinfra','Dev and infra']];
     var ECO_STATE={q:'',cat:'',st:'',az:false};
+    // Shared reveal helper for dynamically rendered content (stack overview + searchable directory).
+    window.__buddyObserve=function(nodes,short){try{if(!nodes||!('IntersectionObserver' in window))return;var list=[];for(var i=0;i<nodes.length;i++)list.push(nodes[i]);if(!list.length)return;if(!window.__buddyIO){window.__buddyIO=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in-view');try{window.__buddyIO.unobserve(en.target);}catch(e){}}});},{threshold:.12});}list.forEach(function(el,idx){if(!el||el.__buddySeen)return;el.__buddySeen=1;el.classList.add('reveal');el.classList.add(short?'stag-s':'stag');try{el.style.setProperty('--i',Math.min(idx,12));}catch(e){}window.__buddyIO.observe(el);});}catch(e){}};
     function ecoEsc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
     function ecoBadge(st){var c=st==='Production'?'use-prod':(st==='Hands-on'?'use-hands':(st==='Experimental'?'use-exp':''));return '<span class="use-badge '+c+'">'+ecoEsc(st)+'</span>';}
     function ecoCard(r){var links='';if(r.u){links+='<a href="'+ecoEsc(r.u)+'" target="_blank" rel="noopener noreferrer">Website</a>';}if(r.r){links+='<a href="'+ecoEsc(r.r)+'" target="_blank" rel="noopener noreferrer">Repo</a>';}if(!links){links='<span class="text-slate-500">Link pending verification</span>';}
@@ -3149,14 +3194,14 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
     var html='';ECO_CATS.forEach(function(pair){var items=rest.filter(function(r){return r.c===pair[0];});if(!items.length)return;html+='<p class="eco-sec-title">'+pair[1]+' ('+items.length+')</p><div class="eco-grid">'+items.map(ecoCard).join('')+'</div>';});
     document.getElementById('ecoSections').innerHTML=html||'<p class="text-sm text-slate-400 mt-4">No tools match the current filters.</p>';
     document.getElementById('ecoPending').innerHTML=pend.length?'<p class="eco-sec-title">Identity and verification pending ('+pend.length+')</p><p class="text-[11px] text-slate-500 mb-2">These names could not be confidently identified. No facts claimed.</p><div class="eco-grid">'+pend.map(ecoCard).join('')+'</div>':'';
-    document.getElementById('ecoCount').textContent=list.length+' of '+all.length+' shown';}
+    var cEl=document.getElementById('ecoCount');if(cEl){cEl.textContent=list.length+' of '+all.length+' shown';try{cEl.classList.remove('pop');void cEl.offsetWidth;cEl.classList.add('pop');}catch(e){}}try{var dRoot=document.getElementById('ecoDirectory');if(dRoot&&window.__buddyObserve)window.__buddyObserve(dRoot.querySelectorAll('.eco-card'),true);}catch(e){}}
     try{document.getElementById('ecoSearch').addEventListener('input',function(e){ECO_STATE.q=e.target.value;ecoRender();});document.getElementById('ecoCat').addEventListener('change',function(e){ECO_STATE.cat=e.target.value;ecoRender();});document.getElementById('ecoStatus').addEventListener('change',function(e){ECO_STATE.st=e.target.value;ecoRender();});document.getElementById('ecoSort').addEventListener('click',function(e){ECO_STATE.az=!ECO_STATE.az;e.target.setAttribute('aria-pressed',String(ECO_STATE.az));ecoRender();});ecoRender();}catch(e){}
     // 4c. Stack overview: 10 curated groups rendered from the same dataset.
     var OVERVIEW=[['AI Models and Inference',{d:'The models we route to, from hands-on local runtimes to tracked releases.',cat:'models'}],['AI Providers and Model Routing',{d:'APIs and gateways that serve models to apps and agents.',names:['OpenAI','Groq','OpenRouter','LiteLLM','HF Inference','Ollama','vLLM','OmniRoute','AI Studio','Vertex AI']}],['Agent Frameworks and Memory',{d:'Libraries for building tool-using, stateful agents.',names:['LangChain','LangGraph','CrewAI','AutoGen','Pydantic AI','Semantic Kernel','Haystack','Agents SDK','Google ADK','MCP']}],['Frontend and Backend Development',{d:'Languages and frameworks behind funnels, sites and APIs.',names:['React','Next.js','JavaScript','TypeScript','Python','FastAPI']}],['Databases and Storage',{d:'Where app and lead data lives.',names:['PostgreSQL','Redis','Supabase']}],['Infrastructure, Containers and Deployment',{d:'Runtimes, servers and clouds that host systems.',names:['Docker','Linux','AWS','GitHub','Nginx','Cloudflare','Vercel','Google Cloud','NVIDIA']}],['Browser Automation and Workflow Orchestration',{d:'Pipelines that move leads and data without manual work.',names:['Playwright','n8n','Dify','Flowise','Langflow']}],['Digital Marketing, Analytics and SEO',{d:'Channels and measurement for growth work.',names:['Meta Ads','Google Ads','SEO','Google Analytics','Search Console','YouTube']}],['Voice, Audio and Video AI',{d:'Generative media and speech technologies we track.',cat:'media'}],['Android, Termux and Edge Computing',{d:'On-device and local-first runtimes.',names:['Android','Termux','Ollama','Qwen']}]];
     function ovDot(st){var c=st==='Production'?'#34d399':(st==='Hands-on'?'#38bdf8':(st==='Experimental'?'#a78bfa':(st==='Verification pending'?'#fbbf24':'#64748b')));return '<span aria-hidden="true" style="display:inline-block;width:7px;height:7px;border-radius:99px;background:'+c+';flex:0 0 auto;"></span>';}
-    function ovChip(r){var ic=(typeof ECO_ICONS!=='undefined'&&ECO_ICONS[r.n])?'<img loading="lazy" width="18" height="18" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/'+ECO_ICONS[r.n]+'.svg" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;background:#fff;border-radius:5px;padding:2px;flex:0 0 auto;" onerror="this.remove()" />':'';return '<span style="display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .6rem;border-radius:.6rem;border:1px solid rgba(56,189,248,.16);background:rgba(8,16,36,.8);font-size:.72rem;color:#e2e8f0;" title="'+ecoEsc(r.n)+'">'+ic+'<span>'+ecoEsc(r.n)+'</span></span>';}
+    function ovChip(r){var ic=(typeof ECO_ICONS!=='undefined'&&ECO_ICONS[r.n])?'<img loading="lazy" width="18" height="18" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/'+ECO_ICONS[r.n]+'.svg" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;background:#fff;border-radius:5px;padding:2px;flex:0 0 auto;" onerror="this.remove()" />':'';return '<span class="ov-chip" style="display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .6rem;border-radius:.6rem;border:1px solid rgba(56,189,248,.16);background:rgba(8,16,36,.8);font-size:.72rem;color:#e2e8f0;" title="'+ecoEsc(r.n)+'">'+ic+'<span>'+ecoEsc(r.n)+'</span></span>';}
     function ovRender(){try{var el=document.getElementById('stackOverview');if(!el)return;var all=ecoData();var byName={};all.forEach(function(r){byName[r.n]=r;});var html='';OVERVIEW.forEach(function(g){var items=g[1].cat?all.filter(function(r){return r.c===g[1].cat;}):g[1].names.map(function(n){return byName[n];}).filter(Boolean);if(!items.length)return;html+='<div class="stack-tier"><p class="stack-cat">'+ecoEsc(g[0])+' ('+items.length+')</p><p style="font-size:11px;color:#94a3b8;margin-top:4px;">'+ecoEsc(g[1].d||'')+'</p><div style="display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem;">'+items.map(ovChip).join('')+'</div></div>';});html+='<div style="grid-column:1/-1;text-align:center;"><button type="button" onclick="document.getElementById(\'ecoDirectory\').scrollIntoView();document.getElementById(\'ecoSearch\').focus({preventScroll:true})" style="padding:.7rem 1.4rem;border-radius:.7rem;font-size:.75rem;font-weight:800;background:linear-gradient(135deg,#2563eb,#06b6d4);color:#fff;cursor:pointer;">Browse the searchable directory</button></div>';el.innerHTML=html;}catch(e){}}
-    try{ovRender();}catch(e){}
+    try{ovRender();var __ovEl=document.getElementById('stackOverview');if(__ovEl&&window.__buddyObserve){window.__buddyObserve(__ovEl.children);window.__buddyObserve(__ovEl.querySelectorAll('.ov-chip'),true);}}catch(e){}
                 // 6. Buddy CRM workspace demo: webhook arrival, stage autoplay, WhatsApp counter.
     var CRM_ORDER=['new','calling','visit','booked'];
     var CRM_STAGE_NAME={new:'New lead via webhook',calling:'SLA calling queue',visit:'Site visit · cab concierge',booked:'Booked · human approval'};
@@ -3665,6 +3710,175 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
             else if (t.getAttribute('data-cta')) window.buddyTrack('cta_click', { cta: t.getAttribute('data-cta') });
           } catch (err) {}
         }, true);
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    /* 12. GUIDED PLAY TOUR + scroll progress bar.
+       Opt-in presentation mode: glides through sections of every page,
+       auto-switches pages, and pauses instantly on any real user input. */
+    (function () {
+      try {
+        var sp = document.getElementById('scrollProgress');
+        if (sp) {
+          var tick = false;
+          var upd = function () {
+            tick = false;
+            try {
+              var de = document.documentElement;
+              var max = de.scrollHeight - window.innerHeight;
+              var y = window.scrollY || 0;
+              var p = max > 0 ? Math.min(1, y / max) : 0;
+              sp.style.width = (p * 100).toFixed(2) + '%';
+            } catch (e) {}
+          };
+          window.addEventListener('scroll', function () {
+            if (tick) return;
+            tick = true;
+            if (window.requestAnimationFrame) requestAnimationFrame(upd); else upd();
+          }, { passive: true });
+        }
+      } catch (e) {}
+
+      try {
+        var pill = document.getElementById('tourPill');
+        var tog = document.getElementById('tourToggle');
+        var endBtn = document.getElementById('tourEnd');
+        var glyph = document.getElementById('tourGlyph');
+        var label = document.getElementById('tourLabel');
+        var countEl = document.getElementById('tourCount');
+        if (!pill || !tog || !endBtn || !glyph || !label || !countEl) return;
+        var RM = false;
+        try { RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+        var ROUTE = ['home', 'services', 'portfolio', 'stack', 'process', 'buddy', 'about', 'contact'];
+        var DWELL = RM ? 2400 : 5600;
+        var T = { on: false, paused: false, pi: 0, si: 0, stops: [], timer: 0 };
+
+        function clearTimer() { if (T.timer) { try { clearTimeout(T.timer); } catch (e) {} T.timer = 0; } }
+        function currentId() {
+          var el = document.querySelector('.page-view.active');
+          return el && el.id ? el.id.replace('page-', '') : '';
+        }
+        function collect(pageId) {
+          var page = document.getElementById('page-' + pageId);
+          var out = [];
+          if (!page || !page.children) return out;
+          for (var i = 0; i < page.children.length; i++) {
+            var el = page.children[i];
+            var h = 0;
+            try { h = el.getBoundingClientRect().height; } catch (e) {}
+            if (h >= 130) out.push(el);
+          }
+          if (out.length > 7) {
+            var pick = [];
+            var n = out.length;
+            for (var j = 0; j < 7; j++) pick.push(out[Math.round(j * (n - 1) / 6)]);
+            out = pick;
+          }
+          return out;
+        }
+        function clearActive() {
+          try { document.querySelectorAll('.tour-active').forEach(function (el) { el.classList.remove('tour-active'); }); } catch (e) {}
+        }
+        function paint(mode) {
+          try {
+            if (mode === 'idle') {
+              glyph.innerHTML = '&#9654;'; label.textContent = 'Play tour';
+              countEl.hidden = true; countEl.textContent = '';
+              pill.classList.remove('touring'); tog.setAttribute('aria-pressed', 'false'); endBtn.hidden = true;
+            } else {
+              glyph.innerHTML = mode === 'paused' ? '&#9654;' : '&#10074;&#10074;';
+              label.textContent = mode === 'paused' ? 'Resume' : 'Pause';
+              countEl.textContent = '\u00b7 ' + (currentId() || 'tour') + ' ' + (T.stops.length ? Math.min(T.si + 1, T.stops.length) : '\u2026') + '/' + (T.stops.length || '\u2026');
+              countEl.hidden = false;
+              pill.classList.add('touring'); tog.setAttribute('aria-pressed', 'true'); endBtn.hidden = false;
+            }
+          } catch (e) {}
+        }
+        function nextStop() {
+          if (!T.on) return;
+          clearActive();
+          if (T.si >= T.stops.length) {
+            T.pi++;
+            if (T.pi >= ROUTE.length) { finish(); return; }
+            enterPage();
+            return;
+          }
+          var el = T.stops[T.si];
+          if (!el || !el.classList) { T.si++; nextStop(); return; }
+          try { el.classList.add('tour-stop'); } catch (e) {}
+          el.classList.add('tour-active');
+          var near = false;
+          try { var r = el.getBoundingClientRect(); near = r.top > -80 && r.top < 220; } catch (e) {}
+          if (!near) {
+            try { el.scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'start' }); } catch (e) { try { el.scrollIntoView(); } catch (e2) {} }
+          }
+          paint(T.paused ? 'paused' : 'playing');
+          T.timer = setTimeout(function () { T.si++; nextStop(); }, T.si === 0 ? 2600 : DWELL);
+        }
+        function enterPage() {
+          if (!T.on) return;
+          var pid = ROUTE[T.pi];
+          var resumeTour = function () {
+            if (!T.on) return;
+            T.stops = collect(pid); T.si = 0; nextStop();
+          };
+          if (pid !== currentId()) {
+            try { if (window.switchPage) window.switchPage(pid); } catch (e) {}
+            T.timer = setTimeout(resumeTour, RM ? 80 : 850);
+          } else {
+            T.timer = setTimeout(resumeTour, 40);
+          }
+        }
+        function start() {
+          T.on = true; T.paused = false; T.pi = 0; T.si = 0; T.stops = [];
+          try { document.body.classList.add('touring'); document.body.classList.remove('fab-hidden'); } catch (e) {}
+          paint('playing');
+          enterPage();
+        }
+        function finish() {
+          clearTimer(); clearActive();
+          T.on = false; T.paused = false;
+          try { document.body.classList.remove('touring'); document.body.classList.remove('fab-hidden'); } catch (e) {}
+          paint('idle');
+        }
+        function pause() {
+          if (!T.on || T.paused) return;
+          T.paused = true; clearTimer(); paint('paused');
+        }
+        function resume() {
+          if (!T.on || !T.paused) return;
+          T.paused = false;
+          try {
+            var y = (window.scrollY || 0) + 140;
+            var best = T.stops.length;
+            for (var i = 0; i < T.stops.length; i++) {
+              var top = 0;
+              try { top = T.stops[i].getBoundingClientRect().top + (window.scrollY || 0); } catch (e) {}
+              if (top >= y) { best = i; break; }
+            }
+            T.si = Math.min(best, T.stops.length);
+          } catch (e) {}
+          nextStop();
+        }
+        tog.addEventListener('click', function () {
+          if (!T.on) start(); else if (T.paused) resume(); else pause();
+        });
+        endBtn.addEventListener('click', function (e) {
+          try { e.stopPropagation(); } catch (err) {}
+          finish();
+        });
+        var onInput = function (e) {
+          if (!T.on) return;
+          try { if (e && e.target && pill.contains && pill.contains(e.target)) return; } catch (err) {}
+          pause();
+        };
+        ['wheel', 'touchstart', 'pointerdown', 'keydown'].forEach(function (ev) {
+          window.addEventListener(ev, onInput, { passive: true });
+        });
+        document.addEventListener('visibilitychange', function () {
+          if (T.on && document.hidden) pause();
+        });
       } catch (e) {}
     })();
   </script>
