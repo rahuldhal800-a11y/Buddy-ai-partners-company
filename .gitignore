@@ -7,3 +7,7 @@ node_modules/
 # Private business operations (prospects, pricing strategy, invoices) — never publish
 business/
 
+# Playwright test artifacts
+test-results/
+tests/results/
+
