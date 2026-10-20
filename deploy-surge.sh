@@ -76,6 +76,8 @@ fi
 [ ! -f "$ROOT/llms.txt" ] || cp "$ROOT/llms.txt" "$DIST/llms.txt"
 # IndexNow key file — public by design (see indexnow.org); proves ownership of the host.
 [ ! -f "$ROOT/5b44e100446fef7d326fe15d85f5d157.txt" ] || cp "$ROOT/5b44e100446fef7d326fe15d85f5d157.txt" "$DIST/5b44e100446fef7d326fe15d85f5d157.txt"
+# Google Search Console HTML-file verification (must be served at the site root).
+[ ! -f "$ROOT/googleb8ea7c1bfd32f1e7.html" ] || cp "$ROOT/googleb8ea7c1bfd32f1e7.html" "$DIST/googleb8ea7c1bfd32f1e7.html"
 
 echo ""
 echo "Build complete:"
