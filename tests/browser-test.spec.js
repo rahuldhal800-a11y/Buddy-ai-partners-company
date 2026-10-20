@@ -19,6 +19,18 @@ async function openSite(page) {
   }
 }
 
+// Deterministic settle: wait for the load state and web fonts (both affect
+// layout width). Avoids Playwright's discouraged 'networkidle', which never
+// settles when analytics/font connections stay open.
+async function settle(page) {
+  await page.waitForLoadState('load').catch(() => {});
+  await page.evaluate(async () => {
+    const ready = (document.fonts && document.fonts.ready) || Promise.resolve();
+    await Promise.race([ready, new Promise((resolve) => setTimeout(resolve, 4000))]);
+  }).catch(() => {});
+  await page.waitForTimeout(250);
+}
+
 test.describe('Cinematic entry portal', () => {
   test('shows orbital logo, greeting copy and enters the workspace', async ({ page }) => {
     await page.goto(`${BASE_URL}/`);
@@ -29,7 +41,7 @@ test.describe('Cinematic entry portal', () => {
     await expect(portal).toContainText('BUDDY AI · DIGITAL OFFICE ACTIVE');
     await expect(portal).toContainText('Welcome to our');
     await expect(portal).toContainText('digital office.');
-    await expect(portal).toContainText('Sovereign real-estate pipelines, automated CRM workflows, and autonomous AI agents.');
+    await expect(portal).toContainText('Sovereign business pipelines, automated CRM workflows, and autonomous AI agents.');
     const cta = portal.locator('button', { hasText: 'Initialize & Enter Workspace' });
     await expect(cta).toBeVisible();
     await cta.click();
@@ -96,7 +108,7 @@ test.describe('Mobile navigation', () => {
     for (const width of widths) {
       await page.setViewportSize({ width, height: 844 });
       await openSite(page);
-      await page.waitForLoadState('networkidle');
+      await settle(page);
       const overflow = await page.evaluate(() => {
         return document.documentElement.scrollWidth > document.documentElement.clientWidth;
       });
@@ -111,7 +123,7 @@ test.describe('Desktop layouts', () => {
     for (const width of widths) {
       await page.setViewportSize({ width, height: 900 });
       await openSite(page);
-      await page.waitForLoadState('networkidle');
+      await settle(page);
       const overflow = await page.evaluate(() => {
         return document.documentElement.scrollWidth > document.documentElement.clientWidth;
       });
@@ -132,7 +144,7 @@ test.describe('Directory single-root invariant', () => {
     await openSite(page);
     for (const pageId of ['home', 'about', 'services', 'portfolio', 'process', 'contact']) {
       await page.click(`button[data-nav="${pageId}"]`);
-      await page.waitForLoadState('networkidle');
+      await page.waitForTimeout(250);
       const count = await page.locator(`#page-${pageId} #ecoDirectory`).count();
       expect(count).toBe(0);
     }
@@ -186,8 +198,8 @@ test.describe('Assets load', () => {
       if (msg.type() === 'error') errors.push(msg.text());
     });
     await openSite(page);
-    await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(1000);
+    await settle(page);
+    await page.waitForTimeout(800);
     expect(errors).toEqual([]);
   });
 });
