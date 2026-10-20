@@ -1155,7 +1155,7 @@
   </style>
 
   <!-- Search and social metadata -->
-  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/" />
   <meta property="og:url" content="https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/" />
   <meta property="og:site_name" content="BUDDY AI PARTNERS" />
@@ -1170,13 +1170,33 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": ["Organization", "ProfessionalService"],
         "@id": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/#organization",
         "name": "BUDDY AI PARTNERS",
+        "alternateName": "Buddy AI Partners",
         "url": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/",
         "description": "A software company building AI-assisted CRM systems, workflow automation, web engineering and digital growth for businesses. Battle-tested in high-ticket real-estate sales environments. Remote-first delivery from Bhubaneswar, India.",
         "founder": { "@id": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/#founder" },
-        "sameAs": ["https://instagram.com/rahul_kr_dhal"],
+        "logo": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/public/images/logo.svg",
+        "image": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/public/images/og-cover.jpg",
+        "telephone": "+917328089908",
+        "priceRange": "₹₹",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bhubaneswar",
+          "addressRegion": "Odisha",
+          "addressCountry": "IN"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+917328089908",
+          "availableLanguage": ["en", "hi", "or"]
+        },
+        "sameAs": [
+          "https://instagram.com/rahul_kr_dhal",
+          "https://github.com/rahuldhal800-a11y"
+        ],
         "areaServed": [
           { "@type": "City", "name": "Bhubaneswar" },
           { "@type": "Country", "name": "India" }
@@ -1205,14 +1225,20 @@
         "@id": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/#founder",
         "name": "Rahul Kumar Dhal",
         "jobTitle": "Founder and Managing Director",
+        "image": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/public/images/founder-rahul.png",
+        "url": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/",
         "worksFor": { "@id": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/#organization" },
-        "sameAs": ["https://instagram.com/rahul_kr_dhal"]
+        "sameAs": [
+          "https://instagram.com/rahul_kr_dhal",
+          "https://github.com/rahuldhal800-a11y"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/#website",
         "url": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/",
         "name": "BUDDY AI PARTNERS",
+        "alternateName": "Buddy AI Partners",
         "publisher": { "@id": "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/#organization" },
         "inLanguage": "en-IN"
       }
