@@ -42,3 +42,10 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Notify IndexNow (Bing) about the fresh deployment
+        run: |
+          curl -sS -o /dev/null -w "IndexNow: %{http_code}\n" --get \
+            --data-urlencode "url=https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/" \
+            --data-urlencode "key=5b44e100446fef7d326fe15d85f5d157" \
+            "https://api.indexnow.org/indexnow" || true

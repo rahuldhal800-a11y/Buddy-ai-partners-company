@@ -67,8 +67,15 @@ mkdir -p "$DIST/public/images"
 cp "$ROOT/index.html" "$DIST/index.html"
 cp -r "$ROOT/public/images/." "$DIST/public/images/"
 [ ! -f "$ROOT/robots.txt" ] || cp "$ROOT/robots.txt" "$DIST/robots.txt"
-[ ! -f "$ROOT/sitemap.xml" ] || cp "$ROOT/sitemap.xml" "$DIST/sitemap.xml"
+if [ -f "$ROOT/sitemap.xml" ]; then
+  cp "$ROOT/sitemap.xml" "$DIST/sitemap.xml"
+  # Keep <lastmod> honest on every build (BSD/GNU sed compatible).
+  sed -i.bak "s#<lastmod>[^<]*</lastmod>#<lastmod>$(date '+%Y-%m-%d')</lastmod>#" "$DIST/sitemap.xml"
+  rm -f "$DIST/sitemap.xml.bak"
+fi
 [ ! -f "$ROOT/llms.txt" ] || cp "$ROOT/llms.txt" "$DIST/llms.txt"
+# IndexNow key file — public by design (see indexnow.org); proves ownership of the host.
+[ ! -f "$ROOT/5b44e100446fef7d326fe15d85f5d157.txt" ] || cp "$ROOT/5b44e100446fef7d326fe15d85f5d157.txt" "$DIST/5b44e100446fef7d326fe15d85f5d157.txt"
 
 echo ""
 echo "Build complete:"
