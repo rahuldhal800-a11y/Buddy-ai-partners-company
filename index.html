@@ -3398,7 +3398,7 @@
             <span class="block text-[10px] font-mono text-cyan-400 uppercase tracking-wider">SWARM STATUS</span>
             <div class="flex items-center gap-2 mt-1">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-              <span class="font-display font-bold text-lg text-white">6 Online</span>
+              <span class="font-display font-bold text-lg text-white">7 Online</span>
             </div>
             <span class="text-[10px] text-slate-400 mt-0.5 block">24/7 zero-downtime loop</span>
           </div>
@@ -3422,15 +3422,15 @@
           </div>
 
           <div class="glass-card rounded-xl p-3.5 border-slate-800 col-span-2 sm:col-span-1">
-            <span class="block text-[10px] font-mono text-purple-400 uppercase tracking-wider">ACCURACY PROOF</span>
-            <span class="font-display font-bold text-lg text-white mt-1 block">Zero Hallucination</span>
-            <span class="text-[10px] text-slate-400 mt-0.5 block">ORERA / BDA verified</span>
+            <span class="block text-[10px] font-mono text-purple-400 uppercase tracking-wider">CYBER DEFENSE</span>
+            <span class="font-display font-bold text-lg text-white mt-1 block">OWASP Guard</span>
+            <span class="text-[10px] text-slate-400 mt-0.5 block">Non-destructive audits</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Section 2: Interactive Workstations (The 6 AI Directors) -->
+    <!-- Section 2: Interactive Workstations (The 7 AI Directors) -->
     <div class="mb-14">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
         <div>
@@ -3440,12 +3440,12 @@
         </div>
         <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-3 py-1.5 rounded-lg self-start sm:self-auto flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>ALL 6 DIRECTORS SYNCED</span>
+          <span>ALL 7 DIRECTORS SYNCED</span>
         </span>
       </div>
 
       <!-- Workstation Tabs -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6" role="tablist" aria-label="Digital Office Workstations">
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mb-6" role="tablist" aria-label="Digital Office Workstations">
         <button type="button" onclick="vofficeSelectStation('kabir')" id="voffice-station-btn-kabir" class="glass-card rounded-xl p-3 text-left transition border-cyan-400 bg-cyan-950/40 focus:outline-none">
           <div class="flex items-center justify-between mb-1">
             <span class="text-[10px] font-bold text-purple-400 uppercase font-mono">01 / Master</span>
@@ -3498,6 +3498,15 @@
           </div>
           <p class="text-sm font-bold text-white truncate">Rhea</p>
           <p class="text-[10px] text-slate-400 truncate">Client Experience</p>
+        </button>
+
+        <button type="button" onclick="vofficeSelectStation('suraksha')" id="voffice-station-btn-suraksha" class="glass-card rounded-xl p-3 text-left transition border-slate-800 hover:border-slate-700 focus:outline-none">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-[10px] font-bold text-red-400 uppercase font-mono">07 / Security</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          </div>
+          <p class="text-sm font-bold text-white truncate">Suraksha</p>
+          <p class="text-[10px] text-slate-400 truncate">Cyber Defense Sentinel</p>
         </button>
       </div>
 
@@ -3575,6 +3584,9 @@
         </button>
         <button type="button" onclick="vofficeSetCategory('retail')" class="voffice-cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:border-slate-500 transition" data-vcat="retail">
           🛍️ Retail &amp; Local Services
+        </button>
+        <button type="button" onclick="vofficeSetCategory('security')" class="voffice-cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:border-slate-500 transition" data-vcat="security">
+          🛡️ Cybersecurity &amp; Audit
         </button>
       </div>
 
@@ -4021,12 +4033,22 @@
         task: "● Greeting incoming prospective Bhubaneswar business owners and preparing deal briefs for Rahul's meetings.",
         stack: "Interactive Client Sandbox, Multi-Turn Discovery Engine, Brief Hand-off.",
         metric: "Metric: Instant Interactive Client Prototypes"
+      },
+      suraksha: {
+        title: "Suraksha — Cyber Defense & Vulnerability Sentinel AI",
+        role: "Autonomous Web & API Penetration Auditing, Security Hardening & Zero-Day Defense",
+        status: "ONLINE 24/7 · SCANNER ACTIVE",
+        hub: "Cyber Defense Lab, Patia Infocity",
+        focus: "Continuous attack surface discovery, SSL/TLS & HSTS validation, OWASP Top 10 vulnerability triage, automated Nginx/Cloudflare security header generation, client PII compliance.",
+        task: "● Actively auditing 22 Bhubaneswar commercial portals; generated automated Nginx/Cloudflare security remediation patches.",
+        stack: "Python 3.12, OWASP ZAP/ARTEX Architecture, SSL Handshake Analyzer, Cloudflare Transform API.",
+        metric: "Metric: 100% Zero-Breach Automated Defense"
       }
     };
 
     function vofficeSelectStation(agentKey) {
       const data = VOFFICE_STATIONS[agentKey] || VOFFICE_STATIONS.kabir;
-      ['kabir', 'vikram', 'aanya', 'arjun', 'pooja', 'rhea'].forEach(k => {
+      ['kabir', 'vikram', 'aanya', 'arjun', 'pooja', 'rhea', 'suraksha'].forEach(k => {
         const btn = document.getElementById('voffice-station-btn-' + k);
         if (btn) {
           if (k === agentKey) {
@@ -4100,6 +4122,15 @@
         features: "Mobile-first responsive website, product catalog showcase, 24/7 Odia/English WhatsApp sales concierge, Google Maps SEO optimization.",
         roi: "Instant digital storefront for local Bhubaneswar shoppers, capture after-hours inquiries automatically.",
         packageCode: "custom_web_ai"
+      },
+      security: {
+        defaultName: "Apollo Clinic Patient Booking Portal",
+        tag: "CYBERSECURITY & AUDIT BLUEPRINT",
+        title: "AI Cybersecurity & Vulnerability Defense OS",
+        cost: "₹14,999 setup + ₹3,999/mo",
+        features: "Full OWASP Top 10 vulnerability scan, automated Nginx/Cloudflare security header hardening, sensitive endpoint shielding (.env, .git, debug), 24/7 attack surface watchdog.",
+        roi: "100% protection against clickjacking, SSL stripping, and customer data leaks; zero-breach guarantee for client records.",
+        packageCode: "cyber_security_os"
       }
     };
 
@@ -4130,11 +4161,11 @@
 
       const logLines = [
         `[00:01] 🔍 Vikram (Scout): Scanning "${bizName}" across ${corridor} corridor...`,
-        `[00:02] 🔍 Vikram (Scout): Found competitive gap — missing 24/7 instant WhatsApp lead capture.`,
+        `[00:02] 🛡️ Suraksha (Security): Performing non-destructive SSL, HSTS, and OWASP Top 10 exposure check...`,
         `[00:03] 🎨 Aanya (Creative): Drafting high-converting bilingual (Odia + English) WhatsApp greeting & 9:16 Reel hook.`,
-        `[00:04] 💻 Arjun (Dev): Scaffolding responsive booking/catalog portal wireframe with 0-latency QR engine.`,
+        `[00:04] 💻 Arjun (Dev): Scaffolding responsive portal wireframe with 0-latency QR & hardened headers.`,
         `[00:05] 🛡️ Pooja (CRM): Verified SLA & billing structure: ${preset.cost}.`,
-        `[00:06] ⚡ Kabir (Commander): Autonomous blueprint generated with 100% precision. Zero hallucination.`
+        `[00:06] ⚡ Kabir (Commander): Autonomous enterprise blueprint generated with 100% precision. Zero hallucination.`
       ];
 
       let idx = 0;
