@@ -242,12 +242,7 @@
       main section.max-w-7xl { scroll-margin-top: 8rem; }
     }
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
+      html { scroll-behavior: smooth; }
     }
 
     /* Mobile polish after real-device preview */
@@ -473,8 +468,7 @@
       .buddy-process-step:not(:last-child)::after { left:1.35rem; top:3.8rem; }
     }
     @media (prefers-reduced-motion:reduce) {
-      html { scroll-behavior:auto; }
-      *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+      html { scroll-behavior:smooth; }
     }
 
     /* BUDDY visual system: animated neural core, premium motion and conversion layers */
@@ -622,7 +616,7 @@
       #page-home>section:first-child{padding-bottom:1.5rem;}
     }
     @media (prefers-reduced-motion:reduce){
-      .animate-marquee,#galaxyCanvas{display:none!important;}
+      .animate-marquee{animation-duration:45s;}
     }
     /* Visual-first service system */
     .hero-visual-frame { display:block; border-radius:1.25rem; overflow:hidden; border:1px solid rgba(56,189,248,.25); background:#040a18; }
@@ -1310,8 +1304,9 @@
         <button type="button" onclick="switchPage('buddy')" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 shadow-lg shadow-cyan-500/25 hover:scale-[1.02] transition" aria-label="Open Buddy AI preview chat">
           <span>✦ Buddy AI</span>
         </button>
-        <button type="button" onclick="window.print()" class="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-slate-800/90 hover:bg-slate-700 text-sky-300 border border-sky-400/30 transition">
-          <span>📄 Save Profile PDF</span>
+        <button type="button" onclick="switchPage('digital-office')" class="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-[#060e22] hover:bg-[#0a1838] text-cyan-300 border border-cyan-400/40 shadow-sm shadow-cyan-950 transition">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Digital Office</span>
         </button>
         <button type="button" onclick="switchPage('contact')" class="px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white shadow-lg shadow-blue-600/30 transition">
           Start Project
@@ -4053,7 +4048,7 @@
           <a href="https://instagram.com/rahul_kr_dhal" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 transition">Instagram: @rahul_kr_dhal</a>
           <a href="https://wa.me/917328089908" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">WhatsApp: +91 73280 89908</a>
           <a href="https://t.me/917328089908" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition">Telegram: +91 73280 89908</a>
-          <button type="button" onclick="window.print()" class="text-left text-sky-400 font-semibold hover:underline">Save PDF Profile</button>
+          <button type="button" onclick="switchPage('digital-office')" class="text-left text-cyan-400 font-semibold hover:underline flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Digital Office Cockpit</button>
           <span class="text-[11px] text-slate-500">© 2026 BUDDY AI PARTNERS. Practical systems, honest scope.</span>
         </div>
       </div>
