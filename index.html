@@ -1122,7 +1122,158 @@
   </script>
 
 </head>
-<body class="relative min-h-screen selection:bg-blue-600 selection:text-white">
+<body class="relative min-h-screen selection:bg-blue-600 selection:text-white portal-open">
+
+<!-- ========================================================= -->
+<!-- CINEMATIC WELCOME & DIGITAL OFFICE ENTRY PORTAL           -->
+<!-- ========================================================= -->
+<section id="digital-office-entry" class="cinematic-bg fixed inset-0 z-[99999] flex flex-col items-center justify-center text-center px-6 bg-[#04060f] overflow-hidden" aria-label="Digital office entry">
+  <style>
+    body.portal-open { overflow: hidden; }
+    .cinematic-bg {
+      background: radial-gradient(circle at 50% 32%, #0b1a34 0%, #050a18 55%, #03050c 100%);
+    }
+    @keyframes starDriftA {
+      0% { transform: translate3d(0, 0, 0); opacity: 0.25; }
+      50% { opacity: 0.7; }
+      100% { transform: translate3d(0, -160px, 0); opacity: 0.25; }
+    }
+    @keyframes starDriftB {
+      0% { transform: translate3d(0, 0, 0); opacity: 0.2; }
+      50% { opacity: 0.55; }
+      100% { transform: translate3d(-60px, -220px, 0); opacity: 0.2; }
+    }
+    @keyframes starTwinkle { 0%, 100% { opacity: 0.45; } 50% { opacity: 0.95; } }
+    .cinematic-bg::before, .cinematic-bg::after {
+      content: ""; position: absolute; inset: -60%; pointer-events: none;
+    }
+    .cinematic-bg::before {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.85) 1.1px, transparent 1.4px);
+      background-size: 26px 26px; animation: starDriftA 22s linear infinite;
+    }
+    .cinematic-bg::after {
+      background-image: radial-gradient(rgba(56, 189, 248, 0.8) 1.6px, transparent 2px);
+      background-size: 47px 47px;
+      animation: starDriftB 34s linear infinite, starTwinkle 6s ease-in-out infinite;
+    }
+    .cinematic-bg .nebula {
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(40% 32% at 50% 30%, rgba(37, 99, 235, 0.26), transparent 70%),
+                  radial-gradient(32% 26% at 68% 62%, rgba(0, 240, 255, 0.14), transparent 70%);
+    }
+    .portal-orb { position: relative; width: 200px; height: 200px; margin: 0 auto; }
+    @media (min-width: 640px) { .portal-orb { width: 220px; height: 220px; } }
+    .portal-logo {
+      position: relative; z-index: 3; width: 100%; height: 100%;
+      border-radius: 9999px; overflow: hidden; background: #060b19;
+      border: 2px solid rgba(56, 189, 248, 0.6);
+      animation: orbGlow 3.6s ease-in-out infinite;
+    }
+    .portal-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    @keyframes orbGlow {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 32px rgba(56, 189, 248, 0.5), 0 0 90px rgba(37, 99, 235, 0.4), inset 0 0 24px rgba(0, 240, 255, 0.25); }
+      50% { transform: scale(1.035); box-shadow: 0 0 54px rgba(56, 189, 248, 0.8), 0 0 130px rgba(37, 99, 235, 0.6), inset 0 0 36px rgba(0, 240, 255, 0.45); }
+    }
+    .portal-halo {
+      position: absolute; inset: -16px; border-radius: 9999px; z-index: 1;
+      background: conic-gradient(from 0deg, rgba(0, 240, 255, 0) 0%, rgba(0, 240, 255, 0.95) 18%, rgba(59, 130, 246, 0) 38%, rgba(125, 211, 252, 0.85) 55%, rgba(0, 240, 255, 0) 78%, rgba(0, 240, 255, 0.75) 92%, rgba(0, 240, 255, 0) 100%);
+      filter: blur(8px); animation: haloSpin 7.5s linear infinite;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 10px), #000 calc(100% - 8px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 10px), #000 calc(100% - 8px));
+    }
+    .portal-orbit {
+      position: absolute; inset: -32px; border-radius: 9999px; z-index: 2;
+      border: 1px dashed rgba(56, 189, 248, 0.45);
+      animation: haloSpin 18s linear infinite reverse;
+    }
+    .portal-orbit::after {
+      content: ""; position: absolute; top: -4px; left: 50%; width: 8px; height: 8px;
+      margin-left: -4px; border-radius: 9999px; background: #00f0ff;
+      box-shadow: 0 0 14px rgba(0, 240, 255, 1), 0 0 4px #fff;
+    }
+    @keyframes haloSpin { to { transform: rotate(360deg); } }
+    .portal-flare {
+      position: absolute; width: 120px; height: 120px; pointer-events: none; z-index: 4;
+      mix-blend-mode: screen; animation: flareTwinkle 4.2s ease-in-out infinite;
+    }
+    .portal-flare::before, .portal-flare::after { content: ""; position: absolute; }
+    .portal-flare::before {
+      left: 50%; top: 0; bottom: 0; width: 2px; transform: translateX(-50%);
+      background: linear-gradient(180deg, transparent, rgba(186, 230, 255, 0.95), transparent);
+    }
+    .portal-flare::after {
+      top: 50%; left: 0; right: 0; height: 2px; transform: translateY(-50%);
+      background: linear-gradient(90deg, transparent, rgba(186, 230, 255, 0.95), transparent);
+    }
+    .flare-a { top: -34px; right: -30px; }
+    .flare-b { bottom: -26px; left: -34px; width: 84px; height: 84px; animation-delay: 1.6s; }
+    @keyframes flareTwinkle { 0%, 100% { opacity: 0.35; transform: scale(0.92); } 50% { opacity: 1; transform: scale(1.04); } }
+    @keyframes textAssembly {
+      0% { transform: translateY(25px); opacity: 0; filter: blur(10px); }
+      100% { transform: translateY(0); opacity: 1; filter: blur(0); }
+    }
+    .animate-assembly { animation: textAssembly 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    @media (prefers-reduced-motion: reduce) {
+      .cinematic-bg::before, .cinematic-bg::after, .portal-halo, .portal-orbit, .portal-logo, .portal-flare, .animate-assembly { animation: none !important; }
+    }
+  </style>
+
+  <div class="nebula" aria-hidden="true"></div>
+
+  <div class="max-w-md mx-auto space-y-6 relative z-10">
+    <div class="portal-orb animate-assembly">
+      <div class="portal-halo" aria-hidden="true"></div>
+      <div class="portal-orbit" aria-hidden="true"></div>
+      <div class="portal-logo">
+        <img src="images/logo-orbital.webp" alt="BUDDY AI PARTNERS orbital logo" width="220" height="220" loading="eager" decoding="async" fetchpriority="high" />
+      </div>
+      <div class="portal-flare flare-a" aria-hidden="true"></div>
+      <div class="portal-flare flare-b" aria-hidden="true"></div>
+    </div>
+
+    <div class="space-y-3 animate-assembly" style="animation-delay:.12s">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-300 text-[11px] font-mono uppercase tracking-widest backdrop-blur-md shadow-lg shadow-cyan-500/10 mx-auto">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping" aria-hidden="true"></span>
+        ✦ Secure Connection Established
+      </div>
+      <p class="text-[10px] font-mono uppercase tracking-[0.3em] text-sky-400/80">BUDDY AI · DIGITAL OFFICE ACTIVE</p>
+    </div>
+
+    <h1 class="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight animate-assembly" style="animation-delay:.2s">
+      Welcome to our <br/><span class="bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500 bg-clip-text text-transparent">digital office.</span>
+    </h1>
+
+    <p class="text-slate-400 text-sm max-w-sm mx-auto font-light leading-relaxed animate-assembly" style="animation-delay:.28s">
+      Sovereign real-estate pipelines, automated CRM workflows, and autonomous AI agents.
+    </p>
+
+    <div class="pt-2 animate-assembly" style="animation-delay:.36s">
+      <button type="button" onclick="enterOffice()" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 shadow-xl shadow-cyan-500/30 hover:shadow-cyan-500/60 hover:scale-[1.02] active:scale-[.99] transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80">
+        Initialize &amp; Enter Workspace <span aria-hidden="true">→</span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function enterOffice() {
+      var el = document.getElementById("digital-office-entry");
+      if (!el) return;
+      el.style.transition = "opacity .65s cubic-bezier(.16, 1, .3, 1), transform .65s cubic-bezier(.16, 1, .3, 1)";
+      el.style.opacity = "0";
+      el.style.transform = "scale(1.05)";
+      el.style.pointerEvents = "none";
+      document.body.classList.remove("portal-open");
+      try { sessionStorage.setItem("buddy_entered", "true"); } catch(e){}
+      setTimeout(function () { el.style.display = "none"; }, 650);
+    }
+    document.addEventListener("keydown", function(e) {
+      if ((e.key === "Enter" || e.key === " " || e.key === "Escape") && document.body.classList.contains("portal-open")) {
+        enterOffice();
+      }
+    });
+  </script>
+</section>
+
   <a href="#page-home" class="skip-link" onclick="switchPage('home')">Skip to main content</a>
   <!-- Interactive Starfield Background -->
   <canvas id="galaxyCanvas" class="fixed inset-0 pointer-events-none z-0" aria-hidden="true"></canvas>
@@ -1833,13 +1984,13 @@
             <div class="max-w-3xl">
               <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-400/30 mb-3">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>AUTONOMOUS ENTERPRISE OPERATIONS · 6 DEDICATED AI DIRECTORS</span>
+                <span>AUTONOMOUS ENTERPRISE OPERATIONS · 7 DEDICATED AI DIRECTORS</span>
               </div>
               <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
                 Run Your Entire Office with <span class="chrome-text">Autonomous AI Agents</span>
               </h2>
               <p class="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
-                Zero payroll bloat. Zero delayed follow-ups. Six coordinated autonomous AI agents handling enterprise sales triage, viral media creation, full-stack software development, CRM SLAs, and 24/7 executive office operations.
+                Zero payroll bloat. Zero delayed follow-ups. Seven coordinated autonomous AI directors handling enterprise sales triage, viral media creation, full-stack software development, CRM SLAs, executive operations, client retention, and non-destructive cybersecurity defense.
               </p>
             </div>
             <div class="flex flex-wrap items-center gap-3">
@@ -1854,7 +2005,7 @@
           </div>
 
           <!-- Interactive Agent Selector Grid -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6" role="tablist" aria-label="AI Office Agents">
+          <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mb-6" role="tablist" aria-label="AI Office Agents">
             <button type="button" onclick="selectOfficeAgent('vikram')" id="office-tab-vikram" role="tab" aria-selected="true" class="agent-nav-btn glass-card rounded-xl p-3 text-left transition border-cyan-400 bg-cyan-950/40">
               <div class="flex items-center justify-between mb-1">
                 <span class="text-xs font-bold text-sky-400 uppercase font-mono">01 / Sales</span>
@@ -1907,6 +2058,15 @@
               </div>
               <p class="text-sm font-bold text-white truncate">Rhea</p>
               <p class="text-[10px] text-slate-400 truncate">Client Retention</p>
+            </button>
+
+            <button type="button" onclick="selectOfficeAgent('suraksha')" id="office-tab-suraksha" role="tab" aria-selected="false" class="agent-nav-btn glass-card rounded-xl p-3 text-left transition border-slate-700/50 hover:border-slate-500">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs font-bold text-red-400 uppercase font-mono">07 / Cyber</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              </div>
+              <p class="text-sm font-bold text-white truncate">Suraksha</p>
+              <p class="text-[10px] text-slate-400 truncate">Cyber Defense</p>
             </button>
           </div>
 
@@ -2065,6 +2225,19 @@
           desc: "Rhea ensures clients never feel abandoned after signing. She tracks delivery milestones, delivers weekly ROI progress reports, and triggers proactive customer care to ensure long-term retainers.",
           tools: ["email.send", "crm.live", "company.ops"],
           sampleOutput: "[RHEA] 14-Day Client Health Check: 'KNR Integrity Real Estate'\n• Leads Captured: 142 qualified property inquiries\n• WhatsApp Follow-up Rate: 98.6%\n• Client NPS Score: 10/10 — Retainer renewal confirmed for next quarter"
+        },
+        suraksha: {
+          name: "Suraksha",
+          title: "Cyber Defense Sentinel AI",
+          dept: "CYBER DEFENSE & COMPLIANCE",
+          deptColor: "text-red-400",
+          tagline: "OWASP Vulnerability Audits, SSL/TLS Hardening & Exposure Elimination",
+          stat1: { label: "OWASP Tests", val: "10 Audits" },
+          stat2: { label: "Exposure Fix", val: "Instant" },
+          stat3: { label: "Audit Mode", val: "Non-Destructive" },
+          desc: "Suraksha audits web applications and APIs for critical vulnerabilities, testing SSL/TLS protocols, HSTS, CSP headers, X-Frame-Options, server banner leaks, and sensitive file exposures (.env, .git). Instantly generates ready-to-paste Nginx and Cloudflare hardening configs.",
+          tools: ["security.audit", "ssl.verify", "owasp.scan", "headers.inspect", "cloudflare.rule"],
+          sampleOutput: "[SURAKSHA] Autonomous Security Audit Report\n• Target: 'bhubaneswar-hospitality.com'\n• Grade: C- (3 Critical Misconfigurations)\n• Findings: Missing Content-Security-Policy; Server header exposed (nginx/1.18.0)\n• Remediation: Auto-compiled 1-click Nginx & Cloudflare hardening rule block"
         }
       };
 

@@ -49,6 +49,8 @@ try {
   if (dh && reg['ecosystem-data']) reg['ecosystem-data'].textContent = dh[1];
 } catch (e) {}
 global.window = global;
+global.addEventListener = () => {};
+global.removeEventListener = () => {};
 global.document = {
   hidden: false, head: makeEl('head', null, ''),
   getElementById: (id) => reg[id] || (reg[id] = makeEl('div', id, '')),
