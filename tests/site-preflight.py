@@ -26,7 +26,7 @@ def is_local(ref: str) -> bool:
     ref = ref.strip()
     if not ref:
         return False
-    if ref.startswith(("data:", "mailto:", "tel:", "javascript:", "#", "//")):
+    if ref.startswith(("data:", "mailto:", "tel:", "javascript:", "upi:", "#", "//")):
         return False
     if ref.startswith(SITE_ORIGIN):
         return True  # own production URL -> validate its path too
