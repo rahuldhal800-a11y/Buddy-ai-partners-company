@@ -1145,6 +1145,7 @@
       <!-- Desktop Tabs -->
       <nav aria-label="Main Navigation" class="hidden lg:flex items-center gap-1 bg-slate-900/85 p-1.5 rounded-full border border-slate-700/60">
         <button type="button" onclick="switchPage('home')" data-nav="home" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-blue-600 text-white transition">Home</button>
+        <button type="button" onclick="switchPage('digital-office')" data-nav="digital-office" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>Digital Office</button>
         <button type="button" onclick="switchPage('about')" data-nav="about" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">About</button>
         <button type="button" onclick="switchPage('services')" data-nav="services" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">Services</button>
         <button type="button" onclick="switchPage('portfolio')" data-nav="portfolio" class="nav-btn px-3 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition">Portfolio</button>
@@ -1176,6 +1177,7 @@
     <nav id="mobileMenu" aria-label="Mobile Navigation" hidden class="lg:hidden absolute left-0 right-0 top-full z-50 px-3 pb-4 pt-2 bg-[#050915]/95 backdrop-blur-xl border-b border-slate-800/80 shadow-2xl shadow-black/50">
       <div class="flex flex-col gap-1.5">
         <button type="button" onclick="switchPage('home');closeMenu()" data-mnav="home" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Home</button>
+        <button type="button" onclick="switchPage('digital-office');closeMenu()" data-mnav="digital-office" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300 flex items-center justify-between"><span>🏢 Digital Office (Virtual HQ)</span><span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/30">● LIVE</span></button>
         <button type="button" onclick="switchPage('about');closeMenu()" data-mnav="about" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">About &amp; Founder</button>
         <button type="button" onclick="switchPage('services');closeMenu()" data-mnav="services" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Services</button>
         <button type="button" onclick="switchPage('portfolio');closeMenu()" data-mnav="portfolio" class="mnav-btn text-left text-sm font-semibold px-4 py-3.5 rounded-lg bg-slate-800 text-slate-300">Portfolio</button>
@@ -1209,6 +1211,10 @@
           <div class="flex flex-wrap gap-4 pt-2">
             <button type="button" onclick="switchPage('contact')" class="px-7 py-4 rounded-xl font-bold text-sm uppercase tracking-wider bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950 shadow-xl shadow-sky-500/25 hover:scale-[1.02] transition">
               Start a Project
+            </button>
+            <button type="button" onclick="switchPage('digital-office')" class="px-6 py-4 rounded-xl font-bold text-sm uppercase tracking-wider bg-[#060e22] border border-cyan-400/50 hover:border-cyan-300 text-cyan-300 shadow-xl shadow-cyan-950/50 hover:scale-[1.02] transition flex items-center gap-2">
+              <span>🏢 Enter Digital Office</span>
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             </button>
             <button type="button" onclick="switchPage('portfolio')" class="px-7 py-4 rounded-xl font-bold text-sm uppercase tracking-wider glass-card text-white hover:border-sky-400">
               Explore Our Work →
@@ -3351,7 +3357,492 @@
     </div>
   </section>
 
-  <div class="bai-toast" id="baiToast" role="status" aria-live="polite"></div>
+  <!-- ========================================================= -->
+  <!-- PAGE 9: DIGITAL OFFICE (VIRTUAL HEADQUARTERS)             -->
+  <!-- ========================================================= -->
+  <section id="page-digital-office" class="page-view relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 md:py-24">
+    
+    <!-- Virtual Headquarters Cockpit Hero -->
+    <div class="glass-card rounded-3xl p-6 sm:p-10 lg:p-12 mb-10 border border-cyan-500/30 bg-gradient-to-b from-[#080d24] via-[#050917] to-[#02040c] shadow-2xl relative overflow-hidden">
+      <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-cyan-500/15 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-400/30 mb-4">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>BUDDY AI PARTNERS · VIRTUAL HEADQUARTERS · PATIA INFOCITY, BHUBANESWAR</span>
+            </div>
+            <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight">
+              Welcome to the <span class="chrome-text">Digital Office</span>
+            </h1>
+            <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed max-w-2xl">
+              Step inside Bhubaneswar's 24/7 autonomous AI software enterprise. Here, six specialized AI directors collaborate in real-time to scout local market bottlenecks, engineer full-stack software, craft viral marketing, and maintain CRM SLAs — while founder <strong>Rahul Kumar Dhal</strong> leads strategic deal closing and quality governance.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <a href="https://wa.me/917328089908?text=Hi%20Rahul%2C%20I%20am%20exploring%20the%20Digital%20Office%20and%20want%20to%20discuss%20deploying%20Buddy%20AI%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 text-slate-950 shadow-lg shadow-cyan-500/25 hover:scale-[1.02] transition text-center flex items-center justify-center gap-2">
+              <span>💬 Schedule Tour with Rahul</span>
+              <span class="text-xs">↗</span>
+            </a>
+            <a href="tel:+917328089908" class="px-4 py-3 rounded-xl font-semibold text-xs glass-card text-sky-300 hover:text-white transition text-center flex items-center justify-center gap-2">
+              <span>📞 Direct Desk: +91 73280 89908</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Telemetry HUD Bar -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 pt-6 border-t border-slate-800/80">
+          <div class="glass-card rounded-xl p-3.5 border-slate-800">
+            <span class="block text-[10px] font-mono text-cyan-400 uppercase tracking-wider">SWARM STATUS</span>
+            <div class="flex items-center gap-2 mt-1">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <span class="font-display font-bold text-lg text-white">6 Online</span>
+            </div>
+            <span class="text-[10px] text-slate-400 mt-0.5 block">24/7 zero-downtime loop</span>
+          </div>
+
+          <div class="glass-card rounded-xl p-3.5 border-slate-800">
+            <span class="block text-[10px] font-mono text-sky-400 uppercase tracking-wider">DELIVERY SLA</span>
+            <span class="font-display font-bold text-lg text-white mt-1 block">&lt; 48 Hours</span>
+            <span class="text-[10px] text-slate-400 mt-0.5 block">Production-ready systems</span>
+          </div>
+
+          <div class="glass-card rounded-xl p-3.5 border-slate-800">
+            <span class="block text-[10px] font-mono text-emerald-400 uppercase tracking-wider">COVERAGE RADAR</span>
+            <span class="font-display font-bold text-lg text-white mt-1 block">5 Corridors</span>
+            <span class="text-[10px] text-slate-400 mt-0.5 block">Patia to Khandagiri</span>
+          </div>
+
+          <div class="glass-card rounded-xl p-3.5 border-slate-800">
+            <span class="block text-[10px] font-mono text-amber-400 uppercase tracking-wider">TOOL SAVINGS</span>
+            <span class="font-display font-bold text-lg text-white mt-1 block">₹1,29,552 / yr</span>
+            <span class="text-[10px] text-slate-400 mt-0.5 block">Replaces 5 paid SaaS apps</span>
+          </div>
+
+          <div class="glass-card rounded-xl p-3.5 border-slate-800 col-span-2 sm:col-span-1">
+            <span class="block text-[10px] font-mono text-purple-400 uppercase tracking-wider">ACCURACY PROOF</span>
+            <span class="font-display font-bold text-lg text-white mt-1 block">Zero Hallucination</span>
+            <span class="text-[10px] text-slate-400 mt-0.5 block">ORERA / BDA verified</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Interactive Workstations (The 6 AI Directors) -->
+    <div class="mb-14">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+        <div>
+          <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider font-semibold">DEPARTMENT STATIONS</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mt-1">Interactive AI Workstations Floor Plan</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">Select an active workstation to inspect live agent tasks, technology stacks, and market operations.</p>
+        </div>
+        <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-3 py-1.5 rounded-lg self-start sm:self-auto flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>ALL 6 DIRECTORS SYNCED</span>
+        </span>
+      </div>
+
+      <!-- Workstation Tabs -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6" role="tablist" aria-label="Digital Office Workstations">
+        <button type="button" onclick="vofficeSelectStation('kabir')" id="voffice-station-btn-kabir" class="glass-card rounded-xl p-3 text-left transition border-cyan-400 bg-cyan-950/40 focus:outline-none">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-[10px] font-bold text-purple-400 uppercase font-mono">01 / Master</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          </div>
+          <p class="text-sm font-bold text-white truncate">Kabir</p>
+          <p class="text-[10px] text-slate-400 truncate">Executive Orchestrator</p>
+        </button>
+
+        <button type="button" onclick="vofficeSelectStation('vikram')" id="voffice-station-btn-vikram" class="glass-card rounded-xl p-3 text-left transition border-slate-800 hover:border-slate-700 focus:outline-none">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-[10px] font-bold text-sky-400 uppercase font-mono">02 / Scout</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          </div>
+          <p class="text-sm font-bold text-white truncate">Vikram</p>
+          <p class="text-[10px] text-slate-400 truncate">Market Pipeline Hunter</p>
+        </button>
+
+        <button type="button" onclick="vofficeSelectStation('aanya')" id="voffice-station-btn-aanya" class="glass-card rounded-xl p-3 text-left transition border-slate-800 hover:border-slate-700 focus:outline-none">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-[10px] font-bold text-pink-400 uppercase font-mono">03 / Creative</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          </div>
+          <p class="text-sm font-bold text-white truncate">Aanya</p>
+          <p class="text-[10px] text-slate-400 truncate">Viral Media Engine</p>
+        </button>
+
+        <button type="button" onclick="vofficeSelectStation('arjun')" id="voffice-station-btn-arjun" class="glass-card rounded-xl p-3 text-left transition border-slate-800 hover:border-slate-700 focus:outline-none">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-[10px] font-bold text-cyan-400 uppercase font-mono">04 / Dev</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          </div>
+          <p class="text-sm font-bold text-white truncate">Arjun</p>
+          <p class="text-[10px] text-slate-400 truncate">Systems Architect</p>
+        </button>
+
+        <button type="button" onclick="vofficeSelectStation('pooja')" id="voffice-station-btn-pooja" class="glass-card rounded-xl p-3 text-left transition border-slate-800 hover:border-slate-700 focus:outline-none">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-[10px] font-bold text-amber-400 uppercase font-mono">05 / Ops</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          </div>
+          <p class="text-sm font-bold text-white truncate">Pooja</p>
+          <p class="text-[10px] text-slate-400 truncate">SLA &amp; CRM Sentinel</p>
+        </button>
+
+        <button type="button" onclick="vofficeSelectStation('rhea')" id="voffice-station-btn-rhea" class="glass-card rounded-xl p-3 text-left transition border-slate-800 hover:border-slate-700 focus:outline-none">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-[10px] font-bold text-emerald-400 uppercase font-mono">06 / Experience</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          </div>
+          <p class="text-sm font-bold text-white truncate">Rhea</p>
+          <p class="text-[10px] text-slate-400 truncate">Client Experience</p>
+        </button>
+      </div>
+
+      <!-- Station Detail Console Card -->
+      <div id="voffice-station-detail" class="glass-card rounded-2xl p-6 sm:p-8 border border-cyan-500/30">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+          <div>
+            <div class="flex items-center gap-3">
+              <span id="voffice-station-title" class="font-display text-2xl sm:text-3xl font-bold text-white">Kabir — Executive Suite Commander</span>
+              <span id="voffice-station-status" class="px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <span>ONLINE 24/7 · CPU 14%</span>
+              </span>
+            </div>
+            <p id="voffice-station-role" class="text-xs sm:text-sm text-cyan-300 font-mono mt-1">Multi-Agent Swarm Orchestration &amp; Strategic Deal Architecture</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-mono text-slate-400">Hub: Patia Infocity Corridor</span>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 pt-6">
+          <div>
+            <span class="text-[10px] font-mono uppercase text-slate-400 block tracking-wider">CORE RESPONSIBILITIES</span>
+            <p id="voffice-station-focus" class="text-xs text-slate-200 mt-2 leading-relaxed">
+              Task prioritization, automated swarm routing, deal structure and pricing governance, zero-quota failover across Groq, NVIDIA NIM, and local models.
+            </p>
+          </div>
+          <div>
+            <span class="text-[10px] font-mono uppercase text-slate-400 block tracking-wider">LIVE AUTONOMOUS MISSION</span>
+            <p id="voffice-station-task" class="text-xs text-emerald-300 mt-2 font-mono bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/20 leading-relaxed">
+              ● Actively coordinating B2B outreach across 5 Bhubaneswar corridors; zero hallucination check on 25 client dossiers.
+            </p>
+          </div>
+          <div>
+            <span class="text-[10px] font-mono uppercase text-slate-400 block tracking-wider">TECHNOLOGY STACK &amp; METRIC</span>
+            <p id="voffice-station-stack" class="text-xs text-slate-300 mt-2">
+              Python 3.12, FastAPI, LangGraph, ZeroQuotaRouter, WhatsApp Cloud API.
+            </p>
+            <div class="mt-3 inline-block px-3 py-1 rounded bg-slate-900 border border-slate-700 text-[11px] font-mono text-cyan-400" id="voffice-station-metric">
+              Metric: 100% On-Time Autonomous Client Delivery
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Interactive "Test-Drive Your AI Employee" Simulator -->
+    <div id="voffice-simulator-section" class="glass-card rounded-3xl p-6 sm:p-10 lg:p-12 mb-14 border border-sky-500/30 bg-slate-900/90 relative overflow-hidden">
+      <div class="max-w-3xl mb-8">
+        <span class="inline-block text-xs font-mono text-cyan-400 uppercase tracking-wider font-semibold bg-cyan-950/60 border border-cyan-500/30 px-3 py-1 rounded-full mb-3">
+          INTERACTIVE MARKET SIMULATOR
+        </span>
+        <h2 class="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight">
+          Test-Drive Your AI Employee in <span class="chrome-text">Bhubaneswar</span>
+        </h2>
+        <p class="text-sm text-slate-300 mt-2 leading-relaxed">
+          Select your local business sector and watch our autonomous AI swarm perform a real-time 4-step diagnostic audit, wireframe architecture, and personalized growth blueprint.
+        </p>
+      </div>
+
+      <!-- Sector Selection Pills -->
+      <div class="flex flex-wrap gap-2 mb-6">
+        <button type="button" onclick="vofficeSetCategory('clinic')" class="voffice-cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-cyan-600 text-white border border-cyan-400 transition" data-vcat="clinic">
+          🏥 Clinic &amp; Healthcare
+        </button>
+        <button type="button" onclick="vofficeSetCategory('coaching')" class="voffice-cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:border-slate-500 transition" data-vcat="coaching">
+          🎓 Coaching &amp; EdTech
+        </button>
+        <button type="button" onclick="vofficeSetCategory('restaurant')" class="voffice-cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:border-slate-500 transition" data-vcat="restaurant">
+          🍽️ Restaurant &amp; Cafe
+        </button>
+        <button type="button" onclick="vofficeSetCategory('realestate')" class="voffice-cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:border-slate-500 transition" data-vcat="realestate">
+          🏢 Real Estate &amp; Builders
+        </button>
+        <button type="button" onclick="vofficeSetCategory('retail')" class="voffice-cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:border-slate-500 transition" data-vcat="retail">
+          🛍️ Retail &amp; Local Services
+        </button>
+      </div>
+
+      <!-- Interactive Input Grid -->
+      <div class="grid sm:grid-cols-12 gap-4 mb-6">
+        <div class="sm:col-span-6">
+          <label for="voffice-biz-name" class="block text-xs font-semibold text-slate-300 mb-1.5">Business Name</label>
+          <input type="text" id="voffice-biz-name" value="Kalinga Dental Clinic" placeholder="e.g. Apex IIT Academy, Utkal Builders..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:border-cyan-400 outline-none transition" />
+        </div>
+        <div class="sm:col-span-4">
+          <label for="voffice-corridor" class="block text-xs font-semibold text-slate-300 mb-1.5">Bhubaneswar Corridor</label>
+          <select id="voffice-corridor" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:border-cyan-400 outline-none transition">
+            <option value="Nayapalli">Nayapalli / IRC Village</option>
+            <option value="Patia">Patia / Infocity / KIIT Road</option>
+            <option value="Saheed Nagar">Saheed Nagar Commercial Hub</option>
+            <option value="Jaydev Vihar">Jaydev Vihar / Acharya Vihar</option>
+            <option value="Khandagiri">Khandagiri / Jagamara</option>
+            <option value="Rasulgarh">Rasulgarh / Cuttack Road</option>
+          </select>
+        </div>
+        <div class="sm:col-span-2 flex items-end">
+          <button type="button" onclick="vofficeRunSimulator()" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 shadow-lg shadow-emerald-500/20 hover:scale-[1.02] transition flex items-center justify-center gap-1.5">
+            <span>⚡ Audit Now</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Terminal Live Logs Display -->
+      <div class="rounded-2xl bg-[#030611] border border-slate-800 p-4 font-mono text-xs mb-6 relative overflow-hidden">
+        <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800/80 text-[11px] text-slate-400">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+            <span class="ml-2 text-slate-300">buddy-swarm-terminal://bhubaneswar-market-audit</span>
+          </div>
+          <span class="text-emerald-400">● AGENTS ACTIVE</span>
+        </div>
+        <div id="voffice-terminal-logs" class="space-y-1.5 text-slate-300 max-h-48 overflow-y-auto leading-relaxed">
+          <p class="text-slate-500">// Terminal standby. Select your business parameters and tap "Audit Now".</p>
+          <p class="text-cyan-400">// Swarm ready: Vikram (Scout), Aanya (Creative), Arjun (Dev), Pooja (CRM).</p>
+        </div>
+      </div>
+
+      <!-- Blueprint Result Card (Hidden until generated) -->
+      <div id="voffice-blueprint-result" class="hidden p-6 rounded-2xl bg-gradient-to-br from-[#0c1633] to-[#060a18] border border-cyan-400/50 shadow-xl transition-all">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-700/60">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span id="voffice-blueprint-tag" class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+                HEALTHCARE OS BLUEPRINT
+              </span>
+              <span class="text-xs text-emerald-400 font-mono">96/100 Automation Fit</span>
+            </div>
+            <h3 id="voffice-blueprint-title" class="font-display text-xl sm:text-2xl font-bold text-white">
+              AI Clinic &amp; Hospital Appointment + WhatsApp OS
+            </h3>
+          </div>
+          <div class="text-right sm:self-auto self-start">
+            <span class="text-[10px] font-mono text-slate-400 uppercase block">INVESTMENT</span>
+            <span id="voffice-blueprint-cost" class="font-display text-lg sm:text-xl font-bold text-cyan-300">₹9,999 setup + ₹2,499/mo</span>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-4 my-5">
+          <div class="glass-card p-3 rounded-xl border-slate-800">
+            <span class="text-[10px] font-mono text-slate-400 uppercase">SYSTEM ARCHITECTURE</span>
+            <p id="voffice-blueprint-features" class="text-xs text-slate-200 mt-1 leading-snug">
+              24/7 Odia/English WhatsApp booking bot, automated Google review booster, patient SMS/WhatsApp reminders.
+            </p>
+          </div>
+          <div class="glass-card p-3 rounded-xl border-slate-800">
+            <span class="text-[10px] font-mono text-emerald-400 uppercase">PROJECTED BUSINESS IMPACT</span>
+            <p id="voffice-blueprint-roi" class="text-xs text-emerald-300 mt-1 leading-snug">
+              3.4x faster patient appointment capture, 0 missed evening calls, ₹18,000/mo telecalling payroll savings.
+            </p>
+          </div>
+          <div class="glass-card p-3 rounded-xl border-slate-800">
+            <span class="text-[10px] font-mono text-purple-400 uppercase">DELIVERY SLA</span>
+            <p class="text-xs text-slate-200 mt-1 leading-snug">
+              Deployed, tested and verified live in <strong>48 hours</strong> by Arjun and Pooja.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+          <p class="text-xs text-slate-400">
+            Ready to review this exact blueprint with founder Rahul Kumar Dhal?
+          </p>
+          <a id="voffice-blueprint-wa" href="https://wa.me/917328089908" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white shadow-md shadow-emerald-600/30 transition flex items-center gap-2">
+            <span>💬 Review Blueprint with Rahul on WhatsApp</span>
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: Live Client Deliverables Vault (Zero Hallucination Proof) -->
+    <div class="mb-14">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div>
+          <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider font-semibold">VERIFIABLE PRODUCTION WORK</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mt-1">Live Client Deliverables Vault</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            Real systems generated, coded, and delivered by our AI swarm for local businesses in Bhubaneswar. No mockups, no placeholders.
+          </p>
+        </div>
+        <span class="text-xs font-mono text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg self-start sm:self-auto">
+          📁 All Deliveries Live in Repository
+        </span>
+      </div>
+
+      <div id="voffice-vault-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Vault Card 1 -->
+        <div class="glass-card rounded-2xl p-5 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-950 text-cyan-300 border border-cyan-800">REAL ESTATE OS</span>
+              <span class="text-[10px] text-emerald-400 font-mono">DELIVERED</span>
+            </div>
+            <h3 class="font-display font-bold text-base text-white">Utkal Builders</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Kalpana Square / Rasulgarh, Bhubaneswar</p>
+            <p class="text-xs text-slate-300 mt-3 leading-relaxed">
+              Complete property showcase portal, ORERA &amp; BDA compliance verification badge, 24/7 instant WhatsApp lead capture.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-[10px] font-mono text-slate-400">HTML5 + Tailwind</span>
+            <a href="https://wa.me/917328089908?text=Hi%20Rahul%2C%20show%20me%20the%20Utkal%20Builders%20delivered%20website%20demo." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-sky-400 hover:text-white transition">
+              Inspect Blueprint ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Vault Card 2 -->
+        <div class="glass-card rounded-2xl p-5 border border-slate-800 hover:border-emerald-500/50 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">CLINIC OS</span>
+              <span class="text-[10px] text-emerald-400 font-mono">DELIVERED</span>
+            </div>
+            <h3 class="font-display font-bold text-base text-white">Apollo Clinic OS</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Sainik School / Saheed Nagar, Bhubaneswar</p>
+            <p class="text-xs text-slate-300 mt-3 leading-relaxed">
+              Automated doctor slot booking webapp, instant patient WhatsApp appointment confirmations, automated Google review booster.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-[10px] font-mono text-slate-400">NABH Standards</span>
+            <a href="https://wa.me/917328089908?text=Hi%20Rahul%2C%20show%20me%20the%20Apollo%20Clinic%20OS%20booking%20demo." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-emerald-400 hover:text-white transition">
+              Inspect Blueprint ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Vault Card 3 -->
+        <div class="glass-card rounded-2xl p-5 border border-slate-800 hover:border-purple-500/50 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-800">EDTECH OS</span>
+              <span class="text-[10px] text-emerald-400 font-mono">DELIVERED</span>
+            </div>
+            <h3 class="font-display font-bold text-base text-white">Apex IIT Academy</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Saheed Nagar / Patia, Bhubaneswar</p>
+            <p class="text-xs text-slate-300 mt-3 leading-relaxed">
+              Admission telecaller funnel, parent inquiry triage on WhatsApp, course brochure instant delivery, test slot registration.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-[10px] font-mono text-slate-400">CRM + Telecaller</span>
+            <a href="https://wa.me/917328089908?text=Hi%20Rahul%2C%20show%20me%20the%20Apex%20IIT%20Academy%20Admissions%20demo." target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-purple-400 hover:text-white transition">
+              Inspect Blueprint ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Vault Card 4 -->
+        <div class="glass-card rounded-2xl p-5 border border-slate-800 hover:border-amber-500/50 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800">STARTER PACK</span>
+              <span class="text-[10px] text-emerald-400 font-mono">₹999 ACTIVE</span>
+            </div>
+            <h3 class="font-display font-bold text-base text-white">Buddy Starter Pack</h3>
+            <p class="text-[11px] text-slate-400 mt-1">Universal Free AI Alternatives</p>
+            <p class="text-xs text-slate-300 mt-3 leading-relaxed">
+              Replaces ChatGPT Plus, Midjourney, InVideo, and Canva Pro. Installed in your system with zero recurring API costs.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-[10px] font-mono text-amber-300">Save ₹1.29L/yr</span>
+            <button type="button" onclick="switchPage('contact')" class="text-xs font-bold text-amber-400 hover:text-white transition">
+              Get Starter Pack ↗
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: Why Buddy AI Partners is #1 in Bhubaneswar -->
+    <div class="glass-card rounded-3xl p-6 sm:p-10 mb-14 border border-slate-800">
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-white text-center mb-8">
+        Why Buddy AI Partners Ranks <span class="chrome-text">#1 in Odisha</span>
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="border-b border-slate-800 text-[11px] font-mono uppercase text-slate-400">
+              <th class="py-3 px-4">Feature / Dimension</th>
+              <th class="py-3 px-4 text-cyan-400 font-bold">BUDDY AI PARTNERS</th>
+              <th class="py-3 px-4 text-slate-500">Traditional Software Agencies</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/60">
+            <tr>
+              <td class="py-3.5 px-4 font-semibold text-white">Delivery Turnaround</td>
+              <td class="py-3.5 px-4 text-emerald-400 font-bold">48 Hours to 5 Days (Autonomous Swarm)</td>
+              <td class="py-3.5 px-4 text-slate-400">30 to 60 Days (Manual dev queues)</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-semibold text-white">Total Cost of Ownership</td>
+              <td class="py-3.5 px-4 text-cyan-300 font-bold">₹999 to ₹14,999 setup + low retainers</td>
+              <td class="py-3.5 px-4 text-slate-400">₹60,000+ setup + ₹25k/mo bloated agency fees</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-semibold text-white">Lead Response Speed</td>
+              <td class="py-3.5 px-4 text-emerald-400 font-bold">&lt; 3 Seconds (24/7 WhatsApp AI Bot)</td>
+              <td class="py-3.5 px-4 text-slate-400">Next Business Day (Manual telecalling)</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-semibold text-white">Local Bhubaneswar Context</td>
+              <td class="py-3.5 px-4 text-cyan-300 font-bold">Trained on Patia, Saheed Nagar, ORERA &amp; Odia nuance</td>
+              <td class="py-3.5 px-4 text-slate-400">Generic Western templates with no local context</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-semibold text-white">Software Tool Bloat</td>
+              <td class="py-3.5 px-4 text-emerald-400 font-bold">Consolidated AI stack saving ₹1,29,552 / year</td>
+              <td class="py-3.5 px-4 text-slate-400">Requires 5 separate paid software subscriptions</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section 6: Direct Access to Founder Rahul Kumar Dhal -->
+    <div class="glass-card rounded-2xl p-6 sm:p-8 border border-cyan-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono bg-cyan-950 text-cyan-300 border border-cyan-500/30 mb-2">
+          <span>FOUNDER-LED DEAL CLOSING &amp; GOVERNANCE</span>
+        </div>
+        <h3 class="font-display text-xl sm:text-2xl font-bold text-white">
+          Ready to Automate Your Business Operations?
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
+          Speak directly with Rahul Kumar Dhal to scope your business requirements, inspect live code deliverables, and deploy your custom AI swarm.
+        </p>
+      </div>
+      <div class="flex flex-wrap items-center gap-3 shrink-0">
+        <a href="https://wa.me/917328089908?text=Hi%20Rahul%2C%20I%20am%20ready%20to%20discuss%20deploying%20Buddy%20AI%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/30 transition flex items-center gap-2">
+          <span>💬 WhatsApp: +91 73280 89908</span>
+        </a>
+        <button type="button" onclick="switchPage('contact')" class="px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-slate-800 hover:bg-slate-700 text-sky-300 border border-slate-700 transition">
+          View Pricing &amp; Plans →
+        </button>
+      </div>
+    </div>
+
+  </section>
 
   <!-- FOOTER -->
   <footer class="relative z-10 border-t border-slate-800/80 bg-[#03050c] pt-10 pb-24 sm:pb-10 mt-16 no-print">
@@ -3364,6 +3855,7 @@
         <div><p class="font-bold text-white tracking-wider flex items-center gap-2"><img src="images/logo.svg" alt="BUDDY AI PARTNERS logo" width="20" height="20" loading="lazy" decoding="async" />BUDDY AI PARTNERS</p><p class="mt-2 leading-relaxed">Bhubaneswar, Odisha, India · Remote-first delivery.<br/>Founder: Rahul Kumar Dhal.<br/>Udyam MSME-registered sole proprietorship; GST-ready billing.</p><p class="text-[11px] text-slate-500 mt-2">WhatsApp/Telegram: <a class="underline" href="tel:+917328089908">+91 73280 89908</a> · <a class="underline" href="https://wa.me/917328089908" target="_blank" rel="noopener noreferrer">wa.me/917328089908</a> · <a class="underline" href="https://t.me/917328089908" target="_blank" rel="noopener noreferrer">Telegram</a><br/>Instagram DM available.</p></div>
         <nav aria-label="Footer Navigation" class="flex flex-wrap gap-x-5 gap-y-2 items-start">
           <button type="button" onclick="switchPage('home')" class="hover:text-sky-400 transition">Home</button>
+          <button type="button" onclick="switchPage('digital-office')" class="hover:text-sky-400 transition flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Digital Office</button>
           <button type="button" onclick="switchPage('about')" class="hover:text-sky-400 transition">About</button>
           <button type="button" onclick="switchPage('services')" class="hover:text-sky-400 transition">Services</button>
           <button type="button" onclick="switchPage('portfolio')" class="hover:text-sky-400 transition">Portfolio</button>
@@ -3428,6 +3920,7 @@
       var target = document.getElementById('page-' + pageId);
       if (target) target.classList.add('active');
       if (pageId === 'buddy') { try { baiStart(); } catch (e) {} }
+      if (pageId === 'digital-office') { try { vofficeInit(); } catch (e) {} }
       document.querySelectorAll('.nav-btn').forEach(function(btn) {
         var active = btn.dataset.nav === pageId;
         btn.className = active
@@ -3441,6 +3934,11 @@
           : "mnav-btn text-left text-sm font-semibold px-4 py-3 rounded-lg bg-slate-800 text-slate-300";
       });
       try {
+        if (window.location.hash !== '#' + pageId && window.location.hash !== '#page-' + pageId) {
+          history.replaceState(null, null, '#' + pageId);
+        }
+      } catch (e) {}
+      try {
     var __roots = document.querySelectorAll('#ecoDirectory');
     var __inStack = __roots.length === 1 && !!document.querySelector('#page-stack #ecoDirectory');
     if (__roots.length !== 1 || !__inStack) console.error('[directory-regression] FAIL roots=' + __roots.length + ' inStack=' + __inStack);
@@ -3449,6 +3947,234 @@
   var rm = false;
       try { rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e){}
       try { window.scrollTo({ top: 0, behavior: rm ? 'auto' : 'smooth' }); } catch(e){ window.scrollTo(0,0); }
+    }
+
+    function handleHashNav() {
+      var h = (window.location.hash || '').replace(/^#page-|^#/, '').trim();
+      if (h && document.getElementById('page-' + h)) {
+        switchPage(h);
+      }
+    }
+    window.addEventListener('hashchange', handleHashNav);
+    window.addEventListener('DOMContentLoaded', handleHashNav);
+
+    // =========================================================
+    // VIRTUAL DIGITAL OFFICE SCRIPTS
+    // =========================================================
+    const VOFFICE_STATIONS = {
+      kabir: {
+        title: "Kabir — Executive Suite Commander",
+        role: "Multi-Agent Swarm Orchestration & Strategic Deal Architecture",
+        status: "ONLINE 24/7 · CPU 14%",
+        hub: "Patia Infocity Command Hub",
+        focus: "Task prioritization, automated swarm routing, deal structure and pricing governance, zero-quota failover across Groq, NVIDIA NIM, and local models.",
+        task: "● Actively coordinating B2B outreach across 5 Bhubaneswar corridors; zero hallucination check on 25 client dossiers.",
+        stack: "Python 3.12, FastAPI, LangGraph, ZeroQuotaRouter, WhatsApp Cloud API.",
+        metric: "Metric: 100% On-Time Autonomous Client Delivery"
+      },
+      vikram: {
+        title: "Vikram — B2B Pipeline Director",
+        role: "B2B Market Radar & Google Maps Diagnostic Hunter",
+        status: "ONLINE 24/7 · RADAR ACTIVE",
+        hub: "Bhubaneswar Metrowide Radar",
+        focus: "Automated Google Maps scraper, 10-point technical audit (missing website, slow load times, unreplied reviews), hyper-personalized Odia + English outreach.",
+        task: "● Scanning Nayapalli and Saheed Nagar healthcare corridors; verified 16 clinics without automated patient booking.",
+        stack: "Playwright, Maps Harvester, Odia LLM Tokenizer, WhatsApp Cloud API.",
+        metric: "Metric: 48+ Businesses Audited Daily"
+      },
+      aanya: {
+        title: "Aanya — Creative & Media Engine",
+        role: "Viral Content Architect & 9:16 Video Director",
+        status: "ONLINE 24/7 · RENDERING QUEUE READY",
+        hub: "Creative Lab, Bhubaneswar",
+        focus: "High-converting 9:16 vertical short-form reel hooks, Instagram carousels, Odia festive campaigns, Meta Ad copy, 30-day automated growth schedules.",
+        task: "● Generating 30-day viral content calendars and high-conversion ad hooks for Bhubaneswar builders & clinics.",
+        stack: "Free Flux Engine (Pollinations), CapCut/InVideo Storyboard Compiler, Whisper AI.",
+        metric: "Metric: <90s Full Social Calendar Delivery"
+      },
+      arjun: {
+        title: "Arjun — Systems Engineering Lab",
+        role: "Full-Stack AI Software Engineer & Systems Architect",
+        status: "ONLINE 24/7 · COMPILER ACTIVE",
+        hub: "Dev Lab — Infocity, Bhubaneswar",
+        focus: "Production Next.js / Tailwind CSS webapps, QR table ordering webapps, Clinic patient appointment portals, Cloudflare tunnels, zero-hallucination code.",
+        task: "● Compiling mobile-responsive clinic booking wireframe and QR review booster with zero hallucination.",
+        stack: "Next.js 15, React, Tailwind CSS, Python FastAPI, Cloudflare Tunnels.",
+        metric: "Metric: 48-Hour Full System Deployment SLA"
+      },
+      pooja: {
+        title: "Pooja — CRM & Client Success Sentinel",
+        role: "Client Delivery, SLA Sentinel & Billing Automation",
+        status: "ONLINE 24/7 · SLA GUARANTEED",
+        hub: "Operations Desk, Bhubaneswar",
+        focus: "Automated UPI invoicing (7328089908@upi), WhatsApp onboarding automation, SLA milestone tracking, 60-second inquiry auto-replies.",
+        task: "● Tracking active client onboarding, automated payment verification, and 60-second inquiry auto-replies.",
+        stack: "BHIM UPI Engine, Webhooks, WhatsApp Cloud API, PostgreSQL CRM.",
+        metric: "Metric: <3s Automated Response Time"
+      },
+      rhea: {
+        title: "Rhea — Client Experience Concierge",
+        role: "Virtual Receptionist & Interactive Simulator Host",
+        status: "ONLINE 24/7 · CONCIERGE LIVE",
+        hub: "Client Lounge & Virtual HQ Concierge",
+        focus: "Interactive prototypes for prospective Bhubaneswar clients, ROI calculation, personalized discovery briefs for Rahul's meetings.",
+        task: "● Greeting incoming prospective Bhubaneswar business owners and preparing deal briefs for Rahul's meetings.",
+        stack: "Interactive Client Sandbox, Multi-Turn Discovery Engine, Brief Hand-off.",
+        metric: "Metric: Instant Interactive Client Prototypes"
+      }
+    };
+
+    function vofficeSelectStation(agentKey) {
+      const data = VOFFICE_STATIONS[agentKey] || VOFFICE_STATIONS.kabir;
+      ['kabir', 'vikram', 'aanya', 'arjun', 'pooja', 'rhea'].forEach(k => {
+        const btn = document.getElementById('voffice-station-btn-' + k);
+        if (btn) {
+          if (k === agentKey) {
+            btn.className = "glass-card rounded-xl p-3 text-left transition border-cyan-400 bg-cyan-950/40 focus:outline-none";
+          } else {
+            btn.className = "glass-card rounded-xl p-3 text-left transition border-slate-800 hover:border-slate-700 focus:outline-none";
+          }
+        }
+      });
+
+      const titleEl = document.getElementById('voffice-station-title');
+      const statusEl = document.getElementById('voffice-station-status');
+      const roleEl = document.getElementById('voffice-station-role');
+      const focusEl = document.getElementById('voffice-station-focus');
+      const taskEl = document.getElementById('voffice-station-task');
+      const stackEl = document.getElementById('voffice-station-stack');
+      const metricEl = document.getElementById('voffice-station-metric');
+
+      if (titleEl) titleEl.innerText = data.title;
+      if (statusEl) statusEl.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span><span>' + data.status + '</span>';
+      if (roleEl) roleEl.innerText = data.role;
+      if (focusEl) focusEl.innerText = data.focus;
+      if (taskEl) taskEl.innerText = data.task;
+      if (stackEl) stackEl.innerText = data.stack;
+      if (metricEl) metricEl.innerText = data.metric;
+    }
+
+    let vofficeActiveCat = 'clinic';
+    const VOFFICE_PRESETS = {
+      clinic: {
+        defaultName: "Kalinga Dental & Cosmetic Clinic",
+        tag: "HEALTHCARE OS BLUEPRINT",
+        title: "AI Clinic & Hospital Appointment + WhatsApp OS",
+        cost: "₹9,999 setup + ₹2,499/mo",
+        features: "24/7 Odia/English WhatsApp booking bot, automated Google review booster, patient SMS/WhatsApp reminders, doctor slot synchronizer.",
+        roi: "3.4x faster patient appointment capture, 0 missed evening calls, ₹18,000/mo telecalling payroll savings.",
+        packageCode: "clinic_os"
+      },
+      coaching: {
+        defaultName: "Apex IIT & NEET Academy",
+        tag: "EDTECH OS BLUEPRINT",
+        title: "Coaching Institute Admission Telecaller & CRM",
+        cost: "₹14,999 setup + ₹3,499/mo",
+        features: "Instant student inquiry intake, auto-delivered course brochure on WhatsApp, mock test registration funnel, counselor daily calling queue.",
+        roi: "4.1x inquiry-to-walkin conversion, zero forgotten follow-ups, automated parent admission alerts.",
+        packageCode: "coaching_os"
+      },
+      restaurant: {
+        defaultName: "Mayfair Grill & Cafe Patia",
+        tag: "HOSPITALITY OS BLUEPRINT",
+        title: "QR Table Ordering + Automated Review & Loyalty OS",
+        cost: "₹7,999 setup + ₹1,999/mo",
+        features: "Zero-wait dynamic QR digital menu, instant UPI payment deep-links, automated 5-star Google review booster, festive WhatsApp loyalty broadcasts.",
+        roi: "65% increase in verified Google reviews, direct customer re-engagement without Swiggy/Zomato commission.",
+        packageCode: "restaurant_os"
+      },
+      realestate: {
+        defaultName: "Falcon Real Estate & Infrastructure",
+        tag: "REAL ESTATE OS BLUEPRINT",
+        title: "Custom Real Estate AI CRM & Lead Funnel",
+        cost: "₹30k–₹50k/project or custom scope",
+        features: "ORERA & BDA verification compliance badges, plot/duplex virtual visualizer, site-visit scheduler with automated WhatsApp route guidance.",
+        roi: "35% higher lead qualification accuracy, instant buyer brief hand-off to founder, zero wasted site-visits.",
+        packageCode: "real_estate_crm"
+      },
+      retail: {
+        defaultName: "Bhubaneswar Silk & Heritage Showroom",
+        tag: "RETAIL & WEB OS BLUEPRINT",
+        title: "5-Day Business Website + 24/7 AI Sales Chatbot",
+        cost: "₹11,999 setup + ₹1,999/mo",
+        features: "Mobile-first responsive website, product catalog showcase, 24/7 Odia/English WhatsApp sales concierge, Google Maps SEO optimization.",
+        roi: "Instant digital storefront for local Bhubaneswar shoppers, capture after-hours inquiries automatically.",
+        packageCode: "custom_web_ai"
+      }
+    };
+
+    function vofficeSetCategory(catKey) {
+      vofficeActiveCat = catKey;
+      document.querySelectorAll('.voffice-cat-btn').forEach(btn => {
+        if (btn.dataset.vcat === catKey) {
+          btn.className = "voffice-cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-cyan-600 text-white border border-cyan-400 transition";
+        } else {
+          btn.className = "voffice-cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:border-slate-500 transition";
+        }
+      });
+      const nameInput = document.getElementById('voffice-biz-name');
+      if (nameInput && VOFFICE_PRESETS[catKey]) {
+        nameInput.value = VOFFICE_PRESETS[catKey].defaultName;
+      }
+    }
+
+    function vofficeRunSimulator() {
+      const bizName = (document.getElementById('voffice-biz-name')?.value || 'Your Business').trim();
+      const corridor = document.getElementById('voffice-corridor')?.value || 'Patia';
+      const preset = VOFFICE_PRESETS[vofficeActiveCat] || VOFFICE_PRESETS.clinic;
+      const termEl = document.getElementById('voffice-terminal-logs');
+      const resultEl = document.getElementById('voffice-blueprint-result');
+
+      if (!termEl) return;
+      termEl.innerHTML = '';
+
+      const logLines = [
+        `[00:01] 🔍 Vikram (Scout): Scanning "${bizName}" across ${corridor} corridor...`,
+        `[00:02] 🔍 Vikram (Scout): Found competitive gap — missing 24/7 instant WhatsApp lead capture.`,
+        `[00:03] 🎨 Aanya (Creative): Drafting high-converting bilingual (Odia + English) WhatsApp greeting & 9:16 Reel hook.`,
+        `[00:04] 💻 Arjun (Dev): Scaffolding responsive booking/catalog portal wireframe with 0-latency QR engine.`,
+        `[00:05] 🛡️ Pooja (CRM): Verified SLA & billing structure: ${preset.cost}.`,
+        `[00:06] ⚡ Kabir (Commander): Autonomous blueprint generated with 100% precision. Zero hallucination.`
+      ];
+
+      let idx = 0;
+      function showNextLog() {
+        if (idx < logLines.length) {
+          const p = document.createElement('p');
+          p.className = idx === logLines.length - 1 ? 'text-emerald-400 font-bold' : idx % 2 === 0 ? 'text-cyan-300' : 'text-slate-300';
+          p.innerText = logLines[idx];
+          termEl.appendChild(p);
+          termEl.scrollTop = termEl.scrollHeight;
+          idx++;
+          setTimeout(showNextLog, 300);
+        } else {
+          if (resultEl) {
+            resultEl.classList.remove('hidden');
+            const tagEl = document.getElementById('voffice-blueprint-tag');
+            const titleEl = document.getElementById('voffice-blueprint-title');
+            const costEl = document.getElementById('voffice-blueprint-cost');
+            const featEl = document.getElementById('voffice-blueprint-features');
+            const roiEl = document.getElementById('voffice-blueprint-roi');
+            const waEl = document.getElementById('voffice-blueprint-wa');
+
+            if (tagEl) tagEl.innerText = preset.tag;
+            if (titleEl) titleEl.innerText = `${bizName} — ${preset.title}`;
+            if (costEl) costEl.innerText = preset.cost;
+            if (featEl) featEl.innerText = preset.features;
+            if (roiEl) roiEl.innerText = preset.roi;
+            if (waEl) {
+              const msg = encodeURIComponent(`Hi Rahul, I just tested the Digital Office Simulator for "${bizName}" in ${corridor}! I want to review the generated ${preset.title} blueprint (${preset.cost}) and schedule a demo.`);
+              waEl.href = `https://wa.me/917328089908?text=${msg}`;
+            }
+            resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }
+      }
+      showNextLog();
+    }
+
+    function vofficeInit() {
+      vofficeSelectStation('kabir');
     }
     
     
