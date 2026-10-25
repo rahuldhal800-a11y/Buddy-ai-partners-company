@@ -39,21 +39,120 @@
       font-family: 'Space Grotesk', sans-serif;
     }
     .chrome-text {
-      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 45%, #38bdf8 80%, #1d4ed8 100%);
+      background: linear-gradient(115deg, #ffffff 0%, #cbd5e1 20%, #38bdf8 45%, #818cf8 70%, #ffffff 100%);
+      background-size: 200% auto;
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
+      animation: chromeShimmer 6s linear infinite;
+    }
+    @keyframes chromeShimmer {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
     }
     .glass-card {
-      background: rgba(12, 19, 38, 0.76);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(56, 189, 248, 0.18);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      background: linear-gradient(145deg, rgba(14, 24, 48, 0.88), rgba(5, 10, 25, 0.86));
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
     }
     .glass-card:hover {
-      border-color: rgba(56, 189, 248, 0.45);
-      transform: translateY(-4px);
-      box-shadow: 0 25px 60px rgba(37, 99, 235, 0.22);
+      border-color: rgba(56, 189, 248, 0.55);
+      transform: translateY(-4px) scale(1.006);
+      box-shadow: 0 26px 70px rgba(37, 99, 235, 0.24), 0 0 28px rgba(56, 189, 248, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.09);
+    }
+    /* Futuristic HUD Reticle Corners */
+    .hud-bracket {
+      position: relative;
+    }
+    .hud-bracket::before, .hud-bracket::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      pointer-events: none;
+      border-color: rgba(56, 189, 248, 0.65);
+      border-style: solid;
+      z-index: 5;
+    }
+    .hud-bracket::before {
+      top: -1px;
+      left: -1px;
+      border-width: 2px 0 0 2px;
+      border-top-left-radius: 4px;
+    }
+    .hud-bracket::after {
+      bottom: -1px;
+      right: -1px;
+      border-width: 0 2px 2px 0;
+      border-bottom-right-radius: 4px;
+    }
+    /* Cyber Button Sheen Sweep */
+    .cyber-btn-glow {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .cyber-btn-glow::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, transparent 40%, rgba(255,255,255,0.22) 50%, transparent 60%);
+      transform: translateX(-100%);
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+    .cyber-btn-glow:hover::after {
+      transform: translateX(100%);
+    }
+    /* Ambient Cyber Scanlines */
+    .cyber-scanlines {
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0, 240, 255, 0.02) 50%, rgba(0, 240, 255, 0.02));
+      background-size: 100% 4px;
+    }
+    /* Radar Sweep Animation */
+    .radar-sweep-box {
+      position: relative;
+      overflow: hidden;
+    }
+    .radar-sweep-box::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(56, 189, 248, 0.18) 360deg);
+      border-radius: 50%;
+      animation: radarRotate 6s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes radarRotate {
+      to { transform: rotate(360deg); }
+    }
+    /* Audio Equalizer Bars */
+    .cyber-eq {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 12px;
+    }
+    .cyber-eq span {
+      width: 2.5px;
+      background: #38bdf8;
+      border-radius: 99px;
+      animation: eqBounce 1.2s ease-in-out infinite alternate;
+    }
+    .cyber-eq span:nth-child(1) { height: 40%; animation-delay: 0.1s; }
+    .cyber-eq span:nth-child(2) { height: 90%; animation-delay: 0.3s; }
+    .cyber-eq span:nth-child(3) { height: 60%; animation-delay: 0.2s; }
+    .cyber-eq span:nth-child(4) { height: 100%; animation-delay: 0.4s; }
+    @keyframes eqBounce {
+      0% { height: 25%; }
+      100% { height: 100%; }
     }
     @keyframes marquee {
       0% { transform: translateX(0%); }
@@ -176,10 +275,12 @@
       animation-play-state: paused;
     }
     .chrome-text {
-      background-image: linear-gradient(110deg, #f8fafc 4%, #bae6fd 48%, #38bdf8 100%);
+      background: linear-gradient(115deg, #ffffff 0%, #cbd5e1 20%, #38bdf8 45%, #818cf8 70%, #ffffff 100%);
+      background-size: 200% auto;
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      animation: chromeShimmer 6s linear infinite;
     }
     a, button {
       -webkit-tap-highlight-color: transparent;
@@ -243,6 +344,9 @@
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: smooth; }
+      .chrome-text, .radar-sweep-box::before, .cyber-eq span, .cyber-btn-glow::after {
+        animation: none !important;
+      }
     }
 
     /* Mobile polish after real-device preview */
@@ -1242,14 +1346,16 @@
     </p>
 
     <div class="pt-2 animate-assembly" style="animation-delay:.36s">
-      <button type="button" onclick="enterOffice()" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 shadow-xl shadow-cyan-500/30 hover:shadow-cyan-500/60 hover:scale-[1.02] active:scale-[.99] transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80">
+      <button type="button" onclick="enterOffice()" class="cyber-btn-glow w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 shadow-xl shadow-cyan-500/30 hover:shadow-cyan-500/60 hover:scale-[1.02] active:scale-[.99] transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/80">
         Initialize &amp; Enter Workspace <span aria-hidden="true">→</span>
       </button>
+      <p class="text-[10px] font-mono text-slate-500 uppercase tracking-widest pt-3">[ PRESS ENTER OR SPACE TO INITIALIZE ]</p>
     </div>
   </div>
 
   <script>
     function enterOffice() {
+      try { if (typeof playCyberSfx === 'function') playCyberSfx('portal'); } catch(e){}
       var el = document.getElementById("digital-office-entry");
       if (!el) return;
       el.style.transition = "opacity .65s cubic-bezier(.16, 1, .3, 1), transform .65s cubic-bezier(.16, 1, .3, 1)";
@@ -1301,6 +1407,10 @@
 
       <!-- Header CTAs -->
       <div id="headerCtas" class="flex items-center gap-2.5">
+        <button type="button" id="sfxToggleBtn" onclick="toggleCyberSfx()" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[10px] font-mono font-semibold bg-slate-900/90 hover:bg-slate-800 text-slate-300 border border-slate-700/80 hover:border-cyan-400/50 transition cursor-pointer" title="Toggle Futuristic Audio Synthesizer" aria-label="Toggle Futuristic Audio Synthesizer">
+          <span id="sfxIcon">🔇</span>
+          <span id="sfxLabel">SFX: OFF</span>
+        </button>
         <button type="button" onclick="switchPage('buddy')" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 shadow-lg shadow-cyan-500/25 hover:scale-[1.02] transition" aria-label="Open Buddy AI preview chat">
           <span>✦ Buddy AI</span>
         </button>
@@ -1308,7 +1418,7 @@
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
           <span>Digital Office</span>
         </button>
-        <button type="button" onclick="switchPage('contact')" class="px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white shadow-lg shadow-blue-600/30 transition">
+        <button type="button" onclick="switchPage('contact')" class="cyber-btn-glow px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white shadow-lg shadow-blue-600/30 transition">
           Start Project
         </button>
         <!-- Hamburger (visible below lg) -->
@@ -1344,6 +1454,20 @@
         
         <!-- Left Hero Copy -->
         <div class="lg:col-span-7 space-y-6">
+          <div class="flex flex-wrap items-center gap-2 text-[10px] font-mono text-cyan-300/80 mb-2 tracking-wider uppercase">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-cyan-950/70 border border-cyan-500/30 text-cyan-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+              <span>SYS-OP: SOVEREIGN AI RUNTIME</span>
+            </span>
+            <span class="hidden sm:inline-block text-slate-600">/</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-900/80 text-slate-300 border border-slate-800">
+              <span>LATENCY: &lt; 12ms</span>
+            </span>
+            <span class="hidden md:inline-block text-slate-600">/</span>
+            <span class="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-900/80 text-slate-300 border border-slate-800">
+              <span>LOC: 20.2961° N, 85.8245° E (ODISHA)</span>
+            </span>
+          </div>
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/80 border border-sky-400/30 text-sky-300 text-xs font-semibold">
             <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
             AI AUTOMATION, CUSTOM CRM & DIGITAL GROWTH AGENCY
@@ -1355,10 +1479,10 @@
             We design custom AI agents, business automation, CRM systems and growth funnels that capture, qualify and follow up on leads — with clear human oversight.
           </p>
           <div class="flex flex-wrap gap-4 pt-2">
-            <button type="button" onclick="switchPage('contact')" class="px-7 py-4 rounded-xl font-bold text-sm uppercase tracking-wider bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950 shadow-xl shadow-sky-500/25 hover:scale-[1.02] transition">
+            <button type="button" onclick="switchPage('contact')" class="cyber-btn-glow px-7 py-4 rounded-xl font-bold text-sm uppercase tracking-wider bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 text-slate-950 shadow-xl shadow-sky-500/25 hover:scale-[1.02] transition">
               Start a Project
             </button>
-            <button type="button" onclick="switchPage('digital-office')" class="px-6 py-4 rounded-xl font-bold text-sm uppercase tracking-wider bg-[#060e22] border border-cyan-400/50 hover:border-cyan-300 text-cyan-300 shadow-xl shadow-cyan-950/50 hover:scale-[1.02] transition flex items-center gap-2">
+            <button type="button" onclick="switchPage('digital-office')" class="cyber-btn-glow px-6 py-4 rounded-xl font-bold text-sm uppercase tracking-wider bg-[#060e22] border border-cyan-400/50 hover:border-cyan-300 text-cyan-300 shadow-xl shadow-cyan-950/50 hover:scale-[1.02] transition flex items-center gap-2">
               <span>🏢 Enter Digital Office</span>
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             </button>
@@ -1389,7 +1513,7 @@
 
         <!-- Right Hero Visual: code-generated live architecture card -->
         <div class="lg:col-span-5">
-          <figure class="infra-panel p-3 sm:p-4 m-0 hax-panel" aria-label="Live preview of the production lead-system architecture: Meta and Google traffic feeds the Buddy AI and n8n engine, which routes qualified property leads into WhatsApp follow-up and the CRM">
+          <figure class="infra-panel p-3 sm:p-4 m-0 hax-panel hud-bracket" aria-label="Live preview of the production lead-system architecture: Meta and Google traffic feeds the Buddy AI and n8n engine, which routes qualified property leads into WhatsApp follow-up and the CRM">
             <div class="flex items-center justify-between gap-2 mb-3 px-0.5 flex-wrap">
               <span class="text-[9px] font-bold tracking-[.2em] text-sky-300 uppercase">System Architecture</span>
               <span class="hax-live"><span class="hax-live-dot" aria-hidden="true"></span>PRODUCTION ARCHITECTURE PREVIEW</span>
@@ -2237,6 +2361,7 @@
       };
 
       function selectOfficeAgent(agentKey) {
+        try { if (typeof playCyberSfx === 'function') playCyberSfx('click'); } catch(e){}
         const ag = OFFICE_AGENTS[agentKey] || OFFICE_AGENTS.vikram;
         document.querySelectorAll('.agent-nav-btn').forEach(btn => {
           btn.classList.remove('border-cyan-400', 'bg-cyan-950/40');
@@ -3531,7 +3656,7 @@
   <section id="page-digital-office" class="page-view relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 md:py-24">
     
     <!-- Virtual Headquarters Cockpit Hero -->
-    <div class="glass-card rounded-3xl p-6 sm:p-10 lg:p-12 mb-10 border border-cyan-500/30 bg-gradient-to-b from-[#080d24] via-[#050917] to-[#02040c] shadow-2xl relative overflow-hidden">
+    <div class="glass-card hud-bracket rounded-3xl p-6 sm:p-10 lg:p-12 mb-10 border border-cyan-500/30 bg-gradient-to-b from-[#080d24] via-[#050917] to-[#02040c] shadow-2xl relative overflow-hidden">
       <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-cyan-500/15 blur-3xl pointer-events-none"></div>
       <div class="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none"></div>
 
@@ -3550,7 +3675,7 @@
             </p>
           </div>
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-            <a href="https://wa.me/917328089908?text=Hi%20Rahul%2C%20I%20am%20exploring%20the%20Digital%20Office%20and%20want%20to%20discuss%20deploying%20Buddy%20AI%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 text-slate-950 shadow-lg shadow-cyan-500/25 hover:scale-[1.02] transition text-center flex items-center justify-center gap-2">
+            <a href="https://wa.me/917328089908?text=Hi%20Rahul%2C%20I%20am%20exploring%20the%20Digital%20Office%20and%20want%20to%20discuss%20deploying%20Buddy%20AI%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="cyber-btn-glow px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 text-slate-950 shadow-lg shadow-cyan-500/25 hover:scale-[1.02] transition text-center flex items-center justify-center gap-2">
               <span>💬 Schedule Tour with Rahul</span>
               <span class="text-xs">↗</span>
             </a>
@@ -3564,9 +3689,12 @@
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 pt-6 border-t border-slate-800/80">
           <div class="glass-card rounded-xl p-3.5 border-slate-800">
             <span class="block text-[10px] font-mono text-cyan-400 uppercase tracking-wider">SWARM STATUS</span>
-            <div class="flex items-center gap-2 mt-1">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-              <span class="font-display font-bold text-lg text-white">7 Online</span>
+            <div class="flex items-center justify-between gap-2 mt-1">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="font-display font-bold text-lg text-white">7 Online</span>
+              </div>
+              <div class="cyber-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
             </div>
             <span class="text-[10px] text-slate-400 mt-0.5 block">24/7 zero-downtime loop</span>
           </div>
@@ -4094,8 +4222,98 @@
      */
     const WHATSAPP_NUMBER = "917328089908"; 
 
-        // 1. Multi-Page View Router
+    // =========================================================
+    // FUTURISTIC WEB AUDIO API CYBERNETIC SYNTHESIZER
+    // =========================================================
+    var audioCtx = null;
+    var sfxEnabled = false;
+
+    function getAudioContext() {
+      try {
+        var AudioCtor = (typeof window !== 'undefined' && (window.AudioContext || window.webkitAudioContext)) || null;
+        if (!AudioCtor) return null;
+        if (!audioCtx) audioCtx = new AudioCtor();
+        if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+        return audioCtx;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function playCyberSfx(type) {
+      if (!sfxEnabled) return;
+      try {
+        var ctx = getAudioContext();
+        if (!ctx) return;
+        var now = ctx.currentTime;
+        var osc = ctx.createOscillator();
+        var gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        if (type === 'click') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(820, now);
+          osc.frequency.exponentialRampToValueAtTime(440, now + 0.06);
+          gain.gain.setValueAtTime(0.04, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.06);
+          osc.start(now);
+          osc.stop(now + 0.06);
+        } else if (type === 'nav') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(420, now);
+          osc.frequency.exponentialRampToValueAtTime(680, now + 0.09);
+          gain.gain.setValueAtTime(0.03, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.09);
+          osc.start(now);
+          osc.stop(now + 0.09);
+        } else if (type === 'portal') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(240, now);
+          osc.frequency.exponentialRampToValueAtTime(920, now + 0.25);
+          gain.gain.setValueAtTime(0.05, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
+          osc.start(now);
+          osc.stop(now + 0.25);
+        } else if (type === 'tick') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1200, now);
+          osc.frequency.exponentialRampToValueAtTime(700, now + 0.035);
+          gain.gain.setValueAtTime(0.02, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.035);
+          osc.start(now);
+          osc.stop(now + 0.035);
+        }
+      } catch (e) {}
+    }
+
+    function toggleCyberSfx() {
+      sfxEnabled = !sfxEnabled;
+      var btn = document.getElementById('sfxToggleBtn');
+      var icon = document.getElementById('sfxIcon');
+      var label = document.getElementById('sfxLabel');
+      if (sfxEnabled) {
+        getAudioContext();
+        if (icon) icon.textContent = '🔊';
+        if (label) label.textContent = 'SFX: ON';
+        if (btn) {
+          btn.classList.add('border-cyan-400', 'text-cyan-300', 'bg-cyan-950/40');
+          btn.classList.remove('border-slate-700/80', 'text-slate-300');
+        }
+        playCyberSfx('nav');
+      } else {
+        if (icon) icon.textContent = '🔇';
+        if (label) label.textContent = 'SFX: OFF';
+        if (btn) {
+          btn.classList.remove('border-cyan-400', 'text-cyan-300', 'bg-cyan-950/40');
+          btn.classList.add('border-slate-700/80', 'text-slate-300');
+        }
+      }
+    }
+
+    // 1. Multi-Page View Router
     function switchPage(pageId) {
+      try { playCyberSfx('nav'); } catch(e){}
       document.querySelectorAll('.page-view').forEach(function(p){ p.classList.remove('active'); });
       var target = document.getElementById('page-' + pageId);
       if (target) target.classList.add('active');
@@ -4215,6 +4433,7 @@
     };
 
     function vofficeSelectStation(agentKey) {
+      try { if (typeof playCyberSfx === 'function') playCyberSfx('click'); } catch(e){}
       const data = VOFFICE_STATIONS[agentKey] || VOFFICE_STATIONS.kabir;
       ['kabir', 'vikram', 'aanya', 'arjun', 'pooja', 'rhea', 'suraksha'].forEach(k => {
         const btn = document.getElementById('voffice-station-btn-' + k);
@@ -4303,6 +4522,7 @@
     };
 
     function vofficeSetCategory(catKey) {
+      try { if (typeof playCyberSfx === 'function') playCyberSfx('click'); } catch(e){}
       vofficeActiveCat = catKey;
       document.querySelectorAll('.voffice-cat-btn').forEach(btn => {
         if (btn.dataset.vcat === catKey) {
@@ -4339,6 +4559,7 @@
       let idx = 0;
       function showNextLog() {
         if (idx < logLines.length) {
+          try { if (typeof playCyberSfx === 'function') playCyberSfx('tick'); } catch(e){}
           const p = document.createElement('p');
           p.className = idx === logLines.length - 1 ? 'text-emerald-400 font-bold' : idx % 2 === 0 ? 'text-cyan-300' : 'text-slate-300';
           p.innerText = logLines[idx];
@@ -4347,6 +4568,7 @@
           idx++;
           setTimeout(showNextLog, 300);
         } else {
+          try { if (typeof playCyberSfx === 'function') playCyberSfx('nav'); } catch(e){}
           if (resultEl) {
             resultEl.classList.remove('hidden');
             const tagEl = document.getElementById('voffice-blueprint-tag');
@@ -4830,7 +5052,7 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
       if(tbMx){tbMx.classList.toggle('knr-on',!isAsk);tbMx.setAttribute('aria-selected',String(!isAsk));}
     }catch(e){}}
     function knrAsk(btn){try{var el=document.getElementById('knrAnswer');if(!el||!btn)return;el.textContent=btn.getAttribute('data-a')||'';}catch(e){}}
-    // 5. Adaptive neural starfield. It uses no tracking, APIs or external data.
+    // 5. Adaptive quantum neural cyber-mesh. It uses no tracking, APIs or external data.
     const canvas = document.getElementById('galaxyCanvas');
     const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -4839,6 +5061,7 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
     let sceneHeight = 0;
     let sceneRatio = 1;
     let animationFrame = 0;
+    const pointer = { x: -1000, y: -1000, active: false, radius: 140 };
 
     function resizeCanvas() {
       if (!canvas || !ctx) return;
@@ -4850,47 +5073,83 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
       canvas.style.width = sceneWidth + 'px';
       canvas.style.height = sceneHeight + 'px';
       ctx.setTransform(sceneRatio, 0, 0, sceneRatio, 0, 0);
-      const count = sceneWidth < 600 ? 26 : (sceneWidth < 1024 ? 40 : 60);
+      const count = sceneWidth < 600 ? 32 : (sceneWidth < 1024 ? 54 : 76);
+      const palette = ['0,240,255', '56,189,248', '129,140,248', '224,242,254'];
       stars = Array.from({ length: count }, () => ({
         x: Math.random() * sceneWidth,
         y: Math.random() * sceneHeight,
-        r: Math.random() * 1.35 + .35,
-        dx: (Math.random() - .5) * (prefersReducedMotion ? 0 : .16),
-        dy: (Math.random() - .5) * (prefersReducedMotion ? 0 : .16),
-        color: Math.random() > .5 ? '56,189,248' : '165,180,252'
+        vx: (Math.random() - .5) * (prefersReducedMotion ? 0 : .24),
+        vy: (Math.random() - .5) * (prefersReducedMotion ? 0 : .24),
+        r: Math.random() * 1.5 + .4,
+        pulse: Math.random() * Math.PI * 2,
+        color: palette[Math.floor(Math.random() * palette.length)]
       }));
     }
 
     function animateGalaxy() {
       if (!canvas || !ctx || document.hidden) return;
       ctx.clearRect(0, 0, sceneWidth, sceneHeight);
+      const maxDist = 120;
+
       for (let i = 0; i < stars.length; i++) {
         const a = stars[i];
         if (!prefersReducedMotion) {
-          a.x += a.dx; a.y += a.dy;
-          if (a.x < -2) a.x = sceneWidth + 2;
-          if (a.x > sceneWidth + 2) a.x = -2;
-          if (a.y < -2) a.y = sceneHeight + 2;
-          if (a.y > sceneHeight + 2) a.y = -2;
+          a.x += a.vx;
+          a.y += a.vy;
+          a.pulse += 0.02;
+
+          // Pointer magnetic interaction
+          if (pointer.active) {
+            const pdx = a.x - pointer.x;
+            const pdy = a.y - pointer.y;
+            const pdist = Math.sqrt(pdx * pdx + pdy * pdy);
+            if (pdist < pointer.radius && pdist > 1) {
+              const force = (1 - pdist / pointer.radius) * 0.45;
+              a.x += (pdx / pdist) * force;
+              a.y += (pdy / pdist) * force;
+
+              // Laser filament to pointer
+              ctx.strokeStyle = 'rgba(0,240,255,' + ((1 - pdist / pointer.radius) * 0.28) + ')';
+              ctx.lineWidth = 0.8;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(pointer.x, pointer.y);
+              ctx.stroke();
+            }
+          }
+
+          if (a.x < -4) a.x = sceneWidth + 4;
+          if (a.x > sceneWidth + 4) a.x = -4;
+          if (a.y < -4) a.y = sceneHeight + 4;
+          if (a.y > sceneHeight + 4) a.y = -4;
         }
+
+        // Intra-node quantum mesh links
         for (let j = i + 1; j < stars.length; j++) {
           const b = stars[j];
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < 108) {
-            ctx.strokeStyle = 'rgba(56,189,248,' + ((1 - distance / 108) * .12) + ')';
-            ctx.lineWidth = .7;
+          if (distance < maxDist) {
+            const alpha = (1 - distance / maxDist) * 0.14;
+            ctx.strokeStyle = 'rgba(56,189,248,' + alpha + ')';
+            ctx.lineWidth = 0.7;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
             ctx.stroke();
           }
         }
+
+        // Draw quantum node with glowing halo
+        const currentRadius = prefersReducedMotion ? a.r : a.r + Math.sin(a.pulse) * 0.35;
         ctx.beginPath();
-        ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(' + a.color + ',.8)';
+        ctx.arc(a.x, a.y, Math.max(0.2, currentRadius), 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + a.color + ',0.85)';
+        ctx.shadowColor = 'rgba(0,240,255,0.6)';
+        ctx.shadowBlur = 6;
         ctx.fill();
+        ctx.shadowBlur = 0;
       }
       if (!prefersReducedMotion) animationFrame = requestAnimationFrame(animateGalaxy);
     }
@@ -4898,6 +5157,16 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
     if (canvas && ctx) {
       resizeCanvas();
       animateGalaxy();
+      window.addEventListener('pointermove', (e) => {
+        pointer.x = e.clientX;
+        pointer.y = e.clientY;
+        pointer.active = true;
+      }, { passive: true });
+      window.addEventListener('pointerleave', () => {
+        pointer.active = false;
+        pointer.x = -1000;
+        pointer.y = -1000;
+      }, { passive: true });
       window.addEventListener('resize', () => {
         resizeCanvas();
         if (!prefersReducedMotion) {
