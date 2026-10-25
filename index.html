@@ -3448,29 +3448,214 @@
       <div class="lg:col-span-12 space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
-            <span class="eyebrow text-cyan-400">TRANSPARENT PRICING &amp; PACKAGES</span>
-            <h2 class="font-display text-3xl sm:text-5xl font-bold text-white mt-1">Simple, Transparent Packages for Every Stage</h2>
-            <p class="text-slate-400 text-sm max-w-3xl mt-2 leading-relaxed">
-              From individuals learning AI to enterprise companies automating client operations. Zero recurring subscription traps. 1-on-1 personal installation guaranteed by founder Rahul Kumar Dhal.
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/80 border border-cyan-400/40 text-cyan-300 text-xs font-mono font-semibold mb-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+              <span>BHUBANESWAR'S #1 AI-ENABLED SOFTWARE COMPANY</span>
+            </div>
+            <h2 class="font-display text-3xl sm:text-5xl font-bold text-white mt-1 chrome-text">High-Impact Growth &amp; Revenue Systems</h2>
+            <p class="text-slate-300 text-sm max-w-3xl mt-2 leading-relaxed">
+              Engineered specifically for real estate developers, healthcare clinics, and high-growth commercial enterprises in Bhubaneswar &amp; Cuttack. Zero recurring SaaS traps. Full 1-on-1 deployment by founder Rahul Kumar Dhal.
             </p>
           </div>
-          <div class="flex items-center gap-2">
-            <span class="px-3 py-1.5 rounded-full text-xs font-mono bg-emerald-950/70 border border-emerald-500/40 text-emerald-300">● 100% FREE AI MODELS · ZERO API SUBSCRIPTIONS</span>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="px-3 py-1.5 rounded-full text-xs font-mono bg-cyan-950/70 border border-cyan-500/40 text-cyan-300">● 100% PRIVATE DATA SOVEREIGNTY</span>
+            <span class="px-3 py-1.5 rounded-full text-xs font-mono bg-emerald-950/70 border border-emerald-500/40 text-emerald-300">● ZERO EXPENSIVE API SUBSCRIPTIONS</span>
           </div>
         </div>
 
-        <!-- 3-TIER PRICING GRID -->
-        <div class="grid md:grid-cols-3 gap-6 pt-2">
-          
-          <!-- TIER 1: STARTER PACK -->
-          <div id="starter-pack-card" class="glass-card rounded-2xl p-6 sm:p-7 border-2 border-emerald-400 relative flex flex-col justify-between shadow-xl shadow-emerald-500/10">
-            <span class="absolute -top-3 right-4 bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 text-[10px] font-extrabold px-3 py-0.5 rounded-full uppercase tracking-wider shadow">FOUNDER 1-ON-1 SETUP</span>
+        <!-- ========================================================= -->
+        <!-- INTERACTIVE B2B REVENUE & DEAL CALCULATOR                 -->
+        <!-- ========================================================= -->
+        <div class="glass-card spotlight-card hud-bracket rounded-2xl p-6 sm:p-8 border border-sky-400/30 shadow-2xl shadow-sky-950/50">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 mb-5 border-b border-sky-500/20">
             <div>
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold uppercase text-emerald-300 font-mono">STARTER PACK</span>
-                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/90 px-2 py-0.5 rounded border border-emerald-500/40">LIFETIME ACCESS</span>
+              <span class="text-xs font-mono font-bold tracking-widest text-cyan-400 uppercase">INTERACTIVE REVENUE SIMULATOR</span>
+              <h3 class="font-display text-2xl font-bold text-white mt-1">Calculate Your Potential Added Revenue in Bhubaneswar</h3>
+              <p class="text-xs text-slate-300 mt-1">See how much lost revenue Buddy AI recovers by eliminating lead drop-off and enforcing 5-minute SLAs.</p>
+            </div>
+            <div class="text-left sm:text-right bg-slate-950/80 px-4 py-2.5 rounded-xl border border-emerald-500/30">
+              <span class="text-[10px] font-mono text-slate-400 uppercase block">Projected Extra Monthly Revenue</span>
+              <p id="calcExtraRevenue" class="font-display text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">₹4,20,000 / mo</p>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-7 space-y-4">
+              <!-- Industry Selector -->
+              <div>
+                <label for="b2bIndustry" class="block text-xs font-mono text-slate-300 mb-1.5 font-bold">1. SELECT YOUR INDUSTRY / VERTICAL</label>
+                <select id="b2bIndustry" onchange="calcB2BROI()" class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs font-semibold text-white focus:border-cyan-400 outline-none">
+                  <option value="realestate" selected>🏢 Real Estate Developer / Builder (Patia, Rasulgarh, Khandagiri)</option>
+                  <option value="dental">🏥 Dental Clinic / Hospital / Healthcare Center (Bhubaneswar &amp; Cuttack)</option>
+                  <option value="studio">📸 Photography Studio / Commercial Creative Agency</option>
+                  <option value="enterprise">💼 Enterprise B2B Company / Software Client</option>
+                </select>
               </div>
-              <p class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">₹999<span class="text-xs text-slate-400 font-normal"> / one-time</span></p>
+
+              <!-- Monthly Leads Slider -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span class="text-slate-300">2. Estimated Monthly Inquiries / Clicks:</span>
+                  <span id="b2bInqLabel" class="text-cyan-300 font-mono font-bold">100 leads / mo</span>
+                </div>
+                <input id="b2bInquiries" type="range" min="30" max="600" step="10" value="100" oninput="calcB2BROI()" class="w-full accent-cyan-400 cursor-pointer h-2 bg-slate-800 rounded-lg" />
+              </div>
+
+              <!-- Deal Value Slider -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span class="text-slate-300">3. Average Customer / Booking Ticket Value:</span>
+                  <span id="b2bDealLabel" class="text-emerald-400 font-mono font-bold">₹1,00,000</span>
+                </div>
+                <input id="b2bDealVal" type="range" min="10000" max="1000000" step="10000" value="100000" oninput="calcB2BROI()" class="w-full accent-emerald-400 cursor-pointer h-2 bg-slate-800 rounded-lg" />
+              </div>
+            </div>
+
+            <!-- Readout Grid & WhatsApp Button -->
+            <div class="lg:col-span-5 flex flex-col justify-between h-full bg-slate-950/70 p-5 rounded-xl border border-slate-800 space-y-4">
+              <div class="grid grid-cols-2 gap-3 text-center">
+                <div class="p-3 rounded-lg bg-slate-900 border border-slate-800">
+                  <span class="text-[10px] font-mono text-slate-400 block uppercase">Recovered Inquiries</span>
+                  <p id="calcRecoveredLeads" class="text-xl font-extrabold text-cyan-300 font-mono mt-0.5">+28 Leads</p>
+                  <span class="text-[9px] text-slate-500">at 28% capture SLA</span>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-900 border border-slate-800">
+                  <span class="text-[10px] font-mono text-slate-400 block uppercase">Closed Conversions</span>
+                  <p id="calcAddedDeals" class="text-xl font-extrabold text-emerald-400 font-mono mt-0.5">+2 Bookings</p>
+                  <span class="text-[9px] text-slate-500">est. completed deals</span>
+                </div>
+              </div>
+              <a id="b2bCalcWaBtn" href="https://wa.me/917328089908?text=Hi%20Rahul!%20I%20used%20the%20Buddy%20AI%20Revenue%20Calculator%20for%20Real%20Estate%20in%20Bhubaneswar.%20I%20want%20to%20discuss%20deploying%20your%20lead%20pipeline." target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl font-extrabold text-xs uppercase tracking-wider text-center bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 text-slate-950 shadow-lg shadow-emerald-500/20 hover:scale-[1.01] transition flex items-center justify-center gap-2">
+                <span>💬 Claim This Added Revenue on WhatsApp →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4-TIER PRICING & REVENUE PACKAGES -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
+          
+          <!-- TIER 1: REAL ESTATE LEAD SCRAPER & CALLING SLA -->
+          <div class="glass-card spotlight-card hud-bracket rounded-2xl p-6 flex flex-col justify-between border border-sky-500/40">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold uppercase text-sky-400 font-mono">LEAD ENGINE</span>
+                <span class="text-[9px] font-mono text-sky-300 bg-sky-950/90 px-2 py-0.5 rounded border border-sky-500/40">REAL ESTATE / B2B</span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white">Lead Scraper &amp; Calling SLA</h3>
+              <p class="font-display text-3xl font-extrabold text-white mt-2">₹24,999<span class="text-xs text-slate-400 font-normal"> / month</span></p>
+              <p class="text-xs text-sky-300 font-medium mt-1">Playwright B2B Ingress + Meta/Google Ads</p>
+              
+              <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300 space-y-2.5">
+                <div class="flex items-start gap-2">
+                  <span class="text-sky-400 font-bold">✓</span>
+                  <span><strong>Playwright Lead Scraper:</strong> Extracts verified high-intent property buyers &amp; NRI prospects in Bhubaneswar &amp; Cuttack.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-sky-400 font-bold">✓</span>
+                  <span><strong>Meta &amp; Google Ads:</strong> Geo-targeted ad creative for Patia IT corridor, Khandagiri, Saheed Nagar, and Rasulgarh.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-sky-400 font-bold">✓</span>
+                  <span><strong>Sub-5-Min Calling Queue:</strong> Inquiries route immediately to sales rep WhatsApp with automated SLA timer.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-sky-400 font-bold">✓</span>
+                  <span><strong>Weekly Pipeline Telemetry:</strong> CPL, volume, and booked site visits reported weekly.</span>
+                </div>
+              </div>
+            </div>
+            <button type="button" onclick="selectServiceAndContact('Real Estate Lead Scraper &amp; Calling SLA Pipeline (₹24,999/mo)')" class="mt-6 w-full py-3 rounded-xl bg-slate-800 hover:bg-sky-600 text-white text-xs font-bold uppercase tracking-wider transition">
+              Select Lead Engine Plan →
+            </button>
+          </div>
+
+          <!-- TIER 2: SOVEREIGN REAL ESTATE CRM & CAB CONCIERGE (MOST POPULAR) -->
+          <div class="glass-card spotlight-card hud-bracket rounded-2xl p-6 flex flex-col justify-between border-2 border-cyan-400 relative shadow-xl shadow-cyan-500/15">
+            <span class="absolute -top-3 right-4 bg-gradient-to-r from-cyan-400 to-blue-500 text-slate-950 text-[9px] font-extrabold px-3 py-0.5 rounded-full uppercase tracking-wider shadow">MOST POPULAR · KNR PROVEN</span>
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold uppercase text-cyan-300 font-mono">AUTONOMOUS CRM</span>
+                <span class="text-[9px] font-mono text-cyan-300 bg-cyan-950/90 px-2 py-0.5 rounded border border-cyan-400/40">FULL STACK</span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white">Sovereign CRM &amp; Cab Concierge</h3>
+              <p class="font-display text-3xl font-extrabold text-white mt-2">₹49,999<span class="text-xs text-slate-400 font-normal"> / setup</span></p>
+              <p class="text-xs text-cyan-300 font-medium mt-1">Complete Real Estate Pipeline &amp; Free Cab Dispatch</p>
+              
+              <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300 space-y-2.5">
+                <div class="flex items-start gap-2">
+                  <span class="text-cyan-400 font-bold">✓</span>
+                  <span><strong>Production KNR CRM Dashboard:</strong> 4 stages (New → Calling SLA → Free AC Cab Visit → Booked Won).</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-cyan-400 font-bold">✓</span>
+                  <span><strong>Free AC Cab Tour Coordinator:</strong> Automatically schedules driver pickup from Jagamara HQ or client residence.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-cyan-400 font-bold">✓</span>
+                  <span><strong>12-Point Playwright Dedupe:</strong> Eliminates broker duplicates; verifies ORERA database (ORA/0216/2024).</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-cyan-400 font-bold">✓</span>
+                  <span><strong>Multilingual Odia/Hindi/English:</strong> WhatsApp brochures &amp; floorplans delivered 24/7 without delays.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-cyan-400 font-bold">✓</span>
+                  <span><strong>In-Person Staff Onboarding:</strong> Rahul personally trains your sales team in Bhubaneswar.</span>
+                </div>
+              </div>
+            </div>
+            <button type="button" onclick="selectServiceAndContact('Sovereign Real Estate CRM &amp; Cab Concierge (₹49,999)')" class="mt-6 w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 hover:from-blue-500 hover:to-cyan-300 text-slate-950 text-xs font-extrabold uppercase tracking-wider shadow-lg transition">
+              Deploy Real Estate CRM →
+            </button>
+          </div>
+
+          <!-- TIER 3: ENTERPRISE AUTONOMOUS DIGITAL BEING SWARM -->
+          <div class="glass-card spotlight-card hud-bracket rounded-2xl p-6 flex flex-col justify-between border border-purple-500/40 relative">
+            <span class="absolute -top-3 right-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-[9px] font-extrabold px-3 py-0.5 rounded-full uppercase tracking-wider shadow">ENTERPRISE SCALE</span>
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold uppercase text-purple-300 font-mono">DIGITAL TWIN SWARM</span>
+                <span class="text-[9px] font-mono text-purple-300 bg-purple-950/90 px-2 py-0.5 rounded border border-purple-400/40">SOVEREIGN AI</span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white">Autonomous Office Swarm</h3>
+              <p class="font-display text-3xl font-extrabold text-white mt-2">₹89,999+<span class="text-xs text-slate-400 font-normal"> / build</span></p>
+              <p class="text-xs text-purple-300 font-medium mt-1">6 Autonomous Office Agents + Custom Web App</p>
+              
+              <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300 space-y-2.5">
+                <div class="flex items-start gap-2">
+                  <span class="text-purple-400 font-bold">✓</span>
+                  <span><strong>Full Office Swarm Deployment:</strong> Vikram, Aanya, Arjun, Pooja, Kabir, and Rhea deployed on dedicated servers.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-purple-400 font-bold">✓</span>
+                  <span><strong>Custom AI Digital Twin:</strong> Trained on your internal business SOPs, pricing sheets, and historical deals.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-purple-400 font-bold">✓</span>
+                  <span><strong>React + FastAPI Web System:</strong> Custom web dashboard, database, and client portal with complete source code.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-purple-400 font-bold">✓</span>
+                  <span><strong>24/7 Self-Healing Supervisor:</strong> Automated healthchecks, zero downtime, and zero external API fees.</span>
+                </div>
+              </div>
+            </div>
+            <button type="button" onclick="selectServiceAndContact('Enterprise Autonomous Digital Being Swarm (₹89k-₹1.99L)')" class="mt-6 w-full py-3 rounded-xl bg-slate-800 hover:bg-purple-600 text-white text-xs font-bold uppercase tracking-wider transition">
+              Select Enterprise Swarm →
+            </button>
+          </div>
+
+          <!-- TIER 4: STARTER PACK (SOLOPRENEUR / CREATOR) — PRESERVED ID -->
+          <div id="starter-pack-card" class="glass-card spotlight-card hud-bracket rounded-2xl p-6 flex flex-col justify-between border-2 border-emerald-400 relative shadow-xl shadow-emerald-500/10">
+            <span class="absolute -top-3 right-4 bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 text-[9px] font-extrabold px-3 py-0.5 rounded-full uppercase tracking-wider shadow">FOUNDER 1-ON-1 SETUP</span>
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold uppercase text-emerald-300 font-mono">STARTER PACK</span>
+                <span class="text-[9px] font-mono text-emerald-400 bg-emerald-950/90 px-2 py-0.5 rounded border border-emerald-500/40">LIFETIME ACCESS</span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white">Buddy AI Personal Assistant</h3>
+              <p class="font-display text-3xl font-extrabold text-white mt-2">₹999<span class="text-xs text-slate-400 font-normal"> / one-time</span></p>
               <p class="text-xs text-emerald-300 font-medium mt-1">Special Early Adopter Access <span class="line-through text-slate-500">₹3,999</span></p>
               
               <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300 space-y-2.5">
@@ -3480,7 +3665,7 @@
                 </div>
                 <div class="flex items-start gap-2">
                   <span class="text-emerald-400 font-bold">✓</span>
-                  <span><strong>Replaces 5+ Paid AI Subscriptions:</strong> Never pay ₹2,000/mo for ChatGPT Plus, Midjourney, or InVideo again.</span>
+                  <span><strong>Replaces 5+ Paid AI Apps:</strong> Never pay ₹2,000/mo for ChatGPT Plus, Midjourney, or InVideo again.</span>
                 </div>
                 <div class="flex items-start gap-2">
                   <span class="text-emerald-400 font-bold">✓</span>
@@ -3488,99 +3673,24 @@
                 </div>
                 <div class="flex items-start gap-2">
                   <span class="text-emerald-400 font-bold">✓</span>
-                  <span><strong>Full Mobile PWA + CLI Access:</strong> Control your personal AI on your phone 24/7 with Cloudflare tunnel.</span>
-                </div>
-                <div class="flex items-start gap-2">
-                  <span class="text-emerald-400 font-bold">✓</span>
                   <span><strong>Lifetime Free Execution:</strong> Uses free open neural models with zero monthly server or token bills.</span>
                 </div>
               </div>
 
-              <div class="mt-4 p-3 rounded-xl bg-slate-950/90 border border-emerald-500/30 text-center">
-                <p class="text-[10px] uppercase font-mono text-slate-400">Est. Annual Software Savings</p>
-                <p class="font-display text-xl font-bold text-emerald-400 mt-0.5">₹1,29,552 / year</p>
+              <div class="mt-4 p-2.5 rounded-xl bg-slate-950/90 border border-emerald-500/30 text-center">
+                <p class="text-[9px] uppercase font-mono text-slate-400">Est. Annual Software Savings</p>
+                <p class="font-display text-lg font-bold text-emerald-400 mt-0.5">₹1,29,552 / year</p>
               </div>
             </div>
 
             <div class="mt-6 space-y-2">
               <a href="#upi-payment-card" class="block w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 text-xs font-extrabold uppercase tracking-wider text-center shadow-lg transition">
-                ⚡ Pay ₹999 via UPI / Instant Setup →
+                ⚡ Pay ₹999 via UPI →
               </a>
-              <a href="https://wa.me/917328089908?text=Hi%20Rahul!%20I%20want%20to%20get%20the%20Buddy%20AI%20Starter%20Pack%20(₹999).%20Please%20help%20me%20install%20Buddy%20on%20my%20laptop/mobile%20and%20replace%20my%20paid%20AI%20apps." target="_blank" rel="noopener noreferrer" class="block w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/30 text-xs font-bold text-center transition">
-                Book Setup on WhatsApp ↗
+              <a href="https://wa.me/917328089908?text=Hi%20Rahul!%20I%20want%20to%20get%20the%20Buddy%20AI%20Starter%20Pack%20(₹999).%20Please%20help%20me%20install%20Buddy%20on%20my%20laptop/mobile." target="_blank" rel="noopener noreferrer" class="block w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/30 text-xs font-bold text-center transition">
+                Book on WhatsApp ↗
               </a>
             </div>
-          </div>
-
-          <!-- TIER 2: GROWTH MARKETING RETAINER -->
-          <div class="glass-card rounded-2xl p-6 sm:p-7 border border-sky-500/30 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold uppercase text-sky-400 font-mono">GROWTH RETAINER</span>
-                <span class="text-[10px] font-mono text-sky-400 bg-sky-950/80 px-2 py-0.5 rounded border border-sky-500/40">MONTHLY PARTNERSHIP</span>
-              </div>
-              <p class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">₹15k – ₹25k<span class="text-xs text-slate-400 font-normal"> / month</span></p>
-              <p class="text-xs text-sky-300 font-medium mt-1">Performance Lead Funnels &amp; Ad Optimization</p>
-              
-              <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300 space-y-2.5">
-                <div class="flex items-start gap-2">
-                  <span class="text-sky-400 font-bold">✓</span>
-                  <span>Meta &amp; Google ad campaigns engineered specifically for local Bhubaneswar &amp; Odisha high-ticket buyers.</span>
-                </div>
-                <div class="flex items-start gap-2">
-                  <span class="text-sky-400 font-bold">✓</span>
-                  <span>High-converting landing page optimization + form tracking.</span>
-                </div>
-                <div class="flex items-start gap-2">
-                  <span class="text-sky-400 font-bold">✓</span>
-                  <span>Agreed monthly creative volume: video hooks, copy variations, and carousel banners.</span>
-                </div>
-                <div class="flex items-start gap-2">
-                  <span class="text-sky-400 font-bold">✓</span>
-                  <span>Instant WhatsApp lead routing and weekly executive reporting.</span>
-                </div>
-              </div>
-              <p class="text-[11px] text-slate-500 mt-4 leading-relaxed"><strong class="text-slate-400">Note:</strong> Ad spend paid directly to platforms. Performance depends on audience, offer and market competition.</p>
-            </div>
-            <button type="button" onclick="selectServiceAndContact('Growth Marketing Retainer (₹15k-₹25k/mo)')" class="mt-6 w-full py-3 rounded-xl bg-slate-800 hover:bg-blue-600 text-white text-xs font-bold uppercase tracking-wider transition">
-              Select Growth Plan →
-            </button>
-          </div>
-
-          <!-- TIER 3: CUSTOM ENTERPRISE CRM & AUTOMATION -->
-          <div class="glass-card rounded-2xl p-6 sm:p-7 border-2 border-cyan-400 relative flex flex-col justify-between">
-            <span class="absolute -top-3 right-4 bg-cyan-400 text-slate-950 text-[10px] font-extrabold px-3 py-0.5 rounded-full uppercase tracking-wider shadow">ENTERPRISE SYSTEM</span>
-            <div>
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold uppercase text-cyan-300 font-mono">ENTERPRISE SYSTEM</span>
-                <span class="text-[10px] font-mono text-cyan-300 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-400/40">CUSTOM BUILD</span>
-              </div>
-              <p class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">₹30k – ₹50k<span class="text-xs text-slate-400 font-normal"> / project</span></p>
-              <p class="text-xs text-cyan-300 font-medium mt-1">Full Autonomous Office Swarm &amp; Lead Engine</p>
-              
-              <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-300 space-y-2.5">
-                <div class="flex items-start gap-2">
-                  <span class="text-cyan-400 font-bold">✓</span>
-                  <span>Full deployment of the 6 Autonomous Office Agents (Vikram, Aanya, Arjun, Pooja, Kabir, Rhea).</span>
-                </div>
-                <div class="flex items-start gap-2">
-                  <span class="text-cyan-400 font-bold">✓</span>
-                  <span>Custom React / Next.js CRM with stages, WhatsApp bridge, and 5-minute inquiry response SLA.</span>
-                </div>
-                <div class="flex items-start gap-2">
-                  <span class="text-cyan-400 font-bold">✓</span>
-                  <span>Python Playwright + n8n scrapers and multi-tenant lead routing.</span>
-                </div>
-                <div class="flex items-start gap-2">
-                  <span class="text-cyan-400 font-bold">✓</span>
-                  <span>Full source code handover, staff training, and 24/7 self-healing supervisor setup.</span>
-                </div>
-              </div>
-              <p class="text-[11px] text-slate-500 mt-4 leading-relaxed"><strong class="text-slate-400">Delivery:</strong> Typically scoped and scaffolded in 7 to 14 days with milestone demonstrations.</p>
-            </div>
-            <button type="button" onclick="selectServiceAndContact('Custom AI CRM & Automation Suite (₹30k-₹50k)')" class="mt-6 w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-extrabold uppercase tracking-wider transition">
-              Select Enterprise Build →
-            </button>
           </div>
 
         </div>
@@ -3777,6 +3887,10 @@
             <label for="clientService" class="block text-xs font-semibold text-slate-300 mb-1">Service Required</label>
             <select id="clientService" name="clientService" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-sm text-white focus:border-sky-400 outline-none">
               <option value="Buddy AI Starter Pack (₹999 One-Time)" selected>Buddy AI Starter Pack (₹999 One-Time — Laptop/Mobile Setup)</option>
+              <option value="Real Estate Lead Scraper &amp; Calling SLA Pipeline (₹24,999/mo)">Real Estate Lead Scraper &amp; Calling SLA Pipeline (₹24,999/mo)</option>
+              <option value="Sovereign Real Estate CRM &amp; Cab Concierge (₹49,999)">Sovereign Real Estate CRM &amp; Cab Concierge (₹49,999 setup)</option>
+              <option value="Healthcare &amp; Dental Clinic AI Appointment Engine (₹14,999)">Healthcare &amp; Dental Clinic AI Appointment Engine (₹14,999)</option>
+              <option value="Enterprise Autonomous Digital Being Swarm (₹89k-₹1.99L)">Enterprise Autonomous Digital Being Swarm (₹89k–₹1.99L)</option>
               <option value="Custom AI Agent Creation">Custom AI Agent Creation</option>
               <option value="AI for Business Setup">AI for Business Setup</option>
               <option value="Custom Business CRM Deployment">Custom CRM &amp; Lead Operations</option>
@@ -3824,12 +3938,13 @@
         </div>
         <div class="min-w-0">
           <div class="flex flex-wrap items-center gap-2">
-            <span class="case-tag case-tag-ok">BUDDY AI · INTERACTIVE PREVIEW</span>
-            <span class="case-tag">WEB SEARCH · THINKING · MEETING HANDOFF</span>
+            <span class="case-tag case-tag-ok">BUDDY AI · SOVEREIGN DIGITAL BEING</span>
+            <span class="case-tag">AUTONOMOUS LEAD OPERATOR · BHUBANESWAR, ODISHA</span>
+            <span class="text-[9px] font-mono px-2 py-0.5 rounded-full border border-cyan-400/40 bg-cyan-950/60 text-cyan-300">● 24/7 LIVE RUNTIME</span>
           </div>
-          <h1 class="font-display text-3xl sm:text-4xl font-bold text-white mt-3">Talk to Buddy before you talk to me.</h1>
-          <p class="text-sm text-slate-300 mt-2 leading-relaxed max-w-3xl">Buddy is the AI operator behind BUDDY AI PARTNERS. It researches context, thinks through your requirement, suggests concrete improvements and collects your meeting details — then hands the full brief to Rahul, so the call starts at the solution, not the introduction.</p>
-          <p class="text-[11px] text-slate-500 mt-2">Runs fully in your browser — nothing is sent anywhere until you tap a handoff button. <span id="baiModeNote">Preview mode: scripted demo flow, connectable to a live n8n webhook.</span></p>
+          <h1 class="font-display text-3xl sm:text-5xl font-bold text-white mt-3 chrome-text">Meet Buddy: Your Autonomous Digital Being.</h1>
+          <p class="text-sm text-slate-300 mt-2 leading-relaxed max-w-3xl">Buddy is the sovereign autonomous AI operator powering BUDDY AI PARTNERS. Trained on real-world Bhubaneswar real estate, healthcare, and enterprise commerce workflows, Buddy captures leads at 2 AM, qualifies buyer budgets in Odia, Hindi, and English, verifies ORERA project records, and prepares deal briefs so you can close transactions in record time.</p>
+          <p class="text-[11px] text-slate-500 mt-2">100% private data sovereignty — runs in your browser and on private servers. <span id="baiModeNote">Preview mode: scripted demo flow, connectable to a live n8n webhook.</span></p>
         </div>
       </div>
     </div>
@@ -5255,6 +5370,45 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
       headings.forEach(function(h){obs.observe(h);});
     }catch(e){}}
     try{initCyberDecode();}catch(e){}
+
+    // Interactive B2B Revenue Simulator for Bhubaneswar & Cuttack businesses
+    function calcB2BROI() {
+      try {
+        if (typeof document === 'undefined') return;
+        var ind = document.getElementById('b2bIndustry');
+        var inq = document.getElementById('b2bInquiries');
+        var deal = document.getElementById('b2bDealVal');
+        if (!ind || !inq || !deal) return;
+        var indVal = ind.value;
+        var inqVal = parseInt(inq.value, 10) || 100;
+        var dealVal = parseInt(deal.value, 10) || 100000;
+        
+        var inqLbl = document.getElementById('b2bInqLabel');
+        if (inqLbl) inqLbl.textContent = inqVal + ' leads / mo';
+        var dealLbl = document.getElementById('b2bDealLabel');
+        if (dealLbl) dealLbl.textContent = '₹' + dealVal.toLocaleString('en-IN');
+        
+        var recovered = Math.max(1, Math.round(inqVal * 0.28));
+        var convRate = indVal === 'realestate' ? 0.06 : (indVal === 'dental' ? 0.32 : (indVal === 'studio' ? 0.18 : 0.12));
+        var addedDeals = Math.max(1, Math.round(recovered * convRate));
+        var extraRevenue = addedDeals * dealVal;
+        
+        var revEl = document.getElementById('calcExtraRevenue');
+        if (revEl) revEl.textContent = '₹' + extraRevenue.toLocaleString('en-IN') + ' / mo';
+        var recEl = document.getElementById('calcRecoveredLeads');
+        if (recEl) recEl.textContent = '+' + recovered + ' Leads';
+        var dealEl = document.getElementById('calcAddedDeals');
+        if (dealEl) dealEl.textContent = '+' + addedDeals + ' ' + (indVal === 'realestate' ? 'Bookings' : (indVal === 'dental' ? 'Patients' : 'Clients'));
+        
+        var waBtn = document.getElementById('b2bCalcWaBtn');
+        if (waBtn && ind.options && ind.options[ind.selectedIndex]) {
+          var indText = ind.options[ind.selectedIndex].text.split('(')[0].trim();
+          var msg = 'Hi Rahul! I tested the Buddy AI Revenue Calculator for ' + indText + ' in Bhubaneswar. With ' + inqVal + ' monthly leads and avg deal ticket of ₹' + dealVal.toLocaleString('en-IN') + ', it projected ₹' + extraRevenue.toLocaleString('en-IN') + '/mo extra revenue (+' + addedDeals + ' closed deals). I want to discuss deploying your lead pipeline & CRM.';
+          waBtn.href = 'https://wa.me/917328089908?text=' + encodeURIComponent(msg);
+        }
+      } catch (e) {}
+    }
+    try { calcB2BROI(); } catch(e) {}
     // 7. Pipeline autoplay with node states + replay.
 // 7. Pipeline autoplay with node states + replay.
     var ARCH_ORDER=['capture','normalize','route','act'],archIdx=0,archTimer=0,archAuto=true;
