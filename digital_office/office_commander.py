@@ -51,10 +51,12 @@ class ZeroQuotaRouter:
         return "[Fallback] Ready to process task via local deterministic templates."
 
 BHUBANESWAR_SERVICE_CATALOG = [
+    {"id": "starter-os", "name": "Buddy AI Personal Assistant (1-on-1 Laptop/Mobile Setup)", "setup_inr": 2999, "monthly_inr": 0, "target_corridors": ["Individuals", "Solopreneurs", "Creators", "All Bhubaneswar"]},
     {"id": "clinic-os", "name": "AI Clinic & Hospital Appointment + WhatsApp OS", "setup_inr": 9999, "monthly_inr": 2499, "target_corridors": ["Saheed Nagar", "Nayapalli", "Khandagiri", "Patia"]},
     {"id": "coaching-os", "name": "Coaching Institute AI Admission Telecaller & Lead CRM", "setup_inr": 14999, "monthly_inr": 3499, "target_corridors": ["Jaydev Vihar", "Acharya Vihar", "Patia"]},
     {"id": "restaurant-os", "name": "QR Table Ordering + Automated Google Review & WhatsApp Loyalty", "setup_inr": 7999, "monthly_inr": 1999, "target_corridors": ["Infocity", "Patia", "Saheed Nagar", "Rasulgarh"]},
-    {"id": "custom-web-ai", "name": "5-Day Business Website + 24/7 Odia/English AI Sales Chatbot", "setup_inr": 11999, "monthly_inr": 1999, "target_corridors": ["All Bhubaneswar"]}
+    {"id": "custom-web-ai", "name": "5-Day Business Website + 24/7 Odia/English AI Sales Chatbot", "setup_inr": 11999, "monthly_inr": 1999, "target_corridors": ["All Bhubaneswar"]},
+    {"id": "enterprise-swarm", "name": "Enterprise Custom Software & Autonomous AI Agent Swarm", "setup_inr": 89999, "monthly_inr": 9999, "target_corridors": ["Software Companies", "Enterprises", "Infocity", "Pan-India"]}
 ]
 
 if __name__ == "__main__":
