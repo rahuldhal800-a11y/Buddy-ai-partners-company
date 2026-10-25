@@ -1,4 +1,8 @@
-#!/data/data/com.termux/files/usr/bin/sh
+#!/bin/sh
+# BUDDY AI PARTNERS — validate, build and (optionally) publish the static site.
+# Usage:
+#   sh deploy-surge.sh               build + validate only (safe, no network)
+#   sh deploy-surge.sh --production  build + validate, then publish to Surge
 set -eu
 ROOT="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
 DIST="$ROOT/dist"
@@ -15,69 +19,25 @@ test -f "$ROOT/public/images/logo.svg" || {
   echo "ERROR: logo missing at public/images/logo.svg; refusing to build/deploy."
   exit 1
 }
-test -f "$ROOT/public/images/og-cover.jpg" || {
-  echo "ERROR: social preview image missing at public/images/og-cover.jpg; refusing to build/deploy."
-  exit 1
-}
 
-# Validate HTML IDs, local image paths and structured data before creating dist.
-python3 - "$ROOT/index.html" "$ROOT" <<'PY'
-import json, re, sys
-from html.parser import HTMLParser
-from pathlib import Path
-
-html_path = Path(sys.argv[1])
-root = Path(sys.argv[2])
-html = html_path.read_text(encoding="utf-8")
-
-class Check(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.ids = []
-        self.images = []
-    def handle_starttag(self, tag, attrs):
-        a = dict(attrs)
-        if a.get("id"): self.ids.append(a["id"])
-        if tag.lower() == "img" and a.get("src"): self.images.append(a["src"])
-
-check = Check()
-check.feed(html)
-dupes = sorted({x for x in check.ids if check.ids.count(x) > 1})
-missing = []
-for src in check.images:
-    if src.startswith(("https://", "http://", "data:")): continue
-    if not (root / src.lstrip("/")).is_file(): missing.append(src)
-schemas = re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
-bad_schemas = []
-for i, payload in enumerate(schemas, 1):
-    try: json.loads(payload)
-    except json.JSONDecodeError as exc: bad_schemas.append(f"schema {i}: {exc}")
-if 'rel="canonical"' not in html and "rel='canonical'" not in html:
-    raise SystemExit("Canonical link missing.")
-if not schemas: raise SystemExit("No JSON-LD schema blocks found.")
-if dupes: raise SystemExit("Duplicate HTML IDs: " + ", ".join(dupes))
-if missing: raise SystemExit("Missing local images: " + ", ".join(missing))
-if bad_schemas: raise SystemExit("Invalid JSON-LD: " + "; ".join(bad_schemas))
-print(f"Preflight OK: {len(check.ids)} IDs, {len(schemas)} valid JSON-LD block(s), local images present.")
-PY
+# Preflight: HTML IDs, JSON-LD, canonical link, and every local asset reference
+# resolved with the same path mapping the build uses.
+python3 "$ROOT/tests/site-preflight.py"
 
 # dist is generated output. Rebuild it from source files only.
 rm -rf "$DIST"
-mkdir -p "$DIST/public/images"
+mkdir -p "$DIST/images" "$DIST/public/images"
 cp "$ROOT/index.html" "$DIST/index.html"
+cp -r "$ROOT/public/images/." "$DIST/images/"
+# Backward-compatible alias for previously published /public/images/... URLs.
 cp -r "$ROOT/public/images/." "$DIST/public/images/"
 [ ! -f "$ROOT/robots.txt" ] || cp "$ROOT/robots.txt" "$DIST/robots.txt"
-if [ -f "$ROOT/sitemap.xml" ]; then
-  cp "$ROOT/sitemap.xml" "$DIST/sitemap.xml"
-  # Keep <lastmod> honest on every build (BSD/GNU sed compatible).
-  sed -i.bak "s#<lastmod>[^<]*</lastmod>#<lastmod>$(date '+%Y-%m-%d')</lastmod>#" "$DIST/sitemap.xml"
-  rm -f "$DIST/sitemap.xml.bak"
-fi
-[ ! -f "$ROOT/llms.txt" ] || cp "$ROOT/llms.txt" "$DIST/llms.txt"
-# IndexNow key file — public by design (see indexnow.org); proves ownership of the host.
-[ ! -f "$ROOT/5b44e100446fef7d326fe15d85f5d157.txt" ] || cp "$ROOT/5b44e100446fef7d326fe15d85f5d157.txt" "$DIST/5b44e100446fef7d326fe15d85f5d157.txt"
-# Google Search Console HTML-file verification (must be served at the site root).
+[ ! -f "$ROOT/sitemap.xml" ] || cp "$ROOT/sitemap.xml" "$DIST/sitemap.xml"
 [ ! -f "$ROOT/googleb8ea7c1bfd32f1e7.html" ] || cp "$ROOT/googleb8ea7c1bfd32f1e7.html" "$DIST/googleb8ea7c1bfd32f1e7.html"
+
+# Post-build gate: every local URL in the built HTML must exist inside dist,
+# so a silently broken local URL can never be published.
+python3 "$ROOT/tests/site-preflight.py" --dist
 
 echo ""
 echo "Build complete:"

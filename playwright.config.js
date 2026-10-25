@@ -1,12 +1,16 @@
-// Playwright runner config for BUDDY AI PARTNERS.
-// Failure artifacts go to tests/results/ — the path the GitHub Actions
-// workflow uploads (see .github/workflows/test.yml).
-const { defineConfig } = require('@playwright/test');
+// Playwright configuration for the static BUDDY AI PARTNERS site.
+// The site is served from dist/ by a local static server (see tests/browser-test.spec.js
+// header for the commands) or by the CI workflow.
+import { defineConfig } from '@playwright/test';
 
-module.exports = defineConfig({
+export default defineConfig({
   testDir: './tests',
   outputDir: './tests/results',
+  timeout: 30_000,
+  retries: process.env.CI ? 1 : 0,
+  reporter: process.env.CI ? [['list'], ['github']] : [['list']],
   use: {
     screenshot: 'only-on-failure',
+    trace: 'retain-on-failure',
   },
 });

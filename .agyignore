@@ -1,0 +1,10 @@
+node_modules/
+.venv/
+venv/
+.next/
+dist/
+build/
+*.log
+*.gguf
+*.bin
+.git/
