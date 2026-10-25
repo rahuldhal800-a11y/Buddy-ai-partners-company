@@ -211,6 +211,43 @@
       .page-view { display: block !important; page-break-after: always; }
     }
 
+    /* Scrollytelling Architecture */
+    .scrolly-step-card {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+    }
+    .scrolly-step-card.active {
+      border-color: rgba(34, 211, 238, 0.85);
+      background: linear-gradient(145deg, rgba(14, 30, 64, 0.94), rgba(5, 14, 35, 0.92));
+      box-shadow: 0 0 35px rgba(6, 182, 212, 0.22), inset 0 0 20px rgba(6, 182, 212, 0.08);
+      transform: scale(1.015);
+      opacity: 1;
+    }
+    .scrolly-step-card:not(.active) {
+      opacity: 0.55;
+    }
+    .scrolly-pill.active {
+      background: rgba(34, 211, 238, 0.25) !important;
+      border-color: rgba(34, 211, 238, 0.8) !important;
+      color: #38bdf8 !important;
+      font-weight: 700;
+    }
+    .scrolly-screen {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .scrolly-screen.active {
+      display: block !important;
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) !important;
+      position: relative !important;
+    }
+    .scrolly-screen:not(.active) {
+      display: none !important;
+      opacity: 0 !important;
+      transform: translateY(10px) scale(0.98) !important;
+      position: absolute !important;
+    }
+
     /* BUDDY VISUAL COMPOSITION PASS — preserve original blue/cyan palette */
     :root {
       --buddy-motion-fast: 220ms;
@@ -1524,15 +1561,15 @@
             <div class="div-grad absolute top-0 left-0 right-0" aria-hidden="true"></div>
             <div class="grid grid-cols-3 gap-5">
               <div>
-                <p class="stat-num text-3xl sm:text-4xl md:text-5xl">3.5+</p>
+                <p class="stat-num text-3xl sm:text-4xl md:text-5xl" data-counter="3.5" data-suffix="+">3.5+</p>
                 <p class="text-[11px] sm:text-xs text-slate-400 mt-2 leading-snug">Years in operations &amp; digital lead management</p>
               </div>
               <div>
-                <p class="stat-num text-3xl sm:text-4xl md:text-5xl">104</p>
+                <p class="stat-num text-3xl sm:text-4xl md:text-5xl" data-counter="104" data-suffix="">104</p>
                 <p class="text-[11px] sm:text-xs text-slate-400 mt-2 leading-snug">Tools tracked across the live technology index</p>
               </div>
               <div>
-                <p class="stat-num text-3xl sm:text-4xl md:text-5xl">60+</p>
+                <p class="stat-num text-3xl sm:text-4xl md:text-5xl" data-counter="60" data-suffix="+">60+</p>
                 <p class="text-[11px] sm:text-xs text-slate-400 mt-2 leading-snug">ORERA projects indexed for KNR Integrity</p>
               </div>
             </div>
@@ -1626,67 +1663,277 @@
       </div>
     </section>
 
-    <!-- INTERACTIVE WORKSPACE (CRM demo + capability carousel) -->
-    <section class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-16 sm:pb-20" aria-labelledby="workspace-title">
-      <div class="text-center max-w-3xl mx-auto mb-8">
-        <p class="buddy-eyebrow">See the system in action</p>
-        <h2 id="workspace-title" class="font-display text-3xl sm:text-4xl font-bold mt-2 chrome-text">Interactive workspace preview.</h2>
-        <p class="text-slate-400 mt-3 text-sm">Illustrative demos with sample data — not connected to live customer systems.</p>
+    <!-- INTERACTIVE WORKSPACE & SCROLLYTELLING PIPELINE -->
+    <section class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-16 sm:pb-24" aria-labelledby="workspace-title">
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/80 border border-cyan-400/40 text-cyan-300 text-xs font-mono font-semibold mb-3 tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+          <span>AUTONOMOUS SCROLL RUNTIME · 4 STAGES</span>
+        </div>
+        <h2 id="workspace-title" class="font-display text-3xl sm:text-5xl font-bold mt-2 chrome-text">Scroll to control the live system.</h2>
+        <p class="text-slate-300 mt-4 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          As you scroll vertically through the four operational phases, the pinned system console auto-transforms in real-time — verifying lead payloads, executing dedupe logic, dispatching WhatsApp concierge, and sealing zero-brokerage closures.
+        </p>
       </div>
-      <div class="grid lg:grid-cols-12 gap-8 items-start">
-        <!-- Interactive CRM demo -->
-        <div class="lg:col-span-7 space-y-4">
-                    <div class="infra-panel p-4 sm:p-5" aria-label="Interactive CRM pipeline simulation with production-style sample data for KNR Integrity, Bhubaneswar">
-<div class="relative z-10 flex items-center justify-between flex-wrap gap-2 mb-3">
-<span class="text-[11px] font-bold tracking-widest text-sky-300 uppercase">Buddy CRM — Workspace</span>
-<span class="flex items-center gap-2">
-<span class="text-[9px] font-mono px-2 py-0.5 rounded-full border border-amber-400/40 text-amber-300">● LIVE SIMULATION</span>
-<span class="flex gap-1.5"><button type="button" id="heroReplay" aria-label="Replay workflow demo" class="text-[10px] font-bold px-2 py-1 rounded-md bg-slate-800 text-sky-300 border border-sky-500/30">Replay</button><button type="button" id="heroPause" aria-label="Pause workflow demo" aria-pressed="false" class="text-[10px] font-bold px-2 py-1 rounded-md bg-slate-800 text-sky-300 border border-sky-500/30">Pause</button></span>
-</span>
-</div>
-<div class="crm-status">
-  <span class="crm-stat"><b>Client:</b>&nbsp;KNR Integrity <em>(ORERA: ORA/0216/2024)</em></span>
-  <span class="crm-stat"><b>Active inventory:</b>&nbsp;60+ verified projects</span>
-  <span class="crm-stat crm-stage"><b>Pipeline:</b>&nbsp;<em id="crmStageLabel">Booked · human approval</em></span>
-</div>
-<div class="crm-flow" aria-hidden="true">
-  <span class="crm-pipe" id="crmPipe1"><i></i>Webhook</span><span class="crm-pipe-sep">→</span>
-  <span class="crm-pipe" id="crmPipe2"><i></i>Calling SLA</span><span class="crm-pipe-sep">→</span>
-  <span class="crm-pipe" id="crmPipe3"><i></i>Site visit</span><span class="crm-pipe-sep">→</span>
-  <span class="crm-pipe" id="crmPipe4"><i></i>Booked</span>
-</div>
-<div class="crm-board" id="crmBoard">
-  <div class="crm-col" id="crmCol0">
-    <p class="crm-col-h">NEW</p>
-    <article class="crm-card"><b>A. Sharma</b><small>Patia IT Corridor (Archid Elite 3BHK)</small><span class="crm-tags"><i class="crm-tag crm-tag-budget">₹95L</i><i class="crm-tag">Meta Ad</i></span></article>
-    <article class="crm-card"><b>S. Patnaik</b><small>Costa Fortune Crestview (Kantabada)</small><span class="crm-tags"><i class="crm-tag crm-tag-budget">₹78L</i><i class="crm-tag">Ask Buddy AI</i></span></article>
-    <article class="crm-card crm-arrive" id="crmArrival"><b>Webhook lead</b><small>Meta form instant delivery · dedupe passed</small><span class="crm-tags"><i class="crm-tag crm-tag-ok">n8n 200 OK</i></span></article>
-  </div>
-  <div class="crm-col" id="crmCol1">
-    <p class="crm-col-h">CALLING <span class="crm-sla">SLA queue</span></p>
-    <article class="crm-card"><b>R. Das</b><small>The Harmonious Haven (Rasulgarh Triplex)</small><span class="crm-tags"><i class="crm-tag crm-tag-budget">₹2.45 Cr</i><i class="crm-tag crm-tag-amber">SLA &lt; 5m</i></span></article>
-    <article class="crm-card"><b>P. Sahoo</b><small>Grace Urban Ville (Ghangapatna Duplex)</small><span class="crm-tags"><i class="crm-tag crm-tag-budget">₹85L</i><i class="crm-tag">Follow-up #2</i></span></article>
-  </div>
-  <div class="crm-col" id="crmCol2">
-    <p class="crm-col-h">SITE VISIT <span class="crm-sla crm-cab">Free AC cab</span></p>
-    <article class="crm-card"><b>K. Jena</b><small>Kalvik Adidev (Patia)</small><span class="crm-tags"><i class="crm-tag crm-tag-ok">Visit: Today 4:30 PM</i><i class="crm-tag">Pickup: Jagamara HQ</i></span></article>
-  </div>
-  <div class="crm-col" id="crmCol3">
-    <p class="crm-col-h">BOOKED / WON</p>
-    <article class="crm-card crm-won"><b>M. Mishra</b><small>Freehold Gharabadi Plot (Sundarpada)</small><span class="crm-tags"><i class="crm-tag crm-tag-ok">30-Yr title verified</i><i class="crm-tag crm-tag-budget">₹0 brokerage</i></span></article>
-  </div>
-</div>
-<div class="crm-foot">
-  <span class="crm-wa"><i class="crm-dot crm-dot-emerald"></i><b id="waCount">WhatsApp sent — 12</b></span>
-  <span class="crm-appr" id="crmApproval"><i class="crm-dot crm-dot-amber"></i>Human approval required</span>
-  <span class="crm-note">n8n + Playwright · webhook demo · production-style sample data</span>
-</div>
-</div>
+
+      <div id="scrolly-pipeline" class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start relative">
+        
+        <!-- Left Column: Scrolling Story Steps (lg:col-span-5) -->
+        <div class="lg:col-span-5 relative space-y-8 sm:space-y-12 py-4">
+          <!-- Dynamic Vertical Glowing Spine -->
+          <div class="absolute left-6 top-8 bottom-8 w-[2px] bg-slate-800 hidden sm:block overflow-hidden" aria-hidden="true">
+            <div id="scrollySpineLaser" class="w-full bg-gradient-to-b from-cyan-400 via-sky-500 to-transparent h-24 absolute top-0 transition-all duration-500"></div>
+          </div>
+
+          <!-- Step 01: Capture & Ingress -->
+          <article class="scrolly-step-card active glass-card spotlight-card hud-bracket rounded-2xl p-6 sm:p-8 sm:pl-14 relative transition-all duration-300" data-scrolly-step="0" id="scrollyStep0">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-mono font-bold tracking-widest text-cyan-400 uppercase">PHASE 01 / 04 · INGESTION</span>
+              <span class="scrolly-num text-3xl sm:text-4xl font-extrabold text-cyan-400/80 font-mono">01</span>
+            </div>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-2">Omnichannel Lead Ingestion &amp; Meta Webhooks</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+              High-intent prospective buyers submitting forms across Meta Ads, Google Search, and WhatsApp stream into our sovereign n8n webhook gateway in &lt; 200 milliseconds. Every parameter and campaign source is captured with zero dropped leads.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-[10px] font-mono text-slate-300 bg-slate-950/70 p-3 rounded-lg border border-slate-800">
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span><span>Latency: &lt; 140ms</span></div>
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span><span>Status: Ingress 200 OK</span></div>
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span><span>Payload: Meta Form</span></div>
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span>SLA Clock: Initialized</span></div>
+            </div>
+          </article>
+
+          <!-- Step 02: Playwright Deduplication & SLA Triage -->
+          <article class="scrolly-step-card glass-card spotlight-card hud-bracket rounded-2xl p-6 sm:p-8 sm:pl-14 relative transition-all duration-300" data-scrolly-step="1" id="scrollyStep1">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-mono font-bold tracking-widest text-sky-400 uppercase">PHASE 02 / 04 · SCRUBBING</span>
+              <span class="scrolly-num text-3xl sm:text-4xl font-extrabold text-sky-400/80 font-mono">02</span>
+            </div>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-2">12-Point Deduplication &amp; ORERA Validation</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+              Automated Playwright scripts scrub phone numbers against historical records, verify ORERA project status (ORA/0216/2024 across 60+ Bhubaneswar inventories), and triage leads into the calling queue to uphold strict sub-5-minute SLA benchmarks.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-[10px] font-mono text-slate-300 bg-slate-950/70 p-3 rounded-lg border border-slate-800">
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span><span>Dedupe: 0 Duplicates</span></div>
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span><span>ORERA: Verified Valid</span></div>
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span><span>Inventory: Patia 3BHK</span></div>
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span>SLA Queue: &lt; 5m Active</span></div>
+            </div>
+          </article>
+
+          <!-- Step 03: WhatsApp Concierge & Free AC Cab -->
+          <article class="scrolly-step-card glass-card spotlight-card hud-bracket rounded-2xl p-6 sm:p-8 sm:pl-14 relative transition-all duration-300" data-scrolly-step="2" id="scrollyStep2">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">PHASE 03 / 04 · OUTREACH</span>
+              <span class="scrolly-num text-3xl sm:text-4xl font-extrabold text-emerald-400/80 font-mono">03</span>
+            </div>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-2">Automated WhatsApp &amp; Complimentary AC Cab</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+              Leads cool down significantly after 48 hours. Buddy AI automatically delivers verified brochures over WhatsApp and coordinates complimentary AC cab pickups (from Jagamara HQ or client residence) for an on-site walkthrough.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-[10px] font-mono text-slate-300 bg-slate-950/70 p-3 rounded-lg border border-slate-800">
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span><span>WhatsApp: Instant PDF</span></div>
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span><span>Cab: Assigned (Free)</span></div>
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span><span>Pickup: Patia Square</span></div>
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span><span>Response: 4m 12s</span></div>
+            </div>
+          </article>
+
+          <!-- Step 04: Confirmed Deal & Zero-Brokerage Closure -->
+          <article class="scrolly-step-card glass-card spotlight-card hud-bracket rounded-2xl p-6 sm:p-8 sm:pl-14 relative transition-all duration-300" data-scrolly-step="3" id="scrollyStep3">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-mono font-bold tracking-widest text-amber-400 uppercase">PHASE 04 / 04 · CLOSURE</span>
+              <span class="scrolly-num text-3xl sm:text-4xl font-extrabold text-amber-400/80 font-mono">04</span>
+            </div>
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-2">Zero-Brokerage Won Deal &amp; Legal Verification</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+              The transaction is finalized with complete human principal oversight. The buyer purchases directly with ₹0 brokerage fees, saving up to ₹1,90,000, while a 30-year title audit guarantees unencumbered ownership.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-[10px] font-mono text-slate-300 bg-slate-950/70 p-3 rounded-lg border border-slate-800">
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span><span>Brokerage: ₹0 Commission</span></div>
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><span>Saved: ₹1,90,000</span></div>
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span><span>Title Search: 30-Yr Clear</span></div>
+              <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span><span>Status: Booked / Won</span></div>
+            </div>
+          </article>
         </div>
 
-        <!-- Core capability carousel -->
-        <div class="lg:col-span-5 space-y-4">
-          <div class="glass-card rounded-2xl p-6 relative overflow-hidden">
+        <!-- Right Column: Sticky Live Machine Console (lg:col-span-7) -->
+        <div class="lg:col-span-7 sticky top-24 space-y-4">
+          <!-- Console Window -->
+          <div class="infra-panel p-4 sm:p-6 hud-bracket shadow-2xl shadow-sky-950/60 border border-sky-400/30" aria-label="Interactive scroll-driven CRM and automation runtime simulation">
+            
+            <!-- HUD Header with live indicators & quick stage jumps -->
+            <div class="relative z-10 flex items-center justify-between flex-wrap gap-2 pb-3 mb-3 border-b border-sky-500/20">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-[11px] font-bold tracking-widest text-sky-300 uppercase font-mono">BUDDY SOVEREIGN ENGINE</span>
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded-full border border-cyan-400/50 bg-cyan-950/50 text-cyan-300 font-bold">
+                  SCROLL-SYNCED
+                </span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <button type="button" onclick="scrollyJump(0)" aria-label="Jump to Phase 1" class="scrolly-pill active text-[9px] font-mono px-2 py-0.5 rounded border border-slate-700 bg-slate-900 text-slate-300 hover:border-cyan-400 hover:text-cyan-300 transition" id="scrollyPill0">01 INGEST</button>
+                <button type="button" onclick="scrollyJump(1)" aria-label="Jump to Phase 2" class="scrolly-pill text-[9px] font-mono px-2 py-0.5 rounded border border-slate-700 bg-slate-900 text-slate-300 hover:border-cyan-400 hover:text-cyan-300 transition" id="scrollyPill1">02 DEDUPE</button>
+                <button type="button" onclick="scrollyJump(2)" aria-label="Jump to Phase 3" class="scrolly-pill text-[9px] font-mono px-2 py-0.5 rounded border border-slate-700 bg-slate-900 text-slate-300 hover:border-cyan-400 hover:text-cyan-300 transition" id="scrollyPill2">03 CAB</button>
+                <button type="button" onclick="scrollyJump(3)" aria-label="Jump to Phase 4" class="scrolly-pill text-[9px] font-mono px-2 py-0.5 rounded border border-slate-700 bg-slate-900 text-slate-300 hover:border-cyan-400 hover:text-cyan-300 transition" id="scrollyPill3">04 WON</button>
+                <button type="button" id="heroReplay" aria-label="Replay workflow demo" class="text-[10px] font-bold px-2 py-1 rounded-md bg-slate-800 text-sky-300 border border-sky-500/30 hover:bg-slate-700 transition">Replay</button>
+                <button type="button" id="heroPause" aria-label="Pause workflow demo" aria-pressed="false" class="text-[10px] font-bold px-2 py-1 rounded-md bg-slate-800 text-sky-300 border border-sky-500/30 hover:bg-slate-700 transition">Pause</button>
+              </div>
+            </div>
+
+            <!-- DYNAMIC AUTO-CHANGING STAGE SCREEN (Changes smoothly on scroll!) -->
+            <div id="scrollyStageScreen" class="relative min-h-[220px] sm:min-h-[240px] rounded-xl bg-slate-950/90 border border-sky-500/20 p-4 mb-4 overflow-hidden">
+              
+              <!-- Stage 0: Omnichannel Ingress Graphic -->
+              <div id="scrollyScreen0" class="scrolly-screen active transition-all duration-500 space-y-3">
+                <div class="flex items-center justify-between text-[11px] font-mono text-cyan-300">
+                  <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span><b>LIVE INGRESS PIPELINE</b></span>
+                  <span class="text-slate-400">LATENCY: 142ms</span>
+                </div>
+                <!-- Animated flow graphic -->
+                <div class="grid grid-cols-3 gap-2 text-center py-2">
+                  <div class="p-2.5 rounded-lg bg-blue-950/50 border border-blue-500/40">
+                    <p class="text-[10px] font-mono text-slate-400">TRAFFIC SOURCE</p>
+                    <p class="text-xs font-bold text-white mt-0.5">Meta Ads + Google</p>
+                    <span class="inline-block mt-1 text-[9px] font-mono px-1.5 py-0.5 bg-blue-500/20 text-blue-300 rounded">Patia 3BHK</span>
+                  </div>
+                  <div class="p-2.5 rounded-lg bg-cyan-950/60 border border-cyan-400/50 flex flex-col justify-center items-center">
+                    <p class="text-[10px] font-mono text-cyan-400">INGRESS GATEWAY</p>
+                    <p class="text-xs font-bold text-cyan-200 mt-0.5">n8n Webhook</p>
+                    <span class="inline-block mt-1 text-[9px] font-mono px-1.5 py-0.5 bg-cyan-400/20 text-cyan-300 rounded">200 OK · 14ms</span>
+                  </div>
+                  <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-700">
+                    <p class="text-[10px] font-mono text-slate-400">DESTINATION</p>
+                    <p class="text-xs font-bold text-slate-200 mt-0.5">Buddy CRM Node</p>
+                    <span class="inline-block mt-1 text-[9px] font-mono px-1.5 py-0.5 bg-emerald-500/20 text-emerald-300 rounded">Queue: Ready</span>
+                  </div>
+                </div>
+                <!-- Streaming Terminal Box -->
+                <div class="bg-black/80 rounded-lg p-2.5 border border-slate-800 font-mono text-[10px] leading-relaxed text-slate-300">
+                  <p class="text-cyan-400">&gt; POST /webhook/lead HTTP/1.1 200 OK</p>
+                  <p class="text-slate-400">Payload: {"client":"A. Sharma","corridor":"Patia","budget":"₹95L","source":"meta_ads"}</p>
+                </div>
+              </div>
+
+              <!-- Stage 1: Playwright Deduplication Graphic -->
+              <div id="scrollyScreen1" class="scrolly-screen hidden opacity-0 transition-all duration-500 space-y-3">
+                <div class="flex items-center justify-between text-[11px] font-mono text-sky-300">
+                  <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span><b>12-POINT DEDUPE &amp; ORERA VERIFICATION</b></span>
+                  <span class="text-amber-300">SLA: 04:38</span>
+                </div>
+                <div class="space-y-2 py-1">
+                  <div class="flex items-center justify-between p-2 rounded-lg bg-slate-900/90 border border-emerald-500/30 text-xs">
+                    <span class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> <span>Phone Hash Verification</span></span>
+                    <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30">ZERO DUPLICATES DETECTED</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 rounded-lg bg-slate-900/90 border border-emerald-500/30 text-xs">
+                    <span class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> <span>ORERA ORA/0216/2024 Index</span></span>
+                    <span class="text-[10px] font-mono text-cyan-300 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/30">60+ PROJECTS MATCHED</span>
+                  </div>
+                  <div class="flex items-center justify-between p-2 rounded-lg bg-slate-900/90 border border-emerald-500/30 text-xs">
+                    <span class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> <span>Intent &amp; Purchasing Capacity</span></span>
+                    <span class="text-[10px] font-mono text-sky-300 bg-sky-950/60 px-2 py-0.5 rounded border border-sky-500/30">HIGH INTENT (₹95L)</span>
+                  </div>
+                </div>
+                <div class="bg-black/80 rounded-lg p-2.5 border border-slate-800 font-mono text-[10px] leading-relaxed text-slate-300">
+                  <p class="text-sky-400">&gt; [Playwright Engine] Lead validated. SLA queue assigned to Bhubaneswar specialist.</p>
+                </div>
+              </div>
+
+              <!-- Stage 2: WhatsApp Concierge Graphic -->
+              <div id="scrollyScreen2" class="scrolly-screen hidden opacity-0 transition-all duration-500 space-y-3">
+                <div class="flex items-center justify-between text-[11px] font-mono text-emerald-400">
+                  <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span><b>AUTOMATED WHATSAPP &amp; FREE AC CAB</b></span>
+                  <span class="text-emerald-300">DISPATCHED</span>
+                </div>
+                <!-- Simulated Chat Message Bubble -->
+                <div class="space-y-2 py-1 max-w-sm mx-auto">
+                  <div class="p-2.5 rounded-xl rounded-tl-none bg-emerald-950/80 border border-emerald-500/40 text-xs text-slate-200">
+                    <p class="font-bold text-[10px] text-emerald-300 mb-1">Buddy AI Real Estate Concierge</p>
+                    <p>Namaskar Mr. Sharma! Free AC cab is ready to pick you up today at 4:30 PM for Archid Elite. Shall I reserve?</p>
+                    <span class="text-[9px] text-emerald-400/80 block text-right mt-1 font-mono">14:24 ✓✓</span>
+                  </div>
+                  <div class="p-2.5 rounded-xl rounded-tr-none bg-slate-800 border border-slate-700 text-xs text-slate-200 ml-auto max-w-[85%]">
+                    <p>Yes please, pick me up from Patia square at 4:30 PM.</p>
+                    <span class="text-[9px] text-slate-400 block text-right mt-1 font-mono">14:25</span>
+                  </div>
+                  <div class="p-2 rounded-lg bg-cyan-950/60 border border-cyan-400/40 text-[10px] font-mono text-cyan-300 flex items-center justify-between">
+                    <span>🚗 Cab OD-02-AX-9912 Confirmed</span>
+                    <span class="text-emerald-400 font-bold">Pickup Scheduled</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stage 3: Won Deal Graphic -->
+              <div id="scrollyScreen3" class="scrolly-screen hidden opacity-0 transition-all duration-500 space-y-3">
+                <div class="flex items-center justify-between text-[11px] font-mono text-amber-400">
+                  <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span><b>BOOKED / WON · ZERO BROKERAGE</b></span>
+                  <span class="text-emerald-400 font-bold">TRANSACTION CLOSED</span>
+                </div>
+                <div class="p-4 rounded-xl bg-gradient-to-r from-amber-950/60 via-slate-900/90 to-emerald-950/60 border border-amber-400/40 text-center">
+                  <p class="text-[10px] font-mono uppercase tracking-widest text-amber-300">CLIENT BROKERAGE SAVINGS</p>
+                  <p class="text-3xl sm:text-4xl font-extrabold text-white my-1 font-mono">₹1,90,000 <span class="text-emerald-400 text-sm font-sans font-bold">SAVED</span></p>
+                  <p class="text-xs text-slate-300 mt-1">Direct developer zero-brokerage model backed by 30-year legal title search</p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-[10px] font-mono text-center">
+                  <div class="p-2 rounded bg-slate-900 border border-emerald-500/30 text-emerald-300">
+                    30-YR TITLE SEARCH: VERIFIED
+                  </div>
+                  <div class="p-2 rounded bg-slate-900 border border-cyan-500/30 text-cyan-300">
+                    ORERA: ORA/0216/2024
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- CRM Pipeline Status & Stages -->
+            <div class="crm-status">
+              <span class="crm-stat"><b>Client:</b>&nbsp;KNR Integrity <em>(ORERA: ORA/0216/2024)</em></span>
+              <span class="crm-stat"><b>Active inventory:</b>&nbsp;60+ verified projects</span>
+              <span class="crm-stat crm-stage"><b>Pipeline:</b>&nbsp;<em id="crmStageLabel">Booked · human approval</em></span>
+            </div>
+            <div class="crm-flow" aria-hidden="true">
+              <span class="crm-pipe" id="crmPipe1"><i></i>Webhook</span><span class="crm-pipe-sep">→</span>
+              <span class="crm-pipe" id="crmPipe2"><i></i>Calling SLA</span><span class="crm-pipe-sep">→</span>
+              <span class="crm-pipe" id="crmPipe3"><i></i>Site visit</span><span class="crm-pipe-sep">→</span>
+              <span class="crm-pipe" id="crmPipe4"><i></i>Booked</span>
+            </div>
+
+            <!-- CRM Board (Kanban Columns) -->
+            <div class="crm-board" id="crmBoard">
+              <div class="crm-col" id="crmCol0">
+                <p class="crm-col-h">NEW</p>
+                <article class="crm-card"><b>A. Sharma</b><small>Patia IT Corridor (Archid Elite 3BHK)</small><span class="crm-tags"><i class="crm-tag crm-tag-budget">₹95L</i><i class="crm-tag">Meta Ad</i></span></article>
+                <article class="crm-card"><b>S. Patnaik</b><small>Costa Fortune Crestview (Kantabada)</small><span class="crm-tags"><i class="crm-tag crm-tag-budget">₹78L</i><i class="crm-tag">Ask Buddy AI</i></span></article>
+                <article class="crm-card crm-arrive" id="crmArrival"><b>Webhook lead</b><small>Meta form instant delivery · dedupe passed</small><span class="crm-tags"><i class="crm-tag crm-tag-ok">n8n 200 OK</i></span></article>
+              </div>
+              <div class="crm-col" id="crmCol1">
+                <p class="crm-col-h">CALLING <span class="crm-sla">SLA queue</span></p>
+                <article class="crm-card"><b>R. Das</b><small>The Harmonious Haven (Rasulgarh Triplex)</small><span class="crm-tags"><i class="crm-tag crm-tag-budget">₹2.45 Cr</i><i class="crm-tag crm-tag-amber">SLA &lt; 5m</i></span></article>
+                <article class="crm-card"><b>P. Sahoo</b><small>Grace Urban Ville (Ghangapatna Duplex)</small><span class="crm-tags"><i class="crm-tag crm-tag-budget">₹85L</i><i class="crm-tag">Follow-up #2</i></span></article>
+              </div>
+              <div class="crm-col" id="crmCol2">
+                <p class="crm-col-h">SITE VISIT <span class="crm-sla crm-cab">Free AC cab</span></p>
+                <article class="crm-card"><b>K. Jena</b><small>Kalvik Adidev (Patia)</small><span class="crm-tags"><i class="crm-tag crm-tag-ok">Visit: Today 4:30 PM</i><i class="crm-tag">Pickup: Jagamara HQ</i></span></article>
+              </div>
+              <div class="crm-col" id="crmCol3">
+                <p class="crm-col-h">BOOKED / WON</p>
+                <article class="crm-card crm-won"><b>M. Mishra</b><small>Freehold Gharabadi Plot (Sundarpada)</small><span class="crm-tags"><i class="crm-tag crm-tag-ok">30-Yr title verified</i><i class="crm-tag crm-tag-budget">₹0 brokerage</i></span></article>
+              </div>
+            </div>
+
+            <!-- CRM Footer -->
+            <div class="crm-foot">
+              <span class="crm-wa"><i class="crm-dot crm-dot-emerald"></i><b id="waCount">WhatsApp sent — 12</b></span>
+              <span class="crm-appr" id="crmApproval"><i class="crm-dot crm-dot-amber"></i>Human approval required</span>
+              <span class="crm-note">n8n + Playwright · webhook demo · production-style sample data</span>
+            </div>
+          </div>
+
+          <!-- Core Capability Carousel (Preserved in full!) -->
+          <div class="glass-card rounded-2xl p-5 relative overflow-hidden mt-4">
             <div class="flex items-center justify-between mb-3">
               <span class="text-xs font-semibold uppercase tracking-wider text-sky-400" id="carouselTag">CORE CAPABILITY 01 / 03</span>
               <div class="flex gap-1.5" role="tablist" aria-label="Capabilities Slides">
@@ -1696,14 +1943,14 @@
               </div>
             </div>
 
-            <div id="heroCarousel" class="min-h-[290px] flex flex-col justify-between"></div>
+            <div id="heroCarousel" class="min-h-[220px] flex flex-col justify-between"></div>
 
-            <div class="w-full bg-slate-800 h-1 rounded-full mt-4 overflow-hidden">
+            <div class="w-full bg-slate-800 h-1 rounded-full mt-3 overflow-hidden">
               <div id="slideProgress" class="bg-gradient-to-r from-blue-500 to-cyan-400 h-full w-0 transition-all duration-300"></div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
 
@@ -4874,24 +5121,140 @@ var ECO_CATS=[['models','AI models'],['agents','Coding agents'],['platforms','Ag
     function ovChip(r){var ic=(typeof ECO_ICONS!=='undefined'&&ECO_ICONS[r.n])?'<img loading="lazy" width="18" height="18" src="'+ecoIconSrc(ECO_ICONS[r.n])+'" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;background:#fff;border-radius:5px;padding:2px;flex:0 0 auto;" onerror="this.remove()" />':'';return '<span style="display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .6rem;border-radius:.6rem;border:1px solid rgba(56,189,248,.16);background:rgba(8,16,36,.8);font-size:.72rem;color:#e2e8f0;" title="'+ecoEsc(r.n)+'">'+ic+'<span>'+ecoEsc(r.n)+'</span></span>';}
     function ovRender(){try{var el=document.getElementById('stackOverview');if(!el)return;var all=ecoData();var byName={};all.forEach(function(r){byName[r.n]=r;});var html='';OVERVIEW.forEach(function(g){var items=g[1].cat?all.filter(function(r){return r.c===g[1].cat;}):g[1].names.map(function(n){return byName[n];}).filter(Boolean);if(!items.length)return;html+='<div class="stack-tier"><p class="stack-cat">'+ecoEsc(g[0])+' ('+items.length+')</p><p style="font-size:11px;color:#94a3b8;margin-top:4px;">'+ecoEsc(g[1].d||'')+'</p><div style="display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem;">'+items.map(ovChip).join('')+'</div></div>';});html+='<div style="grid-column:1/-1;text-align:center;"><button type="button" onclick="document.getElementById(\'ecoDirectory\').scrollIntoView();document.getElementById(\'ecoSearch\').focus({preventScroll:true})" style="padding:.7rem 1.4rem;border-radius:.7rem;font-size:.75rem;font-weight:800;background:linear-gradient(135deg,#2563eb,#06b6d4);color:#fff;cursor:pointer;">Browse the searchable directory</button></div>';el.innerHTML=html;}catch(e){}}
     try{ovRender();}catch(e){}
-                // 6. Buddy CRM workspace demo: webhook arrival, stage autoplay, WhatsApp counter.
+                // 6. Buddy CRM workspace demo: webhook arrival, stage autoplay, WhatsApp counter + Scrollytelling sync.
     var CRM_ORDER=['new','calling','visit','booked'];
     var CRM_STAGE_NAME={new:'New lead via webhook',calling:'SLA calling queue',visit:'Site visit · cab concierge',booked:'Booked · human approval'};
     var crmIdx=3,crmTimer=0,crmPaused=false,crmWa=12;
-    function crmPaint(){try{var i,k;
+    function crmPaint(){try{var i,k,s;
       for(i=0;i<CRM_ORDER.length;i++){var col=document.getElementById('crmCol'+i);if(col)col.classList.toggle('crm-active',i===crmIdx);}
       var lb=document.getElementById('crmStageLabel');if(lb)lb.textContent=CRM_STAGE_NAME[CRM_ORDER[crmIdx]];
       var arrive=document.getElementById('crmArrival');if(arrive)arrive.classList.toggle('crm-show',crmIdx===0);
       var appr=document.getElementById('crmApproval');if(appr)appr.classList.toggle('crm-amber',crmIdx===3);
       for(k=0;k<4;k++){var p=document.getElementById('crmPipe'+(k+1));if(p)p.classList.toggle('crm-on',k===crmIdx);}
+      // Synchronize dynamic Scrollytelling screens, pills, story cards & laser spine
+      for(s=0;s<4;s++){
+        var screen=document.getElementById('scrollyScreen'+s);
+        if(screen){screen.classList.toggle('active',s===crmIdx);screen.classList.toggle('hidden',s!==crmIdx);}
+        var pill=document.getElementById('scrollyPill'+s);
+        if(pill)pill.classList.toggle('active',s===crmIdx);
+        var card=document.getElementById('scrollyStep'+s);
+        if(card)card.classList.toggle('active',s===crmIdx);
+      }
+      var laser=document.getElementById('scrollySpineLaser');
+      if(laser)laser.style.top=(crmIdx*28)+'%';
     }catch(e){}}
     function crmSetWa(){try{var w=document.getElementById('waCount');if(w)w.textContent='WhatsApp sent — '+crmWa;}catch(e){}}
     function heroStep(){if(document.hidden||crmPaused)return;crmIdx=(crmIdx+1)%CRM_ORDER.length;if(crmIdx===3){crmWa=Math.min(crmWa+1,19);crmSetWa();}crmPaint();}
     function heroPaint(){crmPaint();crmSetWa();}
     function heroStart(){try{var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;crmPaint();if(rm||!('IntersectionObserver' in window)){return;}}catch(e){return;}clearInterval(crmTimer);crmTimer=setInterval(heroStep,2000);}
+    function scrollyJump(idx){try{crmIdx=idx;crmPaint();crmPaused=true;var pb=document.getElementById('heroPause');if(pb){pb.textContent='Play';pb.setAttribute('aria-pressed','true');}var el=document.getElementById('scrollyStep'+idx);if(el&&typeof el.scrollIntoView==='function'){el.scrollIntoView({behavior:'smooth',block:'center'});}}catch(e){}}
     try{document.getElementById('heroReplay').addEventListener('click',function(){crmIdx=0;crmWa=12;crmSetWa();crmPaused=false;var pb=document.getElementById('heroPause');if(pb){pb.textContent='Pause';pb.setAttribute('aria-pressed','false');}crmPaint();heroStart();});}catch(e){}
     try{document.getElementById('heroPause').addEventListener('click',function(){crmPaused=!crmPaused;this.textContent=crmPaused?'Play':'Pause';this.setAttribute('aria-pressed',String(crmPaused));});}catch(e){}
     try{heroStart();}catch(e){}
+
+    // Auto-change content on vertical scroll via IntersectionObserver
+    function initScrollytelling(){try{
+      if(typeof window==='undefined'||typeof document==='undefined')return;
+      if(!('IntersectionObserver' in window))return;
+      if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      var cards=document.querySelectorAll('.scrolly-step-card');
+      if(!cards||!cards.length)return;
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            var step=parseInt(entry.target.getAttribute('data-scrolly-step'),10);
+            if(!isNaN(step)&&step>=0&&step<4){
+              crmIdx=step;
+              crmPaint();
+              if(window.__buddySfx)try{window.__buddySfx(440+step*80,'sine',.06);}catch(e){}
+            }
+          }
+        });
+      },{rootMargin:'-25% 0px -25% 0px',threshold:0.15});
+      cards.forEach(function(c){obs.observe(c);});
+    }catch(e){}}
+    try{initScrollytelling();}catch(e){}
+
+    // Kinetic Stat Number Counters on Scroll
+    function initCounterTickers(){try{
+      if(typeof window==='undefined'||typeof document==='undefined')return;
+      if(!('IntersectionObserver' in window))return;
+      if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      var counters=document.querySelectorAll('[data-counter]');
+      if(!counters||!counters.length)return;
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            var el=entry.target;
+            var target=parseFloat(el.getAttribute('data-counter'));
+            var suffix=el.getAttribute('data-suffix')||'';
+            var prefix=el.getAttribute('data-prefix')||'';
+            var decimals=(target%1!==0)?1:0;
+            var duration=1200;
+            var startVal=0;
+            var startTime=null;
+            function tick(now){
+              if(!startTime)startTime=now;
+              var progress=Math.min((now-startTime)/duration,1);
+              var ease=1-Math.pow(1-progress,3);
+              var cur=startVal+(target-startVal)*ease;
+              el.textContent=prefix+(decimals?cur.toFixed(decimals):Math.floor(cur))+suffix;
+              if(progress<1){
+                requestAnimationFrame(tick);
+              }else{
+                el.textContent=prefix+(decimals?target.toFixed(decimals):target)+suffix;
+              }
+            }
+            requestAnimationFrame(tick);
+            obs.unobserve(el);
+          }
+        });
+      },{threshold:0.15});
+      counters.forEach(function(c){obs.observe(c);});
+    }catch(e){}}
+    try{initCounterTickers();}catch(e){}
+
+    // Futuristic Matrix / Cyber Scramble Decode on Headings
+    function initCyberDecode(){try{
+      if(typeof window==='undefined'||typeof document==='undefined')return;
+      if(!('IntersectionObserver' in window))return;
+      if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      var glyphs='01#@%&<>_=+*!?§$';
+      var headings=document.querySelectorAll('h2.chrome-text');
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            var el=entry.target;
+            var orig=el.getAttribute('data-orig-text')||el.textContent.trim();
+            if(!el.getAttribute('data-orig-text'))el.setAttribute('data-orig-text',orig);
+            var len=orig.length;
+            var step=0;
+            var totalSteps=12;
+            var timer=setInterval(function(){
+              step++;
+              var txt='';
+              for(var i=0;i<len;i++){
+                if(orig[i]===' '||orig[i]==='\n'){
+                  txt+=orig[i];
+                }else if(i<(step/totalSteps)*len){
+                  txt+=orig[i];
+                }else{
+                  txt+=glyphs[Math.floor(Math.random()*glyphs.length)];
+                }
+              }
+              el.textContent=txt;
+              if(step>=totalSteps){
+                el.textContent=orig;
+                clearInterval(timer);
+              }
+            },25);
+            obs.unobserve(el);
+          }
+        });
+      },{threshold:0.1});
+      headings.forEach(function(h){obs.observe(h);});
+    }catch(e){}}
+    try{initCyberDecode();}catch(e){}
     // 7. Pipeline autoplay with node states + replay.
 // 7. Pipeline autoplay with node states + replay.
     var ARCH_ORDER=['capture','normalize','route','act'],archIdx=0,archTimer=0,archAuto=true;
