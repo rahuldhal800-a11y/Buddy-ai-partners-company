@@ -1,17 +1,51 @@
 User-agent: *
 Allow: /
 
-# Googlebot, Bingbot, and AI Search Crawlers
+# Search Engine Crawlers
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Generative AI Answer Engines & Real-time AI Search
 User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Authoritative Machine-Readable Knowledge & Sitemaps
 Sitemap: https://buddyaipartners.github.io/sitemap.xml
+# LLM Knowledge Graph: https://buddyaipartners.github.io/llms.txt
+
