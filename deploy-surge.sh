@@ -33,6 +33,8 @@ cp -r "$ROOT/public/images/." "$DIST/images/"
 cp -r "$ROOT/public/images/." "$DIST/public/images/"
 [ ! -f "$ROOT/robots.txt" ] || cp "$ROOT/robots.txt" "$DIST/robots.txt"
 [ ! -f "$ROOT/sitemap.xml" ] || cp "$ROOT/sitemap.xml" "$DIST/sitemap.xml"
+[ ! -f "$ROOT/llms.txt" ] || cp "$ROOT/llms.txt" "$DIST/llms.txt"
+[ ! -f "$ROOT/5b44e100446fef7d326fe15d85f5d157.txt" ] || cp "$ROOT/5b44e100446fef7d326fe15d85f5d157.txt" "$DIST/5b44e100446fef7d326fe15d85f5d157.txt"
 [ ! -f "$ROOT/googleb8ea7c1bfd32f1e7.html" ] || cp "$ROOT/googleb8ea7c1bfd32f1e7.html" "$DIST/googleb8ea7c1bfd32f1e7.html"
 
 # Post-build gate: every local URL in the built HTML must exist inside dist,
