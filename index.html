@@ -60,7 +60,7 @@
           "telephone": "+91-73280-89908",
           "contactType": "sales",
           "availableLanguage": ["en", "hi", "or"],
-          "email": "buddyaipartners@gmail.com"
+          "email": "buddyaipartnersindia@gmail.com"
         }
       },
       {
@@ -126,10 +126,12 @@
       --crimson: #C91A1A;
       --emerald: #0E873D;
       --mint: #7DE2C3;
-      --sky: #8CB8FF;
+      --sky: #38BDF8;
+      --sky-soft: #7FD4FC;
+      --sky-deep: #1D4ED8;
       --amber: #E8C35A;
-      --line: rgba(212, 175, 55, .18);
-      --line-strong: rgba(212, 175, 55, .38);
+      --line: rgba(56, 189, 248, .14);
+      --line-strong: rgba(56, 189, 248, .35);
       --card-bg: linear-gradient(160deg, rgba(14, 32, 60, .55), rgba(4, 10, 22, .72));
       --card-shadow: 0 18px 44px rgba(2, 6, 16, .45);
       --ease: cubic-bezier(.25, 1, .5, 1);
@@ -154,11 +156,11 @@
     }
     body.portal-open { overflow: hidden; }
     img { max-width: 100%; display: block; }
-    a { color: var(--gold-soft); text-decoration: none; }
-    a:hover { color: var(--gold); }
+    a { color: var(--sky); text-decoration: none; }
+    a:hover { color: var(--sky-soft); }
     button { font-family: inherit; cursor: pointer; }
-    ::selection { background: rgba(212,175,55,.85); color: #04070f; }
-    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+    ::selection { background: rgba(56,189,248,.85); color: #04070f; }
+    :focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-radius: 4px; }
     ::-webkit-scrollbar { width: 10px; height: 10px; }
     ::-webkit-scrollbar-track { background: #050b18; }
     ::-webkit-scrollbar-thumb { background: #16294a; border-radius: 8px; border: 2px solid #050b18; }
@@ -173,7 +175,7 @@
     .display-l { font-family: var(--font-display); font-size: clamp(1.9rem, 4.4vw, 3.1rem); line-height: 1.08; }
     .h3 { font-family: var(--font-display); font-size: clamp(1.28rem, 2.4vw, 1.7rem); line-height: 1.2; }
     .h4 { font-family: var(--font-ui); font-size: .95rem; font-weight: 600; color: var(--ink); letter-spacing: .015em; }
-    .gold-i { font-family: var(--font-display); font-style: italic; font-weight: 500; color: var(--gold-soft); }
+    .gold-i { font-family: var(--font-display); font-style: italic; font-weight: 500; background: linear-gradient(100deg, #FFFFFF 0%, #BFE3FF 30%, var(--sky) 60%, var(--sky-deep) 100%); -webkit-background-clip: text; background-clip: text; color: #9FD8FF; -webkit-text-fill-color: transparent; }
     .lead { font-size: clamp(1rem, 1.6vw, 1.16rem); color: var(--body); line-height: 1.7; }
     .t-gold { color: var(--gold-soft); } .t-emerald { color: #34d399; } .t-crimson { color: #f28b82; }
     .t-mint { color: var(--mint); } .t-white { color: var(--ink); } .t-muted { color: var(--muted); }
@@ -185,13 +187,13 @@
     .eyebrow {
       display: inline-flex; align-items: center; gap: .65rem;
       font-family: var(--font-ui); font-size: .68rem; font-weight: 700;
-      letter-spacing: .24em; text-transform: uppercase; color: var(--gold);
+      letter-spacing: .24em; text-transform: uppercase; color: var(--sky);
     }
-    .eyebrow::before { content: ""; width: 34px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
-    .eyebrow.center::after { content: ""; width: 34px; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .eyebrow::before { content: ""; width: 34px; height: 1px; background: linear-gradient(90deg, transparent, var(--sky)); }
+    .eyebrow.center::after { content: ""; width: 34px; height: 1px; background: linear-gradient(90deg, var(--sky), transparent); }
     .hairline { display: flex; align-items: center; gap: 1rem; margin: 0 auto; width: 100%; }
     .hairline::before, .hairline::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--line-strong), transparent); }
-    .hairline span { color: var(--gold); font-size: .7rem; letter-spacing: .3em; }
+    .hairline span { color: var(--sky-soft); font-size: .7rem; letter-spacing: .3em; }
 
     /* ---------- Layout ---------- */
     .shell { width: min(1160px, 100% - clamp(2.2rem, 8vw, 5rem)); margin-inline: auto; }
@@ -251,8 +253,8 @@
 
     .medal {
       width: 46px; height: 46px; flex: 0 0 auto; display: grid; place-items: center;
-      font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--gold-soft);
-      border: 1px solid var(--line-strong); border-radius: 12px; background: rgba(212, 175, 55, .07);
+      font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--sky-soft);
+      border: 1px solid var(--line-strong); border-radius: 12px; background: rgba(56, 189, 248, .07);
     }
     .medal.emerald { color: #5fe3a1; border-color: rgba(52, 211, 153, .35); background: rgba(14, 135, 61, .1); }
     .medal.crimson { color: #ff9b94; border-color: rgba(240, 128, 128, .35); background: rgba(201, 26, 26, .1); }
@@ -263,7 +265,7 @@
       border: 1px solid var(--line); color: var(--body); background: rgba(14, 32, 60, .45);
       font-family: var(--font-ui); letter-spacing: .04em; white-space: nowrap;
     }
-    .chip .dot { width: 6px; height: 6px; border-radius: 99px; background: var(--gold); }
+    .chip .dot { width: 6px; height: 6px; border-radius: 99px; background: var(--sky); }
     .chip.gold { color: var(--gold-soft); border-color: var(--line-strong); }
     .chip.emerald { color: #5fe3a1; border-color: rgba(52, 211, 153, .3); }
     .chip.emerald .dot { background: #34d399; }
@@ -294,7 +296,7 @@
       background: rgba(14, 32, 60, .4); color: var(--ink);
       border-color: var(--line-strong); backdrop-filter: blur(10px);
     }
-    .btn-glass:hover { background: rgba(212, 175, 55, .12); color: var(--gold-soft); border-color: var(--gold); transform: translateY(-2px); }
+    .btn-glass:hover { background: rgba(56, 189, 248, .12); color: var(--sky-soft); border-color: var(--sky); transform: translateY(-2px); }
     .btn-emerald {
       background: linear-gradient(180deg, #16a85a, #0E873D 60%, #0a672f);
       color: #04130a; box-shadow: 0 10px 26px rgba(14, 135, 61, .25), inset 0 1px 0 rgba(255, 255, 255, .3);
@@ -302,13 +304,13 @@
     .btn-emerald:hover { box-shadow: 0 14px 32px rgba(14, 135, 61, .38); transform: translateY(-2px); color: #030f07; }
     .btn-sm { padding: .6rem 1.15rem; font-size: .74rem; }
     .btn-lg { padding: 1rem 2rem; font-size: .9rem; }
-    .link-arrow { font-family: var(--font-ui); font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-soft); display: inline-flex; align-items: center; gap: .4rem; }
+    .link-arrow { font-family: var(--font-ui); font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--sky-soft); display: inline-flex; align-items: center; gap: .4rem; }
     .link-arrow::after { content: "→"; transition: transform .3s var(--ease); }
     .link-arrow:hover::after { transform: translateX(4px); }
 
     /* ---------- Scroll progress hairline ---------- */
     /* Scroll progress hairline lives inside the sticky header (never fixed on body) */
-    #scrollProgressBar { position: absolute; top: 0; left: 0; width: 100%; height: 2px; display: block; transform: scaleX(0); transform-origin: 0 50%; background: linear-gradient(90deg, var(--gold-deep), var(--gold), var(--gold-soft)); box-shadow: 0 0 12px rgba(212, 175, 55, .55); z-index: 1; pointer-events: none; }
+    #scrollProgressBar { position: absolute; top: 0; left: 0; width: 100%; height: 2px; display: block; transform: scaleX(0); transform-origin: 0 50%; background: linear-gradient(90deg, var(--sky-deep), var(--sky), #BAE6FD); box-shadow: 0 0 12px rgba(56, 189, 248, .6); z-index: 1; pointer-events: none; }
 
     /* ---------- Header ---------- */
     .site-header {
@@ -328,15 +330,15 @@
       text-transform: uppercase; color: var(--muted); background: transparent;
       border: 0; border-radius: 999px; padding: .52rem .95rem; transition: color .25s, background-color .25s;
     }
-    .nav-btn:hover { color: var(--gold-soft); }
-    .nav-btn.active { background: linear-gradient(180deg, #2b244f0d, transparent), linear-gradient(180deg, #E9CC6B, #D4AF37 60%, #B8952B); color: #241a02; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4); }
+    .nav-btn:hover { color: var(--sky-soft); }
+    .nav-btn.active { background: linear-gradient(180deg, #4FD3FF, var(--sky) 55%, var(--sky-deep)); color: #04131f; box-shadow: 0 6px 18px rgba(56, 189, 248, .25), inset 0 1px 0 rgba(255, 255, 255, .4); }
     .hdr-buddy {
       display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--line-strong);
-      color: var(--gold-soft); background: rgba(212, 175, 55, .08); border-radius: 999px;
+      color: var(--sky-soft); background: rgba(56, 189, 248, .08); border-radius: 999px;
       font-family: var(--font-ui); font-size: .72rem; font-weight: 700; letter-spacing: .1em;
       text-transform: uppercase; padding: .55rem 1rem; transition: background-color .3s, border-color .3s, transform .3s var(--ease);
     }
-    .hdr-buddy:hover { background: rgba(212, 175, 55, .16); border-color: var(--gold); transform: translateY(-1px); }
+    .hdr-buddy:hover { background: rgba(56, 189, 248, .16); border-color: var(--sky); transform: translateY(-1px); }
     .menu-btn {
       display: inline-grid; place-items: center; width: 42px; height: 42px;
       border-radius: 12px; border: 1px solid var(--line); background: rgba(8, 20, 39, .55); color: var(--ink);
@@ -355,8 +357,8 @@
       color: var(--body); background: #0b1a33; border: 1px solid var(--line);
       border-radius: 12px; padding: .72rem .9rem; transition: border-color .25s, color .25s, background-color .25s;
     }
-    .mnav-btn:hover { color: var(--gold-soft); border-color: var(--line-strong); }
-    .mnav-btn.active { background: linear-gradient(180deg, #E9CC6B, #D4AF37); color: #241a02; border-color: transparent; }
+    .mnav-btn:hover { color: var(--sky-soft); border-color: var(--line-strong); }
+    .mnav-btn.active { background: linear-gradient(180deg, #4FD3FF, var(--sky) 55%, var(--sky-deep)); color: #04131f; border-color: transparent; }
     @keyframes menuIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
     .mobile-menu { animation: menuIn .3s var(--ease); }
 
@@ -408,7 +410,7 @@
     .hero-band::before {
       content: ""; position: absolute; inset: 0; pointer-events: none;
       background: radial-gradient(58% 46% at 18% 8%, rgba(14, 32, 60, .75), transparent 65%),
-                  radial-gradient(40% 40% at 88% 20%, rgba(212, 175, 55, .08), transparent 70%);
+                  radial-gradient(40% 40% at 88% 20%, rgba(56, 189, 248, .12), transparent 70%);
     }
     .hero-grid { position: relative; display: grid; gap: clamp(2rem, 5vw, 3.4rem); grid-template-columns: 1fr; align-items: center; }
     .hero-grid > * { min-width: 0; }
@@ -426,7 +428,7 @@
     }
     .hero-frame::after {
       content: ""; position: absolute; inset: 6px; border-radius: 15px;
-      border: 1px dashed rgba(212, 175, 55, .16); pointer-events: none;
+      border: 1px dashed rgba(127, 212, 252, .28); pointer-events: none;
     }
     .hero-frame > * { position: relative; z-index: 1; }
     .hero-visual { border-radius: 14px; overflow: hidden; aspect-ratio: 4 / 2.9; background: #060d1d; }
@@ -439,18 +441,40 @@
     }
     .tele-head { display: flex; justify-content: space-between; gap: 1rem; font-size: .6rem; letter-spacing: .22em; color: var(--muted); text-transform: uppercase; border-bottom: 1px solid var(--line); padding-bottom: .45rem; margin-bottom: .45rem; }
     .tele p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .tele .tm { color: var(--muted); } .tele .ta { color: var(--amber); } .tele .te { color: #34d399; } .tele .tc { color: var(--mint); } .tele .th { color: var(--gold-soft); }
+    .tele .tm { color: var(--muted); } .tele .ta { color: var(--amber); } .tele .te { color: #34d399; } .tele .tc { color: var(--mint); } .tele .th { color: var(--sky-soft); }
     @media (max-width: 700px) {
       .btn { white-space: normal; text-align: center; padding-inline: 1.1rem; }
       .tele { min-height: 0; max-height: 13em; }
       .tele p { white-space: normal; overflow: visible; }
     }
 
+    /* ---------- Verified credentials wall ---------- */
+    .cert-grid { display: grid; gap: 1.1rem; grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 760px) { .cert-grid { grid-template-columns: 1fr; } }
+    .cert-card { display: flex; flex-direction: column; gap: .75rem; }
+    .cert-figure { background: #fff; border-radius: 14px; padding: .7rem .7rem .8rem; box-shadow: 0 20px 44px rgba(2, 6, 16, .5); }
+    .cert-figure img { width: 100%; height: auto; border-radius: 8px; display: block; }
+    .cert-cap { display: flex; flex-direction: column; gap: .25rem; padding-inline: .2rem; }
+    .cert-issuer { font-family: var(--font-mono); font-size: .6rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--sky); }
+    .cert-cap b { font-family: var(--font-ui); font-size: .95rem; font-weight: 700; color: var(--ink); letter-spacing: .01em; line-height: 1.35; }
+    .cert-cap small { font-size: .74rem; color: var(--muted); }
+    .cert-verify { font-family: var(--font-ui); font-size: .74rem; font-weight: 600; color: var(--sky-soft); display: inline-flex; align-items: center; gap: .35rem; }
+    .cert-verify:hover { color: var(--ink); }
+    .cert-sheet { border: 1px solid var(--line-strong); border-radius: 14px; background: linear-gradient(160deg, rgba(56, 189, 248, .10), rgba(4, 10, 22, .7)); padding: 1.1rem 1.15rem; display: flex; flex-direction: column; gap: .6rem; flex: 1; }
+    .cert-sheet .big { font-family: var(--font-ui); font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 700; color: var(--sky-soft); line-height: 1; }
+    .cert-sheet-title { font-family: var(--font-display); font-size: 1.12rem; font-weight: 600; color: var(--ink); }
+    .path-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .2rem; }
+    .path-chips span { font-family: var(--font-ui); font-size: .62rem; font-weight: 600; letter-spacing: .04em; color: var(--sky-soft); background: rgba(56, 189, 248, .09); border: 1px solid var(--line); border-radius: 999px; padding: .28rem .6rem; }
+    .cert-id { font-family: var(--font-mono); font-size: .66rem; color: var(--muted); }
+    .cert-strip { display: flex; flex-wrap: wrap; align-items: center; gap: .55rem .6rem; padding: .9rem 1.05rem; }
+    .cert-strip .mini-tag { font-family: var(--font-ui); font-size: .68rem; font-weight: 600; letter-spacing: .05em; color: var(--sky-soft); border: 1px solid var(--line-strong); background: rgba(56, 189, 248, .07); border-radius: 999px; padding: .38rem .8rem; display: inline-flex; align-items: center; gap: .4rem; }
+    .cert-strip .mini-tag::before { content: "✔"; color: var(--sky); font-size: .7rem; }
+
     /* ---------- Stats ---------- */
     .stat-band { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; grid-template-columns: 1fr; }
     @media (min-width: 760px) { .stat-band { grid-template-columns: repeat(3, 1fr); } }
     .stat { background: linear-gradient(170deg, rgba(14, 32, 60, .55), rgba(4, 10, 22, .8)); padding: 1.3rem 1.2rem 1.15rem; text-align: center; }
-    .kpi-num { font-family: var(--font-ui); font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 700; color: var(--gold-soft); letter-spacing: -.01em; line-height: 1; }
+    .kpi-num { font-family: var(--font-ui); font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 700; color: var(--sky-soft); letter-spacing: -.01em; line-height: 1; }
     .kpi-cap { margin-top: .45rem; font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 
     /* ---------- Capability carousel ---------- */
@@ -458,9 +482,9 @@
     @media (min-width: 900px) { .caro { grid-template-columns: .9fr 1.1fr; } }
     .caro-steps { display: flex; gap: .4rem; margin-top: 1rem; }
     .slide-dot { height: 3px; border-radius: 99px; background: rgba(212, 175, 55, .25); border: 0; padding: 0; transition: background-color .4s, width .4s var(--ease); width: 8px; cursor: pointer; }
-    .slide-dot.on { width: 30px; background: var(--gold); }
+    .slide-dot.on { width: 30px; background: var(--sky); }
     .slide-progress { height: 2px; background: rgba(212, 175, 55, .2); border-radius: 99px; overflow: hidden; margin-top: .8rem; }
-    #slideProgress { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--gold-deep), var(--gold-soft)); transition: width 6s linear; }
+    #slideProgress { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--sky-deep), var(--sky-soft)); transition: width 6s linear; }
 
     /* ---------- The Loop (engine phases) ---------- */
     .loop-wrap { display: grid; gap: 1.4rem; grid-template-columns: 1fr; }
@@ -470,26 +494,26 @@
       font-family: var(--font-mono); font-size: .7rem; padding: 1rem 1.1rem 1.2rem;
     }
     .loop-headrow { display: flex; align-items: center; justify-content: space-between; gap: .6rem; font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: .6rem; }
-    #crmStageLabel { display: block; color: var(--gold-soft); font-weight: 500; margin-top: .5rem; font-size: .74rem; letter-spacing: .08em; }
+    #crmStageLabel { display: block; color: var(--sky-soft); font-weight: 500; margin-top: .5rem; font-size: .74rem; letter-spacing: .08em; }
     .ctrl { font-family: var(--font-ui); font-size: .66rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--body); background: rgba(14, 32, 60, .5); border: 1px solid var(--line); border-radius: 999px; padding: .4rem .85rem; transition: border-color .25s, color .25s; }
-    .ctrl:hover { color: var(--gold-soft); border-color: var(--line-strong); }
+    .ctrl:hover { color: var(--sky-soft); border-color: var(--line-strong); }
     .loop-steps { display: grid; gap: .8rem; grid-template-columns: 1fr; position: relative; }
     @media (min-width: 640px) { .loop-steps { grid-template-columns: 1fr 1fr; } }
     .loop-card {
       position: relative; border: 1px solid var(--line); border-radius: 16px; padding: 1rem 1.1rem;
       background: rgba(8, 20, 39, .35); transition: border-color .45s var(--ease), background-color .45s, transform .45s var(--ease), opacity .45s; opacity: .68;
     }
-    .loop-card.active { opacity: 1; border-color: var(--gold); background: rgba(14, 32, 60, .62); transform: translateY(-2px); box-shadow: 0 16px 40px rgba(2, 6, 16, .5), 0 0 24px rgba(212, 175, 55, .07); }
+    .loop-card.active { opacity: 1; border-color: var(--sky); background: rgba(14, 32, 60, .62); transform: translateY(-2px); box-shadow: 0 16px 40px rgba(2, 6, 16, .5), 0 0 24px rgba(56, 189, 248, .09); }
     .loop-num { font-family: var(--font-mono); font-size: .64rem; letter-spacing: .24em; color: var(--muted); }
-    .loop-card.active .loop-num { color: var(--gold); }
+    .loop-card.active .loop-num { color: var(--sky); }
     .loop-card h4 { margin-top: .25rem; font-size: .95rem; }
     .loop-card p { margin-top: .3rem; font-size: .8rem; color: var(--body); line-height: 1.55; }
     .loop-meta { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .7rem; }
     .pill-dots { display: flex; gap: .45rem; margin-top: .9rem; justify-content: center; }
     .pill-dot { width: 30px; height: 3px; border-radius: 99px; border: 0; padding: 0; background: rgba(212, 175, 55, .22); cursor: pointer; transition: background-color .4s; }
-    .pill-dot.active { background: var(--gold); }
+    .pill-dot.active { background: var(--sky); }
     .laser { position: relative; height: 3px; margin: .7rem 0 .25rem; background: rgba(212, 175, 55, .14); border-radius: 99px; overflow: hidden; }
-    #scrollySpineLaser { position: absolute; inset: 0; width: 0%; background: linear-gradient(90deg, var(--gold-deep), var(--gold-soft)); border-radius: 99px; box-shadow: 0 0 10px rgba(212, 175, 55, .5); transition: width .55s var(--ease); }
+    #scrollySpineLaser { position: absolute; inset: 0; width: 0%; background: linear-gradient(90deg, var(--sky-deep), var(--sky-soft)); border-radius: 99px; box-shadow: 0 0 10px rgba(56, 189, 248, .55); transition: width .55s var(--ease); }
 
     /* ---------- KNR spotlight ---------- */
     .knr-tabs { display: inline-flex; gap: .35rem; padding: .3rem; border: 1px solid var(--line); border-radius: 999px; background: rgba(8, 20, 39, .55); }
@@ -502,9 +526,9 @@
     .chatline.user { margin-left: auto; background: linear-gradient(180deg, #E9CC6B, #C9A32D); color: #241a02; border-bottom-right-radius: 4px; }
     .chatline.bot { background: rgba(14, 32, 60, .65); border: 1px solid var(--line); border-bottom-left-radius: 4px; }
     .knr-chips { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .6rem; }
-    .knr-chip { font-family: var(--font-ui); font-size: .7rem; font-weight: 600; color: var(--gold-soft); background: rgba(212, 175, 55, .08); border: 1px solid var(--line); border-radius: 999px; padding: .38rem .8rem; transition: border-color .25s, background-color .25s; }
-    .knr-chip:hover { border-color: var(--gold); background: rgba(212, 175, 55, .14); }
-    .knr-answer { margin-top: .7rem; border-left: 2px solid var(--gold); padding: .45rem 0 .45rem .8rem; font-size: .8rem; color: var(--ink); min-height: 2.4em; }
+    .knr-chip { font-family: var(--font-ui); font-size: .7rem; font-weight: 600; color: var(--sky-soft); background: rgba(56, 189, 248, .08); border: 1px solid var(--line); border-radius: 999px; padding: .38rem .8rem; transition: border-color .25s, background-color .25s; }
+    .knr-chip:hover { border-color: var(--sky); background: rgba(56, 189, 248, .14); }
+    .knr-answer { margin-top: .7rem; border-left: 2px solid var(--sky); padding: .45rem 0 .45rem .8rem; font-size: .8rem; color: var(--ink); min-height: 2.4em; }
     .corridor-table { width: 100%; border-collapse: collapse; font-family: var(--font-ui); font-size: .8rem; }
     .corridor-table caption { text-align: left; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--muted); text-transform: uppercase; padding-bottom: .6rem; }
     .corridor-table th { text-align: left; font-weight: 600; color: var(--muted); text-transform: uppercase; font-size: .64rem; letter-spacing: .14em; padding: .5rem .6rem; border-bottom: 1px solid var(--line); }
@@ -528,21 +552,21 @@
       border: 1px solid var(--line); background: rgba(8, 20, 39, .4); transition: border-color .5s, opacity .5s;
       font-family: var(--font-mono); font-size: .6rem; letter-spacing: .16em; color: var(--muted); text-align: center;
     }
-    .arch-node.act { border-color: var(--gold); color: var(--gold-soft); background: rgba(212, 175, 55, .09); }
+    .arch-node.act { border-color: var(--sky); color: var(--sky-soft); background: rgba(56, 189, 248, .09); }
     .arch-arrow { color: rgba(212, 175, 55, .4); font-size: .7rem; }
-    .arch-detail { border-left: 2px solid var(--gold); padding-left: 1rem; padding-block: .2rem .5rem; margin: .2rem 0 1rem; }
+    .arch-detail { border-left: 2px solid var(--sky); padding-left: 1rem; padding-block: .2rem .5rem; margin: .2rem 0 1rem; }
     .arch-detail h4 { font-family: var(--font-display); font-size: 1.05rem; color: var(--ink); }
     .arch-detail p { font-size: .82rem; margin-top: .3rem; }
     .arch-list { margin: .55rem 0 0; padding: 0; list-style: none; display: grid; gap: .35rem; }
     .arch-list li { font-size: .78rem; color: var(--body); }
-    .arch-list li::before { content: "◆"; color: var(--gold); font-size: .55rem; margin-right: .5rem; }
+    .arch-list li::before { content: "◆"; color: var(--sky-soft); font-size: .55rem; margin-right: .5rem; }
 
     /* ---------- Services ---------- */
     .svc-grid { display: grid; gap: .9rem; grid-template-columns: 1fr; }
     @media (min-width: 620px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 1080px) { .svc-grid { grid-template-columns: repeat(4, 1fr); } }
     .svc-card { display: flex; flex-direction: column; gap: .8rem; }
-    .svc-letter { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .22em; color: var(--gold); }
+    .svc-letter { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .22em; color: var(--sky); }
     .svc-card h4 { font-family: var(--font-display); font-size: 1.02rem; color: var(--ink); font-weight: 600; }
     .svc-card p { font-size: .78rem; color: var(--body); line-height: 1.55; flex: 1; }
     .svc-foot { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
@@ -557,7 +581,7 @@
       transition: border-color .25s; min-width: 0;
     }
     .dir-input::placeholder { color: var(--muted); }
-    .dir-input:focus, .dir-select:focus { border-color: var(--gold); outline: none; }
+    .dir-input:focus, .dir-select:focus { border-color: var(--sky); outline: none; }
     .dir-select { color-scheme: dark; }
     .proj-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
     @media (min-width: 680px) { .proj-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -581,7 +605,7 @@
     @media (min-width: 1120px) { .stack-tiers { grid-template-columns: repeat(3, 1fr); } }
     .stack-tier { border: 1px solid var(--line); border-radius: 16px; padding: 1.05rem 1.1rem; background: rgba(8, 20, 39, .4); transition: border-color .5s var(--ease), transform .5s var(--ease); }
     .stack-tier:hover { border-color: var(--line-strong); transform: translateY(-3px); }
-    .stack-cat { font-family: var(--font-ui); font-size: .8rem; font-weight: 700; color: var(--gold-soft); letter-spacing: .03em; }
+    .stack-cat { font-family: var(--font-ui); font-size: .8rem; font-weight: 700; color: var(--sky-soft); letter-spacing: .03em; }
     .stack-tier p.d { font-size: .72rem; color: var(--muted); margin-top: .3rem; }
     .ov-chips { display: flex; flex-wrap: wrap; gap: .38rem; margin-top: .75rem; }
     .ov-chip { display: inline-flex; align-items: center; gap: .35rem; font-family: var(--font-ui); font-size: .68rem; font-weight: 500; color: var(--body); border: 1px solid var(--line); border-radius: 9px; padding: .3rem .55rem; background: rgba(3, 7, 16, .55); }
@@ -593,7 +617,7 @@
     @media (min-width: 760px) { .dir-controls { grid-template-columns: 2fr 1fr 1fr auto; align-items: center; } }
     .eco-count { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .18em; color: var(--muted); text-transform: uppercase; text-align: right; }
     @media (max-width: 759px) { .eco-count { text-align: left; } }
-    .eco-sec-title { font-family: var(--font-ui); font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin: 1.4rem 0 .7rem; }
+    .eco-sec-title { font-family: var(--font-ui); font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--sky); margin: 1.4rem 0 .7rem; }
     .eco-grid { display: grid; gap: .7rem; grid-template-columns: 1fr; }
     @media (min-width: 620px) { .eco-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 1000px) { .eco-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -611,8 +635,8 @@
     .eco-tag { font-family: var(--font-mono); font-size: .56rem; color: var(--muted); letter-spacing: .1em; }
     .eco-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .5rem; font-family: var(--font-ui); font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
     .eco-card details { margin-top: .4rem; font-size: .68rem; color: var(--muted); }
-    .eco-card summary { color: var(--gold-soft); font-family: var(--font-ui); font-size: .64rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
-    .stack-note { font-size: .74rem; color: var(--muted); border-left: 2px solid var(--gold); padding-left: .85rem; margin-top: 1.4rem; max-width: 44rem; }
+    .eco-card summary { color: var(--sky-soft); font-family: var(--font-ui); font-size: .64rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+    .stack-note { font-size: .74rem; color: var(--muted); border-left: 2px solid var(--sky); padding-left: .85rem; margin-top: 1.4rem; max-width: 44rem; }
 
     /* ---------- Process ---------- */
     .proc-rail { display: grid; gap: .8rem; grid-template-columns: 1fr; counter-reset: step; }
@@ -638,7 +662,7 @@
       border-radius: 12px; padding: .78rem .95rem; font-family: var(--font-body); font-size: .9rem;
       transition: border-color .25s; color-scheme: dark;
     }
-    .input:focus, .select:focus, .textarea:focus { border-color: var(--gold); outline: none; box-shadow: 0 0 0 3px rgba(212, 175, 55, .12); }
+    .input:focus, .select:focus, .textarea:focus { border-color: var(--sky); outline: none; box-shadow: 0 0 0 3px rgba(56, 189, 248, .14); }
     .textarea { min-height: 96px; resize: vertical; }
     .form-feedback { display: block; min-height: 1.6em; font-size: .78rem; font-weight: 600; margin-top: .6rem; }
     .form-feedback.ok { color: #34d399; } .form-feedback.err { color: #f28b82; }
@@ -677,8 +701,8 @@
     .qr-cap { text-align: center; font-family: var(--font-mono); font-size: .6rem; letter-spacing: .22em; color: var(--muted); text-transform: uppercase; margin-top: .6rem; }
     .upi-ids { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .9rem; }
     .upi-id { display: flex; align-items: center; gap: .5rem; font-family: var(--font-mono); font-size: .74rem; color: var(--ink); border: 1px solid var(--line); border-radius: 10px; padding: .5rem .7rem; background: rgba(3, 7, 16, .6); }
-    .copy-btn { border: 1px solid var(--line); background: rgba(212, 175, 55, .08); color: var(--gold-soft); border-radius: 8px; font-family: var(--font-ui); font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .3rem .55rem; transition: border-color .25s, color .25s; }
-    .copy-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .copy-btn { border: 1px solid var(--line); background: rgba(56, 189, 248, .08); color: var(--sky-soft); border-radius: 8px; font-family: var(--font-ui); font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .3rem .55rem; transition: border-color .25s, color .25s; }
+    .copy-btn:hover { border-color: var(--sky); color: var(--sky-soft); }
     .app-links { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1rem; }
 
     /* ---------- Chat (Buddy) ---------- */
@@ -694,8 +718,8 @@
     .bai-user { align-self: flex-end; background: linear-gradient(180deg, #E9CC6B, #C9A32D); color: #241a02; border-bottom-right-radius: 5px; font-weight: 500; }
     .bai-steps { font-family: var(--font-mono); font-size: .64rem; color: var(--muted); align-self: flex-start; max-width: 86%; padding: .5rem .7rem; border: 1px dashed var(--line); border-radius: 12px; line-height: 1.7; }
     .bai-chips { flex-wrap: wrap; gap: .4rem; padding: 0 1rem 1rem; display: flex; }
-    .bai-chip { font-family: var(--font-ui); font-size: .72rem; font-weight: 600; color: var(--gold-soft); background: rgba(212, 175, 55, .08); border: 1px solid var(--line); border-radius: 999px; padding: .45rem .9rem; transition: border-color .25s, background-color .25s, transform .25s var(--ease); }
-    .bai-chip:hover { border-color: var(--gold); background: rgba(212, 175, 55, .15); transform: translateY(-1px); }
+    .bai-chip { font-family: var(--font-ui); font-size: .72rem; font-weight: 600; color: var(--sky-soft); background: rgba(56, 189, 248, .08); border: 1px solid var(--line); border-radius: 999px; padding: .45rem .9rem; transition: border-color .25s, background-color .25s, transform .25s var(--ease); }
+    .bai-chip:hover { border-color: var(--sky); background: rgba(56, 189, 248, .15); transform: translateY(-1px); }
     .chat-input { display: flex; gap: .55rem; padding: .75rem .9rem; border-top: 1px solid var(--line); background: rgba(3, 7, 16, .55); }
     .chat-input .input { flex: 1; min-width: 0; }
     .send-btn { width: 46px; height: 46px; flex: 0 0 auto; border-radius: 12px; border: 0; display: grid; place-items: center; background: linear-gradient(180deg, #E9CC6B, #C9A32D); color: #241a02; font-size: 1rem; transition: transform .3s var(--ease); }
@@ -832,6 +856,7 @@
 </head>
 
 <body class="portal-open">
+  <div class="nebula" aria-hidden="true"></div>
   <!-- ======================= CINEMATIC ENTRY PORTAL ======================= -->
   <section id="digital-office-entry" class="cinematic" aria-label="Digital office entry">
     <div class="portal-orb">
@@ -1046,6 +1071,16 @@
     </div>
 
     <div class="sec" style="padding-top:0">
+      <div class="shell reveal" style="margin-bottom:.6rem">
+        <div class="card cert-strip">
+          <span class="eyebrow" style="margin-right:.4rem">Verified credentials</span>
+          <span class="mini-tag">Meta DMA</span>
+          <span class="mini-tag">Google DME Pro · 7 courses</span>
+          <span class="mini-tag">Google Gen AI · 8 paths</span>
+          <span class="mini-tag">KNR Digital certified</span>
+          <button type="button" class="link-arrow" style="margin-left:auto" onclick="switchPage('about');setTimeout(function(){jumpToEl('credentials')},120)">Credential wall →</button>
+        </div>
+      </div>
       <div class="shell knr-spotlight reveal" id="knrSpotlight">
         <div class="sec-head" style="max-width:38rem">
           <p class="eyebrow">Flagship · live deployment</p>
@@ -1255,7 +1290,7 @@
         disp.innerHTML =
           '<p class="eyebrow">' + ag.dept + '</p>' +
           '<h4 class="h3" style="margin-top:.5rem">' + ag.name + ' — ' + ag.title + '</h4>' +
-          '<p class="small" style="color:var(--gold-soft);margin-top:.15rem">' + ag.tagline + '</p>' +
+          '<p class="small" style="color:var(--sky-soft);margin-top:.15rem">' + ag.tagline + '</p>' +
           '<p class="small" style="margin-top:.7rem">' + ag.desc + '</p>' +
           '<div class="grid-3" style="gap:.55rem;margin-top:1rem">' +
           ag.stats.map(function (s) { return '<div style="border:1px solid var(--line);border-radius:12px;padding:.6rem .7rem;text-align:center"><p class="xsmall t-muted" style="letter-spacing:.14em;text-transform:uppercase">' + s[0] + '</p><p class="small t-white" style="font-family:var(--font-ui);font-weight:700;margin-top:.15rem">' + s[1] + '</p></div>'; }).join('') +
@@ -1368,6 +1403,63 @@
           </div>
         </div>
 
+        <!-- Verified credentials wall -->
+        <div class="sec-head reveal" id="credentials" style="margin-top:2.2rem">
+          <p class="eyebrow">Verified credentials</p>
+          <h2 class="display-l">Certificates &amp; <span class="gold-i">proof of learning.</span></h2>
+          <p class="lead" style="margin-top:.5rem">Industry certifications behind the delivery practice — each one verifiable with the credential ID shown.</p>
+        </div>
+        <div class="cert-grid reveal" style="margin-top:1.2rem">
+          <article class="card card-hover cert-card">
+            <figure class="cert-figure"><img src="images/certs/cert-knr-dme.jpg" alt="KNR Digital certificate of achievement — Google Digital Marketing &amp; E-commerce, presented to Rahul Kumar Dhal" width="1600" height="1066" loading="eager" decoding="async" /></figure>
+            <div class="cert-cap">
+              <span class="cert-issuer">KNR Digital · Internal</span>
+              <b>Certificate of Achievement — Google Digital Marketing &amp; E-commerce</b>
+              <small>Professional certificate track · issued Sep 2025</small>
+            </div>
+          </article>
+          <article class="card card-hover cert-card">
+            <figure class="cert-figure"><img src="images/certs/cert-google-dme.webp" alt="Coursera professional certificate — Google Digital Marketing &amp; E-commerce, earned by Rahul Kumar Dhal" width="748" height="598" loading="eager" decoding="async" /></figure>
+            <div class="cert-cap">
+              <span class="cert-issuer">Google × Coursera</span>
+              <b>Google Digital Marketing &amp; E-commerce Professional Certificate</b>
+              <small>7-course track · issued Jun 2023</small>
+              <a class="cert-verify" href="https://coursera.org/verify/professional-certs/AUSWGTVRY353" target="_blank" rel="noopener noreferrer">Verify on Coursera ↗</a>
+            </div>
+          </article>
+          <article class="card card-hover cert-card">
+            <figure class="cert-figure"><img src="images/certs/cert-meta-dma.jpg" alt="Meta certified digital marketing associate certificate for Rahul Kumar Dhal" width="1600" height="1244" loading="eager" decoding="async" /></figure>
+            <div class="cert-cap">
+              <span class="cert-issuer">Meta</span>
+              <b>Meta Certified Digital Marketing Associate</b>
+              <small>Credential wCES3-487X · issued Sep 2025</small>
+              <a class="cert-verify" href="https://www.certiport.com/" target="_blank" rel="noopener noreferrer">Verify at certiport.com ↗</a>
+            </div>
+          </article>
+          <article class="card card-hover cert-card">
+            <div class="cert-sheet">
+              <div class="flex between iwrap">
+                <span class="big">8</span>
+                <span class="cert-issuer" style="color:var(--sky-soft)">Google Skills · Google Cloud</span>
+              </div>
+              <span class="cert-sheet-title">Generative AI Learning Achievement</span>
+              <p class="small" style="color:var(--body)">Eight completed Gen AI learning paths — agents, governance, security and applied deployment.</p>
+              <div class="path-chips">
+                <span>Gen AI Apps: Transform Your Work</span>
+                <span>Gen AI Agents: Transform Your Organization</span>
+                <span>Gen AI: Navigate the Landscape</span>
+                <span>Gen AI: Unlock Foundational Concepts</span>
+                <span>Gen AI: Beyond the Chatbot</span>
+                <span>Model Armor: Securing AI Deployments</span>
+                <span>Google Cloud Agent Governance &amp; Security</span>
+                <span>Secure Enterprise AI Agents</span>
+              </div>
+              <small class="cert-id">Credential GC5-GA-2026-1001-RKD · issued Oct 2026</small>
+              <a class="cert-verify" href="https://www.skills.google/credentials" target="_blank" rel="noopener noreferrer">Verify on skills.google ↗</a>
+            </div>
+          </article>
+        </div>
+
         <div class="center" style="margin-top:1.8rem">
           <button type="button" class="btn btn-gold" data-nav="contact">Discuss your project</button>
         </div>
@@ -1385,14 +1477,14 @@
           <p class="lead" style="margin-top:.6rem">Modular AI software and digital systems — for individuals, local businesses, clinics, and enterprise software teams. Every card states what ships and where it stops.</p>
         </div>
         <div class="grid-2">
-          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal">A</span><div><h3 class="h3">Custom AI Agent Creation</h3><p class="small" style="color:var(--gold-soft);margin-top:.2rem">Business-specific agents: research, documents, support, lead qualification.</p></div></div><p class="small" style="margin-top:.8rem">Installed on sovereign infrastructure with tool permissions, logging and rollback. Drafts stop at a human approval gate.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">PYTHON</span><span class="tag">TOOL LAYER</span><span class="tag">GUARDRAILS</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-glass btn-sm" onclick="selectServiceAndContact('Custom AI Agent Creation')">Discuss A</button><span class="xsmall t-muted">incl. audit log + approval gates</span></div></article>
-          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal">B</span><div><h3 class="h3">AI for Business Setup</h3><p class="small" style="color:var(--gold-soft);margin-top:.2rem">SOPs, enquiry handling, documents &amp; internal knowledge.</p></div></div><p class="small" style="margin-top:.8rem">We codify how your business answers, quotes and follows up — then install the AI layer on top with sample-safe prompts.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">SOPs</span><span class="tag">KNOWLEDGE</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-glass btn-sm" onclick="selectServiceAndContact('AI for Business Setup')">Discuss B</button><span class="xsmall t-muted">works with your existing tools</span></div></article>
-          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal">C</span><div><h3 class="h3">Social Media Automation</h3><p class="small" style="color:var(--gold-soft);margin-top:.2rem">Idea pipeline → drafts → your review → scheduling → report.</p></div></div><p class="small" style="margin-top:.8rem">30-day calendars, vertical Reels scripts, Odia festive hooks. Publishing remains brand-approved — always.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">REELS</span><span class="tag">CALENDAR</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-glass btn-sm" onclick="selectServiceAndContact('Social Media Automation')">Discuss C</button><span class="xsmall t-muted">human review before publish</span></div></article>
-          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal emerald">D</span><div><h3 class="h3">Custom CRM &amp; Lead Operations</h3><p class="small" style="color:var(--gold-soft);margin-top:.2rem">Intake, assignment, stages, calling queues, reminders, reporting.</p></div></div><p class="small" style="margin-top:.8rem">Proven with KNR Integrity: stage-based pipeline with daily calling queues, WhatsApp audit trail and role-based views.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">PIPELINE</span><span class="tag">SLA</span><span class="tag" style="color:#5fe3a1;border-color:rgba(52,211,153,.4)">LIVE IN USE</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-gold btn-sm" onclick="selectServiceAndContact('Custom CRM &amp; Lead Operations')">Discuss D</button><button type="button" class="btn btn-glass btn-sm" data-nav="buddy">See demo</button></div></article>
-          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal">E</span><div><h3 class="h3">Website &amp; Web Application Development</h3><p class="small" style="color:var(--gold-soft);margin-top:.2rem">Responsive sites, landing pages, dashboards, APIs.</p></div></div><p class="small" style="margin-top:.8rem">Deployment and monitoring included — handed over with credentials, backups and operating notes, not just a ZIP.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">REACT</span><span class="tag">FASTAPI</span><span class="tag">MONITORING</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-glass btn-sm" onclick="selectServiceAndContact('Websites & Conversion Funnels')">Discuss E</button><span class="xsmall t-muted">deployed &amp; monitored, not void</span></div></article>
-          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal">F</span><div><h3 class="h3">AI Integration &amp; Workflow Automation</h3><p class="small" style="color:var(--gold-soft);margin-top:.2rem">Connect the tools you already use: APIs, approvals, task handoffs.</p></div></div><p class="small" style="margin-top:.8rem">n8n webhooks, Playwright extraction, JSON normalization, dedupe keys — scoped per workflow with visible logs.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">N8N</span><span class="tag">PLAYWRIGHT</span><span class="tag">WEBHOOKS</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-glass btn-sm" onclick="selectServiceAndContact('AI Workflow Automation (Python / n8n)')">Discuss F</button><span class="xsmall t-muted">quarantined invalid rows</span></div></article>
-          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal crimson">G</span><div><h3 class="h3">Digital Marketing &amp; Lead Generation</h3><p class="small" style="color:var(--gold-soft);margin-top:.2rem">Campaigns, funnels, capture and routing your CRM can use.</p></div></div><p class="small" style="margin-top:.8rem">Meta/Google with source tags, budget gates and honest reporting — no invented volumes, no ranking guarantees.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">META ADS</span><span class="tag">GOOGLE ADS</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-glass btn-sm" onclick="selectServiceAndContact('Performance Marketing Retainer (₹15k-₹25k/mo)')">Discuss G</button><span class="xsmall t-muted">measurement scoped per campaign</span></div></article>
-          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal">H</span><div><h3 class="h3">AI Content, Voice &amp; Video</h3><p class="small" style="color:var(--gold-soft);margin-top:.2rem">Planning, drafting, voice/video assist — with review gates.</p></div></div><p class="small" style="margin-top:.8rem">Bilingual (Odia/Hindi/English) scripts for WhatsApp and social. Voice agents remain a labelled research prototype.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">ODIA</span><span class="tag">HINDI</span><span class="tag">VOICE · R&amp;D</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-glass btn-sm" onclick="selectServiceAndContact('AI Content, Voice &amp; Video')">Discuss H</button><span class="xsmall t-muted">never auto-published</span></div></article>
+          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal">A</span><div><h3 class="h3">Custom AI Agent Creation</h3><p class="small" style="color:var(--sky-soft);margin-top:.2rem">Business-specific agents: research, documents, support, lead qualification.</p></div></div><p class="small" style="margin-top:.8rem">Installed on sovereign infrastructure with tool permissions, logging and rollback. Drafts stop at a human approval gate.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">PYTHON</span><span class="tag">TOOL LAYER</span><span class="tag">GUARDRAILS</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-glass btn-sm" onclick="selectServiceAndContact('Custom AI Agent Creation')">Discuss A</button><span class="xsmall t-muted">incl. audit log + approval gates</span></div></article>
+          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal">B</span><div><h3 class="h3">AI for Business Setup</h3><p class="small" style="color:var(--sky-soft);margin-top:.2rem">SOPs, enquiry handling, documents &amp; internal knowledge.</p></div></div><p class="small" style="margin-top:.8rem">We codify how your business answers, quotes and follows up — then install the AI layer on top with sample-safe prompts.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">SOPs</span><span class="tag">KNOWLEDGE</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-glass btn-sm" onclick="selectServiceAndContact('AI for Business Setup')">Discuss B</button><span class="xsmall t-muted">works with your existing tools</span></div></article>
+          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal">C</span><div><h3 class="h3">Social Media Automation</h3><p class="small" style="color:var(--sky-soft);margin-top:.2rem">Idea pipeline → drafts → your review → scheduling → report.</p></div></div><p class="small" style="margin-top:.8rem">30-day calendars, vertical Reels scripts, Odia festive hooks. Publishing remains brand-approved — always.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">REELS</span><span class="tag">CALENDAR</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-glass btn-sm" onclick="selectServiceAndContact('Social Media Automation')">Discuss C</button><span class="xsmall t-muted">human review before publish</span></div></article>
+          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal emerald">D</span><div><h3 class="h3">Custom CRM &amp; Lead Operations</h3><p class="small" style="color:var(--sky-soft);margin-top:.2rem">Intake, assignment, stages, calling queues, reminders, reporting.</p></div></div><p class="small" style="margin-top:.8rem">Proven with KNR Integrity: stage-based pipeline with daily calling queues, WhatsApp audit trail and role-based views.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">PIPELINE</span><span class="tag">SLA</span><span class="tag" style="color:#5fe3a1;border-color:rgba(52,211,153,.4)">LIVE IN USE</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-gold btn-sm" onclick="selectServiceAndContact('Custom CRM &amp; Lead Operations')">Discuss D</button><button type="button" class="btn btn-glass btn-sm" data-nav="buddy">See demo</button></div></article>
+          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal">E</span><div><h3 class="h3">Website &amp; Web Application Development</h3><p class="small" style="color:var(--sky-soft);margin-top:.2rem">Responsive sites, landing pages, dashboards, APIs.</p></div></div><p class="small" style="margin-top:.8rem">Deployment and monitoring included — handed over with credentials, backups and operating notes, not just a ZIP.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">REACT</span><span class="tag">FASTAPI</span><span class="tag">MONITORING</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-glass btn-sm" onclick="selectServiceAndContact('Websites & Conversion Funnels')">Discuss E</button><span class="xsmall t-muted">deployed &amp; monitored, not void</span></div></article>
+          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal">F</span><div><h3 class="h3">AI Integration &amp; Workflow Automation</h3><p class="small" style="color:var(--sky-soft);margin-top:.2rem">Connect the tools you already use: APIs, approvals, task handoffs.</p></div></div><p class="small" style="margin-top:.8rem">n8n webhooks, Playwright extraction, JSON normalization, dedupe keys — scoped per workflow with visible logs.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">N8N</span><span class="tag">PLAYWRIGHT</span><span class="tag">WEBHOOKS</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-glass btn-sm" onclick="selectServiceAndContact('AI Workflow Automation (Python / n8n)')">Discuss F</button><span class="xsmall t-muted">quarantined invalid rows</span></div></article>
+          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal crimson">G</span><div><h3 class="h3">Digital Marketing &amp; Lead Generation</h3><p class="small" style="color:var(--sky-soft);margin-top:.2rem">Campaigns, funnels, capture and routing your CRM can use.</p></div></div><p class="small" style="margin-top:.8rem">Meta/Google with source tags, budget gates and honest reporting — no invented volumes, no ranking guarantees.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">META ADS</span><span class="tag">GOOGLE ADS</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-glass btn-sm" onclick="selectServiceAndContact('Performance Marketing Retainer (₹15k-₹25k/mo)')">Discuss G</button><span class="xsmall t-muted">measurement scoped per campaign</span></div></article>
+          <article class="card card-hover spotlight-card reveal"><div class="flex iwrap"><span class="medal">H</span><div><h3 class="h3">AI Content, Voice &amp; Video</h3><p class="small" style="color:var(--sky-soft);margin-top:.2rem">Planning, drafting, voice/video assist — with review gates.</p></div></div><p class="small" style="margin-top:.8rem">Bilingual (Odia/Hindi/English) scripts for WhatsApp and social. Voice agents remain a labelled research prototype.</p><div class="svc-tags" style="margin-top:.8rem"><span class="tag">ODIA</span><span class="tag">HINDI</span><span class="tag">VOICE · R&amp;D</span></div><div class="flex between wrap" style="margin-top:1rem;gap:.6rem"><button type="button" class="btn btn-glass btn-sm" onclick="selectServiceAndContact('AI Content, Voice &amp; Video')">Discuss H</button><span class="xsmall t-muted">never auto-published</span></div></article>
         </div>
 
         <div class="grid-3" style="margin-top:1rem">
@@ -1682,7 +1774,7 @@
                 <a class="channel-btn" href="https://t.me/917328089908" target="_blank" rel="noopener noreferrer"><span class="ic">✈</span><span>Telegram<span class="small" style="display:block;color:var(--muted)">@917328089908</span></span></a>
                 <a class="channel-btn" href="https://instagram.com/rahul_kr_dhal" target="_blank" rel="noopener noreferrer"><span class="ic">◎</span><span>Instagram DM<span class="small" style="display:block;color:var(--muted)">@rahul_kr_dhal</span></span></a>
                 <a class="channel-btn" href="tel:+917328089908"><span class="ic">☎</span><span>Direct desk<span class="small" style="display:block;color:var(--muted)">&plus;91 73280 89908</span></span></a>
-                <a class="channel-btn" href="mailto:buddyaipartners@gmail.com"><span class="ic">✉</span><span>Email<span class="small" style="display:block;color:var(--muted)">buddyaipartners@gmail.com</span></span></a>
+                <a class="channel-btn" href="mailto:buddyaipartnersindia@gmail.com"><span class="ic">✉</span><span>Email<span class="small" style="display:block;color:var(--muted)">buddyaipartnersindia@gmail.com</span></span></a>
                 <button type="button" class="channel-btn" onclick="switchPage('buddy')" style="border-style:dashed"><span class="ic">🤖</span><span>Chat with Buddy AI<span class="small" style="display:block;color:var(--muted)">structured brief, ~1 min</span></span></button>
               </div>
             </div>
@@ -1806,7 +1898,7 @@
               </label>
               <label class="field" style="margin:0"><span>Monthly ad budget</span><input id="roiBudget" class="input mono" type="number" min="5000" step="2500" value="30000" oninput="calcROI()" /></label>
             </div>
-            <input type="range" min="5000" max="200000" step="5000" value="30000" aria-label="Budget slider" style="width:100%;margin:1rem 0 .4rem;accent-color:var(--gold)" oninput="var b=document.getElementById('roiBudget');b.value=this.value;calcROI();" />
+            <input type="range" min="5000" max="200000" step="5000" value="30000" aria-label="Budget slider" style="width:100%;margin:1rem 0 .4rem;accent-color:var(--sky)" oninput="var b=document.getElementById('roiBudget');b.value=this.value;calcROI();" />
             <p class="small t-muted" id="roiBudgetLabel">₹30,000 / mo</p>
             <div class="case-strip" style="margin-top:.8rem">
               <div class="stat"><p class="kpi-num" id="roiLeads">105</p><p class="kpi-cap">Est. monthly leads</p></div>
@@ -1950,7 +2042,7 @@
           <button type="button" class="station-btn" id="voffice-station-btn-pooja" onclick="vofficeSelectStation('pooja')"><span class="sw"></span><span class="sn">Pooja</span><span class="sr">SLA &amp; CRM Sentinel</span></button>
           <button type="button" class="station-btn" id="voffice-station-btn-rhea" onclick="vofficeSelectStation('rhea')"><span class="sw"></span><span class="sn">Rhea</span><span class="sr">Client Experience</span></button>
           <button type="button" class="station-btn" id="voffice-station-btn-suraksha" onclick="vofficeSelectStation('suraksha')"><span class="sw"></span><span class="sn">Suraksha</span><span class="sr">Cyber Defense</span></button>
-          <button type="button" class="station-btn" onclick="switchPage('buddy')" style="border-style:dashed"><span class="sw" style="background:var(--gold)"></span><span class="sn">Buddy</span><span class="sr">Talk to the operator</span></button>
+          <button type="button" class="station-btn" onclick="switchPage('buddy')" style="border-style:dashed"><span class="sw" style="background:var(--sky)"></span><span class="sn">Buddy</span><span class="sr">Talk to the operator</span></button>
         </div>
         <div class="station-panel reveal">
           <div class="flex between wrap" style="gap:.6rem;margin-bottom:.4rem">
@@ -2108,7 +2200,7 @@
           <a class="foot-link" data-wa="Hi Rahul! Found BUDDY AI PARTNERS online — quick question." href="https://wa.me/917328089908?text=Hi%20Rahul%21%20Found%20BUDDY%20AI%20PARTNERS%20online%20%E2%80%94%20quick%20question." target="_blank" rel="noopener noreferrer">WhatsApp · +91 73280 89908</a>
           <a class="foot-link" href="https://t.me/917328089908" target="_blank" rel="noopener noreferrer">Telegram · +91 73280 89908</a>
           <a class="foot-link" href="https://instagram.com/rahul_kr_dhal" target="_blank" rel="noopener noreferrer">Instagram · @rahul_kr_dhal</a>
-          <a class="foot-link" href="mailto:buddyaipartners@gmail.com">Email · buddyaipartners@gmail.com</a>
+          <a class="foot-link" href="mailto:buddyaipartnersindia@gmail.com">Email · buddyaipartnersindia@gmail.com</a>
           <span class="foot-link" style="color:var(--muted);cursor:default">Patia Infocity, Bhubaneswar, Odisha</span>
         </div>
         <div class="flex wrap" style="gap:.4rem;margin-top:1rem">
@@ -3151,8 +3243,8 @@
       canvas.style.width = sceneWidth + 'px';
       canvas.style.height = sceneHeight + 'px';
       ctx.setTransform(sceneRatio, 0, 0, sceneRatio, 0, 0);
-      var count = sceneWidth < 600 ? 30 : (sceneWidth < 1024 ? 52 : 72);
-      var palette = ['212,175,55', '246,226,122', '125,226,195', '200,212,227'];
+      var count = sceneWidth < 600 ? 46 : (sceneWidth < 1024 ? 64 : 88);
+      var palette = ['125,212,252', '56,189,248', '125,226,195', '246,226,122'];
       stars = Array.from({ length: count }, function () { return {
         x: Math.random() * sceneWidth,
         y: Math.random() * sceneHeight,
@@ -3166,7 +3258,7 @@
     function animateGalaxy() {
       if (!canvas || !ctx || document.hidden) return;
       ctx.clearRect(0, 0, sceneWidth, sceneHeight);
-      var maxDist = 120;
+      var maxDist = 132;
       for (var s = shockwaves.length - 1; s >= 0; s--) {
         var sw = shockwaves[s];
         sw.radius += 5.5;
@@ -3210,8 +3302,8 @@
           var dx2 = a.x - b.x; var dy2 = a.y - b.y;
           var distance = Math.sqrt(dx2 * dx2 + dy2 * dy2);
           if (distance < maxDist) {
-            var alpha = (1 - distance / maxDist) * 0.14;
-            ctx.strokeStyle = 'rgba(246,226,122,' + alpha + ')';
+            var alpha = (1 - distance / maxDist) * 0.24;
+            ctx.strokeStyle = 'rgba(125,212,252,' + alpha + ')';
             ctx.lineWidth = 0.7;
             ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
           }
@@ -3220,7 +3312,7 @@
         ctx.beginPath();
         ctx.arc(a.x, a.y, Math.max(0.2, currentRadius), 0, Math.PI * 2);
         ctx.fillStyle = 'rgba(' + a.color + ',0.85)';
-        ctx.shadowColor = 'rgba(212,175,55,0.6)';
+        ctx.shadowColor = 'rgba(127,212,252,0.7)';
         ctx.shadowBlur = 6;
         ctx.fill();
         ctx.shadowBlur = 0;

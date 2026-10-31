@@ -1,4 +1,5 @@
 <body class="portal-open">
+  <div class="nebula" aria-hidden="true"></div>
   <!-- ======================= CINEMATIC ENTRY PORTAL ======================= -->
   <section id="digital-office-entry" class="cinematic" aria-label="Digital office entry">
     <div class="portal-orb">
@@ -213,6 +214,16 @@
     </div>
 
     <div class="sec" style="padding-top:0">
+      <div class="shell reveal" style="margin-bottom:.6rem">
+        <div class="card cert-strip">
+          <span class="eyebrow" style="margin-right:.4rem">Verified credentials</span>
+          <span class="mini-tag">Meta DMA</span>
+          <span class="mini-tag">Google DME Pro · 7 courses</span>
+          <span class="mini-tag">Google Gen AI · 8 paths</span>
+          <span class="mini-tag">KNR Digital certified</span>
+          <button type="button" class="link-arrow" style="margin-left:auto" onclick="switchPage('about');setTimeout(function(){jumpToEl('credentials')},120)">Credential wall →</button>
+        </div>
+      </div>
       <div class="shell knr-spotlight reveal" id="knrSpotlight">
         <div class="sec-head" style="max-width:38rem">
           <p class="eyebrow">Flagship · live deployment</p>
@@ -422,7 +433,7 @@
         disp.innerHTML =
           '<p class="eyebrow">' + ag.dept + '</p>' +
           '<h4 class="h3" style="margin-top:.5rem">' + ag.name + ' — ' + ag.title + '</h4>' +
-          '<p class="small" style="color:var(--gold-soft);margin-top:.15rem">' + ag.tagline + '</p>' +
+          '<p class="small" style="color:var(--sky-soft);margin-top:.15rem">' + ag.tagline + '</p>' +
           '<p class="small" style="margin-top:.7rem">' + ag.desc + '</p>' +
           '<div class="grid-3" style="gap:.55rem;margin-top:1rem">' +
           ag.stats.map(function (s) { return '<div style="border:1px solid var(--line);border-radius:12px;padding:.6rem .7rem;text-align:center"><p class="xsmall t-muted" style="letter-spacing:.14em;text-transform:uppercase">' + s[0] + '</p><p class="small t-white" style="font-family:var(--font-ui);font-weight:700;margin-top:.15rem">' + s[1] + '</p></div>'; }).join('') +
