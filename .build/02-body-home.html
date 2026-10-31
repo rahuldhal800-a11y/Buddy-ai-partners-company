@@ -1,0 +1,468 @@
+<body class="portal-open">
+  <!-- ======================= CINEMATIC ENTRY PORTAL ======================= -->
+  <section id="digital-office-entry" class="cinematic" aria-label="Digital office entry">
+    <div class="portal-orb">
+      <img src="images/logo-orbital.webp" alt="BUDDY AI PARTNERS orbital logo" />
+    </div>
+    <p class="portal-status">✦ Secure Connection Established</p>
+    <p class="chip chip-live" style="letter-spacing:.28em"><span class="dot"></span>BUDDY AI · DIGITAL OFFICE ACTIVE</p>
+    <div class="portal-copy">
+      <h1 class="portal-title">Welcome to our<br /><span class="gold-i">digital office.</span></h1>
+      <p class="lead" style="margin-top:.9rem">Sovereign real-estate pipelines, automated CRM workflows, and autonomous AI agents.</p>
+    </div>
+    <button type="button" class="portal-cta" onclick="enterOffice()">Initialize &amp; Enter Workspace</button>
+    <p class="portal-hint" aria-hidden="true">PRESS ENTER OR SPACE TO INITIALIZE</p>
+  </section>
+
+  <a class="sr-only" href="#page-home">Skip to main content</a>
+
+  <!-- ============================= HEADER ============================= -->
+  <header class="site-header no-print">
+    <span id="scrollProgressBar" aria-hidden="true"></span>
+    <div class="shell-wide hdr-inner">
+      <button type="button" class="brand" onclick="switchPage('home')" aria-label="Go to home" style="background:none;border:0">
+        <img src="images/logo.svg" alt="BUDDY AI PARTNERS logo" />
+        <span>
+          <span class="brand-name">BUDDY AI PARTNERS</span>
+          <span class="brand-sub">AI Automation &amp; Digital Growth</span>
+        </span>
+      </button>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <button type="button" class="nav-btn active" data-nav="home" onclick="switchPage('home')" aria-current="page">Home</button>
+        <button type="button" class="nav-btn" data-nav="digital-office" onclick="switchPage('digital-office')">Office</button>
+        <button type="button" class="nav-btn" data-nav="about" onclick="switchPage('about')">About</button>
+        <button type="button" class="nav-btn" data-nav="services" onclick="switchPage('services')">Services</button>
+        <button type="button" class="nav-btn" data-nav="portfolio" onclick="switchPage('portfolio')">Work</button>
+        <button type="button" class="nav-btn" data-nav="stack" onclick="switchPage('stack')">Stack</button>
+        <button type="button" class="nav-btn" data-nav="process" onclick="switchPage('process')">Process</button>
+        <button type="button" class="nav-btn" data-nav="contact" onclick="switchPage('contact')">Contact</button>
+      </nav>
+
+      <button type="button" class="hdr-buddy" aria-label="Open Buddy AI preview chat" onclick="switchPage('buddy')"><span class="dotw"></span> Try Buddy AI</button>
+      <button type="button" class="btn btn-gold btn-sm hide-m" onclick="switchPage('contact')">Start Project</button>
+
+      <nav id="mobileMenu" aria-label="Mobile Navigation" hidden class="mobile-menu">
+        <button type="button" class="mnav-btn active" data-mnav="home" onclick="switchPage('home');closeMenu()">Home</button>
+        <button type="button" class="mnav-btn" data-mnav="digital-office" onclick="switchPage('digital-office');closeMenu()">🏢 Digital Office (Virtual HQ)</button>
+        <button type="button" class="mnav-btn" data-mnav="about" onclick="switchPage('about');closeMenu()">About &amp; Founder</button>
+        <button type="button" class="mnav-btn" data-mnav="services" onclick="switchPage('services');closeMenu()">Services</button>
+        <button type="button" class="mnav-btn" data-mnav="portfolio" onclick="switchPage('portfolio');closeMenu()">Work &amp; Proof</button>
+        <button type="button" class="mnav-btn" data-mnav="stack" onclick="switchPage('stack');closeMenu()">Tech Stack</button>
+        <button type="button" class="mnav-btn" data-mnav="process" onclick="switchPage('process');closeMenu()">Process</button>
+        <button type="button" class="mnav-btn" data-mnav="buddy" onclick="switchPage('buddy');closeMenu()">✦ Try Buddy AI</button>
+        <button type="button" class="mnav-btn" data-mnav="contact" onclick="switchPage('contact');closeMenu()">Pricing &amp; Contact</button>
+      </nav>
+
+      <button type="button" id="menuBtn" class="menu-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
+        <svg id="menuIcoOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h12"/></svg>
+        <svg id="menuIcoClose" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+  <!-- ========================== HOME ========================== -->
+  <section id="page-home" class="page-view active">
+    <canvas id="galaxyCanvas" aria-hidden="true"></canvas>
+
+    <div class="hero-band">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Sovereign AI Systems · Bhubaneswar</p>
+          <h1 class="display-xl" style="margin-top:1rem">Autonomous AI agents,<br />custom software &amp;<br /><span class="gold-i">enterprise CRM.</span></h1>
+          <p class="lead">Sovereign real-estate pipelines, automated CRM workflows, and autonomous AI agents — engineered with the discipline of enterprise operations and the polish your customers feel.</p>
+          <div class="hero-ctas">
+            <button type="button" class="btn btn-gold" onclick="switchPage('contact')">Start a Project</button>
+            <button type="button" class="btn btn-glass" onclick="switchPage('digital-office')">Enter Digital Office</button>
+          </div>
+          <div class="trust-row" aria-label="Trust markers">
+            <span class="chip gold"><span class="dot"></span>Proven with KNR Integrity</span>
+            <span class="chip emerald"><span class="dot"></span>ORERA-verified workflows</span>
+            <span class="chip"><span class="dot"></span>Udyam MSME · GST-ready</span>
+            <span class="chip"><span class="dot"></span>&lt; 15 ms execution budget</span>
+          </div>
+        </div>
+        <div class="hero-frame">
+          <span class="corner-tick tl"></span><span class="corner-tick tr"></span><span class="corner-tick bl"></span><span class="corner-tick br"></span>
+          <div class="hero-visual">
+            <img src="images/hero-agent-network.svg" alt="Autonomous multi-agent network operating a live business pipeline" width="1200" height="870" fetchpriority="high" />
+          </div>
+          <div class="tele" id="heroTelemetry">
+            <div class="tele-head"><span>BUDDY · LIVE RUNTIME</span><span class="chip-live" style="padding:0 .1rem"><span class="dot"></span>24/7</span></div>
+            <div id="heroTerminalLog">
+              <p><span class="tm">[00:00:01]</span> <span class="th">CONCIERGE:</span> omnichannel intake online · 0-second qualification.</p>
+              <p><span class="tm">[00:00:04]</span> <span class="te">CRM-SYNC:</span> pipeline synced with WhatsApp booking engine.</p>
+              <p><span class="tm">[00:00:07]</span> <span class="tc">SECURITY:</span> end-to-end encryption verified · latency 11.4 ms.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item"><b>◆</b>Custom CRM</span><span class="marquee-item"><b>◆</b>AI agent swarms</span><span class="marquee-item"><b>◆</b>WhatsApp pipelines</span><span class="marquee-item"><b>◆</b>Meta &amp; Google Ads</span><span class="marquee-item"><b>◆</b>Playwright automation</span><span class="marquee-item"><b>◆</b>ORERA verification</span><span class="marquee-item"><b>◆</b>FastAPI backends</span><span class="marquee-item"><b>◆</b>React frontends</span><span class="marquee-item"><b>◆</b>Security hardening</span><span class="marquee-item"><b>◆</b>Odia · Hindi · English</span>
+        <span class="marquee-item"><b>◆</b>Custom CRM</span><span class="marquee-item"><b>◆</b>AI agent swarms</span><span class="marquee-item"><b>◆</b>WhatsApp pipelines</span><span class="marquee-item"><b>◆</b>Meta &amp; Google Ads</span><span class="marquee-item"><b>◆</b>Playwright automation</span><span class="marquee-item"><b>◆</b>ORERA verification</span><span class="marquee-item"><b>◆</b>FastAPI backends</span><span class="marquee-item"><b>◆</b>React frontends</span><span class="marquee-item"><b>◆</b>Security hardening</span><span class="marquee-item"><b>◆</b>Odia · Hindi · English</span>
+      </div>
+    </div>
+
+    <div class="sec-sm">
+      <div class="shell stat-band reveal">
+        <div class="stat"><p class="kpi-num" data-counter="3.5" data-suffix="+">3.5+</p><p class="kpi-cap">Years in operations &amp; lead management</p></div>
+        <div class="stat"><p class="kpi-num" data-counter="104">104</p><p class="kpi-cap">Tools tracked in the live tech index</p></div>
+        <div class="stat"><p class="kpi-num" data-counter="60" data-suffix="+">60+</p><p class="kpi-cap">ORERA projects indexed for KNR Integrity</p></div>
+      </div>
+    </div>
+
+    <div class="sec" style="padding-top:0">
+      <div class="shell">
+        <div class="caro card card-hover reveal" id="heroCarouselCard">
+          <div style="padding:clamp(1.15rem,2.6vw,1.7rem)">
+            <p class="eyebrow" id="carouselTag">CORE CAPABILITY 01 / 03 • CRM SYSTEMS</p>
+            <p class="small" style="margin-top:1rem;color:var(--muted)">Three disciplines, one operating system for growth. The console auto-cycles — or drive it yourself.</p>
+            <div class="caro-steps" id="caroDots" role="tablist" aria-label="Capability switcher">
+              <button type="button" class="slide-dot on" aria-label="Capability 1"></button>
+              <button type="button" class="slide-dot" aria-label="Capability 2"></button>
+              <button type="button" class="slide-dot" aria-label="Capability 3"></button>
+            </div>
+            <div class="slide-progress" aria-hidden="true"><span id="slideProgress"></span></div>
+          </div>
+          <div style="padding:clamp(1.15rem,2.6vw,1.7rem);border-left:1px solid var(--line)" id="heroCarousel"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" style="padding-top:0">
+      <div class="shell">
+        <div class="sec-head center reveal">
+          <p class="eyebrow center">What we deliver</p>
+          <h2 class="display-l">Eight disciplines. <span class="gold-i">One overview.</span></h2>
+          <p class="lead">Built so sales, operations and software stop leaking time. Open any card for the practical scope.</p>
+        </div>
+        <div class="svc-grid">
+          <article class="card card-hover svc-card spotlight-card reveal"><span class="corner-tick tl"></span><span class="corner-tick tr"></span><span class="corner-tick bl"></span><span class="corner-tick br"></span><span class="medal">A</span><div><h4>Custom AI Agents</h4><p>Research, support &amp; workflow agents that take repetitive operations off your team — with human approval gates.</p></div><div class="svc-foot"><a class="link-arrow" href="#services" data-jump="services">Explore</a><div class="svc-tags"><span class="tag">AGENTS</span></div></div></article>
+          <article class="card card-hover svc-card spotlight-card reveal"><span class="corner-tick tl"></span><span class="corner-tick tr"></span><span class="corner-tick bl"></span><span class="corner-tick br"></span><span class="medal">B</span><div><h4>AI for Business Setup</h4><p>SOPs, enquiry handling and internal knowledge — installed where your team already works.</p></div><div class="svc-foot"><a class="link-arrow" href="#services" data-jump="services">Explore</a><div class="svc-tags"><span class="tag">SOPs</span></div></div></article>
+          <article class="card card-hover svc-card spotlight-card reveal"><span class="corner-tick tl"></span><span class="corner-tick tr"></span><span class="corner-tick bl"></span><span class="corner-tick br"></span><span class="medal">C</span><div><h4>Social Media Automation</h4><p>Draft → review → schedule → publish. A repeatable content pipeline your brand still controls.</p></div><div class="svc-foot"><a class="link-arrow" href="#services" data-jump="services">Explore</a><div class="svc-tags"><span class="tag">SOCIAL</span></div></div></article>
+          <article class="card card-hover svc-card spotlight-card reveal"><span class="corner-tick tl"></span><span class="corner-tick tr"></span><span class="corner-tick bl"></span><span class="corner-tick br"></span><span class="medal">D</span><div><h4>CRM &amp; Lead Operations</h4><p>Pipeline, calling queues, reminders and reporting — shaped around your exact sales process.</p></div><div class="svc-foot"><a class="link-arrow" href="#services" data-jump="services">Explore</a><div class="svc-tags"><span class="tag">CRM</span></div></div></article>
+          <article class="card card-hover svc-card spotlight-card reveal"><span class="corner-tick tl"></span><span class="corner-tick tr"></span><span class="corner-tick bl"></span><span class="corner-tick br"></span><span class="medal">E</span><div><h4>Web &amp; App Development</h4><p>Sites, dashboards and APIs — deployed, monitored and handed over, not just built.</p></div><div class="svc-foot"><a class="link-arrow" href="#services" data-jump="services">Explore</a><div class="svc-tags"><span class="tag">WEB</span></div></div></article>
+          <article class="card card-hover svc-card spotlight-card reveal"><span class="corner-tick tl"></span><span class="corner-tick tr"></span><span class="corner-tick bl"></span><span class="corner-tick br"></span><span class="medal">F</span><div><h4>AI Integration &amp; Workflows</h4><p>Connected systems, APIs and approval flows between the tools you already use.</p></div><div class="svc-foot"><a class="link-arrow" href="#services" data-jump="services">Explore</a><div class="svc-tags"><span class="tag">n8n</span></div></div></article>
+          <article class="card card-hover svc-card spotlight-card reveal"><span class="corner-tick tl"></span><span class="corner-tick tr"></span><span class="corner-tick bl"></span><span class="corner-tick br"></span><span class="medal">G</span><div><h4>Digital Marketing &amp; Leads</h4><p>Campaigns, funnels and lead routing measured by what actually closes.</p></div><div class="svc-foot"><a class="link-arrow" href="#services" data-jump="services">Explore</a><div class="svc-tags"><span class="tag">GROWTH</span></div></div></article>
+          <article class="card card-hover svc-card spotlight-card reveal"><span class="corner-tick tl"></span><span class="corner-tick tr"></span><span class="corner-tick bl"></span><span class="corner-tick br"></span><span class="medal">H</span><div><h4>AI Content, Voice &amp; Video</h4><p>Plan, draft, produce, review — always with human approval before publishing.</p></div><div class="svc-foot"><a class="link-arrow" href="#services" data-jump="services">Explore</a><div class="svc-tags"><span class="tag">MEDIA</span></div></div></article>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" style="padding-top:0">
+      <div class="shell">
+        <div class="sec-head center reveal">
+          <p class="eyebrow center">Buddy sovereign engine</p>
+          <h2 class="display-l">Scroll-free proof: <span class="gold-i">the live loop.</span></h2>
+          <p class="lead">One buyer journey, four phases, zero lost leads. The console cycles automatically — or step through it.</p>
+        </div>
+        <div class="loop-wrap reveal">
+          <div class="loop-mono">
+            <div class="loop-headrow"><span>INGRESS PIPELINE</span><span class="chip-live" style="padding:0"><span class="dot"></span>LIVE</span></div>
+            <p style="margin-top:.5rem;color:var(--muted)">TRAFFIC: <span class="t-gold">Meta Ads + Google</span></p>
+            <p style="color:var(--muted)">GATEWAY: <span class="t-mint">n8n webhook · 200 OK</span></p>
+            <p style="color:var(--muted)">DESTINATION: <span class="t-gold">Buddy CRM node</span></p>
+            <span id="crmStageLabel">Booked · human approval</span>
+            <p id="waCount" style="margin-top:.35rem;color:var(--muted)">WhatsApp sent — 12</p>
+            <div class="laser" aria-hidden="true"><span id="scrollySpineLaser"></span></div>
+            <div style="display:flex;gap:.5rem;margin-top:.85rem">
+              <button type="button" class="ctrl" id="heroPause" aria-pressed="false">Pause</button>
+              <button type="button" class="ctrl" id="heroReplay">Replay</button>
+            </div>
+          </div>
+          <div>
+            <div class="loop-steps">
+              <article class="loop-card" id="scrollyStep0" data-scrolly-step="0">
+                <p class="loop-num">PHASE 01 · INGESTION</p>
+                <h4>Omnichannel lead capture</h4>
+                <p>Meta, Google, WhatsApp &amp; web forms stream into the sovereign n8n gateway with campaign source tagging in under 200 ms.</p>
+                <div class="loop-meta"><span class="tag">LATENCY &lt; 140ms</span><span class="tag">ZERO DROPS</span></div>
+              </article>
+              <article class="loop-card" id="scrollyStep1" data-scrolly-step="1">
+                <p class="loop-num">PHASE 02 · SCRUBBING</p>
+                <h4>12-point dedupe &amp; ORERA check</h4>
+                <p>Playwright scrubs phones against history; the ORERA index verifies the project. Then the calling SLA clock starts.</p>
+                <div class="loop-meta"><span class="tag">SLA &lt; 5 MIN</span><span class="tag">60+ PROJECTS</span></div>
+              </article>
+              <article class="loop-card" id="scrollyStep2" data-scrolly-step="2">
+                <p class="loop-num">PHASE 03 · OUTREACH</p>
+                <h4>WhatsApp + concierge dispatch</h4>
+                <p>Brochure, budget fit and a free AC cab site-visit — dispatched automatically, on brand, bilingual.</p>
+                <div class="loop-meta"><span class="tag">RESPONSE 4m 12s</span><span class="tag">ODIA/EN</span></div>
+              </article>
+              <article class="loop-card" id="scrollyStep3" data-scrolly-step="3">
+                <p class="loop-num">PHASE 04 · CLOSURE</p>
+                <h4>Zero-brokerage win &amp; title audit</h4>
+                <p>Traffic finalized with founder oversight: ₹0 brokerage for the buyer and a 30-year title search behind every closure.</p>
+                <div class="loop-meta"><span class="tag" style="border-color:rgba(52,211,153,.4);color:#5fe3a1">WON · ₹1,90,000 SAVED</span></div>
+              </article>
+            </div>
+            <div class="pill-dots" role="group" aria-label="Phase selector">
+              <button type="button" class="pill-dot active" id="scrollyPill0" aria-label="Phase 1"></button>
+              <button type="button" class="pill-dot" id="scrollyPill1" aria-label="Phase 2"></button>
+              <button type="button" class="pill-dot" id="scrollyPill2" aria-label="Phase 3"></button>
+              <button type="button" class="pill-dot" id="scrollyPill3" aria-label="Phase 4"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" style="padding-top:0">
+      <div class="shell knr-spotlight reveal" id="knrSpotlight">
+        <div class="sec-head" style="max-width:38rem">
+          <p class="eyebrow">Flagship · live deployment</p>
+          <h2 class="display-l">KNR Integrity <span class="gold-i">in production.</span></h2>
+        </div>
+        <div class="knr-tabs">
+          <button type="button" class="knr-tab knr-on" id="knrTabAsk" aria-selected="true">Ask Buddy AI</button>
+          <button type="button" class="knr-tab" id="knrTabMatrix" aria-selected="false">Corridor price matrix</button>
+        </div>
+        <div class="knr-grid">
+          <div id="knrAskPanel" class="chat-sim">
+            <div class="chatline bot">Namaste 🙏 Need a flat, duplex, plot or Gharabadi near Patia? Ask away — I check ORERA records before recommending anything.</div>
+            <div class="chatline user" hidden id="knrUserEcho"></div>
+            <div class="knr-chips">
+              <button type="button" class="knr-chip" id="knrChip1" onclick="knrAsk(this)" data-a="Patia 3 BHK under ₹1 Cr: showing 7 verified projects — Archid Elite (ORERA ORA/0216/2024) has 3BHK at ₹92L–₹98L with a 30-yr clear title. Shall I hold a site-visit slot?">Patia 3BHK &lt; ₹1 Cr</button>
+              <button type="button" class="knr-chip" id="knrChip2" onclick="knrAsk(this)" data-a="Costa Fortune Crestview (Kantabada): 2 &amp; 3 BHK from ₹78L. ORERA verified, and predictable possession schedule — want the brochure PDF on WhatsApp?">Costa Crestview units</button>
+              <button type="button" class="knr-chip" id="knrChip3" onclick="knrAsk(this)" data-a="₹0 brokerage means the developer pays our fee. You buy at the builder's price — often ₹1.5–2L below portal pricing — with a 30-year title audit before you pay anything.">Why ₹0 brokerage?</button>
+              <button type="button" class="knr-chip" id="knrChip4" onclick="knrAsk(this)" data-a="Free AC cab pickup from Jagamara HQ or your residence — today 4:30 PM works. Shall I book the vehicle and share the driver details on WhatsApp?">Free cab site visit</button>
+            </div>
+            <div class="knr-answer" id="knrAnswer"><span class="t-muted">Tap a prompt above — representative preview of the live concierge on knrintegrity.com.</span></div>
+          </div>
+          <div id="knrMatrixPanel" class="card" hidden>
+            <div style="overflow-x:auto">
+              <table class="corridor-table">
+                <caption>CORRIDOR PRICE &amp; EMI MATRIX · VERIFIED INVENTORY</caption>
+                <thead><tr><th scope="col">Corridor</th><th scope="col">Typology</th><th scope="col">Budget band</th><th scope="col">EMI /mo*</th><th scope="col">Status</th></tr></thead>
+                <tbody>
+                  <tr><td>Patia IT Hub</td><td>3 BHK</td><td>₹88L – ₹1.05 Cr</td><td>₹69,400</td><td>▲ Moving fast</td></tr>
+                  <tr><td>Kantabada</td><td>2 &amp; 3 BHK</td><td>₹68L – ₹84L</td><td>₹54,200</td><td>● Available</td></tr>
+                  <tr><td>Rasulgarh</td><td>Triplex</td><td>₹2.1Cr – ₹2.6Cr</td><td>₹1.70L</td><td>● Limited units</td></tr>
+                  <tr><td>Ghangapatna</td><td>4 BHK duplex</td><td>₹78L – ₹92L</td><td>—</td><td>● Available</td></tr>
+                  <tr><td>Sundarpada</td><td>Gharabadi plot</td><td>Custom</td><td>—</td><td><span class="status-chip st-live">30-yr title ✓</span></td></tr>
+                </tbody>
+              </table>
+              <p class="xsmall t-muted" style="margin-top:.6rem">*Illustrative 20-year planning EMI at indicative rates — confirm at the meeting. Live concierge: <a href="https://knrintegrity.com" target="_blank" rel="noopener noreferrer">knrintegrity.com ↗</a></p>
+            </div>
+          </div>
+          <div class="case-strip" aria-hidden="false">
+            <div class="stat"><p class="kpi-num" data-counter="60" data-suffix="+">60+</p><p class="kpi-cap">ORERA projects indexed</p></div>
+            <div class="stat"><p class="kpi-num" data-counter="1250" data-suffix="+">1,250+</p><p class="kpi-cap">Families settled</p></div>
+            <div class="stat"><p class="kpi-num">&lt;5m</p><p class="kpi-cap">Calling SLA, every lead</p></div>
+            <div class="stat"><p class="kpi-num">24/7</p><p class="kpi-cap">Ask Buddy AI concierge</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" style="padding-top:0">
+      <div class="shell reveal">
+        <div class="sec-head center">
+          <p class="eyebrow center">Operating system</p>
+          <h2 class="display-l">A practical <span class="gold-i">lead architecture.</span></h2>
+        </div>
+        <div class="arch-tabs" id="archTabs">
+          <button type="button" class="arch-tab" data-arch="capture" aria-selected="true">01 · Capture</button>
+          <button type="button" class="arch-tab" data-arch="normalize" aria-selected="false">02 · Normalize</button>
+          <button type="button" class="arch-tab" data-arch="route" aria-selected="false">03 · Route &amp; CRM</button>
+          <button type="button" class="arch-tab" data-arch="act" aria-selected="false">04 · Act &amp; Review</button>
+          <button type="button" class="ctrl" id="archReplay" style="margin-left:auto">Replay</button>
+        </div>
+        <div class="arch-flow" aria-hidden="true">
+          <div class="arch-node act" id="arch-n1">CAPTURE</div><span class="arch-arrow">▸</span>
+          <div class="arch-node" id="arch-n2">NORMALIZE</div><span class="arch-arrow">▸</span>
+          <div class="arch-node" id="arch-n3">ROUTE · CRM</div><span class="arch-arrow">▸</span>
+          <div class="arch-node" id="arch-n4">ACT · REVIEW</div>
+        </div>
+        <div class="slide-progress" style="margin-bottom:1.4rem" aria-hidden="true"><span id="archProgress"></span></div>
+        <div class="arch-detail">
+          <h4 id="archStageTitle">Capture — collect inquiries without losing them</h4>
+          <p id="archStageDesc">Meta lead forms, website forms and listing enquiries are captured with source tracking. No invented volume claims — tracking is scoped per campaign.</p>
+          <ul class="arch-list" id="archStageList"><li>• Tools in delivery: Meta/Google forms, landing pages, source tags</li><li>• Human check: offer, audience and consent copy before launch</li></ul>
+        </div>
+        <p class="stack-note">Solid lines = automated flow · dotted = human review. Human approval stays in the loop at every money step.</p>
+      </div>
+    </div>
+
+    <div class="sec-sm">
+      <div class="shell">
+        <div class="card card-hover reveal" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between">
+          <div style="max-width:30rem">
+            <p class="eyebrow">Your next step</p>
+            <h3 class="h3" style="margin-top:.5rem">Make the next growth move a <span class="gold-i">measurable one.</span></h3>
+          </div>
+          <div class="hero-ctas" style="margin-top:0">
+            <a class="btn btn-crimson" data-wa="Hi Rahul! I found your site. Tell me about BUDDY AI PARTNERS." href="__WA__">Talk on WhatsApp</a>
+            <button type="button" class="btn btn-glass" onclick="switchPage('contact')">Pricing &amp; Contact</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function enterOffice() {
+        try { if (typeof playCyberSfx === 'function') playCyberSfx('portal'); } catch(e){}
+        var el = document.getElementById("digital-office-entry");
+        if (!el) return;
+        el.style.opacity = "0";
+        el.style.transform = "scale(1.05)";
+        el.style.pointerEvents = "none";
+        document.body.classList.remove("portal-open");
+        try { sessionStorage.setItem("buddy_entered", "true"); } catch(e){}
+        try {
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { el.hidden = true; }
+          else { setTimeout(function () { el.hidden = true; }, 650); }
+        } catch(e) { el.hidden = true; }
+      }
+      document.addEventListener("keydown", function(e) {
+        if ((e.key === "Enter" || e.key === " " || e.key === "Escape") && document.body.classList.contains("portal-open")) {
+          enterOffice();
+        }
+      });
+    </script>
+
+    <script>
+      function calcROI() {
+        var cplEl = document.getElementById('roiIndustry'),
+            budgetEl = document.getElementById('roiBudget');
+        if (!cplEl || !budgetEl) return;
+        var cpl = parseInt(cplEl.value, 10) || 280;
+        var budget = parseInt(budgetEl.value, 10) || 30000;
+        var bl = document.getElementById('roiBudgetLabel');
+        if (bl) bl.innerText = '₹' + budget.toLocaleString('en-IN') + ' / mo';
+        var leads = Math.round(budget / cpl);
+        var visits = Math.max(0, Math.round(leads * 0.25));
+        var lEl = document.getElementById('roiLeads'); if (lEl) lEl.innerText = String(leads);
+        var vEl = document.getElementById('roiVisits'); if (vEl) vEl.innerText = String(visits);
+        var cEl = document.getElementById('roiCplLabel'); if (cEl) cEl.innerText = '₹' + cpl.toLocaleString('en-IN') + ' planning CPL';
+      }
+      function sendROIBrief() {
+        selectServiceAndContact('Performance Marketing Retainer (₹15k-₹25k/mo)');
+        var indSel = document.getElementById('roiIndustry');
+        var industry = indSel && indSel.options ? indSel.options[indSel.selectedIndex].text : '';
+        var goalEl = document.getElementById('clientGoal');
+        if (goalEl) goalEl.value = 'Growth calculator: ' + industry + ' | Budget: ' + (document.getElementById('roiBudgetLabel') ? document.getElementById('roiBudgetLabel').innerText : '') + ' | Estimate: ' + (document.getElementById('roiLeads') ? document.getElementById('roiLeads').innerText : '') + ' leads/mo (illustrative CPL ' + (document.getElementById('roiCplLabel') ? document.getElementById('roiCplLabel').innerText : '') + '). Planning figures, not guarantees.';
+      }
+      var termAuto = true, termStreamed = false;
+      function termLine(cls, txt) {
+        var term = document.getElementById('aiTerminal');
+        if (!term) return;
+        term.innerHTML += '<p class="' + cls + '">' + txt + '</p>';
+        term.scrollTop = term.scrollHeight;
+      }
+      function termStream() {
+        if (termStreamed) return;
+        termStreamed = true;
+        var term = document.getElementById('aiTerminal');
+        if (!term) return;
+        term.innerHTML = '';
+        var lines = [
+          ['te', '[00:00:01] [SIMULATION] n8n webhook received — POST /webhook/meta-leads · 200 OK'],
+          ['', 'payload: {source:"Meta Lead Ad", campaign:"Costa Crestview · 3BHK", corridor:"Patia IT Hub"}'],
+          ['tc', '[00:00:02] Intent score 91/100 → routed to CALLING queue (SLA &lt; 5 min)'],
+          ['te', '[00:00:03] WhatsApp template dispatched — "Hi! Your Patia site-visit slots…" (delivered)'],
+          ['ta', '[00:00:04] CRM sync complete — lead staged for human approval ✓ (demo pipeline, nothing sent)']
+        ];
+        var rm = false;
+        try { rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+        lines.forEach(function (l, i) {
+          if (rm || i === 0) { termLine(l[0], l[1]); return; }
+          setTimeout(function () { if (termAuto) termLine(l[0], l[1]); }, i * 700);
+        });
+      }
+      function simulateWebhook() {
+        termAuto = false;
+        var industry = 'Real Estate Growth', budget = '—', leads = '—', visits = '—';
+        try {
+          calcROI();
+          var indSel = document.getElementById('roiIndustry');
+          if (indSel && indSel.options && indSel.options[indSel.selectedIndex]) industry = indSel.options[indSel.selectedIndex].text;
+          var b = document.getElementById('roiBudgetLabel'); if (b) budget = b.innerText;
+          var l = document.getElementById('roiLeads'); if (l) leads = l.innerText;
+          var v = document.getElementById('roiVisits'); if (v) visits = v.innerText;
+        } catch (e) {}
+        termLine('th', '[SIMULATION] Test lead injected from Growth Calculator');
+        termLine('', 'payload: ' + industry + ' · budget ' + budget + ' → est. ' + leads + ' leads, ' + visits + ' visits/mo (planning)');
+        setTimeout(function () { termLine('tc', '[00:00:01] n8n webhook → 200 OK · routed to CRM pipeline'); }, 500);
+        setTimeout(function () { termLine('te', '[00:00:03] Example WhatsApp + CRM action — staged for human approval (not executed)'); }, 1050);
+      }
+      try {
+        if (document.readyState !== 'loading') setTimeout(termStream, 600);
+        else document.addEventListener('DOMContentLoaded', function () { setTimeout(termStream, 600); });
+      } catch (e) {}
+    </script>
+
+    <script>
+      var OFFICE_AGENTS = {
+        vikram: { name: "Vikram", title: "Enterprise Sales Director AI", dept: "SALES &amp; REVENUE", tagline: "High-ticket B2B closing &amp; instant lead triage", stats: [["Response SLA","&lt; 120 sec"],["Deal dossiers","22 verified"],["Conversion lift","+42% avg"]], desc: "Audits target businesses across Bhubaneswar, uncovers conversion bottlenecks, drafts call scripts and 1-click WhatsApp pitches tailored to each owner's exact pain point.", tools: ["web.scrape","crm.live","browser","market.intel"], sampleOutput: "[VIKRAM] Account analyzed: Utkal Builders (Patia)\n• Bottleneck: mobile load 4.2s, enquiry form drops to WhatsApp\n• Action: 60s phone script + 1-click concierge\n• Status: deal staged — ₹45,000 setup + ₹20,000/mo retainer" },
+        aanya: { name: "Aanya", title: "Growth &amp; Viral Media Director AI", dept: "MARKETING", tagline: "Organic social, 9:16 video scripts &amp; distribution", stats: [["Monthly output","30 reels"],["Platforms","IG · YT · LI"],["Reach","10K+ / wk"]], desc: "Engineers high-retention hooks, storyboard blueprints and compliant captions for real-estate buyers and local businesses — driving zero-ad-spend inbound traffic.", tools: ["social.compose","video.ai_studio","growth.nri_meta"], sampleOutput: "[AANYA] Reel blueprint: 'Why Bhubaneswar tech founders are buying in Patia'\n• Hook (0–3s): drone reveal + price-contrast chart\n• Body (3–20s): 3 factors behind 18% YoY corridor growth\n• CTA: 'Comment PATIA for the walkthrough link'" },
+        arjun: { name: "Arjun", title: "Full-Stack Web Architect AI", dept: "SOFTWARE &amp; DEV", tagline: "Conversion-first Next.js &amp; FastAPI builds in 48h", stats: [["Lighthouse","100 / 100"],["Turnaround","24–48 h"],["Mobile","100% PWA"]], desc: "Scaffolds mobile-first, fast web applications: dark-luxury aesthetics, WhatsApp concierge hooks and zero-maintenance static or edge deploys.", tools: ["code.patch","code.test","git","browser"], sampleOutput: "[ARJUN] Production build deployed: 'Premier Clinic Portal'\n• Stack: Next.js + FastAPI + sovereign hosting\n• Features: direct WhatsApp booking, review widget\n• Benchmark: 0.4s LCP · zero layout shift" },
+        pooja: { name: "Pooja", title: "CRM &amp; Automation Systems AI", dept: "OPERATIONS &amp; CRM", tagline: "Pipeline architecture, SLAs &amp; auto-responders", stats: [["Inquiry SLA","&lt; 5 mins"],["Routing","99.8%"],["Drop-off cut","68%"]], desc: "Synchronizes multi-channel leads (Meta, website, WhatsApp, calls) into unified CRM stages and alerts human closers before leads go cold.", tools: ["crm.doctor","crm.live","webhooks"], sampleOutput: "[POOJA] SLA watchdog report\n• 18 inquiries processed (Patia &amp; Pahala campaigns)\n• Auto-responder speed: 4.8s average\n• 7 high-intent buyers routed to humans; 11 nurture drips active" },
+        kabir: { name: "Kabir", title: "Chief Office Operations AI", dept: "EXECUTIVE OPS", tagline: "Executive briefs, delegation &amp; self-healing", stats: [["Uptime","99.98%"],["Self-heal","continuous"],["Tasks","64 automated"]], desc: "The autonomous COO: staff assignments, system health, auto-recovery and Rahul's 08:00 executive briefing every morning.", tools: ["tasks.create","email.send","self.diagnostics"], sampleOutput: "[KABIR] Executive briefing \n• Systems: all services healthy\n• Pipeline: 3 deals ready to close today\n• Actions: 2 client reviews scheduled, 1 deployment pending sign-off" },
+        rhea: { name: "Rhea", title: "Client Success Concierge AI", dept: "CLIENT RETENTION", tagline: "Onboarding, health audits &amp; ROI reports", stats: [["Retention","94%"],["Checks","Day 3·7·14"],["CSAT","4.9 / 5.0"]], desc: "Ensures clients never feel abandoned: delivery milestones, weekly progress reports and proactive care that keeps retainers renewed.", tools: ["email.send","crm.live","company.ops"], sampleOutput: "[RHEA] 14-day health check: 'KNR Integrity'\n• 142 qualified property inquiries captured\n• WhatsApp follow-up rate: 98.6%\n• NPS 10/10 — retainer renewed" },
+        suraksha: { name: "Suraksha", title: "Cyber Defense Sentinel AI", dept: "SECURITY", tagline: "OWASP audits, SSL hardening &amp; exposure cuts", stats: [["OWASP tests","10"],["Fix mode","instant"],["Audit","non-destructive"]], desc: "Audits web apps and APIs: SSL/TLS, HSTS, CSP, X-Frame-Options and sensitive-file exposure — then compiles ready-to-paste Nginx/Cloudflare hardening rules.", tools: ["security.audit","ssl.verify","headers.inspect"], sampleOutput: "[SURAKSHA] Security audit report\n• Grade: C- (3 critical misconfigurations)\n• Findings: missing CSP; server banner exposed\n• Remediation: 1-click Nginx + Cloudflare hardening block compiled" }
+      };
+
+      function selectOfficeAgent(agentKey) {
+        try { if (typeof playCyberSfx === 'function') playCyberSfx('click'); } catch(e){}
+        var ag = OFFICE_AGENTS[agentKey] || OFFICE_AGENTS.vikram;
+        document.querySelectorAll('.agent-tab').forEach(function (btn) {
+          var sel = btn.dataset.agent === agentKey;
+          btn.classList.toggle('selected', sel);
+          btn.setAttribute('aria-selected', String(sel));
+        });
+        var disp = document.getElementById('office-agent-display');
+        if (!disp) return;
+        var waUrl = 'https://wa.me/917328089908?text=' + encodeURIComponent('Hi Rahul, I want to deploy ' + ag.name + ' (' + ag.title + ') for my business.');
+        disp.innerHTML =
+          '<p class="eyebrow">' + ag.dept + '</p>' +
+          '<h4 class="h3" style="margin-top:.5rem">' + ag.name + ' — ' + ag.title + '</h4>' +
+          '<p class="small" style="color:var(--gold-soft);margin-top:.15rem">' + ag.tagline + '</p>' +
+          '<p class="small" style="margin-top:.7rem">' + ag.desc + '</p>' +
+          '<div class="grid-3" style="gap:.55rem;margin-top:1rem">' +
+          ag.stats.map(function (s) { return '<div style="border:1px solid var(--line);border-radius:12px;padding:.6rem .7rem;text-align:center"><p class="xsmall t-muted" style="letter-spacing:.14em;text-transform:uppercase">' + s[0] + '</p><p class="small t-white" style="font-family:var(--font-ui);font-weight:700;margin-top:.15rem">' + s[1] + '</p></div>'; }).join('') +
+          '</div>' +
+          '<div class="tele" style="margin-top:1rem;max-height:9.5em;overflow-y:auto"><div class="tele-head"><span>AGENT CONSOLE</span><span class="te">READY</span></div><pre style="white-space:pre-wrap;font-family:inherit;margin:0">' + ag.sampleOutput + '</pre></div>' +
+          '<div style="margin-top:.9rem;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">' +
+          ag.tools.map(function (t) { return '<span class="tag">' + t + '</span>'; }).join('') +
+          '</div>' +
+          '<div style="margin-top:1rem"><a class="btn btn-gold" href="' + waUrl + '" target="_blank" rel="noopener noreferrer">Deploy ' + ag.name + ' →</a></div>';
+      }
+
+      function updateCustomAgentSpec() {
+        var deptEl = document.getElementById('custom-agent-dept');
+        var dept = deptEl ? deptEl.value : 'sales';
+        var goalEl = document.getElementById('custom-agent-goal');
+        var goal = goalEl ? goalEl.value : 'Follow up with leads in under 2 minutes';
+        var scaleEl = document.getElementById('custom-agent-scale');
+        var scale = scaleEl ? scaleEl.value : '50–200 inquiries / mo';
+        var map = {
+          sales:     ['Agent Nova — Revenue Ops Director AI', 'whatsapp.triage · crm.lead_routing · calendar.book_slot · n8n.webhook', '~120 hrs / mo saved', 'Plug ₹65,000–₹1,50,000/mo of lead-response leakage'],
+          marketing: ['Agent Tara — Viral Growth &amp; Reel Architect AI', 'video.ai_studio · social.compose · social.publish · meta_ads.monitor', '~90 hrs / mo saved', '30+ organic vertical videos per month'],
+          engineering: ['Agent DevX — Full-Stack Portal Architect AI', 'nextjs.scaffold · playwright.test · fastapi.deploy', '~160 hrs / mo saved', 'Customer portals scoped and shipped in 48 hours'],
+          legal:     ['Agent Nyaya — ORERA &amp; Compliance Auditor AI', 'pdf.ocr · orera.registry_lookup · bda.sanction', '~80 hrs / mo saved', '100% legal due-diligence validation before you release anything']
+        };
+        var c = map[dept] || map.sales;
+        var cn = document.getElementById('custom-agent-codename'); if (cn) cn.textContent = c[0];
+        var tl = document.getElementById('custom-agent-tools'); if (tl) tl.textContent = c[1];
+        var hr = document.getElementById('custom-agent-hours-saved'); if (hr) hr.textContent = c[2];
+        var ro = document.getElementById('custom-agent-roi'); if (ro) ro.textContent = c[3];
+        try { if (typeof playCyberSfx === 'function') playCyberSfx('tick'); } catch(e){}
+        return { dept: dept, goal: goal, scale: scale, name: c[0] };
+      }
+      function sendCustomAgentBrief() {
+        var cfg = updateCustomAgentSpec();
+        var msg = 'Hi Rahul! I configured a custom AI Agent specification on your website:\n\n• Agent: ' + cfg.name + '\n• Target department: ' + cfg.dept + '\n• Primary objective: ' + cfg.goal + '\n• Monthly volume: ' + cfg.scale + '\n\nCan we discuss deploying this agent into our operations?';
+        window.open('https://wa.me/917328089908?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+      }
+      try {
+        if (document.readyState !== 'loading') selectOfficeAgent('vikram');
+        else document.addEventListener('DOMContentLoaded', function(){ selectOfficeAgent('vikram'); });
+      } catch (e) {}
+    </script>
+  </section>

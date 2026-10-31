@@ -1,0 +1,448 @@
+  <!-- ========================== CONTACT & PRICING ========================== -->
+  <section id="page-contact" class="page-view">
+    <div class="sec">
+      <div class="shell">
+        <div class="sec-head reveal">
+          <p class="eyebrow">Pricing &amp; contact</p>
+          <h1 class="display-l">Make your next growth move a <span class="gold-i">measurable one.</span></h1>
+          <p class="lead" style="margin-top:.6rem">Tell us where leads, follow-ups or delivery are getting stuck. The problem first, then the practical path — no inflated promises.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card card-hover spotlight-card reveal">
+            <p class="eyebrow">Start your project</p>
+            <h2 class="h3" style="margin-top:.5rem">Send the brief to Rahul</h2>
+            <p class="small t-muted" style="margin-top:.3rem">WhatsApp opens prefilled. Your brief is never silently discarded — use Copy or Instagram DM if preferred.</p>
+            <form onsubmit="handleContactSubmit(event); return false;" novalidate>
+              <div class="grid-2" style="gap:.6rem">
+                <label class="field"><span>Name &amp; company *</span><input id="clientName" name="clientName" class="input" type="text" autocomplete="name" placeholder="e.g. Utkal Builders" required minlength="2" /></label>
+                <label class="field"><span>Phone / WhatsApp *</span><input id="clientPhone" name="clientPhone" class="input" type="tel" inputmode="tel" autocomplete="tel" placeholder="Enter at least 8 digits" required /></label>
+              </div>
+              <label class="field"><span>Service required</span>
+                <select id="clientService" name="clientService" class="select">
+                  <option value="">Select a service…</option>
+                  <option value="Buddy AI Starter Pack (₹2,999 One-Time — Laptop/Mobile Setup)">Buddy AI Starter Pack (₹2,999 one-time)</option>
+                  <option value="B2B &amp; Real Estate Lead Scraper &amp; Calling SLA (₹24,999/mo)">Lead Scraper &amp; Calling SLA (₹24,999/mo)</option>
+                  <option value="Autonomous Business CRM &amp; Client Concierge (₹49,999 setup)">Autonomous Business CRM (₹49,999 setup)</option>
+                  <option value="Enterprise Software &amp; Autonomous Swarm (₹89k-₹1.99L)">Enterprise Software Swarm (₹89k+)</option>
+                  <option value="Healthcare &amp; Dental Clinic AI Appointment Engine (₹14,999)">Healthcare AI Appointment Engine (₹14,999)</option>
+                  <option value="PHP2Shell Security Patch Review &amp; Hardening (₹34,999)">PHP2Shell Security Review (₹34,999)</option>
+                  <option value="Custom AI Agent Creation">Custom AI Agent Creation</option>
+                  <option value="AI for Business Setup">AI for Business Setup</option>
+                  <option value="Custom CRM &amp; Lead Operations">Custom CRM &amp; Lead Operations</option>
+                  <option value="AI Workflow Automation (Python / n8n)">AI Workflow Automation (Python / n8n)</option>
+                  <option value="Websites &amp; Conversion Funnels">Websites &amp; Conversion Funnels</option>
+                  <option value="Social Media Automation">Social Media Automation</option>
+                  <option value="AI Content, Voice &amp; Video">AI Content, Voice &amp; Video</option>
+                  <option value="Deployment &amp; Infrastructure Support">Deployment &amp; Infrastructure Support</option>
+                  <option value="Performance Marketing Retainer (₹15k-₹25k/mo)">Performance Marketing Retainer (₹15k-₹25k/mo)</option>
+                  <option value="Custom System Build (₹30k-₹50k range)">Custom System Build (₹30k-₹50k range)</option>
+                  <option value="NRI / Overseas Business Operations">NRI / Overseas Business Operations</option>
+                </select>
+              </label>
+              <label class="field"><span>Project brief / goal *</span><textarea id="clientGoal" name="clientGoal" class="textarea" placeholder="Where are leads, follow-ups or delivery getting stuck? Minimum 10 characters." required minlength="10"></textarea></label>
+              <div class="flex wrap" style="gap:.6rem">
+                <button type="submit" class="btn btn-crimson">Send Brief via WhatsApp</button>
+                <button type="button" class="btn btn-glass" onclick="copyBriefToClipboard()">Copy Brief Text</button>
+              </div>
+              <span class="form-feedback" id="formFeedback" aria-live="polite"></span>
+              <p class="xsmall t-muted" style="margin-top:.4rem">Your phone number is included only in the brief you choose to send — never displayed publicly.</p>
+            </form>
+          </div>
+
+          <div>
+            <div class="card card-hover reveal" style="margin-bottom:1rem">
+              <p class="eyebrow">Direct channels</p>
+              <div style="margin-top:.9rem">
+                <a class="channel-btn" data-wa="Hi Rahul! I want to start a project with BUDDY AI PARTNERS." href="__WA__" target="_blank" rel="noopener noreferrer"><span class="ic">💬</span><span>WhatsApp<span class="small" style="display:block;color:var(--muted)">&plus;91 73280 89908 · fastest reply</span></span></a>
+                <a class="channel-btn" href="https://t.me/917328089908" target="_blank" rel="noopener noreferrer"><span class="ic">✈</span><span>Telegram<span class="small" style="display:block;color:var(--muted)">@917328089908</span></span></a>
+                <a class="channel-btn" href="https://instagram.com/rahul_kr_dhal" target="_blank" rel="noopener noreferrer"><span class="ic">◎</span><span>Instagram DM<span class="small" style="display:block;color:var(--muted)">@rahul_kr_dhal</span></span></a>
+                <a class="channel-btn" href="tel:+917328089908"><span class="ic">☎</span><span>Direct desk<span class="small" style="display:block;color:var(--muted)">&plus;91 73280 89908</span></span></a>
+                <a class="channel-btn" href="mailto:buddyaipartners@gmail.com"><span class="ic">✉</span><span>Email<span class="small" style="display:block;color:var(--muted)">buddyaipartners@gmail.com</span></span></a>
+                <button type="button" class="channel-btn" onclick="switchPage('buddy')" style="border-style:dashed"><span class="ic">🤖</span><span>Chat with Buddy AI<span class="small" style="display:block;color:var(--muted)">structured brief, ~1 min</span></span></button>
+              </div>
+            </div>
+            <div class="card card-hover reveal">
+              <p class="eyebrow">Meeting promise</p>
+              <div class="case-strip" style="margin-top:0">
+                <div class="stat" style="text-align:left"><p class="small t-white" style="font-family:var(--font-ui);font-weight:700">1-on-1</p><p class="xsmall t-muted">Direct founder setup, no junior handoffs</p></div>
+                <div class="stat" style="text-align:left"><p class="small t-white" style="font-family:var(--font-ui);font-weight:700">&lt; 48 h</p><p class="xsmall t-muted">Production-ready deployment SLA</p></div>
+                <div class="stat" style="text-align:left"><p class="small t-white" style="font-family:var(--font-ui);font-weight:700">100%</p><p class="xsmall t-muted">Source &amp; data ownership yours</p></div>
+                <div class="stat" style="text-align:left"><p class="small t-white" style="font-family:var(--font-ui);font-weight:700">Odia/En</p><p class="xsmall t-muted">Bilingual delivery &amp; training</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" style="padding-top:0">
+      <div class="shell" id="pricing">
+        <div class="sec-head center reveal">
+          <p class="eyebrow center">Packages</p>
+          <h2 class="display-l">Clear tiers. <span class="gold-i">Honest scope.</span></h2>
+        </div>
+        <div class="price-grid">
+          <article class="card card-hover spotlight-card price-card reveal" id="starter-pack-card"><span class="corner-tick tl"></span><span class="corner-tick tr"></span><span class="corner-tick bl"></span><span class="corner-tick br"></span><span class="price-flag">Individual · 1-on-1</span>
+            <h3 class="price-name">Buddy AI Personal Starter</h3>
+            <p class="price-num">₹2,999 <small>one-time · lifetime</small></p>
+            <p class="price-desc">Early adopter access <s class="t-muted">₹5,999</s></p>
+            <div><p class="price-li">Rahul installs 1-on-1 on laptop (Mac/Win/Linux) or mobile</p><p class="price-li">Replaces 5+ paid AI apps with free local models</p><p class="price-li">Daily Reels scripts, posts, WhatsApp pitches &amp; research</p><p class="price-li">Zero monthly API bills — lifetime execution</p></div>
+            <div class="save-box"><span class="xsmall t-muted" style="letter-spacing:.14em;text-transform:uppercase">Est. annual savings</span><p class="v">₹1,29,552 / yr</p></div>
+            <a class="btn btn-emerald" href="#upi-payment-card" data-jump="upi-payment-card" onclick="return jumpToEl('upi-payment-card')">Pay via UPI →</a>
+          </article>
+          <article class="card card-hover spotlight-card price-card reveal" style="margin-top:1.4rem"><span class="corner-tick tl"></span><span class="corner-tick tr"></span><span class="corner-tick bl"></span><span class="corner-tick br"></span><span class="price-flag solid-red">Featured</span>
+            <h3 class="price-name">Lead Engine — Scraper &amp; Calling SLA</h3>
+            <p class="price-num">₹24,999 <small>/ month</small></p>
+            <p class="price-desc">B2B · real estate · clinics</p>
+            <div><p class="price-li">Playwright multi-sector lead ingress + Meta/Google ads</p><p class="price-li">Sub-5-minute calling queue with SLA timers &amp; scripts</p><p class="price-li">Geo campaigns for Patia, Khandagiri &amp; pan-India</p><p class="price-li">Weekly pipeline telemetry: CPL, CAC, appointments</p></div>
+            <button type="button" class="btn btn-gold" onclick="selectServiceAndContact('B2B &amp; Real Estate Lead Scraper &amp; Calling SLA (₹24,999/mo)')">Select Lead Engine →</button>
+          </article>
+          <article class="card card-hover spotlight-card price-card reveal" style="margin-top:1.4rem"><span class="corner-tick tl"></span><span class="corner-tick tr"></span><span class="corner-tick bl"></span><span class="corner-tick br"></span><span class="price-flag">All businesses</span>
+            <h3 class="price-name">Autonomous Business CRM</h3>
+            <p class="price-num">₹49,999 <small>setup</small></p>
+            <p class="price-desc">Proven in real estate — adaptable to any workflow</p>
+            <div><p class="price-li">Sovereign 4-stage pipeline fit to your sales flow</p><p class="price-li">Client concierge: cab dispatch, bookings, demos</p><p class="price-li">12-point dedupe &amp; registry verification</p><p class="price-li">Odia/Hindi/English delivery + 1-on-1 staff training</p></div>
+            <button type="button" class="btn btn-gold" onclick="selectServiceAndContact('Autonomous Business CRM &amp; Client Concierge (₹49,999 setup)')">Deploy Business CRM →</button>
+          </article>
+          <article class="card card-hover spotlight-card price-card reveal" style="margin-top:1.4rem"><span class="corner-tick tl"></span><span class="corner-tick tr"></span><span class="corner-tick bl"></span><span class="corner-tick br"></span><span class="price-flag solid-violet">Enterprise scale</span>
+            <h3 class="price-name">Enterprise Software Swarm</h3>
+            <p class="price-num">₹89,999+ <small>build</small></p>
+            <p class="price-desc">Full custom web app + office agents + security</p>
+            <div><p class="price-li">React/Next.js frontend, FastAPI backend, PostgreSQL, Docker</p><p class="price-li">6 autonomous office agents on private servers</p><p class="price-li">OWASP/CVE review + SSL &amp; header fortification</p><p class="price-li">Zero SaaS lock-in — full IP transferred to you</p></div>
+            <button type="button" class="btn btn-gold" onclick="selectServiceAndContact('Enterprise Software &amp; Autonomous Swarm (₹89k-₹1.99L)')">Select Enterprise Swarm →</button>
+          </article>
+        </div>
+
+        <div class="card reveal" style="margin-top:1.2rem">
+          <div class="flex between wrap" style="gap:.8rem;margin-bottom:.8rem">
+            <div><p class="eyebrow">Never pay for AI apps again</p><p class="small t-muted" style="margin-top:.3rem">Included in the ₹2,999 Starter Pack — where a sensible free alternative exists.</p></div>
+            <div class="save-box" style="min-width:190px"><p class="v">₹1,29,552 / yr saved</p></div>
+          </div>
+          <div style="overflow-x:auto">
+            <table class="corridor-table" style="min-width:560px">
+              <thead><tr><th>Category</th><th>Paid tool replaced</th><th>Annual cost</th><th>Buddy alternative</th></tr></thead>
+              <tbody>
+                <tr><td>AI chat &amp; reasoning</td><td class="t-crimson">ChatGPT Plus / Claude Pro</td><td>₹23,988</td><td>Multi-model router (open &amp; free APIs)</td></tr>
+                <tr><td>Visual &amp; image studio</td><td class="t-crimson">Midjourney / Canva Pro</td><td>₹17,988</td><td>Free Flux Studio + prompt enhancer</td></tr>
+                <tr><td>Video &amp; Reels studio</td><td class="t-crimson">InVideo AI / CapCut Pro</td><td>₹29,988</td><td>9:16 hook engine + storyboards</td></tr>
+                <tr><td>Copywriting swarm</td><td class="t-crimson">Copy.ai / Jasper AI</td><td>₹35,988</td><td>Autonomous copy swarm w/ review gates</td></tr>
+                <tr><td>Workflow automation</td><td class="t-crimson">Zapier / Make starter</td><td>₹21,600</td><td>Python scrapers, cron &amp; webhooks</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="xsmall t-muted" style="margin-top:.7rem">Annual figures are list-price planning comparisons, not your actual invoices. Availability of free tiers varies by provider.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" style="padding-top:0">
+      <div class="shell upi-grid">
+        <div>
+          <div class="qr-frame">@@UPI_QR@@</div>
+          <p class="qr-cap">BHIM UPI · ₹2,999 Starter Pack</p>
+        </div>
+        <div class="card card-hover reveal" id="upi-payment-card">
+          <p class="eyebrow">Instant UPI payment</p>
+          <h3 class="h3" style="margin-top:.5rem">Pay &amp; book your installation</h3>
+          <p class="small t-muted" style="margin-top:.4rem">Scan the QR or tap your payment app. After the transfer, send the screenshot on WhatsApp to schedule the install call.</p>
+          <div class="upi-ids">
+            <span class="upi-id">7328089908@upi <button type="button" class="copy-btn" data-copy="7328089908@upi">Copy</button></span>
+            <span class="upi-id">rahulkumardhal@oksbi <button type="button" class="copy-btn" data-copy="rahulkumardhal@oksbi">Copy</button></span>
+          </div>
+          <div class="app-links">
+            <a class="btn btn-emerald btn-sm" href="upi://pay?pa=7328089908@upi&amp;pn=Rahul%20Kumar%20Dhal&amp;am=2999&amp;cu=INR&amp;tn=Buddy%20AI%20Starter%20Pack">⚡ Any UPI app</a>
+            <a class="btn btn-glass btn-sm" href="https://pay.google.com/payments/u/0/#home" target="_blank" rel="noopener noreferrer">GPay</a>
+            <a class="btn btn-glass btn-sm" href="https://www.phonepe.com/app" target="_blank" rel="noopener noreferrer">PhonePe</a>
+            <a class="btn btn-glass btn-sm" href="https://paytm.com" target="_blank" rel="noopener noreferrer">Paytm</a>
+          </div>
+          <a class="btn btn-crimson" style="margin-top:1rem" data-wa="Hi Rahul! I have completed the UPI payment of ₹2,999 for the Buddy AI Starter Pack. Here is my screenshot. Please schedule my installation call." href="__WA__" target="_blank" rel="noopener noreferrer">Send payment screenshot →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" style="padding-top:0">
+      <div class="shell">
+        <div class="sec-head center reveal">
+          <p class="eyebrow center">Illustrative planning tools</p>
+          <h2 class="display-l">Model your <span class="gold-i">pipeline.</span></h2>
+          <p class="lead">Assumptions, not guarantees. Real results depend on audience, offer and creative.</p>
+        </div>
+        <div class="grid-2">
+          <div class="card card-hover reveal">
+            <p class="eyebrow">Lead pipeline planner</p>
+            <div class="grid-2" style="gap:.6rem;margin-top:.9rem">
+              <label class="field" style="margin:0"><span>Industry CPL</span>
+                <select id="roiIndustry" class="select" onchange="calcROI()">
+                  <option value="280">Real estate (₹280/lead)</option>
+                  <option value="340">Car rental &amp; mobility (₹340)</option>
+                  <option value="180">Clinics &amp; healthcare (₹180)</option>
+                  <option value="240">Local enterprise &amp; B2B (₹240)</option>
+                </select>
+              </label>
+              <label class="field" style="margin:0"><span>Monthly ad budget</span><input id="roiBudget" class="input mono" type="number" min="5000" step="2500" value="30000" oninput="calcROI()" /></label>
+            </div>
+            <input type="range" min="5000" max="200000" step="5000" value="30000" aria-label="Budget slider" style="width:100%;margin:1rem 0 .4rem;accent-color:var(--gold)" oninput="var b=document.getElementById('roiBudget');b.value=this.value;calcROI();" />
+            <p class="small t-muted" id="roiBudgetLabel">₹30,000 / mo</p>
+            <div class="case-strip" style="margin-top:.8rem">
+              <div class="stat"><p class="kpi-num" id="roiLeads">105</p><p class="kpi-cap">Est. monthly leads</p></div>
+              <div class="stat"><p class="kpi-num" id="roiVisits">26</p><p class="kpi-cap">Illustrative visits</p></div>
+            </div>
+            <div class="flex between wrap" style="margin-top:.9rem;gap:.6rem"><span class="tag mono" id="roiCplLabel">₹280 planning CPL</span><button type="button" class="btn btn-gold btn-sm" onclick="sendROIBrief()">Send This Estimate →</button></div>
+          </div>
+
+          <div class="card card-hover reveal">
+            <p class="eyebrow">Revenue simulator</p>
+            <div class="field" style="margin-top:.9rem"><span>Industry</span>
+              <select id="b2bIndustry" class="select" onchange="calcB2BROI()">
+                <option value="realestate">🏢 Real estate builder / broker</option>
+                <option value="software">💻 Software company / startup</option>
+                <option value="dental">🏥 Clinic / healthcare</option>
+                <option value="agency">📸 Creative / solopreneur</option>
+                <option value="b2b">💼 Commercial enterprise / B2B</option>
+              </select>
+            </div>
+            <div class="grid-2" style="gap:.6rem">
+              <label class="field" style="margin:0"><span>Monthly inquiries</span><input id="b2bInquiries" class="input mono" type="number" min="10" step="10" value="100" oninput="calcB2BROI()" /></label>
+              <label class="field" style="margin:0"><span>Avg. ticket ₹</span><input id="b2bDealVal" class="input mono" type="number" min="10000" step="10000" value="100000" oninput="calcB2BROI()" /></label>
+            </div>
+            <div class="case-strip" style="margin-top:.9rem">
+              <div class="stat"><p class="kpi-num" data-counter="0" style="font-size:1.5rem" id="calcRecoveredLeads">+28 Leads</p><p class="kpi-cap" id="b2bInqLabel">100 leads / mo</p></div>
+              <div class="stat"><p class="kpi-num" id="calcAddedDeals" style="font-size:1.5rem">+2 Bookings</p><p class="kpi-cap">at capture SLA</p></div>
+              <div class="stat" style="grid-column:1/-1;text-align:center"><p class="kpi-num" id="calcExtraRevenue" style="color:#5fe3a1">₹4,20,000 / mo</p><p class="kpi-cap">projected extra revenue</p></div>
+            </div>
+            <div class="flex between wrap" style="margin-top:.9rem;gap:.6rem"><span class="tag mono" id="b2bDealLabel">₹1,00,000</span><a id="b2bCalcWaBtn" class="btn btn-crimson btn-sm" data-wa="Hello Rahul" href="__WA__">Claim This Revenue →</a></div>
+          </div>
+        </div>
+
+        <div class="card card-hover reveal" style="margin-top:1rem">
+          <div class="flex between wrap" style="gap:.7rem;margin-bottom:.7rem;align-items:center">
+            <p class="eyebrow" style="margin:0">Workflow preview</p>
+            <button type="button" class="ctrl" onclick="simulateWebhook()">⚡ Trigger Test Lead</button>
+          </div>
+          <div class="sim-term" id="aiTerminal" aria-live="polite"></div>
+          <p class="xsmall t-muted" style="margin-top:.6rem">Simulated demo — illustrates a possible Python + n8n + CRM workflow. No real webhook is sent and no live CRM is contacted on this page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== BUDDY CHAT ========================== -->
+  <section id="page-buddy" class="page-view">
+    <div class="sec">
+      <div class="shell">
+        <div class="sec-head reveal">
+          <p class="eyebrow">Sovereign digital being · autonomous lead operator</p>
+          <h1 class="display-l">Meet <span class="gold-i">Buddy.</span></h1>
+          <p class="lead" style="margin-top:.6rem">The same operator loop we deploy for clients: research, qualify, prepare the brief, hand it over — with a human always in the loop.</p>
+        </div>
+        <div class="grid-2" style="grid-template-columns:1fr;grid-template-areas:'noref'" >
+          <div class="grid-2" style="align-items:start;gap:1.2rem" >
+            <div class="chat-shell reveal">
+              <div class="chat-top">
+                <span class="chat-ava"><img src="images/logo-orbital.webp" alt="Buddy AI assistant avatar" width="26" height="26" /></span>
+                <div style="flex:1"><p class="h4" style="margin:0">Buddy — AI intake operator</p><p class="xsmall t-muted">Replies ~1s · business hours IST · human in the loop</p></div>
+                <span class="chip chip-live" id="baiModePill"><span class="dot"></span>Preview mode</span>
+              </div>
+              <div class="chat-log" id="baiLog" aria-live="polite"><div class="bai-msg bai-bot">Hi 👋 I'm Buddy. I research, think and prepare your brief before a single call happens. What should we improve first?</div><div class="small t-muted" style="max-width:88%">Preview mode runs a scripted flow — answers are representative. Connect an n8n webhook for the live model.</div></div>
+              <div class="bai-chips" id="baiChips"></div>
+              <div class="chat-input">
+                <input id="baiInput" class="input" type="text" placeholder="Type your message…" aria-label="Message Buddy" onkeydown="if(event.key==='Enter'){event.preventDefault();baiSend();}" />
+                <button type="button" class="send-btn" onclick="baiSend()" aria-label="Send message">➤</button>
+              </div>
+            </div>
+
+            <div>
+              <div class="brief-panel reveal" style="margin-bottom:1rem">
+                <div class="flex between wrap" style="gap:.5rem;margin-bottom:.6rem"><p class="eyebrow" style="margin:0">Session brief</p><span class="chip"><span class="dot"></span>auto-built by Buddy</span></div>
+                <div class="brief-row"><span class="brief-key">Goal</span><span class="brief-val bai-empty" id="baiBriefGoal">—</span></div>
+                <div class="brief-row"><span class="brief-key">Budget</span><span class="brief-val bai-empty" id="baiBriefBudget">—</span></div>
+                <div class="brief-row"><span class="brief-key">Timeline</span><span class="brief-val bai-empty" id="baiBriefTime">—</span></div>
+                <div class="brief-row"><span class="brief-key">Name</span><span class="brief-val bai-empty" id="baiBriefName">—</span></div>
+                <div class="brief-row"><span class="brief-key">Channel</span><span class="brief-val bai-empty" id="baiBriefChannel">—</span></div>
+                <div class="brief-row"><span class="brief-key">Meeting slot</span><span class="brief-val bai-empty" id="baiBriefSlot">—</span></div>
+                <div class="chat-actions">
+                  <a id="baiWa" class="btn btn-crimson btn-sm" data-wa="Hi Rahul — Buddy AI preview brief." href="__WA__" target="_blank" rel="noopener noreferrer">Send brief on WhatsApp</a>
+                  <button type="button" class="btn btn-glass btn-sm" onclick="baiHandoff('tg')">Copy + open Telegram</button>
+                  <button type="button" class="btn btn-glass btn-sm" onclick="baiHandoff('ig')">Copy + open Instagram DM</button>
+                </div>
+                <p class="xsmall t-muted" style="margin-top:.6rem">The brief is composed from this chat only. WhatsApp opens prefilled; Telegram and Instagram copy it for pasting.</p>
+                <p class="xsmall t-muted" id="baiModeNote" style="display:none"></p>
+              </div>
+              <div class="card card-hover reveal">
+                <p class="eyebrow">What Buddy handles</p>
+                <div class="cap-grid" style="margin-top:.8rem">
+                  <div class="cap-tile"><span class="em">🔍</span><h5>Research</h5><p>Listings, competitors &amp; market context before any recommendation.</p></div>
+                  <div class="cap-tile"><span class="em">🧠</span><h5>Planning</h5><p>Scope, budget and timeline options — trade-offs explained.</p></div>
+                  <div class="cap-tile"><span class="em">📋</span><h5>Capture</h5><p>Casual chat → structured brief, routed to the CRM.</p></div>
+                  <div class="cap-tile"><span class="em">📅</span><h5>Meeting</h5><p>Collects slot + channel, delivers the brief in advance.</p></div>
+                  <div class="cap-tile"><span class="em">💬</span><h5>Follow-ups</h5><p>WhatsApp/Telegram nudges with SLA timers &amp; gates.</p></div>
+                  <div class="cap-tile"><span class="em">🤖</span><h5>Agent team</h5><p>Content, reporting and reminders while you sell.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sec-sm">
+          <div class="loop-steps reveal" style="margin-top:.4rem">
+            <div class="card loop-card active"><p class="loop-num">STEP 01 · CAPTURE</p><h4 class="h4">Every inquiry lands in one pipe</h4><p class="small">Ads, website and this chat feed the same intake — nothing lost in DMs.</p></div>
+            <div class="card loop-card active"><p class="loop-num">STEP 02 · QUALIFY</p><h4 class="h4">Intent scored at 2 AM</h4><p class="small">Budget checks in Odia, Hindi or English; the fitting slot gets booked.</p></div>
+            <div class="card loop-card active"><p class="loop-num">STEP 03 · HANDOFF</p><h4 class="h4">Rahul arrives prepared</h4><p class="small">The full context reaches WhatsApp before the meeting starts.</p></div>
+            <div class="card loop-card active"><p class="loop-num">STEP 04 · EXECUTE</p><h4 class="h4">Agents run the schedule</h4><p class="small">Follow-ups, reports and delivery checklists — human approval at every money step.</p></div>
+          </div>
+          <div class="center" style="margin-top:1.4rem">
+            <button type="button" class="btn btn-gold" onclick="skipChatBrief()">Skip the chat — brief Rahul directly</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== DIGITAL OFFICE ========================== -->
+  <section id="page-digital-office" class="page-view">
+    <div class="sec">
+      <div class="shell">
+        <div class="sec-head reveal">
+          <p class="eyebrow">Virtual headquarters · Patia Infocity, Bhubaneswar</p>
+          <h1 class="display-l">Welcome to the <span class="gold-i">digital office.</span></h1>
+          <p class="lead" style="margin-top:.6rem">Seven specialized AI directors collaborate in real time — scouting bottlenecks, engineering software, running marketing and guarding SLAs, while founder Rahul Kumar Dhal leads deal-closing and quality governance.</p>
+        </div>
+        <div class="case-strip reveal" style="margin-top:0;margin-bottom:1.6rem">
+          <div class="stat"><p class="kpi-num">7</p><p class="kpi-cap">Directors online · 24/7 loop</p></div>
+          <div class="stat"><p class="kpi-num">&lt;48h</p><p class="kpi-cap">Delivery SLA · production-ready</p></div>
+          <div class="stat"><p class="kpi-num">5</p><p class="kpi-cap">Corridors covered · Patia → Khandagiri</p></div>
+          <div class="stat"><p class="kpi-num">100%</p><p class="kpi-cap">Private data sovereignty</p></div>
+        </div>
+
+        <div class="sec-head" style="margin-top:.4rem">
+          <p class="eyebrow">Department stations</p>
+          <h2 class="display-l">Meet the <span class="gold-i">swarm.</span></h2>
+        </div>
+        <div class="stations">
+          <button type="button" class="station-btn" id="voffice-station-btn-kabir" onclick="vofficeSelectStation('kabir')"><span class="sw"></span><span class="sn">Kabir</span><span class="sr">Executive Orchestrator</span></button>
+          <button type="button" class="station-btn" id="voffice-station-btn-vikram" onclick="vofficeSelectStation('vikram')"><span class="sw"></span><span class="sn">Vikram</span><span class="sr">B2B Pipeline Hunter</span></button>
+          <button type="button" class="station-btn" id="voffice-station-btn-aanya" onclick="vofficeSelectStation('aanya')"><span class="sw"></span><span class="sn">Aanya</span><span class="sr">Viral Media Engine</span></button>
+          <button type="button" class="station-btn" id="voffice-station-btn-arjun" onclick="vofficeSelectStation('arjun')"><span class="sw"></span><span class="sn">Arjun</span><span class="sr">Systems Architect</span></button>
+          <button type="button" class="station-btn" id="voffice-station-btn-pooja" onclick="vofficeSelectStation('pooja')"><span class="sw"></span><span class="sn">Pooja</span><span class="sr">SLA &amp; CRM Sentinel</span></button>
+          <button type="button" class="station-btn" id="voffice-station-btn-rhea" onclick="vofficeSelectStation('rhea')"><span class="sw"></span><span class="sn">Rhea</span><span class="sr">Client Experience</span></button>
+          <button type="button" class="station-btn" id="voffice-station-btn-suraksha" onclick="vofficeSelectStation('suraksha')"><span class="sw"></span><span class="sn">Suraksha</span><span class="sr">Cyber Defense</span></button>
+          <button type="button" class="station-btn" onclick="switchPage('buddy')" style="border-style:dashed"><span class="sw" style="background:var(--gold)"></span><span class="sn">Buddy</span><span class="sr">Talk to the operator</span></button>
+        </div>
+        <div class="station-panel reveal">
+          <div class="flex between wrap" style="gap:.6rem;margin-bottom:.4rem">
+            <h4 class="h3" id="voffice-station-title" style="font-size:1.05rem">Kabir — Executive Suite Commander</h4>
+            <p class="small flex iwrap" id="voffice-station-status" style="margin:0"><span style="width:8px;height:8px;border-radius:99px;background:#34d399;display:inline-block;margin-top:.4em"></span><span>ONLINE 24/7</span></p>
+          </div>
+          <div class="station-rows">
+            <div class="station-row"><span class="station-k">Role</span><span class="station-v" id="voffice-station-role">Multi-Agent Swarm Orchestration &amp; Strategic Deal Architecture</span></div>
+            <div class="station-row"><span class="station-k">Focus</span><span class="station-v obj" id="voffice-station-focus">Task prioritization, swarm routing, deal structure and pricing governance.</span></div>
+            <div class="station-row"><span class="station-k">Live task</span><span class="station-v" id="voffice-station-task">● Orchestrating multi-agent workflow pipelines; zero-hallucination guardrails active.</span></div>
+            <div class="station-row"><span class="station-k">Stack</span><span class="station-v obj" id="voffice-station-stack">Python 3.12 · FastAPI · LangGraph · ZeroQuotaRouter.</span></div>
+            <div class="station-row"><span class="station-k">Metric</span><span class="station-v" id="voffice-station-metric">100% on-time autonomous client delivery</span></div>
+          </div>
+        </div>
+
+        <div class="sec-head" style="margin-top:2.4rem">
+          <p class="eyebrow">Agent capability console</p>
+          <h2 class="display-l">Assign an <span class="gold-i">AI director.</span></h2>
+        </div>
+        <div class="arch-tabs" id="officeTabs">
+          <button type="button" class="arch-tab agent-tab selected" data-agent="vikram" aria-selected="true" onclick="selectOfficeAgent('vikram')">Vikram · Sales</button>
+          <button type="button" class="arch-tab agent-tab" data-agent="aanya" aria-selected="false" onclick="selectOfficeAgent('aanya')">Aanya · Media</button>
+          <button type="button" class="arch-tab agent-tab" data-agent="arjun" aria-selected="false" onclick="selectOfficeAgent('arjun')">Arjun · Dev</button>
+          <button type="button" class="arch-tab agent-tab" data-agent="pooja" aria-selected="false" onclick="selectOfficeAgent('pooja')">Pooja · CRM</button>
+          <button type="button" class="arch-tab agent-tab" data-agent="kabir" aria-selected="false" onclick="selectOfficeAgent('kabir')">Kabir · Ops</button>
+          <button type="button" class="arch-tab agent-tab" data-agent="rhea" aria-selected="false" onclick="selectOfficeAgent('rhea')">Rhea · Success</button>
+          <button type="button" class="arch-tab agent-tab" data-agent="suraksha" aria-selected="false" onclick="selectOfficeAgent('suraksha')">Suraksha · Security</button>
+        </div>
+        <div class="card card-hover reveal" id="office-agent-display"></div>
+
+        <div class="card card-hover reveal" style="margin-top:1rem">
+          <p class="eyebrow">Custom agent specification generator</p>
+          <h3 class="h3" style="margin-top:.5rem;font-size:1.05rem">Configure an agent <span class="gold-i">for your business.</span></h3>
+          <div class="grid-3" style="margin-top:1rem;gap:.6rem">
+            <label class="field" style="margin:0"><span>Target department</span>
+              <select id="custom-agent-dept" class="select" onchange="updateCustomAgentSpec()">
+                <option value="sales">Sales &amp; revenue operations</option>
+                <option value="marketing">Growth &amp; viral marketing</option>
+                <option value="engineering">Web &amp; software engineering</option>
+                <option value="legal">Legal, compliance &amp; ORERA</option>
+              </select>
+            </label>
+            <label class="field" style="margin:0"><span>Primary objective</span><input id="custom-agent-goal" class="input" type="text" value="Follow up with leads in under 2 minutes" oninput="updateCustomAgentSpec()" /></label>
+            <label class="field" style="margin:0"><span>Monthly volume</span>
+              <select id="custom-agent-scale" class="select" onchange="updateCustomAgentSpec()">
+                <option value="10-50 inquiries / mo">10–50 inquiries / mo</option>
+                <option value="50-200 inquiries / mo">50–200 inquiries / mo</option>
+                <option value="200-1,000+ inquiries / mo">200–1,000+ inquiries / mo</option>
+              </select>
+            </label>
+          </div>
+          <div class="tele" style="margin-top:1rem">
+            <div class="tele-head"><span>LIVE SPECIFICATION</span><span class="te" id="custom-agent-hours-saved">~120 hrs / mo saved</span></div>
+            <p><span class="th">AGENT:</span> <span id="custom-agent-codename">Agent Nova — Revenue Ops Director AI</span></p>
+            <p><span class="th">TOOLS:</span> <span class="tc" id="custom-agent-tools">whatsapp.triage · crm.lead_routing · calendar.book_slot · n8n.webhook</span></p>
+            <p><span class="th">IMPACT:</span> <span id="custom-agent-roi">Plug ₹65,000–₹1,50,000/mo of lead-response leakage</span></p>
+          </div>
+          <button type="button" class="btn btn-gold" style="margin-top:1rem" onclick="sendCustomAgentBrief()">Deploy This Specification via WhatsApp →</button>
+        </div>
+
+        <div class="sec-head" style="margin-top:2.4rem">
+          <p class="eyebrow">Interactive market simulator</p>
+          <h2 class="display-l">Test-drive an <span class="gold-i">AI employee.</span></h2>
+        </div>
+        <div class="sim-grid">
+          <div class="card card-hover reveal">
+            <div class="arch-tabs" style="margin-bottom:.9rem">
+              <button type="button" class="arch-tab voffice-cat-btn selected" data-vcat="clinic" aria-selected="true" onclick="vofficeSetCategory('clinic')">🏥 Clinic</button>
+              <button type="button" class="arch-tab voffice-cat-btn" data-vcat="coaching" aria-selected="false" onclick="vofficeSetCategory('coaching')">🎓 Coaching</button>
+              <button type="button" class="arch-tab voffice-cat-btn" data-vcat="restaurant" aria-selected="false" onclick="vofficeSetCategory('restaurant')">🍽 Restaurant</button>
+              <button type="button" class="arch-tab voffice-cat-btn" data-vcat="realestate" aria-selected="false" onclick="vofficeSetCategory('realestate')">🏢 Real estate</button>
+              <button type="button" class="arch-tab voffice-cat-btn" data-vcat="software" aria-selected="false" onclick="vofficeSetCategory('software')">💻 Software</button>
+              <button type="button" class="arch-tab voffice-cat-btn" data-vcat="retail" aria-selected="false" onclick="vofficeSetCategory('retail')">🛍 Retail</button>
+              <button type="button" class="arch-tab voffice-cat-btn" data-vcat="security" aria-selected="false" onclick="vofficeSetCategory('security')">🛡 Security</button>
+              <button type="button" class="arch-tab voffice-cat-btn" data-vcat="starter" aria-selected="false" onclick="vofficeSetCategory('starter')">⚡ Starter</button>
+            </div>
+            <div class="grid-2" style="gap:.6rem">
+              <label class="field" style="margin:0"><span>Business name</span><input id="voffice-biz-name" class="input" type="text" value="Kalinga Dental &amp; Cosmetic Clinic" /></label>
+              <label class="field" style="margin:0"><span>Bhubaneswar corridor</span>
+                <select id="voffice-corridor" class="select">
+                  <option>Patia / Infocity / KIIT Road</option>
+                  <option>Nayapalli / IRC Village</option>
+                  <option>Saheed Nagar commercial hub</option>
+                  <option>Jaydev Vihar / Acharya Vihar</option>
+                  <option>Khandagiri / Jagamara</option>
+                  <option>Rasulgarh / Cuttack Road</option>
+                </select>
+              </label>
+            </div>
+            <button type="button" class="btn btn-gold" style="margin-top:1rem" onclick="vofficeRunSimulator()">⚡ Audit Now</button>
+          </div>
+          <div class="card reveal" style="padding:1rem 1.1rem 1.15rem">
+            <div class="tele-head" style="border-bottom:1px solid var(--line);display:flex;justify-content:space-between;padding-bottom:.5rem;margin-bottom:.5rem"><span class="mono xsmall t-muted">● AGENTS ACTIVE</span><span class="mono xsmall chip-live" style="padding:0"><span class="dot"></span>LIVE</span></div>
+            <div class="sim-term" id="voffice-terminal-logs" style="min-height:190px"><p class="l0">// Terminal standby. Select your parameters and tap "Audit Now".</p><p class="l1">// Swarm ready: Vikram (Scout), Aanya (Creative), Arjun (Dev), Pooja (CRM).</p></div>
+            <div class="blueprint hidden" id="voffice-blueprint-result">
+              <p class="eyebrow" id="voffice-blueprint-tag">HEALTHCARE OS BLUEPRINT</p>
+              <p class="h4" id="voffice-blueprint-title" style="margin-top:.4rem">Blueprint</p>
+              <div class="blueprint-row"><span class="station-k">Investment</span><span class="station-v" id="voffice-blueprint-cost">₹9,999 setup + ₹2,499/mo</span></div>
+              <div class="blueprint-row"><span class="station-k">System</span><span class="station-v obj" id="voffice-blueprint-features">Features</span></div>
+              <div class="blueprint-row"><span class="station-k">Impact</span><span class="station-v" id="voffice-blueprint-roi">Impact</span></div>
+              <a id="voffice-blueprint-wa" class="btn btn-crimson btn-sm" style="margin-top:.9rem" data-wa="Blueprint review" href="__WA__" target="_blank" rel="noopener noreferrer">Review blueprint with Rahul ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="theater">
+          <div class="card card-hover reveal"><p class="eyebrow">Swarm collaboration</p><h4 class="h4" style="margin-top:.5rem">One brief, seven specialists</h4><p class="small t-muted" style="margin-top:.4rem">Your market audit flows through Scout → Creative → Dev → CRM → Security — the same loop we sell.</p></div>
+          <div class="card card-hover reveal"><p class="eyebrow">Zero-quota failover</p><h4 class="h4" style="margin-top:.5rem">No paid-API dependency</h4><p class="small t-muted" style="margin-top:.4rem">Local Qwen/Ollama fallback keeps systems running when quotas or APIs fail.</p></div>
+          <div class="card card-hover reveal"><p class="eyebrow">Human at the top</p><h4 class="h4" style="margin-top:.5rem">Rahul closes the deals</h4><p class="small t-muted" style="margin-top:.4rem">Agents prepare; humans approve anything that touches money or publishing.</p></div>
+        </div>
+
+        <div class="center" style="margin-top:2rem">
+          <a class="btn btn-crimson" data-wa="Hi Rahul! I explored the Digital Office and want to discuss deploying Buddy AI for my business." href="__WA__" target="_blank" rel="noopener noreferrer">Schedule a tour with Rahul</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>

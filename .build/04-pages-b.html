@@ -1,0 +1,90 @@
+  <!-- ========================== STACK ========================== -->
+  <section id="page-stack" class="page-view">
+    <div class="sec">
+      <div class="shell">
+        <div class="sec-head reveal">
+          <p class="eyebrow">The build stack</p>
+          <h1 class="display-l">Tools grouped by <span class="gold-i">real usage.</span></h1>
+          <p class="lead" style="margin-top:.6rem">Not every logo belongs to one system. Every entry carries exactly one honest status: production, hands-on, experimental, researching — or pending identity verification.</p>
+        </div>
+
+        <div class="stack-usage reveal">
+          <div class="card card-hover spotlight-card" id="stackSysCrm"><span class="corner-tick tl"></span><span class="corner-tick br"></span><p class="eyebrow">◈ Systems</p><h4 class="h4" style="margin-top:.5rem">Real-estate CRM &amp; lead operations</h4><p class="small t-muted" style="margin-top:.3rem">Intake, assignment, dedupe, queues, pipeline visibility.</p><div class="svc-tags" style="margin-top:.6rem"><span class="tag">CRM</span><span class="tag">OPS</span><span class="tag">REPORTING</span></div></div>
+          <div class="card card-hover spotlight-card"><span class="corner-tick tl"></span><span class="corner-tick br"></span><p class="eyebrow">⌁ Automation</p><h4 class="h4" style="margin-top:.5rem">Intake &amp; routing pipelines</h4><p class="small t-muted" style="margin-top:.3rem">Normalize, dedupe, route, audit trail — no manual copy-paste.</p><div class="svc-tags" style="margin-top:.6rem"><span class="tag">PYTHON</span><span class="tag">WEBHOOKS</span></div></div>
+          <div class="card card-hover spotlight-card"><span class="corner-tick tl"></span><span class="corner-tick br"></span><p class="eyebrow">✳ Agent lab</p><h4 class="h4" style="margin-top:.5rem">Agent &amp; media lab</h4><p class="small t-muted" style="margin-top:.3rem">Drafting, CRM health checks, content experiments — human-approved.</p><div class="svc-tags" style="margin-top:.6rem"><span class="tag">AGENTS</span><span class="tag">CONTENT</span></div></div>
+          <div class="card card-hover spotlight-card"><span class="corner-tick tl"></span><span class="corner-tick br"></span><p class="eyebrow">◉ R&amp;D</p><h4 class="h4" style="margin-top:.5rem">Voice assistant research</h4><p class="small t-muted" style="margin-top:.3rem">Odia/Hindi speech prototypes. Not presented as a production service.</p><div class="svc-tags" style="margin-top:.6rem"><span class="tag">VOICE</span><span class="tag">PROTOTYPE</span></div></div>
+        </div>
+
+        <div class="sec-head center reveal" style="margin-top:.6rem">
+          <p class="eyebrow center">Overview</p>
+          <h2 class="display-l">Ten groups, <span class="gold-i">one data model.</span></h2>
+        </div>
+        <div class="stack-tiers" id="stackOverview"></div>
+
+        <div class="sec-head center" style="margin-top:2rem">
+          <p class="eyebrow center">Searchable directory</p>
+          <h2 class="display-l">AI ecosystem <span class="gold-i">directory.</span></h2>
+        </div>
+        <div id="ecoDirectory" class="card reveal" style="padding:clamp(1.1rem,2.4vw,1.6rem)">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;margin-bottom:.9rem">
+            <p class="small t-muted">Logos via Simple Icons CDN (CC0 · trademarks with owners). Badges show usage in our work — no certifications claimed, no model rankings.</p>
+            <p class="eco-count" id="ecoCount" aria-live="polite">104 of 104 shown</p>
+          </div>
+          <div class="dir-controls">
+            <input id="ecoSearch" class="dir-input" type="search" placeholder="Search 104 tools, models, agents…" aria-label="Search the AI ecosystem directory" />
+            <select id="ecoCat" class="dir-select" aria-label="Filter by category">
+              <option value="">All categories</option>
+              <option value="models">AI models</option>
+              <option value="agents">Coding agents</option>
+              <option value="platforms">Agent platforms</option>
+              <option value="emerging">Emerging agents</option>
+              <option value="media">Media and voice</option>
+              <option value="devinfra">Dev and infra</option>
+            </select>
+            <select id="ecoStatus" class="dir-select" aria-label="Filter by status">
+              <option value="">All statuses</option>
+              <option value="Production">Production</option>
+              <option value="Hands-on">Hands-on</option>
+              <option value="Experimental">Experimental</option>
+              <option value="Researching">Researching</option>
+              <option value="Verification pending">Verification pending</option>
+            </select>
+            <button id="ecoSort" class="btn btn-glass btn-sm" aria-pressed="false">Sort A-Z</button>
+          </div>
+          <div id="ecoProd"></div>
+          <div id="ecoSections"></div>
+          <div id="ecoPending"></div>
+          <p class="stack-note">Offline fallback shows text labels instead of icons. Verification-pending names sit apart and make no claims.</p>
+        </div>
+      </div>
+    </div>
+
+    <script type="application/json" id="ecosystem-data">
+    @@ECO_DATA@@
+    </script>
+  </section>
+
+  <!-- ========================== PROCESS ========================== -->
+  <section id="page-process" class="page-view">
+    <div class="sec">
+      <div class="shell">
+        <div class="sec-head reveal">
+          <p class="eyebrow">Delivery process</p>
+          <h1 class="display-l">From discovery to <span class="gold-i">supported handover.</span></h1>
+          <p class="lead" style="margin-top:.6rem">A fixed sequence with clear exits — you always know what happens next and what you receive.</p>
+        </div>
+        <div class="proc-rail reveal">
+          <div class="proc-step"><span class="proc-num">1</span><p class="eyebrow">Step 1</p><h4>Discover</h4><p>Map the lead journey, handoffs, tools and conversion leaks that are really costing money.</p><span class="proc-exit">EXIT · target + bottlenecks agreed</span></div>
+          <div class="proc-step"><span class="proc-num">2</span><p class="eyebrow">Step 2</p><h4>Architect</h4><p>Design the smallest useful fix — scope, success measures, integrations, ownership.</p><span class="proc-exit">EXIT · scope + plan</span></div>
+          <div class="proc-step"><span class="proc-num">3</span><p class="eyebrow">Step 3</p><h4>Build</h4><p>Ship working pieces you can see. No month-long black boxes.</p><span class="proc-exit">EXIT · demo ready</span></div>
+          <div class="proc-step"><span class="proc-num">4</span><p class="eyebrow">Step 4</p><h4>Test</h4><p>Preflight checks, browser tests and SLA drills prove it works before it counts.</p><span class="proc-exit">EXIT · checks pass</span></div>
+          <div class="proc-step"><span class="proc-num">5</span><p class="eyebrow">Step 5</p><h4>Deploy</h4><p>Go live safely with monitoring, rollbacks and HTTPS/HSTS baked in.</p><span class="proc-exit">EXIT · live + monitored</span></div>
+          <div class="proc-step"><span class="proc-num">6</span><p class="eyebrow">Step 6</p><h4>Improve &amp; handover</h4><p>Refine from real usage, document everything, then hand over clean credentials and notes.</p><span class="proc-exit">EXIT · documented handover</span></div>
+        </div>
+        <div class="card card-hover reveal" style="margin-top:1.4rem;display:flex;flex-wrap:wrap;gap:.9rem;align-items:center;justify-content:space-between">
+          <p class="lead" style="max-width:30rem"><strong class="t-white">Illustrative pipeline, not live execution.</strong> The proven-with-KNR sequence stays: map → design → build → prove → launch → hand over.</p>
+          <button type="button" class="btn btn-crimson" data-nav="contact">Start with discovery</button>
+        </div>
+      </div>
+    </div>
+  </section>

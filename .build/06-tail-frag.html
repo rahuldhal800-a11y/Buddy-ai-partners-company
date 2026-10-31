@@ -1,0 +1,71 @@
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="site-footer">
+    <div class="shell foot-grid">
+      <div class="foot-col">
+        <div class="brand" style="margin-bottom:.9rem">
+          <img src="images/logo.svg" alt="BUDDY AI PARTNERS logo" width="38" height="38" />
+          <span>
+            <span class="brand-name">BUDDY AI PARTNERS</span>
+            <span class="brand-sub">Sovereign AI · Bhubaneswar</span>
+          </span>
+        </div>
+        <p>Autonomous AI systems, custom CRM and high-conversion digital growth for founders, clinics, builders and software teams. Zero recurring SaaS traps. Full source &amp; data ownership.</p>
+        <div class="flex wrap" style="gap:.4rem;margin-top:1rem">
+          <span class="chip"><span class="dot"></span>Udyam MSME registered</span>
+          <span class="chip chip-live"><span class="dot"></span>Buddy runtime active</span>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <nav class="foot-nav" aria-label="Footer Navigation">
+          <button type="button" class="foot-link" onclick="switchPage('home')">Home</button>
+          <button type="button" class="foot-link" onclick="switchPage('about')">About &amp; Founder</button>
+          <button type="button" class="foot-link" onclick="switchPage('services')">Services</button>
+          <button type="button" class="foot-link" onclick="switchPage('portfolio')">Work &amp; Proof</button>
+          <button type="button" class="foot-link" onclick="switchPage('stack')">Tech Stack</button>
+          <button type="button" class="foot-link" onclick="switchPage('process')">Delivery Process</button>
+          <button type="button" class="foot-link" onclick="switchPage('digital-office')">Digital Office</button>
+          <button type="button" class="foot-link" onclick="switchPage('buddy')">Try Buddy AI</button>
+          <button type="button" class="foot-link" onclick="switchPage('contact')">Pricing &amp; Contact</button>
+        </nav>
+      </div>
+      <div class="foot-col">
+        <h5>Direct desk</h5>
+        <div style="display:grid;gap:.35rem">
+          <a class="foot-link" data-wa="Hi Rahul! Found BUDDY AI PARTNERS online — quick question." href="__WA__" target="_blank" rel="noopener noreferrer">WhatsApp · +91 73280 89908</a>
+          <a class="foot-link" href="https://t.me/917328089908" target="_blank" rel="noopener noreferrer">Telegram · +91 73280 89908</a>
+          <a class="foot-link" href="https://instagram.com/rahul_kr_dhal" target="_blank" rel="noopener noreferrer">Instagram · @rahul_kr_dhal</a>
+          <a class="foot-link" href="mailto:buddyaipartners@gmail.com">Email · buddyaipartners@gmail.com</a>
+          <span class="foot-link" style="color:var(--muted);cursor:default">Patia Infocity, Bhubaneswar, Odisha</span>
+        </div>
+        <div class="flex wrap" style="gap:.4rem;margin-top:1rem">
+          <span class="chip gold"><span class="dot"></span>Starter pack ₹2,999</span>
+          <span class="chip"><span class="dot"></span>Client: knrintegrity.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="shell foot-bottom">
+      <span>© 2026 BUDDY AI PARTNERS · Udyam-registered sole proprietorship</span>
+      <span class="foot-badge"><span class="dot" style="width:7px;height:7px;border-radius:99px;background:var(--mint)"></span> SYS-OP: sovereign AI runtime · Latency &lt; 12ms · Loc: 20.2961° N, 85.8245° E</span>
+    </div>
+  </footer>
+
+  <!-- Floating Buddy (desktop only) -->
+  <aside id="buddyAssistant" class="buddy-assistant no-print" aria-label="Buddy AI quick assistant">
+    <div id="buddyGuidePanel" class="buddy-panel" hidden>
+      <div class="flex between" style="gap:.5rem;margin-bottom:.2rem">
+        <h4>Ask Buddy AI</h4>
+        <button type="button" id="buddyDismiss" class="bp-dismiss" onclick="dismissBuddy()" aria-label="Dismiss Buddy assistant">✕</button>
+      </div>
+      <p class="mini">Brief Rahul in under a minute — pick where you're stuck:</p>
+      <div class="bp-actions">
+        <button type="button" class="bp-act" onclick="chooseBuddyPath('Custom CRM & Lead Operations','Leads from different channels are getting missed; my team needs one pipeline with calling queues and follow-up reminders.')">Leads get lost between chats &amp; sheets</button>
+        <button type="button" class="bp-act" onclick="chooseBuddyPath('AI Workflow Automation (Python / n8n)','Manual copy-paste of listings/inquiries delays follow-ups; I need intake to flow straight into the CRM with dedupe.')">Manual copy-paste slows follow-ups</button>
+        <button type="button" class="bp-act" onclick="chooseBuddyPath('Buddy AI Starter Pack (₹2,999 One-Time — Laptop/Mobile Setup)','I want a personal AI operating assistant installed 1-on-1 on my laptop or mobile.')">I want my own AI assistant</button>
+      </div>
+      <button type="button" class="btn btn-gold btn-sm" onclick="switchPage('buddy');toggleBuddyGuide(false)" style="width:100%">Open full chat →</button>
+    </div>
+    <button type="button" id="buddyGuideToggle" class="fab" onclick="toggleBuddyGuide()" aria-expanded="false"><span class="dotw"></span> Ask Buddy AI</button>
+  </aside>
+
+  <div id="baiToast" class="bai-toast" role="status" aria-live="polite"></div>

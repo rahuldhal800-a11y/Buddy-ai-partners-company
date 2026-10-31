@@ -1,0 +1,1239 @@
+
+  <!-- ============ MAIN APPLICATION SCRIPT ============ -->
+  <script>
+    /* BUDDY AI PARTNERS — app runtime.
+       Everything a static page can do: SPA router, scripted demos, directory
+       renderer, chat preview, handoff links. No paid APIs, no tracking. */
+
+    /* CONFIGURATION: 12-digit WhatsApp Business number (no +, spaces). */
+    var WHATSAPP_NUMBER = "917328089908";
+
+    /* ---------- Cyber SFX synthesizer (opt-in; stays silent by default) ---------- */
+    var audioCtx = null;
+    var sfxEnabled = false;
+    function getAudioContext() {
+      try {
+        var AudioCtor = (typeof window !== 'undefined' && (window.AudioContext || window.webkitAudioContext)) || null;
+        if (!AudioCtor) return null;
+        if (!audioCtx) audioCtx = new AudioCtor();
+        if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+        return audioCtx;
+      } catch (e) { return null; }
+    }
+    function playCyberSfx(type) {
+      if (!sfxEnabled) return;
+      try {
+        var ctx = getAudioContext();
+        if (!ctx) return;
+        var now = ctx.currentTime;
+        var osc = ctx.createOscillator();
+        var gain = ctx.createGain();
+        osc.connect(gain); gain.connect(ctx.destination);
+        var map = { click: [880, 'square', .03, .05], portal: [220, 'sawtooth', .18, .3], nav: [660, 'sine', .04, .08], tick: [1200, 'sine', .02, .04] };
+        var c = map[type] || map.click;
+        osc.type = c[1];
+        osc.frequency.setValueAtTime(c[0], now);
+        osc.frequency.exponentialRampToValueAtTime(Math.max(80, c[0] * .55), now + c[3]);
+        gain.gain.setValueAtTime(c[2], now);
+        gain.gain.exponentialRampToValueAtTime(.0001, now + c[3]);
+        osc.start(now); osc.stop(now + c[3] + .02);
+      } catch (e) {}
+    }
+    function toggleCyberSfx() { sfxEnabled = !sfxEnabled; playCyberSfx('click'); }
+
+    /* ---------- 1. SPA router: one .page-view active at a time ---------- */
+    var ANCHOR_PAGE = { pricing: 'contact', 'starter-pack-card': 'contact', 'upi-payment-card': 'contact' };
+    function jumpToEl(id) {
+      try {
+        var el = document.getElementById(id);
+        if (!el) return false;
+        if (typeof el.scrollIntoView === 'function') el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (e) {}
+      return false;
+    }
+    function switchPage(pageId) {
+      try { playCyberSfx('nav'); } catch (e) {}
+      try {
+        document.querySelectorAll('.page-view').forEach(function (p) { p.classList.remove('active'); });
+      } catch (e) {}
+      var target = document.getElementById('page-' + pageId);
+      if (target) target.classList.add('active');
+      if (pageId === 'buddy') { try { baiStart(); } catch (e) {} }
+      if (pageId === 'digital-office') { try { vofficeInit(); } catch (e) {} }
+      try {
+        document.querySelectorAll('.nav-btn').forEach(function (btn) {
+          var active = btn.getAttribute('data-nav') === pageId;
+          btn.classList.toggle('active', active);
+          if (active) btn.setAttribute('aria-current', 'page'); else btn.removeAttribute('aria-current');
+        });
+        document.querySelectorAll('.mnav-btn').forEach(function (btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-mnav') === pageId);
+        });
+      } catch (e) {}
+      try {
+        if (window.location.hash !== '#' + pageId && window.location.hash !== '#page-' + pageId) {
+          history.replaceState(null, null, '#' + pageId);
+        }
+      } catch (e) {}
+      var rm = false;
+      try { rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+      try { window.scrollTo({ top: 0, behavior: rm ? 'auto' : 'smooth' }); } catch (e) { window.scrollTo(0, 0); }
+    }
+    function handleHashNav() {
+      var h = (window.location.hash || '').replace(/^#page-|^#/, '').trim();
+      if (!h) return;
+      if (document.getElementById('page-' + h)) { switchPage(h); return; }
+      if (ANCHOR_PAGE[h]) {
+        switchPage(ANCHOR_PAGE[h]);
+        setTimeout(function () { jumpToEl(h); }, 60);
+      }
+    }
+    try {
+      window.addEventListener('hashchange', handleHashNav);
+      window.addEventListener('DOMContentLoaded', handleHashNav);
+    } catch (e) {}
+
+    /* ---------- 2. Digital office stations ---------- */
+    const VOFFICE_STATIONS = {
+      kabir: {
+        title: "Kabir — Executive Suite Commander",
+        role: "Multi-Agent Swarm Orchestration & Strategic Deal Architecture",
+        status: "ONLINE 24/7 · CPU 14%",
+        focus: "Task prioritization, automated swarm routing, deal structure and pricing governance, zero-quota failover across Groq, NVIDIA NIM, and local models.",
+        task: "● Orchestrating multi-agent workflow pipelines across enterprise client accounts; verified zero-hallucination guardrails active.",
+        stack: "Python 3.12, FastAPI, LangGraph, ZeroQuotaRouter, WhatsApp Cloud API.",
+        metric: "Metric: 100% On-Time Autonomous Client Delivery"
+      },
+      vikram: {
+        title: "Vikram — B2B Pipeline Director",
+        role: "B2B Market Radar & Google Maps Diagnostic Hunter",
+        status: "ONLINE 24/7 · RADAR ACTIVE",
+        focus: "Automated Google Maps scraper, 10-point technical audit (missing website, slow load times, unreplied reviews), hyper-personalized Odia + English outreach.",
+        task: "● Diagnostic radar active; auditing digital intake bottlenecks and booking drop-offs across healthcare and commercial accounts.",
+        stack: "Playwright, Maps Harvester, Odia LLM Tokenizer, WhatsApp Cloud API.",
+        metric: "Metric: 48+ Businesses Audited Daily"
+      },
+      aanya: {
+        title: "Aanya — Creative & Media Engine",
+        role: "Viral Content Architect & 9:16 Video Director",
+        status: "ONLINE 24/7 · RENDERING QUEUE READY",
+        focus: "High-converting 9:16 vertical short-form reel hooks, Instagram carousels, Odia festive campaigns, Meta Ad copy, 30-day automated growth schedules.",
+        task: "● Generating 30-day viral content calendars and high-conversion ad hooks for Bhubaneswar builders & clinics.",
+        stack: "Free Flux Engine (Pollinations), CapCut/InVideo Storyboard Compiler, Whisper AI.",
+        metric: "Metric: <90s Full Social Calendar Delivery"
+      },
+      arjun: {
+        title: "Arjun — Systems Engineering Lab",
+        role: "Full-Stack AI Software Engineer & Systems Architect",
+        status: "ONLINE 24/7 · COMPILER ACTIVE",
+        focus: "Production Next.js webapps, QR table ordering portals, clinic patient appointment systems, Cloudflare tunnels, zero-hallucination code.",
+        task: "● Compiling mobile-responsive clinic booking wireframe and QR review booster with zero hallucination.",
+        stack: "Next.js 15, React, Python FastAPI, Cloudflare Tunnels.",
+        metric: "Metric: 48-Hour Full System Deployment SLA"
+      },
+      pooja: {
+        title: "Pooja — CRM & Client Success Sentinel",
+        role: "Client Delivery, SLA Sentinel & Billing Automation",
+        status: "ONLINE 24/7 · SLA GUARANTEED",
+        focus: "Automated UPI invoicing (7328089908@upi), WhatsApp onboarding automation, SLA milestone tracking, 60-second inquiry auto-replies.",
+        task: "● Tracking active client onboarding, automated payment verification, and 60-second inquiry auto-replies.",
+        stack: "BHIM UPI Engine, Webhooks, WhatsApp Cloud API, PostgreSQL CRM.",
+        metric: "Metric: <3s Automated Response Time"
+      },
+      rhea: {
+        title: "Rhea — Client Experience Concierge",
+        role: "Virtual Receptionist & Interactive Simulator Host",
+        status: "ONLINE 24/7 · CONCIERGE LIVE",
+        focus: "Interactive prototypes for prospective Bhubaneswar clients, ROI calculation, personalized discovery briefs for Rahul's meetings.",
+        task: "● Greeting incoming prospective Bhubaneswar business owners and preparing deal briefs for Rahul's meetings.",
+        stack: "Interactive Client Sandbox, Multi-Turn Discovery Engine, Brief Hand-off.",
+        metric: "Metric: Instant Interactive Client Prototypes"
+      },
+      suraksha: {
+        title: "Suraksha — Cyber Defense & Vulnerability Sentinel AI",
+        role: "Autonomous Web & API Penetration Auditing, Security Hardening & Zero-Day Defense",
+        status: "ONLINE 24/7 · SCANNER ACTIVE",
+        focus: "Continuous attack surface discovery, SSL/TLS & HSTS validation, OWASP Top 10 vulnerability triage, automated Nginx/Cloudflare security header generation, client PII compliance.",
+        task: "● Actively auditing 22 Bhubaneswar commercial portals; generated automated Nginx/Cloudflare security remediation patches.",
+        stack: "Python 3.12, OWASP ZAP/ARTEX Architecture, SSL Handshake Analyzer, Cloudflare Transform API.",
+        metric: "Metric: 100% Zero-Breach Automated Defense"
+      }
+    };
+    function vofficeSelectStation(agentKey) {
+      try { playCyberSfx('click'); } catch (e) {}
+      var data = VOFFICE_STATIONS[agentKey] || VOFFICE_STATIONS.kabir;
+      ['kabir', 'vikram', 'aanya', 'arjun', 'pooja', 'rhea', 'suraksha'].forEach(function (k) {
+        var btn = document.getElementById('voffice-station-btn-' + k);
+        if (btn) btn.classList.toggle('selected', k === agentKey);
+      });
+      var titleEl = document.getElementById('voffice-station-title');
+      var statusEl = document.getElementById('voffice-station-status');
+      var roleEl = document.getElementById('voffice-station-role');
+      var focusEl = document.getElementById('voffice-station-focus');
+      var taskEl = document.getElementById('voffice-station-task');
+      var stackEl = document.getElementById('voffice-station-stack');
+      var metricEl = document.getElementById('voffice-station-metric');
+      if (titleEl) titleEl.textContent = data.title;
+      if (statusEl) statusEl.innerHTML = '<span style="width:8px;height:8px;border-radius:99px;background:#34d399;display:inline-block"></span><span>' + data.status + '</span>';
+      if (roleEl) roleEl.textContent = data.role;
+      if (focusEl) focusEl.textContent = data.focus;
+      if (taskEl) taskEl.textContent = data.task;
+      if (stackEl) stackEl.textContent = data.stack;
+      if (metricEl) metricEl.textContent = data.metric;
+    }
+
+    let vofficeActiveCat = 'clinic';
+    var VOFFICE_PRESETS = {
+      clinic: {
+        defaultName: "Kalinga Dental & Cosmetic Clinic",
+        tag: "HEALTHCARE OS BLUEPRINT",
+        title: "AI Clinic & Hospital Appointment + WhatsApp OS",
+        cost: "₹9,999 setup + ₹2,499/mo",
+        features: "24/7 Odia/English WhatsApp booking bot, automated Google review booster, patient SMS/WhatsApp reminders, doctor slot synchronizer.",
+        roi: "3.4x faster patient appointment capture, 0 missed evening calls, ₹18,000/mo telecalling payroll savings."
+      },
+      coaching: {
+        defaultName: "Apex IIT & NEET Academy",
+        tag: "EDTECH OS BLUEPRINT",
+        title: "Coaching Institute Admission Telecaller & CRM",
+        cost: "₹14,999 setup + ₹3,499/mo",
+        features: "Instant student inquiry intake, auto-delivered course brochure on WhatsApp, mock test registration funnel, counselor daily calling queue.",
+        roi: "4.1x inquiry-to-walkin conversion, zero forgotten follow-ups, automated parent admission alerts."
+      },
+      restaurant: {
+        defaultName: "Mayfair Grill & Cafe Patia",
+        tag: "HOSPITALITY OS BLUEPRINT",
+        title: "QR Table Ordering + Automated Review & Loyalty OS",
+        cost: "₹7,999 setup + ₹1,999/mo",
+        features: "Zero-wait dynamic QR digital menu, instant UPI payment deep-links, automated 5-star Google review booster, festive WhatsApp loyalty broadcasts.",
+        roi: "65% increase in verified Google reviews, direct customer re-engagement without aggregator commissions."
+      },
+      realestate: {
+        defaultName: "Falcon Real Estate & Infrastructure",
+        tag: "REAL ESTATE OS BLUEPRINT",
+        title: "Custom Real Estate AI CRM & Lead Funnel",
+        cost: "₹30k–₹50k/project or custom scope",
+        features: "ORERA & BDA verification compliance badges, plot/duplex virtual visualizer, site-visit scheduler with automated WhatsApp route guidance.",
+        roi: "35% higher lead qualification accuracy, instant buyer brief hand-off to founder, zero wasted site-visits."
+      },
+      software: {
+        defaultName: "Cognitive Cloud Labs Infocity",
+        tag: "SOFTWARE & TECH ENTERPRISE BLUEPRINT",
+        title: "Enterprise Custom Software & Autonomous AI Swarm",
+        cost: "₹89,999 setup + ₹9,999/mo",
+        features: "Full-stack React/FastAPI web application, 6 autonomous office agents, PostgreSQL, CI/CD pipeline, and legacy PHP/system security review.",
+        roi: "10x faster product delivery turnaround, zero SaaS lock-in, complete intellectual property and source code ownership."
+      },
+      retail: {
+        defaultName: "Bhubaneswar Silk & Heritage Showroom",
+        tag: "RETAIL & WEB OS BLUEPRINT",
+        title: "5-Day Business Website + 24/7 AI Sales Chatbot",
+        cost: "₹11,999 setup + ₹1,999/mo",
+        features: "Mobile-first responsive website, product catalog showcase, 24/7 Odia/English WhatsApp sales concierge, Google Maps SEO optimization.",
+        roi: "Instant digital storefront for local Bhubaneswar shoppers, capture after-hours inquiries automatically."
+      },
+      security: {
+        defaultName: "Apollo Clinic Patient Booking Portal",
+        tag: "CYBERSECURITY & AUDIT BLUEPRINT",
+        title: "AI Cybersecurity & Vulnerability Defense OS",
+        cost: "₹14,999 setup + ₹3,999/mo",
+        features: "Full OWASP Top 10 vulnerability scan, automated Nginx/Cloudflare security header hardening, sensitive endpoint shielding (.env, .git, debug), 24/7 attack surface watchdog.",
+        roi: "Hardening against clickjacking, SSL stripping, and customer data leaks; zero-breach target for client records."
+      },
+      starter: {
+        defaultName: "Solo Creator & Founder OS",
+        tag: "INDIVIDUAL STARTER BLUEPRINT",
+        title: "Buddy AI Personal Operating Assistant",
+        cost: "₹2,999 one-time (Lifetime Access)",
+        features: "1-on-1 guided install on laptop/mobile by Rahul, replaces 5+ paid AI subscriptions, vertical Reels/video scriptwriter, unlimited neural inference.",
+        roi: "Saves ₹1,29,552 / year on SaaS fees, 100% free models with zero recurring monthly bills."
+      }
+    };
+    function vofficeSetCategory(catKey) {
+      try { playCyberSfx('click'); } catch (e) {}
+      vofficeActiveCat = catKey;
+      try {
+        document.querySelectorAll('.voffice-cat-btn').forEach(function (btn) {
+          btn.classList.toggle('selected', btn.getAttribute('data-vcat') === catKey);
+        });
+      } catch (e) {}
+      var nameInput = document.getElementById('voffice-biz-name');
+      if (nameInput && VOFFICE_PRESETS[catKey]) nameInput.value = VOFFICE_PRESETS[catKey].defaultName;
+    }
+    function vofficeRunSimulator() {
+      var scrollTop = true;
+      var bizName = '';
+      try {
+        var nameInput = document.getElementById('voffice-biz-name');
+        bizName = ((nameInput && nameInput.value) || 'Your Business').trim();
+      } catch (e) { bizName = 'Your Business'; }
+      var corridor = '';
+      try {
+        var corSel = document.getElementById('voffice-corridor');
+        corridor = corSel && corSel.options && corSel.options[corSel.selectedIndex] ? corSel.options[corSel.selectedIndex].text : 'Patia';
+      } catch (e) { corridor = 'Patia'; }
+      var preset = VOFFICE_PRESETS[vofficeActiveCat] || VOFFICE_PRESETS.clinic;
+      var termEl = document.getElementById('voffice-terminal-logs');
+      var resultEl = document.getElementById('voffice-blueprint-result');
+      if (!termEl || !resultEl) return;
+      termEl.innerHTML = '';
+      var logLines = [
+        '[00:01] 🔍 Vikram (Scout): Scanning "' + bizName + '" across ' + corridor + ' corridor...',
+        '[00:02] 🛡️ Suraksha (Security): Non-destructive SSL, HSTS and OWASP Top 10 exposure check...',
+        '[00:03] 🎨 Aanya (Creative): Drafting bilingual (Odia + English) WhatsApp greeting and 9:16 reel hook.',
+        '[00:04] 💻 Arjun (Dev): Scaffolding responsive portal wireframe with 0-latency QR & hardened headers.',
+        '[00:05] 🗂 Pooja (CRM): Verified SLA & billing structure: ' + preset.cost + '.',
+        '[00:06] ⚡ Kabir (Commander): Blueprint generated with 100% precision check. Draft for your review.'
+      ];
+      var idx = 0;
+      function showNextLog() {
+        if (idx < logLines.length) {
+          try { playCyberSfx('tick'); } catch (e) {}
+          var p = document.createElement('p');
+          p.className = idx === logLines.length - 1 ? 'l5' : (idx % 2 === 0 ? 'l0' : 'l1');
+          p.textContent = logLines[idx];
+          termEl.appendChild(p);
+          termEl.scrollTop = termEl.scrollHeight;
+          idx++;
+          setTimeout(showNextLog, 320);
+        } else {
+          try { playCyberSfx('nav'); } catch (e) {}
+          resultEl.classList.remove('hidden');
+          var tagEl = document.getElementById('voffice-blueprint-tag');
+          var titleEl = document.getElementById('voffice-blueprint-title');
+          var costEl = document.getElementById('voffice-blueprint-cost');
+          var featEl = document.getElementById('voffice-blueprint-features');
+          var roiEl = document.getElementById('voffice-blueprint-roi');
+          var waEl = document.getElementById('voffice-blueprint-wa');
+          if (tagEl) tagEl.textContent = preset.tag;
+          if (titleEl) titleEl.textContent = bizName + ' — ' + preset.title;
+          if (costEl) costEl.textContent = preset.cost;
+          if (featEl) featEl.textContent = preset.features;
+          if (roiEl) roiEl.textContent = preset.roi;
+          if (waEl) {
+            var msg = 'Hi Rahul, I just tested the Digital Office Simulator for "' + bizName + '" in ' + corridor + '! I want to review the generated ' + preset.title + ' blueprint (' + preset.cost + ') and schedule a demo.';
+            waEl.href = 'https://wa.me/917328089908?text=' + encodeURIComponent(msg);
+            waEl.setAttribute('data-wa', msg);
+          }
+          try { resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {}
+        }
+      }
+      showNextLog();
+    }
+    function vofficeInit() {
+      try { vofficeSelectStation('kabir'); } catch (e) {}
+    }
+
+    /* ---------- 3. Service selection → contact form ---------- */
+    function selectServiceAndContact(serviceName) {
+      switchPage('contact');
+      try {
+        var select = document.getElementById('clientService');
+        if (select && select.options) {
+          for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].value === serviceName) { select.selectedIndex = i; break; }
+          }
+        }
+      } catch (e) {}
+      try { var nameEl = document.getElementById('clientName'); if (nameEl) nameEl.focus({ preventScroll: true }); } catch (e) {}
+    }
+    try {
+      window.addEventListener('hashchange', handleHashNav);
+      window.addEventListener('DOMContentLoaded', handleHashNav);
+    } catch (e) {}
+
+    /* ---------- 4. Hero capabilities carousel ---------- */
+    var slides = [
+      {
+        tag: "CORE CAPABILITY 01 / 03 • CRM SYSTEMS",
+        title: "Custom Business CRM Architecture",
+        desc: "Centralize inquiries, daily calling queues, team follow-ups, booking records and GST-ready billing inside a clean, role-based dashboard.",
+        metric: "Tailored for Real Estate & Service Teams",
+        badge: "CUSTOM CRM"
+      },
+      {
+        tag: "CORE CAPABILITY 02 / 03 • WORKFLOW AUTOMATION",
+        title: "Python Playwright & n8n Pipelines",
+        desc: "Automate repetitive lead extraction, webhook routing and instant WhatsApp follow-up messages so your team focuses on closing deals.",
+        metric: "Automated JSON Webhook Integration",
+        badge: "AI & AUTOMATION"
+      },
+      {
+        tag: "CORE CAPABILITY 03 / 03 • DIGITAL GROWTH",
+        title: "Meta & Google Performance Funnels",
+        desc: "Targeted ad campaigns, promotional property videos and fast React landing pages built to capture high-intent buyer inquiries.",
+        metric: "Bhubaneswar & Pan-India Campaigns",
+        badge: "DIGITAL MARKETING"
+      }
+    ];
+    let currentSlide = 0;
+    function renderSlide(index) {
+      var s = slides[index];
+      if (!s) return;
+      var tagEl = document.getElementById('carouselTag');
+      var container = document.getElementById('heroCarousel');
+      if (!tagEl || !container) return;
+      tagEl.textContent = s.tag;
+      container.innerHTML =
+        '<span class="chip gold"><span class="dot"></span>' + s.badge + '</span>' +
+        '<h4 style="margin-top:.9rem;font-family:var(--font-display);font-size:clamp(1.3rem,2.6vw,1.8rem);color:var(--ink);font-weight:600">' + s.title + '</h4>' +
+        '<p class="small" style="margin-top:.5rem;line-height:1.6">' + s.desc + '</p>' +
+        '<div style="margin-top:1.2rem;padding:.8rem .9rem;border-radius:12px;border:1px solid var(--line);background:rgba(3,7,16,.55);display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap">' +
+        '<span class="mono xsmall" style="color:var(--mint)">◆ ' + s.metric + '</span>' +
+        '<button type="button" onclick="switchPage(\'services\')" class="link-arrow" style="background:none;border:0">Details</button>' +
+        '</div>';
+      try {
+        document.querySelectorAll('.slide-dot').forEach(function (d, i) { d.classList.toggle('on', i === index); });
+      } catch (e) {}
+      var prog = document.getElementById('slideProgress');
+      if (prog) {
+        prog.style.width = '0%';
+        setTimeout(function () { prog.style.width = '100%'; }, 40);
+      }
+    }
+    function setSlide(idx) { currentSlide = idx; renderSlide(currentSlide); }
+
+    /* ---------- 5. Validated contact & WhatsApp flow ---------- */
+    function buildBriefMessage() {
+      var nameEl = document.getElementById('clientName');
+      var phoneEl = document.getElementById('clientPhone');
+      var goalEl = document.getElementById('clientGoal');
+      var svcEl = document.getElementById('clientService');
+      var name = nameEl ? nameEl.value.trim() : '';
+      var phone = phoneEl ? phoneEl.value.trim() : '';
+      var service = svcEl ? svcEl.value : '';
+      var goal = goalEl ? goalEl.value.trim() : '';
+      var phoneDigits = phone.replace(/\D/g, '');
+      var valid = Boolean(name.length >= 2 && phoneDigits.length >= 8 && phoneDigits.length <= 15 && goal.length >= 10);
+      return {
+        valid: valid,
+        text: 'Hello Rahul (BUDDY AI PARTNERS),\n\n*Name/Company:* ' + name + '\n*Phone:* ' + phone + '\n*Service:* ' + service + '\n*Project Brief:* ' + goal
+      };
+    }
+    function showFeedback(msg, isError) {
+      try {
+        var el = document.getElementById('formFeedback');
+        if (!el) return;
+        el.textContent = msg;
+        el.classList.toggle('ok', !isError);
+        el.classList.toggle('err', !!isError);
+      } catch (e) {}
+    }
+    function handleContactSubmit(e) {
+      if (e && typeof e.preventDefault === 'function') e.preventDefault();
+      var brief = buildBriefMessage();
+      if (!brief.valid) {
+        showFeedback('Enter your name (2+ chars), a valid phone (8-15 digits), and a brief of at least 10 characters before sending.', true);
+        return;
+      }
+      var cleanNumber = String(WHATSAPP_NUMBER).replace(/[^0-9]/g, '');
+      var waUrl = cleanNumber
+        ? 'https://wa.me/' + cleanNumber + '?text=' + encodeURIComponent(brief.text)
+        : 'https://wa.me/?text=' + encodeURIComponent(brief.text);
+      showFeedback(cleanNumber
+        ? 'Opening WhatsApp with your brief prefilled for BUDDY AI PARTNERS.'
+        : 'WhatsApp opens with your brief prefilled. No business WhatsApp number is configured yet — choose the recipient before sending.', false);
+      try { window.open(waUrl, '_blank', 'noopener,noreferrer'); } catch (e) {}
+    }
+    function copyBriefToClipboard() {
+      var brief = buildBriefMessage();
+      if (!brief.valid) {
+        showFeedback('Please complete name, valid phone and a 10+ character brief first — nothing was copied or discarded.', true);
+        return;
+      }
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(brief.text).then(function () {
+            showFeedback('Project brief copied. Paste it into WhatsApp or Instagram DM.', false);
+          }).catch(function () { showFeedback('Copy failed. Please manually select and copy your brief text.', true); });
+        } else {
+          showFeedback('Copy is not available in this browser. Please send via WhatsApp instead.', true);
+        }
+      } catch (e) { showFeedback('Copy is not available in this browser. Please send via WhatsApp instead.', true); }
+    }
+
+    /* ---------- 6. Lead architecture rail (home) ---------- */
+    var archContent = {
+      capture: { title: 'Capture — collect inquiries without losing them', desc: 'Meta lead forms, website forms and listing enquiries are captured with source tracking. No invented volume claims — tracking is scoped per campaign.', list: ['Tools in delivery: Meta/Google forms, landing pages, source tags', 'Human check: offer, audience and consent copy before launch'] },
+      normalize: { title: 'Normalize — clean and validate before routing', desc: 'Python Playwright extracts structured fields; n8n validates, dedupes and logs. Invalid rows are quarantined, not silently dropped.', list: ['Tools hands-on: Python, Playwright, n8n webhooks, JSON', 'Human check: review dedupe keys and field mapping'] },
+      route: { title: 'Route & CRM — queues your team can trust', desc: 'Leads move to stage pipelines with owners, reminders and an audit trail. Role access keeps managers and closers aligned.', list: ['Tools in delivery: CRM stages, calling queues, WhatsApp templates', 'Human check: assignment rules and SLA ownership'] },
+      act: { title: 'Act & Review — follow up, then improve', desc: 'Calls, WhatsApp follow-ups and visit booking happen with human approval. Reports feed back into the next campaign or workflow fix.', list: ['Tools: call queues, WhatsApp, visit tracking, basic reports', 'Human check: approve outreach; review results weekly'] }
+    };
+    function setArch(key) {
+      var c = archContent[key];
+      if (!c) return;
+      var t = document.getElementById('archStageTitle');
+      var d = document.getElementById('archStageDesc');
+      var l = document.getElementById('archStageList');
+      if (t) t.textContent = c.title;
+      if (d) d.textContent = c.desc;
+      if (l) l.innerHTML = c.list.map(function (x) { return '<li>• ' + x + '</li>'; }).join('');
+      try {
+        document.querySelectorAll('.arch-tab').forEach(function (b) {
+          b.setAttribute('aria-selected', String(b.getAttribute('data-arch') === key));
+        });
+      } catch (e) {}
+    }
+    var ARCH_ORDER = ['capture', 'normalize', 'route', 'act'];
+    var archIdx = 0, archTimer = 0, archAuto = true;
+    var ARCH_NODE = { capture: 'arch-n1', normalize: 'arch-n2', route: 'arch-n3', act: 'arch-n4' };
+    function archPaint(key) {
+      try {
+        for (var k in ARCH_NODE) {
+          var n = document.getElementById(ARCH_NODE[k]);
+          if (!n) continue;
+          var order = ARCH_ORDER.indexOf(k), cur = ARCH_ORDER.indexOf(key);
+          n.setAttribute('opacity', order <= cur ? '1' : '.35');
+          n.setAttribute('stroke-width', k === key ? '2.2' : '1.2');
+          n.classList.toggle('act', k === key || (order <= cur && false));
+        }
+      } catch (e) {}
+      try { n = null; } catch (e) {}
+      try {
+        for (var k2 in ARCH_NODE) {
+          var el2 = document.getElementById(ARCH_NODE[k2]);
+          if (!el2) continue;
+          el2.classList.toggle('act', ARCH_ORDER.indexOf(k2) <= ARCH_ORDER.indexOf(key));
+        }
+      } catch (e) {}
+      var pr = document.getElementById('archProgress');
+      if (pr) pr.style.width = ((ARCH_ORDER.indexOf(key) + 1) / ARCH_ORDER.length * 100) + '%';
+    }
+    function archGo(key) { try { setArch(key); } catch (e) {} archPaint(key); archIdx = ARCH_ORDER.indexOf(key); }
+    function archTick() { if (document.hidden || !archAuto) return; archIdx = (archIdx + 1) % ARCH_ORDER.length; archGo(ARCH_ORDER[archIdx]); }
+    function archStart() {
+      try { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { archGo('capture'); return; } } catch (e) {}
+      clearInterval(archTimer);
+      archTimer = setInterval(archTick, 2600);
+    }
+    function archPick(key) {
+      archAuto = false;
+      clearInterval(archTimer);
+      archGo(key);
+    }
+
+    /* ---------- 7. Floating buddy guide ---------- */
+    function toggleBuddyGuide(forceOpen) {
+      try {
+        if (localStorage.getItem('buddy-dismissed') === '1' && typeof forceOpen !== 'boolean') return;
+      } catch (e) {}
+      var panel = document.getElementById('buddyGuidePanel');
+      var button = document.getElementById('buddyGuideToggle');
+      if (!panel || !button) return;
+      var shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : panel.hidden;
+      panel.hidden = !shouldOpen;
+      button.setAttribute('aria-expanded', String(shouldOpen));
+    }
+    function dismissBuddy() {
+      try { localStorage.setItem('buddy-dismissed', '1'); } catch (e) {}
+      try {
+        var aside = document.getElementById('buddyAssistant');
+        if (aside) aside.style.display = 'none';
+      } catch (e) {}
+    }
+    try {
+      if (localStorage.getItem('buddy-dismissed') === '1') {
+        var aside0 = document.getElementById('buddyAssistant');
+        if (aside0 && typeof aside0.style !== 'undefined') aside0.style.display = 'none';
+      }
+    } catch (e) {}
+    function chooseBuddyPath(serviceName, briefText) {
+      toggleBuddyGuide(false);
+      selectServiceAndContact(serviceName);
+      try {
+        var goal = document.getElementById('clientGoal');
+        if (goal) goal.value = briefText;
+      } catch (e) {}
+    }
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        try { toggleBuddyGuide(false); } catch (e) {}
+        try { toggleMenu(false); } catch (e) {}
+      }
+    });
+
+    /* ---------- 8. AI ecosystem directory ---------- */
+    /* Icon slugs verified against the Simple Icons CDN. Values are slug or slug@version;
+       pinned versions cover icons added after v11. Slugs that exist nowhere fall back
+       to text labels. */
+    var ECO_ICONS = { 'Python': 'python', 'React': 'react', 'JavaScript': 'javascript', 'TypeScript': 'typescript', 'Next.js': 'nextdotjs', 'FastAPI': 'fastapi', 'PostgreSQL': 'postgresql', 'Redis': 'redis', 'Docker': 'docker', 'Linux': 'linux', 'AWS': 'amazonaws', 'GitHub': 'github', 'Nginx': 'nginx', 'Cloudflare': 'cloudflare', 'Vercel': 'vercel', 'NVIDIA': 'nvidia', 'Google Cloud': 'googlecloud', 'n8n': 'n8n@12', 'Playwright': 'playwright', 'Meta Ads': 'meta', 'Google Ads': 'googleads', 'YouTube': 'youtube', 'Google Analytics': 'googleanalytics', 'Search Console': 'googlesearchconsole', 'Hugging Face': 'huggingface@12', 'Ollama': 'ollama@15', 'LangChain': 'langchain@12', 'OpenAI': 'openai', 'Claude': 'claude@15', 'DeepSeek': 'deepseek@16', 'Supabase': 'supabase', 'Android': 'android', 'Antigravity': 'google' };
+    function ecoIconSrc(v) { var p = String(v).split('@'); var ver = p[1] || '11'; return 'https://cdn.jsdelivr.net/npm/simple-icons@v' + ver + '/icons/' + p[0] + '.svg'; }
+    var ECO_CATS = [['models', 'AI models'], ['agents', 'Coding agents'], ['platforms', 'Agent platforms'], ['emerging', 'Emerging agents'], ['media', 'Media and voice'], ['devinfra', 'Dev and infra']];
+    var ECO_STATE = { q: '', cat: '', st: '', az: false };
+    function ecoEsc(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+    function ecoBadge(st) { var c = st === 'Production' ? 'use-prod' : (st === 'Hands-on' ? 'use-hands' : (st === 'Experimental' ? 'use-exp' : '')); return '<span class="use-badge ' + c + '">' + ecoEsc(st) + '</span>'; }
+    function ecoCard(r) {
+      var links = '';
+      if (r.u) links += '<a href="' + ecoEsc(r.u) + '" target="_blank" rel="noopener noreferrer">Website</a>';
+      if (r.r) links += '<a href="' + ecoEsc(r.r) + '" target="_blank" rel="noopener noreferrer">Repo</a>';
+      if (!links) links = '<span class="t-muted">Link pending verification</span>';
+      return '<article class="eco-card"><div class="eco-title">' + (ECO_ICONS[r.n] ? '<img class="eco-ico" loading="lazy" width="20" height="20" src="' + ecoIconSrc(ECO_ICONS[r.n]) + '" alt="" aria-hidden="true" onerror="this.remove()" />' : '') + '<h4>' + ecoEsc(r.n) + '</h4></div><p class="eco-tag">' + ecoEsc(r.p || 'Independent') + ' — ' + ecoEsc(r.s) + '</p><p class="eco-desc">' + ecoEsc(r.d) + '</p><div class="eco-meta">' + ecoBadge(r.st) + '<span class="eco-tag">' + ecoEsc(r.t) + '</span></div><details><summary>Details</summary><p>Verified: ' + ecoEsc(r.v) + ' — ' + ecoEsc(r.e) + '</p></details><div class="eco-links">' + links + '</div></article>';
+    }
+    function ecoData() { try { return JSON.parse(document.getElementById('ecosystem-data').textContent); } catch (e) { return []; } }
+    function ecoRender() {
+      try {
+        var all = ecoData();
+        var q = String(ECO_STATE.q || '').toLowerCase();
+        var list = all.filter(function (r) {
+          if (ECO_STATE.cat && r.c !== ECO_STATE.cat) return false;
+          if (ECO_STATE.st && r.st !== ECO_STATE.st) return false;
+          if (q) {
+            var hay = (r.n + ' ' + r.p + ' ' + r.c + ' ' + r.s + ' ' + r.d + ' ' + r.t).toLowerCase();
+            if (hay.indexOf(q) < 0) return false;
+          }
+          return true;
+        });
+        if (ECO_STATE.az) list = list.slice().sort(function (a, b) { return a.n.localeCompare(b.n); });
+        var pend = list.filter(function (r) { return r.st === 'Verification pending'; });
+        var rest = list.filter(function (r) { return r.st !== 'Verification pending'; });
+        var prod = all.filter(function (r) { return r.st === 'Production'; });
+        var prodEl = document.getElementById('ecoProd');
+        if (prodEl) prodEl.innerHTML = '<p class="eco-sec-title">Verified production (' + prod.length + ')</p><p class="small" style="color:var(--body);line-height:1.9">' + prod.map(function (r) { return ecoEsc(r.n); }).join(' — ') + '</p>';
+        var html = '';
+        ECO_CATS.forEach(function (pair) {
+          var items = rest.filter(function (r) { return r.c === pair[0]; });
+          if (!items.length) return;
+          html += '<p class="eco-sec-title">' + pair[1] + ' (' + items.length + ')</p><div class="eco-grid">' + items.map(ecoCard).join('') + '</div>';
+        });
+        var secEl = document.getElementById('ecoSections');
+        if (secEl) secEl.innerHTML = html || '<p class="small t-muted">No tools match the current filters.</p>';
+        var pendEl = document.getElementById('ecoPending');
+        if (pendEl) pendEl.innerHTML = pend.length ? '<p class="eco-sec-title">Identity and verification pending (' + pend.length + ')</p><p class="xsmall t-muted">These names could not be confidently identified. No facts claimed.</p><div class="eco-grid">' + pend.map(ecoCard).join('') + '</div>' : '';
+        var cntEl = document.getElementById('ecoCount');
+        if (cntEl) cntEl.textContent = list.length + ' of ' + all.length + ' shown';
+      } catch (e) {}
+    }
+    function wireEcoControls() {
+      try {
+        var s = document.getElementById('ecoSearch');
+        if (s) s.addEventListener('input', function (e) { ECO_STATE.q = e.target.value; ecoRender(); });
+        var c = document.getElementById('ecoCat');
+        if (c) c.addEventListener('change', function (e) { ECO_STATE.cat = e.target.value; ecoRender(); });
+        var st = document.getElementById('ecoStatus');
+        if (st) st.addEventListener('change', function (e) { ECO_STATE.st = e.target.value; ecoRender(); });
+        var so = document.getElementById('ecoSort');
+        if (so) so.addEventListener('click', function (e) { ECO_STATE.az = !ECO_STATE.az; e.target.setAttribute('aria-pressed', String(ECO_STATE.az)); ecoRender(); });
+      } catch (e) {}
+      ecoRender();
+    }
+
+    /* ---------- 9. Stack overview: 10 curated groups, one dataset ---------- */
+    var OVERVIEW=[['AI Models and Inference',{ d: 'The models we route to, from hands-on local runtimes to tracked releases.', cat: 'models' }],['AI Providers and Model Routing',{ d: 'APIs and gateways that serve models to apps and agents.', names: ['OpenAI', 'Groq', 'OpenRouter', 'LiteLLM', 'HF Inference', 'Ollama', 'vLLM', 'OmniRoute', 'AI Studio', 'Vertex AI'] }],['Agent Frameworks and Memory',{ d: 'Libraries for building tool-using, stateful agents.', names: ['LangChain', 'LangGraph', 'CrewAI', 'AutoGen', 'Pydantic AI', 'Semantic Kernel', 'Haystack', 'Agents SDK', 'Google ADK', 'MCP'] }],['Frontend and Backend Development',{ d: 'Languages and frameworks behind funnels, sites and APIs.', names: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'Python', 'FastAPI'] }],['Databases and Storage',{ d: 'Where app and lead data lives.', names: ['PostgreSQL', 'Redis', 'Supabase'] }],['Infrastructure, Containers and Deployment',{ d: 'Runtimes, servers and clouds that host systems.', names: ['Docker', 'Linux', 'AWS', 'GitHub', 'Nginx', 'Cloudflare', 'Vercel', 'Google Cloud', 'NVIDIA'] }],['Browser Automation and Workflow Orchestration',{ d: 'Pipelines that move leads and data without manual work.', names: ['Playwright', 'n8n', 'Dify', 'Flowise', 'Langflow'] }],['Digital Marketing, Analytics and SEO',{ d: 'Channels and measurement for growth work.', names: ['Meta Ads', 'Google Ads', 'SEO', 'Google Analytics', 'Search Console', 'YouTube'] }],['Voice, Audio and Video AI',{ d: 'Generative media and speech technologies we track.', cat: 'media' }],['Android, Termux and Edge Computing',{ d: 'On-device and local-first runtimes.', names: ['Android', 'Termux', 'Ollama', 'Qwen'] }]];
+    function ovChip(r) {
+      var ic = (typeof ECO_ICONS !== 'undefined' && ECO_ICONS[r.n]) ? '<img loading="lazy" width="15" height="15" src="' + ecoIconSrc(ECO_ICONS[r.n]) + '" alt="" aria-hidden="true" class="ov-ico" onerror="this.remove()" />' : '';
+      return '<span class="ov-chip" title="' + ecoEsc(r.n) + '">' + ic + '<span>' + ecoEsc(r.n) + '</span></span>';
+    }
+    function ovRender() {
+      try {
+        var el = document.getElementById('stackOverview');
+        if (!el) return;
+        var all = ecoData();
+        var byName = {};
+        all.forEach(function (r) { byName[r.n] = r; });
+        var html = '';
+        OVERVIEW.forEach(function (g) {
+          var items = g[1].cat ? all.filter(function (r) { return r.c === g[1].cat; }) : g[1].names.map(function (n) { return byName[n]; }).filter(Boolean);
+          if (!items.length) return;
+          html += '<div class="stack-tier"><p class="stack-cat">' + ecoEsc(g[0]) + ' (' + items.length + ')</p><p class="d">' + ecoEsc(g[1].d || '') + '</p><div class="ov-chips">' + items.map(ovChip).join('') + '</div></div>';
+        });
+        html += '<div style="grid-column:1/-1;text-align:center;margin-top:.4rem"><button type="button" class="btn btn-glass btn-sm" onclick="document.getElementById(\'ecoDirectory\').scrollIntoView({behavior:\'smooth\'});">Browse the searchable directory ↓</button></div>';
+        el.innerHTML = html;
+      } catch (e) {}
+    }
+
+    /* ---------- 10. CRM loop demo + scrollytelling sync ---------- */
+    var CRM_ORDER = ['new', 'calling', 'visit', 'booked'];
+    var CRM_STAGE_NAME = { new: 'New lead via webhook', calling: 'SLA calling queue', visit: 'Site visit · cab concierge', booked: 'Booked · human approval' };
+    var crmIdx = 3, crmTimer = 0, crmPaused = false, crmWa = 12;
+    function crmPaint() {
+      try {
+        for (var i = 0; i < CRM_ORDER.length; i++) {
+          var card = document.getElementById('scrollyStep' + i);
+          if (card) card.classList.toggle('active', i === crmIdx);
+          var pill = document.getElementById('scrollyPill' + i);
+          if (pill) pill.classList.toggle('active', i === crmIdx);
+        }
+        var lb = document.getElementById('crmStageLabel');
+        if (lb) lb.textContent = CRM_STAGE_NAME[CRM_ORDER[crmIdx]];
+        var laser = document.getElementById('scrollySpineLaser');
+        if (laser) laser.style.width = ((crmIdx + 1) / CRM_ORDER.length * 100) + '%';
+      } catch (e) {}
+    }
+    function crmSetWa() { try { var w = document.getElementById('waCount'); if (w) w.textContent = 'WhatsApp sent — ' + crmWa; } catch (e) {} }
+    function heroStep() { if (document.hidden || crmPaused) return; crmIdx = (crmIdx + 1) % CRM_ORDER.length; if (crmIdx === 3) { crmWa = Math.min(crmWa + 1, 19); crmSetWa(); } crmPaint(); }
+    function heroPaint() { crmPaint(); crmSetWa(); }
+    function heroStart() {
+      try {
+        var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        crmPaint();
+        if (rm || !('IntersectionObserver' in window)) return;
+      } catch (e) { return; }
+      clearInterval(crmTimer);
+      crmTimer = setInterval(heroStep, 2200);
+    }
+    function scrollyJump(idx) {
+      try {
+        crmIdx = idx; crmPaint(); crmPaused = true;
+        var pb = document.getElementById('heroPause');
+        if (pb) { pb.textContent = 'Play'; pb.setAttribute('aria-pressed', 'true'); }
+        var el = document.getElementById('scrollyStep' + idx);
+        if (el && typeof el.scrollIntoView === 'function') el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (e) {}
+    }
+    function initScrollytelling() {
+      try {
+        if (typeof window === 'undefined' || typeof document === 'undefined') return;
+        if (!('IntersectionObserver' in window)) return;
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var cards = document.querySelectorAll('[data-scrolly-step]');
+        if (!cards || !cards.length) return;
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var step = parseInt(entry.target.getAttribute('data-scrolly-step'), 10);
+              if (!isNaN(step) && step >= 0 && step < 4) { crmIdx = step; crmPaint(); }
+            }
+          });
+        }, { rootMargin: '-25% 0px -25% 0px', threshold: 0.15 });
+        cards.forEach(function (c) { obs.observe(c); });
+      } catch (e) {}
+    }
+
+    /* ---------- 11. Kinetic stat counters ---------- */
+    function initCounterTickers() {
+      try {
+        if (typeof window === 'undefined' || typeof document === 'undefined') return;
+        if (!('IntersectionObserver' in window)) return;
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var counters = document.querySelectorAll('[data-counter]');
+        if (!counters || !counters.length) return;
+        function fmt(v) { try { return v >= 1000 ? Math.round(v).toLocaleString('en-IN') : String(Math.round(v)); } catch (e) { return String(v); } }
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var el = entry.target;
+              var target = parseFloat(el.getAttribute('data-counter'));
+              var suffix = el.getAttribute('data-suffix') || '';
+              var decimals = (target % 1 !== 0) ? 1 : 0;
+              var duration = 1200;
+              var startTime = null;
+              function tick(now) {
+                if (!startTime) startTime = now;
+                var progress = Math.min((now - startTime) / duration, 1);
+                var ease = 1 - Math.pow(1 - progress, 3);
+                var cur = target * ease;
+                el.textContent = fmt(decimals ? cur : Math.floor(cur)) + suffix;
+                if (progress < 1) requestAnimationFrame(tick);
+                else el.textContent = fmt(decimals ? target : Math.round(target)) + suffix;
+              }
+              requestAnimationFrame(tick);
+              obs.unobserve(el);
+            }
+          });
+        }, { threshold: 0.15 });
+        counters.forEach(function (c) { obs.observe(c); });
+      } catch (e) {}
+    }
+
+    /* ---------- 12. B2B revenue simulator ---------- */
+    function calcB2BROI() {
+      try {
+        if (typeof document === 'undefined') return;
+        var ind = document.getElementById('b2bIndustry');
+        var inq = document.getElementById('b2bInquiries');
+        var deal = document.getElementById('b2bDealVal');
+        if (!ind || !inq || !deal) return;
+        var indVal = ind.value;
+        var inqVal = parseInt(inq.value, 10) || 100;
+        var dealVal = parseInt(deal.value, 10) || 100000;
+        var inqLbl = document.getElementById('b2bInqLabel');
+        if (inqLbl) inqLbl.textContent = inqVal + ' leads / mo';
+        var dealLbl = document.getElementById('b2bDealLabel');
+        if (dealLbl) dealLbl.textContent = '₹' + dealVal.toLocaleString('en-IN');
+        var recovered = Math.max(1, Math.round(inqVal * 0.28));
+        var convRate = indVal === 'realestate' ? 0.06 : (indVal === 'dental' ? 0.32 : (indVal === 'agency' ? 0.18 : (indVal === 'software' ? 0.15 : 0.12)));
+        var addedDeals = Math.max(1, Math.round(recovered * convRate));
+        var extraRevenue = addedDeals * dealVal;
+        var revEl = document.getElementById('calcExtraRevenue');
+        if (revEl) revEl.textContent = '₹' + extraRevenue.toLocaleString('en-IN') + ' / mo';
+        var recEl = document.getElementById('calcRecoveredLeads');
+        if (recEl) recEl.textContent = '+' + recovered + ' Leads';
+        var dealEl = document.getElementById('calcAddedDeals');
+        if (dealEl) dealEl.textContent = '+' + addedDeals + ' ' + (indVal === 'realestate' ? 'Bookings' : (indVal === 'dental' ? 'Patients' : (indVal === 'software' ? 'Accounts' : 'Clients')));
+        var waBtn = document.getElementById('b2bCalcWaBtn');
+        if (waBtn && ind.options && ind.options[ind.selectedIndex]) {
+          var indText = ind.options[ind.selectedIndex].text.split('(')[0].replace(/[^\w&/ ]/g, '').trim();
+          var msg = 'Hi Rahul! I tested the Buddy AI Revenue Calculator for ' + indText + ' in Bhubaneswar. With ' + inqVal + ' monthly leads and avg deal ticket of ₹' + dealVal.toLocaleString('en-IN') + ', it projected ₹' + extraRevenue.toLocaleString('en-IN') + '/mo extra revenue (+' + addedDeals + ' closed deals). I want to discuss deploying your lead pipeline & CRM.';
+          waBtn.href = 'https://wa.me/917328089908?text=' + encodeURIComponent(msg);
+          waBtn.setAttribute('data-wa', msg);
+        }
+      } catch (e) {}
+    }
+
+    /* ---------- 13. Mobile menu ---------- */
+    function toggleMenu(force) {
+      try {
+        var m = document.getElementById('mobileMenu'), b = document.getElementById('menuBtn');
+        if (!m || !b) return;
+        var open = typeof force === 'boolean' ? force : m.hidden;
+        m.hidden = !open;
+        b.setAttribute('aria-expanded', String(open));
+        b.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        var icoOpen = document.getElementById('menuIcoOpen');
+        var icoClose = document.getElementById('menuIcoClose');
+        if (icoOpen) icoOpen.classList.toggle('hidden', open);
+        if (icoClose) icoClose.classList.toggle('hidden', !open);
+        if (open) { try { var f = m.querySelector('button'); if (f) f.focus({ preventScroll: true }); } catch (e) {} }
+      } catch (e) {}
+    }
+    function closeMenu() {
+      try {
+        var m = document.getElementById('mobileMenu');
+        if (m && !m.hidden) {
+          toggleMenu(false);
+          var b = document.getElementById('menuBtn');
+          if (b) b.focus({ preventScroll: true });
+        }
+      } catch (e) {}
+    }
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') toggleMenu(false); });
+
+    /* ---------- 14. Buddy AI preview chat (scripted qualification) ---------- */
+    var BAI = { started: false, step: 0, goal: '', budget: '', timeline: '', name: '', channel: '', slot: '', awaitingName: false, endpoint: '' };
+    try { BAI.endpoint = ((document.body && document.body.getAttribute && document.body.getAttribute('data-buddy-endpoint')) || ''); } catch (e) {}
+    var BAI_RECS = {
+      'More qualified leads': 'For lead volume the pattern I deploy is: Meta/Google capture → my qualification questions → WhatsApp follow-up with SLA timers, all logged in a CRM so nothing slips. Most leads cool down in the first 48 hours — this loop removes that gap.',
+      'CRM & follow-ups': 'For CRM & follow-ups: a stage-based pipeline (New → Calling → Site visit → Booked) with daily calling queues, message templates and human-approval gates before anything is sent. There is a live KNR Integrity workspace demo in the Work & Proof page if you want to see the exact shape.',
+      'Website / software': 'For website & software: a fast, conversion-first site with automation behind it — intake forms route straight into n8n workflows and the CRM. Python + n8n + React/FastAPI is the delivery stack.',
+      'Talk to Rahul': 'Perfect — two quick details so Rahul arrives prepared instead of asking questions you already answered here. He personally replies, usually within business hours.'
+    };
+    function baiEl(id) { return document.getElementById(id); }
+    function baiLogEl() { return baiEl('baiLog'); }
+    function baiScroll() { try { var l = baiLogEl(); l.scrollTop = l.scrollHeight; } catch (e) {} }
+    function baiMsg(txt, who) {
+      try {
+        var l = baiLogEl(); if (!l) return;
+        l.innerHTML += '<div class="bai-msg ' + (who === 'user' ? 'bai-user' : 'bai-bot') + '">' + txt + '</div>';
+        baiScroll();
+      } catch (e) {}
+    }
+    var BAI_CHIPS = [];
+    function baiChips(list) {
+      try {
+        BAI_CHIPS = list || [];
+        var c = baiEl('baiChips'); if (!c) return;
+        c.innerHTML = BAI_CHIPS.map(function (t, i) { return '<button type="button" class="bai-chip" onclick="baiPick(' + i + ')">' + t + '</button>'; }).join('');
+      } catch (e) {}
+    }
+    function baiTyping() {
+      try {
+        var l = baiLogEl(); if (!l) return;
+        l.innerHTML += '<div class="bai-typing" id="baiTyping"><i></i><i></i><i></i></div>';
+        baiScroll();
+        setTimeout(function () { try { var t = baiEl('baiTyping'); if (t && t.parentNode) t.remove(); } catch (e) {} }, 620);
+      } catch (e) {}
+    }
+    function baiBot(txt, chips, steps) {
+      baiTyping();
+      if (steps) {
+        try {
+          var l = baiLogEl();
+          l.innerHTML += '<div class="bai-steps">' + steps.join('<br/>') + '</div>';
+          baiScroll();
+        } catch (e) {}
+      }
+      baiMsg(txt, 'bot');
+      baiChips(chips || []);
+    }
+    function baiBriefRender() {
+      try {
+        function set(id, v) { var el = baiEl(id); if (!el) return; el.textContent = v || '—'; if (v) el.classList.remove('bai-empty'); else el.classList.add('bai-empty'); }
+        set('baiBriefGoal', BAI.goal); set('baiBriefBudget', BAI.budget); set('baiBriefTime', BAI.timeline);
+        set('baiBriefName', BAI.name); set('baiBriefChannel', BAI.channel); set('baiBriefSlot', BAI.slot);
+        var brief = 'Hi Rahul — Buddy AI preview brief:%0A• Goal: ' + BAI.goal + '%0A• Budget: ' + BAI.budget + '%0A• Timeline: ' + BAI.timeline + '%0A• Name: ' + BAI.name + '%0A• Preferred channel: ' + BAI.channel + '%0A• Meeting slot: ' + BAI.slot;
+        var wa = baiEl('baiWa');
+        if (wa) wa.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + brief;
+      } catch (e) {}
+    }
+    function baiBriefText() {
+      return 'Hi Rahul — Buddy AI preview brief:\n• Goal: ' + BAI.goal + '\n• Budget: ' + BAI.budget + '\n• Timeline: ' + BAI.timeline + '\n• Name: ' + BAI.name + '\n• Preferred channel: ' + BAI.channel + '\n• Meeting slot: ' + BAI.slot;
+    }
+    function baiToast(txt) {
+      try { var t = baiEl('baiToast'); if (!t) return; t.textContent = txt; t.classList.add('bai-show'); setTimeout(function () { t.classList.remove('bai-show'); }, 2400); } catch (e) {}
+    }
+    function baiCopyBrief() {
+      try {
+        var txt = baiBriefText();
+        if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(txt); baiToast('Brief copied — paste it in the DM ✓'); }
+        else baiToast('Copy not available here — select the brief text manually.');
+      } catch (e) {}
+    }
+    function baiHandoff(kind) {
+      baiCopyBrief();
+      try {
+        if (kind === 'tg') window.open('https://t.me/917328089908', '_blank', 'noopener');
+        if (kind === 'ig') window.open('https://instagram.com/rahul_kr_dhal', '_blank', 'noopener');
+      } catch (e) {}
+    }
+    function baiPick(i) {
+      var c = baiEl('baiChips'); if (!c) return;
+      var btns = c.querySelectorAll ? c.querySelectorAll('.bai-chip') : [];
+      var label = null;
+      try { if (btns && btns.length && btns[i]) label = btns[i].textContent; } catch (e) {}
+      if (!label) label = BAI_CHIPS[i] || null;
+      if (!label) return;
+      baiMsg(label, 'user'); baiChips([]);
+      baiAdvance(label);
+    }
+    function baiSend() {
+      var inp = baiEl('baiInput'); if (!inp) return;
+      var txt = (inp.value || '').trim(); if (!txt) return;
+      inp.value = '';
+      baiMsg(txt.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'), 'user');
+      if (BAI.awaitingName) {
+        BAI.name = txt; BAI.awaitingName = false; baiBriefRender();
+        baiBot('Thanks, ' + txt + '. Which channel should the brief go through?', ['WhatsApp', 'Telegram', 'Instagram']);
+        BAI.step = 3;
+        return;
+      }
+      if (BAI.endpoint) { baiLive(txt); return; }
+      baiBot('Noted: “' + txt + '”. In live mode (n8n connected) I answer free-flow questions and search the web. In this preview I log your words and keep the guided flow — tap an option below or keep typing.', ['Restart the preview']);
+      BAI.step = -1;
+    }
+    function baiAdvance(label) {
+      if (label === 'Restart the preview') { baiReset(); return; }
+      switch (BAI.step) {
+        case 0:
+          BAI.goal = label; baiBriefRender();
+          baiBot(BAI_RECS[label] || BAI_RECS['Talk to Rahul'], null, ['🔍 Searching context for: ' + label + '…', '🧠 Drafting a recommendation…', '✅ Ready — here is my take:']);
+          baiBot('What monthly budget are you comfortable with?', ['< ₹15k / mo', '₹15–25k / mo', '₹25k+ or project-based']);
+          BAI.step = 1; break;
+        case 1:
+          BAI.budget = label; baiBriefRender();
+          baiBot('Got it. What timeline are we working with?', ['ASAP', 'This month', 'Just researching']);
+          BAI.step = 2; break;
+        case 2:
+          BAI.timeline = label; baiBriefRender();
+          baiBot('Almost there — I will put this into a brief for Rahul. What name should I write?', []);
+          BAI.step = 3; BAI.awaitingName = true; break;
+        case 3:
+          BAI.channel = label; baiBriefRender();
+          baiBot('And when should Rahul call you?', ['Tomorrow · 11:00 AM', 'Tomorrow · 6:00 PM', 'This weekend']);
+          BAI.step = 4; break;
+        case 4:
+          BAI.slot = label; baiBriefRender();
+          baiBot('All set, ' + BAI.name + '. Your brief is ready in the panel → send it through <b>' + BAI.channel + '</b> (WhatsApp opens prefilled; Telegram &amp; Instagram copy the brief to paste). Rahul confirms the ' + label + ' slot with the full context.', []);
+          BAI.step = 5; break;
+        default:
+          baiBot('Use the handoff buttons in the brief panel to send it, or tap below to start over.', ['Restart the preview']);
+      }
+    }
+    function baiReset() {
+      BAI.step = 0; BAI.goal = ''; BAI.budget = ''; BAI.timeline = ''; BAI.name = ''; BAI.channel = ''; BAI.slot = ''; BAI.awaitingName = false;
+      baiBriefRender();
+      try { var l = baiLogEl(); if (l) l.innerHTML = '<div class="bai-msg bai-bot">Fresh start 🌱 — what should we improve first?</div>'; } catch (e) {}
+      baiChips(['More qualified leads', 'CRM & follow-ups', 'Website / software', 'Talk to Rahul']);
+    }
+    function baiStart() {
+      if (BAI.started) return;
+      BAI.started = true;
+      BAI.step = 0;
+      try {
+        var chips = baiEl('baiChips');
+        if (chips && !BAI_CHIPS.length) baiChips(['More qualified leads', 'CRM & follow-ups', 'Website / software', 'Talk to Rahul']);
+      } catch (e) {}
+      baiChips(['More qualified leads', 'CRM & follow-ups', 'Website / software', 'Talk to Rahul']);
+      baiBriefRender();
+    }
+    function skipChatBrief() {
+      try {
+        switchPage('contact');
+        showFeedback('Direct brief — skip the chat. Rahul replies fastest on WhatsApp.', false);
+        var goal = document.getElementById('clientGoal');
+        if (goal) goal.focus({ preventScroll: true });
+      } catch (e) {}
+    }
+
+    /* ---------- 15. KNR spotlight: tabs + Ask Buddy preview ---------- */
+    function knrTab(name) {
+      try {
+        var isAsk = name !== 'matrix';
+        var ask = document.getElementById('knrAskPanel'), mx = document.getElementById('knrMatrixPanel');
+        var tbAsk = document.getElementById('knrTabAsk'), tbMx = document.getElementById('knrTabMatrix');
+        if (ask) ask.hidden = !isAsk;
+        if (mx) mx.hidden = isAsk;
+        if (tbAsk) { tbAsk.classList.toggle('knr-on', isAsk); tbAsk.setAttribute('aria-selected', String(isAsk)); }
+        if (tbMx) { tbMx.classList.toggle('knr-on', !isAsk); tbMx.setAttribute('aria-selected', String(!isAsk)); }
+      } catch (e) {}
+    }
+    function knrAsk(btn) { try { var el = document.getElementById('knrAnswer'); if (!el || !btn) return; el.textContent = btn.getAttribute('data-a') || ''; } catch (e) {} }
+    function knrUserEcho(txt) { try { var el = document.getElementById('knrUserEcho'); if (el) el.textContent = txt; } catch (e) {} }
+
+    /* ---------- 16. Engineering lab filter (portfolio) ---------- */
+    function wireLabFilter() {
+      try {
+        var s = document.getElementById('labSearch'), f = document.getElementById('labStatus');
+        if (!s || !f) return;
+        function run() {
+          var q = s.value.toLowerCase(), st = f.value;
+          try {
+            document.querySelectorAll('#page-portfolio [data-proj]').forEach(function (c) {
+              var hay = ((c.getAttribute('data-proj') || '') + ' ' + (c.getAttribute('data-tech') || '') + ' ' + c.textContent).toLowerCase();
+              var ok = (!q || hay.indexOf(q) >= 0) && (!st || (c.getAttribute('data-status') || '') === st);
+              c.style.display = ok ? '' : 'none';
+            });
+          } catch (e) {}
+        }
+        s.addEventListener('input', run);
+        f.addEventListener('change', run);
+      } catch (e) {}
+    }
+
+    /* ---------- 17. Gold quantum-mesh canvas (decorative, no tracking) ---------- */
+    var canvas = document.getElementById('galaxyCanvas');
+    var ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+    var prefersReducedMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
+    var stars = [], shockwaves = [];
+    var sceneWidth = 0, sceneHeight = 0, sceneRatio = 1, animationFrame = 0;
+    var pointer = { x: -1000, y: -1000, active: false, radius: 140 };
+    function resizeCanvas() {
+      if (!canvas || !ctx) return;
+      sceneWidth = window.innerWidth;
+      sceneHeight = window.innerHeight;
+      sceneRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = Math.round(sceneWidth * sceneRatio);
+      canvas.height = Math.round(sceneHeight * sceneRatio);
+      canvas.style.width = sceneWidth + 'px';
+      canvas.style.height = sceneHeight + 'px';
+      ctx.setTransform(sceneRatio, 0, 0, sceneRatio, 0, 0);
+      var count = sceneWidth < 600 ? 30 : (sceneWidth < 1024 ? 52 : 72);
+      var palette = ['212,175,55', '246,226,122', '125,226,195', '200,212,227'];
+      stars = Array.from({ length: count }, function () { return {
+        x: Math.random() * sceneWidth,
+        y: Math.random() * sceneHeight,
+        vx: (Math.random() - .5) * (prefersReducedMotion ? 0 : .24),
+        vy: (Math.random() - .5) * (prefersReducedMotion ? 0 : .24),
+        r: Math.random() * 1.5 + .4,
+        pulse: Math.random() * Math.PI * 2,
+        color: palette[Math.floor(Math.random() * palette.length)]
+      }; });
+    }
+    function animateGalaxy() {
+      if (!canvas || !ctx || document.hidden) return;
+      ctx.clearRect(0, 0, sceneWidth, sceneHeight);
+      var maxDist = 120;
+      for (var s = shockwaves.length - 1; s >= 0; s--) {
+        var sw = shockwaves[s];
+        sw.radius += 5.5;
+        sw.alpha *= 0.94;
+        if (sw.alpha < 0.02 || sw.radius >= sw.maxRadius) { shockwaves.splice(s, 1); continue; }
+        ctx.strokeStyle = 'rgba(212,175,55,' + sw.alpha + ')';
+        ctx.lineWidth = 1.6;
+        ctx.beginPath(); ctx.arc(sw.x, sw.y, sw.radius, 0, Math.PI * 2); ctx.stroke();
+        for (var i = 0; i < stars.length; i++) {
+          var st = stars[i];
+          var dx = st.x - sw.x; var dy = st.y - sw.y;
+          var dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          if (Math.abs(dist - sw.radius) < 30 && dist > 1) {
+            var push = (1 - Math.abs(dist - sw.radius) / 30) * 1.8;
+            st.x += (dx / dist) * push; st.y += (dy / dist) * push;
+          }
+        }
+      }
+      for (var i2 = 0; i2 < stars.length; i2++) {
+        var a = stars[i2];
+        if (!prefersReducedMotion) {
+          a.x += a.vx; a.y += a.vy; a.pulse += 0.02;
+          if (pointer.active) {
+            var pdx = a.x - pointer.x; var pdy = a.y - pointer.y;
+            var pdist = Math.sqrt(pdx * pdx + pdy * pdy) || 1;
+            if (pdist < pointer.radius && pdist > 1) {
+              var force = (1 - pdist / pointer.radius) * 0.45;
+              a.x += (pdx / pdist) * force; a.y += (pdy / pdist) * force;
+              ctx.strokeStyle = 'rgba(212,175,55,' + ((1 - pdist / pointer.radius) * 0.28) + ')';
+              ctx.lineWidth = 0.8;
+              ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(pointer.x, pointer.y); ctx.stroke();
+            }
+          }
+          if (a.x < -4) a.x = sceneWidth + 4;
+          if (a.x > sceneWidth + 4) a.x = -4;
+          if (a.y < -4) a.y = sceneHeight + 4;
+          if (a.y > sceneHeight + 4) a.y = -4;
+        }
+        for (var j = i2 + 1; j < stars.length; j++) {
+          var b = stars[j];
+          var dx2 = a.x - b.x; var dy2 = a.y - b.y;
+          var distance = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+          if (distance < maxDist) {
+            var alpha = (1 - distance / maxDist) * 0.14;
+            ctx.strokeStyle = 'rgba(246,226,122,' + alpha + ')';
+            ctx.lineWidth = 0.7;
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+        var currentRadius = prefersReducedMotion ? a.r : a.r + Math.sin(a.pulse) * 0.35;
+        ctx.beginPath();
+        ctx.arc(a.x, a.y, Math.max(0.2, currentRadius), 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + a.color + ',0.85)';
+        ctx.shadowColor = 'rgba(212,175,55,0.6)';
+        ctx.shadowBlur = 6;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+      if (!prefersReducedMotion) animationFrame = requestAnimationFrame(animateGalaxy);
+    }
+    if (canvas && ctx) {
+      try {
+        resizeCanvas();
+        animateGalaxy();
+        window.addEventListener('pointermove', function (e) { pointer.x = e.clientX; pointer.y = e.clientY; pointer.active = true; }, { passive: true });
+        window.addEventListener('pointerleave', function () { pointer.active = false; pointer.x = -1000; pointer.y = -1000; }, { passive: true });
+        window.addEventListener('pointerdown', function (e) {
+          if (!prefersReducedMotion) shockwaves.push({ x: e.clientX, y: e.clientY, radius: 4, maxRadius: Math.min(sceneWidth, sceneHeight) * 0.4, alpha: 0.75 });
+        }, { passive: true });
+        window.addEventListener('resize', function () {
+          resizeCanvas();
+          if (!prefersReducedMotion) { cancelAnimationFrame(animationFrame); animateGalaxy(); }
+          else { ctx.clearRect(0, 0, sceneWidth, sceneHeight); animateGalaxy(); }
+        }, { passive: true });
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) cancelAnimationFrame(animationFrame);
+          else animateGalaxy();
+        });
+      } catch (e) {}
+    }
+
+    /* ---------- 18. Spotlight cards + scroll progress ---------- */
+    if (typeof window !== 'undefined') {
+      try {
+        window.addEventListener('mousemove', function (e) {
+          try {
+            var cards = document.querySelectorAll('.spotlight-card');
+            for (var c = 0; c < cards.length; c++) {
+              var el = cards[c];
+              var rect = el.getBoundingClientRect();
+              if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
+                el.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+                el.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+              }
+            }
+          } catch (err) {}
+        }, { passive: true });
+        window.addEventListener('scroll', function () {
+          try {
+            var bar = document.getElementById('scrollProgressBar');
+            if (!bar) return;
+            var h = document.documentElement || document.body;
+            var st = window.scrollY || (h && h.scrollTop) || 0;
+            var sh = (h && h.scrollHeight) || 1;
+            var ch = window.innerHeight || 1;
+            var pct = Math.min(Math.max(st / (sh - ch), 0), 1);
+            bar.style.transform = 'scaleX(' + pct + ')';
+          } catch (err) {}
+        }, { passive: true });
+      } catch (e) {}
+    }
+
+    /* ---------- 19. Scroll reveals ---------- */
+    function initReveals() {
+      try {
+        var rm = false;
+        try { rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+        if (rm || !('IntersectionObserver' in window)) {
+          document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in-view'); });
+          return;
+        }
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add('in-view'); io.unobserve(en.target); }
+          });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      } catch (e) {}
+    }
+
+    /* ---------- 20. Copy-to-clipboard chips ---------- */
+    function wireCopyButtons() {
+      try {
+        document.querySelectorAll('.copy-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var v = btn.getAttribute('data-copy') || '';
+            var done = function () { baiToast('Copied: ' + v); };
+            try {
+              if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(done, done);
+              else baiToast('Copy unavailable — long-press to copy: ' + v);
+            } catch (e) { baiToast('Copy unavailable — long-press to copy: ' + v); }
+          });
+        });
+      } catch (e) {}
+    }
+
+    /* ---------- 21. Boot ---------- */
+    function initApp() {
+      try { renderSlide(0); } catch (e) {}
+      try {
+        document.querySelectorAll('.slide-dot').forEach(function (d, i) { d.addEventListener('click', function () { setSlide(i); }); });
+      } catch (e) {}
+      try {
+        if (document.getElementById('roiIndustry')) calcROI();
+      } catch (e) {}
+      try { calcB2BROI(); } catch (e) {}
+      try { wireEcoControls(); } catch (e) {}
+      try { ovRender(); } catch (e) {}
+      try {
+        var rp = document.getElementById('heroReplay');
+        if (rp) rp.addEventListener('click', function () {
+          crmIdx = 0; crmWa = 12; crmSetWa(); crmPaused = false;
+          var pb = document.getElementById('heroPause');
+          if (pb) { pb.textContent = 'Pause'; pb.setAttribute('aria-pressed', 'false'); }
+          crmPaint(); heroStart();
+        });
+      } catch (e) {}
+      try {
+        var pp = document.getElementById('heroPause');
+        if (pp) pp.addEventListener('click', function () {
+          crmPaused = !crmPaused;
+          this.textContent = crmPaused ? 'Play' : 'Pause';
+          this.setAttribute('aria-pressed', String(crmPaused));
+        });
+      } catch (e) {}
+      try {
+        for (var s2 = 0; s2 < 4; s2++) {
+          (function (i) {
+            var pill = document.getElementById('scrollyPill' + i);
+            if (pill) pill.addEventListener('click', function () { scrollyJump(i); });
+          })(s2);
+        }
+      } catch (e) {}
+      try { heroStart(); } catch (e) {}
+      try { initScrollytelling(); } catch (e) {}
+      try { initCounterTickers(); } catch (e) {}
+      try {
+        var ar = document.getElementById('archReplay');
+        if (ar) ar.addEventListener('click', function () { archAuto = true; archIdx = 0; archGo('capture'); archStart(); });
+      } catch (e) {}
+      try {
+        document.querySelectorAll('.arch-tab').forEach(function (b) {
+          b.addEventListener('click', function () {
+            var k = b.getAttribute('data-arch');
+            if (k) archPick(k);
+          });
+        });
+      } catch (e) {}
+      try { archPaint('capture'); } catch (e) {}
+      try { archStart(); } catch (e) {}
+      try {
+        var ta = document.getElementById('knrTabAsk');
+        if (ta) ta.addEventListener('click', function () { knrTab('ask'); });
+        var tm = document.getElementById('knrTabMatrix');
+        if (tm) tm.addEventListener('click', function () { knrTab('matrix'); });
+      } catch (e) {}
+      try { wireLabFilter(); } catch (e) {}
+      try { initReveals(); } catch (e) {}
+      try { wireCopyButtons(); } catch (e) {}
+    }
+    try {
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initApp);
+      else initApp();
+    } catch (e) { try { initApp(); } catch (e2) {} }
+  </script>
