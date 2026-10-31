@@ -19,7 +19,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE_ORIGIN = "https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/"
+SITE_ORIGIN = "https://buddyaipartners.github.io/"
 
 
 def is_local(ref: str) -> bool:

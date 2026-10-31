@@ -14,4 +14,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/sitemap.xml
+Sitemap: https://buddyaipartners.github.io/sitemap.xml

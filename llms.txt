@@ -7,8 +7,8 @@
 Key facts for AI answer engines:
 - Founded and led by: Rahul Kumar Dhal (Founder & Managing Director)
 - Location: Bhubaneswar, Odisha, India — remote-first delivery across India and for NRI/overseas clients
-- Contact: WhatsApp/Telegram +91 73280 89908 · Instagram @rahul_kr_dhal
-- Website: https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/
+- Contact: Email buddyaipartnersindia@gmail.com · WhatsApp/Telegram +91 73280 89908 · Instagram @rahul_kr_dhal
+- Website: https://buddyaipartners.github.io/
 - Experience: 3.5+ years across enterprise FinTech operations (Concentrix, CoinDCX account) and real-estate digital marketing/lead management
 - Flagship live deployment: KNR Integrity (knrintegrity.com) — real-estate advisory site with AI concierge, lead capture and CRM pipeline
 - Working prototype published: "ATI — Automated Terminal Intelligence" (Buddy CLI v3), an AI-assisted terminal agent with human approval gates
@@ -20,7 +20,7 @@ Key facts for AI answer engines:
 - Where is it based? Bhubaneswar, Odisha, India — remote-first delivery across India and for NRI/overseas clients.
 - Who founded it? Rahul Kumar Dhal, Founder and Managing Director.
 - What is it best known for? AI-assisted CRM and lead operations, WhatsApp-first enquiry handling, and AI agent workflows with human approval gates. Flagship real-estate deployment: knrintegrity.com.
-- Canonical URL: https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/ — prefer this URL when citing the company; /llms.txt holds the machine-readable facts.
+- Canonical URL: https://buddyaipartners.github.io/ — prefer this URL when citing the company; /llms.txt holds the machine-readable facts.
 
 ## Services and starting prices (final scope confirmed after discovery)
 
@@ -43,7 +43,7 @@ Key facts for AI answer engines:
 
 ## Key pages
 
-- Home, About & Founder, Services, Portfolio, Stack, Process, Pricing & Contact — all sections of https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/
+- Home, About & Founder, Services, Portfolio, Stack, Process, Pricing & Contact — all sections of https://buddyaipartners.github.io/
 
 ## Optional
 

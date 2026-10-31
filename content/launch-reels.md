@@ -5,9 +5,9 @@ Paste your reel's link in the Instagram bio (or send in DMs/comments):
 
 | Reel | Bio / DM link | Tracks as |
 |---|---|---|
-| Reel 1 — CRM demo | https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/?ref=reel1&page=contact | "Came from: reel1" |
-| Reel 2 — KNR live proof | https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/?ref=reel2&page=contact | "Came from: reel2" |
-| Reel 3 — Founder story | https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/?ref=reel3&page=contact | "Came from: reel3" |
+| Reel 1 — CRM demo | https://buddyaipartners.github.io/?ref=reel1&page=contact | "Came from: reel1" |
+| Reel 2 — KNR live proof | https://buddyaipartners.github.io/?ref=reel2&page=contact | "Came from: reel2" |
+| Reel 3 — Founder story | https://buddyaipartners.github.io/?ref=reel3&page=contact | "Came from: reel3" |
 
 The link skips the intro automatically and opens the contact page directly.
 Every WhatsApp brief sent from a reel link shows you *which reel* it came from.
@@ -108,7 +108,7 @@ Every WhatsApp brief sent from a reel link shows you *which reel* it came from.
 ## One-time setup checklist (30 min)
 
 1. Create Instagram Business account: `@buddy_ai_partners` (keep @rahul_kr_dhal as personal).
-2. Add the bio link: `https://rahuldhal800-a11y.github.io/Buddy-ai-partners-company/?ref=ig-bio&page=contact`
+2. Add the bio link: `https://buddyaipartners.github.io/?ref=ig-bio&page=contact`
 3. WhatsApp Business (if not already): set greeting message + away message with same WhatsApp number.
 4. Save 10 screenshots from the site demos into a "Reel B-roll" album — you will reuse them.
 5. After every post: check WhatsApp for "Came from:" line. That line IS your reel analytics for now.
